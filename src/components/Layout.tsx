@@ -1,5 +1,5 @@
 import { NavLink, Outlet, useLocation } from 'react-router'
-import { useEffect, useRef } from 'react'
+import { Suspense, useEffect, useRef } from 'react'
 import Icone, { type NomIcone } from './Icone'
 import { useTheme } from '../state/theme'
 import PomodoroWidget from './PomodoroWidget'
@@ -98,7 +98,9 @@ export default function Layout() {
           tabIndex={-1}
           className="flex-1 w-full max-w-3xl mx-auto px-4 md:px-8 pt-5 md:pt-10 pb-28 md:pb-12 outline-none"
         >
-          <Outlet />
+          <Suspense fallback={<p className="text-muted" role="status">Chargement…</p>}>
+            <Outlet />
+          </Suspense>
         </main>
       </div>
 
