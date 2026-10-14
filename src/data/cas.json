@@ -1,0 +1,147 @@
+[
+  {
+    "id": "cas-vinted",
+    "seance": 2,
+    "notions": ["types-de-marche", "micro-environnement", "macro-environnement"],
+    "titre": "Vinted : marchés et environnement",
+    "type": "court",
+    "duree": "10 min",
+    "enonce": "Vinted est une marketplace sur laquelle des particuliers vendent et achètent des vêtements et des objets de seconde main. Elle s'inscrit dans la tendance de la seconde main. Tu fais partie de l'équipe marketing et tu dois présenter le marché et l'environnement de la plateforme.",
+    "questions": [
+      {
+        "question": "Quel est le marché principal de Vinted ? Et quel besoin définit son marché générique ?",
+        "aide": "Marché principal = le marché du produit. Marché générique = un besoin (commence souvent par un verbe).",
+        "corrige": "Marché principal : la vente et l'achat de vêtements de seconde main en ligne entre particuliers. Marché générique : s'habiller (on peut aussi accepter « s'équiper à petit prix » pour les objets). Le marché générique est défini par un besoin, pas par un produit."
+      },
+      {
+        "question": "Donne un marché de substitution et un marché complémentaire.",
+        "aide": "Substitution = « à la place de ». Complémentaire = « avec ».",
+        "corrige": "Substitution : acheter des vêtements neufs en magasin ou en ligne, ou aller dans une friperie (ils répondent au même besoin, s'habiller, et peuvent remplacer Vinted). Complémentaire : l'envoi de colis en point relais ou la retouche de vêtements (ces services s'utilisent avec un achat sur Vinted)."
+      },
+      {
+        "question": "Cite deux éléments du micro-environnement et deux du macro-environnement de Vinted, en précisant la composante.",
+        "aide": "Micro : services internes, clients, concurrents, fournisseurs, groupes d'influence. Macro : démographique, économique, politique, technologique, naturel, culturel.",
+        "corrige": "Micro : les particuliers qui achètent (clients) ; Leboncoin, où l'on peut aussi revendre des objets d'occasion (concurrent) ; le service client de Vinted (services internes) ; une association de consommateurs ou des médias (groupes d'influence). Macro : l'envie de consommer de façon plus responsable (culturel) ; la baisse du pouvoir d'achat (économique) ; une réglementation sur les plateformes en ligne (politique) ; le paiement sur smartphone (technologique)."
+      }
+    ]
+  },
+  {
+    "id": "cas-backmarket",
+    "seance": 2,
+    "notions": ["types-de-marche", "micro-environnement", "macro-environnement"],
+    "titre": "Back Market : le reconditionné",
+    "type": "court",
+    "duree": "10 min",
+    "enonce": "Back Market est une marketplace qui vend des smartphones, des ordinateurs et d'autres appareils reconditionnés, proposés par des vendeurs professionnels. Tu prépares la partie « marché et environnement » d'une présentation de groupe.",
+    "questions": [
+      {
+        "question": "Identifie les 4 marchés de Back Market (principal, générique, substitution, complémentaire) pour les smartphones.",
+        "aide": "Pars du produit (le smartphone reconditionné), puis du besoin auquel il répond.",
+        "corrige": "Principal : les smartphones reconditionnés. Générique : avoir un téléphone pour communiquer (le besoin). Substitution : acheter un smartphone neuf. Complémentaire : coques, chargeurs, forfaits mobiles (ils s'utilisent avec le smartphone)."
+      },
+      {
+        "question": "Les vendeurs professionnels qui reconditionnent les appareils : micro ou macro ? Quelle composante ?",
+        "aide": "Qui fournit les produits proposés sur la plateforme ?",
+        "corrige": "Micro-environnement, composante fournisseurs : ce sont eux qui fournissent les appareils proposés sur la plateforme. Attention au piège : les fournisseurs ne sont jamais dans le macro-environnement."
+      },
+      {
+        "question": "Cite un facteur naturel et un facteur politique qui peuvent influencer Back Market, en justifiant.",
+        "aide": "Naturel = ressources et matières premières. Politique = lois et réglementations.",
+        "corrige": "Naturel : la raréfaction des métaux nécessaires pour fabriquer des smartphones (ressources naturelles) ; elle rend les appareils neufs plus coûteux et valorise le reconditionné. Politique : une loi qui oblige à afficher la réparabilité des appareils ou qui encourage le réemploi. Ces facteurs touchent tout le secteur, pas seulement Back Market : c'est bien du macro."
+      }
+    ]
+  },
+  {
+    "id": "cas-cqlp",
+    "seance": 1,
+    "notions": ["besoins-offres", "types-de-marche", "definition-marketing"],
+    "titre": "« C'est qui le patron ?! » : du besoin à l'offre",
+    "type": "court",
+    "duree": "10 min",
+    "enonce": "« C'est qui le patron ?! » (CQLP) est la marque de lait vue en cours. Les consommateurs veulent des produits laitiers respectueux des producteurs et souhaitent s'impliquer dans leur création. CQLP les invite à voter pour leurs produits préférés et garantit une charte de juste rémunération des producteurs.",
+    "questions": [
+      {
+        "question": "Quel est le besoin exprimé par les consommateurs, et quelle est l'offre de CQLP ?",
+        "aide": "Besoin → offre (produits, services, informations, expériences).",
+        "corrige": "Besoin : consommer des produits laitiers respectueux des producteurs et s'impliquer dans leur création. Offre : un lait dont les caractéristiques sont votées par les consommateurs, avec une charte qui garantit une juste rémunération des producteurs."
+      },
+      {
+        "question": "En quoi CQLP correspond-il à la définition du marketing de l'AFM ?",
+        "aide": "Reprends les mots-clés : valeur durable, parties prenantes…",
+        "corrige": "Le marketing vise à « créer de la valeur durable pour l'ensemble des parties prenantes ». CQLP crée de la valeur pour plusieurs parties prenantes : les consommateurs (des produits qu'ils ont choisis) et les producteurs (une juste rémunération, dans la durée)."
+      },
+      {
+        "question": "Donne les 4 marchés du lait pasteurisé CQLP.",
+        "aide": "C'est l'exemple du cours.",
+        "corrige": "Principal : lait pasteurisé. Générique : consommer des produits laitiers. Substitution : lait de brebis, lait d'avoine, lait de riz… Complémentaire : céréales du petit-déjeuner, café…"
+      }
+    ]
+  },
+  {
+    "id": "cas-eaux",
+    "seance": 1,
+    "notions": ["taux-evolution", "part-de-marche"],
+    "titre": "Le marché des eaux en bouteille",
+    "type": "court",
+    "duree": "15 min",
+    "enonce": "Données du cours. Évolution des ventes d'eaux en bouteille en GMS en 2019 (Xerfi / LSA) : eaux aromatisées +9,7 % en volume et +16,5 % en valeur ; eaux plates +2,9 % en volume et +4,3 % en valeur ; eaux gazeuses +3,2 % en volume et +4,4 % en valeur. Parts de marché des eaux plates en GMS, en volume, 2016 (Xerfi / Iri) : Cristaline (Alma) 34,5 % ; MDD 18,9 % ; Vittel (Nestlé) 8,5 % ; Évian (Danone) 7,9 % ; Volvic (Danone) 7,1 % ; Contrex (Nestlé) 6,3 % ; Hépar (Nestlé) 4,2 % ; autres 12,6 %.",
+    "questions": [
+      {
+        "question": "Quel segment a le plus progressé en 2019 ? Pourquoi sa progression en valeur est-elle plus forte qu'en volume ?",
+        "aide": "Compare volume (quantités) et valeur (chiffre d'affaires).",
+        "corrige": "Les eaux aromatisées : +9,7 % en volume et +16,5 % en valeur. La valeur progresse plus vite que le volume : le prix moyen a augmenté (montée en gamme ou hausse des prix). Chaque bouteille vendue rapporte en moyenne plus."
+      },
+      {
+        "question": "Qui est le leader du marché des eaux plates ? Quel est l'écart avec le 2e ?",
+        "aide": "Écart en points = part du 1er − part du 2e.",
+        "corrige": "Cristaline (Alma), avec 34,5 %. Le 2e, ce sont les MDD avec 18,9 %. Écart : 34,5 − 18,9 = 15,6 points."
+      },
+      {
+        "question": "Compare les groupes Nestlé et Danone sur ce marché.",
+        "aide": "Additionne les parts de marché des marques de chaque groupe.",
+        "corrige": "Nestlé : Vittel 8,5 + Contrex 6,3 + Hépar 4,2 = 19,0 %. Danone : Évian 7,9 + Volvic 7,1 = 15,0 %. Nestlé pèse donc plus que Danone, mais chacun reste loin derrière Cristaline (34,5 %). Ces parts sont en volume : en valeur, le classement pourrait être différent."
+      }
+    ]
+  },
+  {
+    "id": "cas-roulib",
+    "seance": 2,
+    "notions": ["types-de-marche", "micro-environnement", "macro-environnement", "part-de-marche", "taux-evolution"],
+    "titre": "Roulib : la méthode des 6 étapes (version chapitre 1)",
+    "type": "6-etapes",
+    "duree": "25 min",
+    "enonce": "Marque fictive (reprise du Tuto Learning Box). Roulib loue des vélos électriques à Toulouse. Ses clients sont surtout des actifs de 30-45 ans. Les étudiants la connaissent peu et trouvent l'abonnement trop cher. Applique la méthode des 6 étapes, en version simplifiée avec les seuls outils du chapitre 1.",
+    "questions": [
+      {
+        "question": "Étape 1 · Comprendre le contexte (lis le cas deux fois). Qui sont l'entreprise, le produit, les clients et les concurrents ?",
+        "aide": "Surligne l'entreprise, le produit, les clients, les concurrents.",
+        "corrige": "Entreprise : Roulib. Produit : la location de vélos électriques (par abonnement), à Toulouse. Clients actuels : surtout des actifs de 30-45 ans. Cible visée : les étudiants. Concurrents : les autres offres de location de vélos ou de trottinettes en ville (le cas ne les nomme pas : reste général)."
+      },
+      {
+        "question": "Étape 2 · Identifier les 4 marchés de Roulib.",
+        "aide": "Principal, générique (besoin), substitution, complémentaire.",
+        "corrige": "Principal : la location de vélos électriques. Générique : se déplacer en ville. Substitution : transports en commun, trottinette, vélo personnel, marche… Complémentaire : casque, antivol, application de navigation…"
+      },
+      {
+        "question": "Étape 3 · Faire le diagnostic de l'environnement : un élément du micro et un du macro qui comptent pour attirer les étudiants.",
+        "aide": "Micro : clients, concurrents… Macro : économique, démographique, culturel…",
+        "corrige": "Micro : les clients étudiants, qui trouvent l'abonnement trop cher (clients) ; les autres solutions de mobilité (concurrents). Macro : le faible pouvoir d'achat des étudiants (économique) ; le grand nombre d'étudiants dans une ville universitaire comme Toulouse (démographique) ; l'envie de se déplacer de façon plus écologique (culturel)."
+      },
+      {
+        "question": "Étape 4 · Poser LE problème, en une seule question.",
+        "aide": "Forme attendue : « Comment Roulib peut-elle… ? »",
+        "corrige": "« Comment Roulib peut-elle gagner des abonnés étudiants alors qu'ils la connaissent peu et trouvent son abonnement trop cher ? » Une seule question, qui reprend les deux freins du cas : c'est ce qui évite le hors-sujet."
+      },
+      {
+        "question": "Étape 5 · Choisir 2 ou 3 indicateurs pour mesurer le résultat, dont au moins un outil du chapitre 1.",
+        "aide": "Pense à la part de marché et au taux d'évolution.",
+        "corrige": "Le taux d'évolution du nombre d'abonnés étudiants d'une année sur l'autre ; la part des étudiants parmi les abonnés (ou la part de marché de Roulib sur la location de vélos à Toulouse) ; éventuellement la satisfaction des nouveaux abonnés."
+      },
+      {
+        "question": "Étape 6 · Pour aller plus loin (chapitres suivants) : la cible, le positionnement et les 4P.",
+        "aide": "Ces outils seront vus plus tard dans le cours : ici, seule la méthode compte.",
+        "corrige": "Dans la méthode complète du Tuto, on enchaîne avec « Cibler et se positionner » puis « Recommander avec les 4P » (produit, prix, distribution, communication). Ces notions appartiennent aux chapitres suivants (stratégie marketing, marketing mix) : pour le chapitre 1, l'important est d'avoir bien posé le marché, l'environnement, le problème et les indicateurs."
+      }
+    ]
+  }
+]

@@ -1,0 +1,418 @@
+[
+  {
+    "id": "fc-def-01",
+    "seance": 1,
+    "notion": "definition-marketing",
+    "recto": "Définition du marketing (Association Française du Marketing, 2015)",
+    "verso": "« Le marketing est une conception des échanges et un ensemble de pratiques qui vise à créer de la valeur durable pour l'ensemble des parties prenantes (individus, entreprises ou organisations). »",
+    "exemple": "Ex. : « C'est qui le patron ?! » crée de la valeur à la fois pour les consommateurs (des produits qu'ils ont choisis) et pour les producteurs (une juste rémunération)."
+  },
+  {
+    "id": "fc-def-02",
+    "seance": 1,
+    "notion": "definition-marketing",
+    "recto": "Les 4 mots-clés de la définition du marketing (AFM)",
+    "verso": "1. Conception des échanges · 2. Ensemble de pratiques · 3. Valeur durable · 4. Parties prenantes.",
+    "exemple": "Astuce : « Échanges, Pratiques, Valeur durable, Parties prenantes ». Si tu les cites tous les quatre, ta définition est complète."
+  },
+  {
+    "id": "fc-def-03",
+    "seance": 1,
+    "notion": "definition-marketing",
+    "recto": "Qui sont les « parties prenantes » dans la définition du marketing ?",
+    "verso": "Les individus, les entreprises ou les organisations concernés par l'échange. Le marketing doit créer de la valeur pour l'ensemble d'entre eux, pas seulement pour l'entreprise.",
+    "exemple": "Ex. : pour une marque de lait, les consommateurs, les producteurs de lait et la marque elle-même."
+  },
+  {
+    "id": "fc-def-04",
+    "seance": 1,
+    "notion": "definition-marketing",
+    "recto": "Selon la définition AFM, quel type de valeur le marketing cherche-t-il à créer ?",
+    "verso": "Une valeur durable, pour l'ensemble des parties prenantes. Il ne s'agit donc pas seulement de vendre une fois.",
+    "exemple": "Ex. : la charte de « C'est qui le patron ?! » garantit une juste rémunération des producteurs, ce qui crée de la valeur dans la durée."
+  },
+  {
+    "id": "fc-mm-01",
+    "seance": 1,
+    "notion": "marketing-management",
+    "recto": "Marketing management",
+    "verso": "L'ensemble des pratiques marketing que mettent en œuvre les organisations pour réaliser leurs objectifs.",
+    "exemple": "Ex. : une marque qui étudie ses clients, crée une nouvelle gamme puis la distribue en supermarché fait du marketing management."
+  },
+  {
+    "id": "fc-mm-02",
+    "seance": 1,
+    "notion": "marketing-management",
+    "recto": "Les 3 objectifs du marketing management",
+    "verso": "1. Étudier les différents publics, leurs besoins, désirs et aspirations. 2. Créer des offres de produits, services et expériences. 3. Organiser leur diffusion, dans un mode marchand ou non marchand.",
+    "exemple": "Pense : Étudier → Créer → Diffuser."
+  },
+  {
+    "id": "fc-mm-03",
+    "seance": 1,
+    "notion": "marketing-management",
+    "recto": "1er objectif du marketing management",
+    "verso": "Étudier les différents publics, leurs besoins, désirs et aspirations.",
+    "exemple": "Ex. : une marque interroge ses clients avec un questionnaire pour connaître leurs attentes avant de lancer un produit."
+  },
+  {
+    "id": "fc-mm-04",
+    "seance": 1,
+    "notion": "marketing-management",
+    "recto": "2e objectif du marketing management",
+    "verso": "Créer des offres de produits, de services et d'expériences.",
+    "exemple": "Ex. : un produit (une brique de lait), un service (un compte bancaire), une expérience (un concert)."
+  },
+  {
+    "id": "fc-mm-05",
+    "seance": 1,
+    "notion": "marketing-management",
+    "recto": "3e objectif du marketing management",
+    "verso": "Organiser la diffusion des offres, dans un mode marchand ou non marchand.",
+    "exemple": "Ex. marchand : vendre du lait en supermarché. Ex. non marchand : les Restos du Cœur distribuent des repas gratuitement."
+  },
+  {
+    "id": "fc-rm-01",
+    "seance": 1,
+    "notion": "recherche-marketing",
+    "recto": "La recherche en marketing",
+    "verso": "L'étude scientifique : (1) des pratiques marketing ; (2) des phénomènes de consommation et de création de valeur entre les parties prenantes d'un échange ; (3) de leurs conséquences positives et négatives sur la société.",
+    "exemple": "Ex. du cours : un article de recherche sur l'activisme de marque, la légitimité de la marque et la distance psychologique."
+  },
+  {
+    "id": "fc-rm-02",
+    "seance": 1,
+    "notion": "recherche-marketing",
+    "recto": "Marketing management ou recherche en marketing : quelle différence ?",
+    "verso": "Le marketing management, ce sont les pratiques des organisations pour atteindre leurs objectifs. La recherche en marketing, c'est l'étude scientifique de ces pratiques et de leurs conséquences.",
+    "exemple": "Ex. : une marque qui prend position sur un sujet de société fait du marketing ; un chercheur qui étudie l'activisme de marque fait de la recherche en marketing."
+  },
+  {
+    "id": "fc-bo-01",
+    "seance": 1,
+    "notion": "besoins-offres",
+    "recto": "Que fait le marketing des besoins exprimés par les individus ?",
+    "verso": "Les individus expriment des besoins, des désirs, des demandes, auxquels répondent des offres : produits, services, informations, expériences.",
+    "exemple": "Ex. : le besoin de consommer des produits laitiers respectueux des producteurs → l'offre « C'est qui le patron ?! »."
+  },
+  {
+    "id": "fc-bo-02",
+    "seance": 1,
+    "notion": "besoins-offres",
+    "recto": "Les 4 formes d'offres",
+    "verso": "Produits, services, informations, expériences.",
+    "exemple": "Ex. : un yaourt (produit), une assurance (service), un guide d'achat (information), un concert (expérience)."
+  },
+  {
+    "id": "fc-bo-03",
+    "seance": 1,
+    "notion": "besoins-offres",
+    "recto": "L'exemple « C'est qui le patron ?! » : besoin et offre",
+    "verso": "Besoin : consommer des produits laitiers respectueux des producteurs et s'impliquer dans leur création. Offre : les consommateurs votent pour leurs produits préférés, et une charte garantit une juste rémunération des producteurs.",
+    "exemple": "C'est l'exemple du cours pour montrer comment une offre répond à un besoin."
+  },
+  {
+    "id": "fc-tm-01",
+    "seance": 1,
+    "notion": "types-de-marche",
+    "recto": "Marché principal",
+    "verso": "Le marché du produit.",
+    "exemple": "Ex. : pour une brique de lait pasteurisé, le marché du lait pasteurisé."
+  },
+  {
+    "id": "fc-tm-02",
+    "seance": 1,
+    "notion": "types-de-marche",
+    "recto": "Marché générique",
+    "verso": "Marché défini par un besoin.",
+    "exemple": "Ex. : pour le lait, le besoin « consommer des produits laitiers »."
+  },
+  {
+    "id": "fc-tm-03",
+    "seance": 1,
+    "notion": "types-de-marche",
+    "recto": "Marché de substitution",
+    "verso": "Marché d'un produit substituable au produit du marché principal, car il répond au même besoin.",
+    "exemple": "Ex. : pour le lait pasteurisé, le lait de brebis, le lait d'avoine ou le lait de riz."
+  },
+  {
+    "id": "fc-tm-04",
+    "seance": 1,
+    "notion": "types-de-marche",
+    "recto": "Marché complémentaire",
+    "verso": "Marché des produits dont la consommation peut être associée aux produits du marché principal (et qui répond au même besoin).",
+    "exemple": "Ex. : pour le lait, les céréales du petit-déjeuner ou le café."
+  },
+  {
+    "id": "fc-tm-05",
+    "seance": 1,
+    "notion": "types-de-marche",
+    "recto": "Quel marché englobe les trois autres ?",
+    "verso": "Le marché générique : il est défini par le besoin, et le marché principal, le marché de substitution et le marché complémentaire répondent tous à ce besoin.",
+    "exemple": "Ex. : « consommer des produits laitiers » englobe le lait pasteurisé, le lait d'avoine et les céréales qu'on mange avec."
+  },
+  {
+    "id": "fc-tm-06",
+    "seance": 1,
+    "notion": "types-de-marche",
+    "recto": "Les 4 marchés du lait pasteurisé (exemple du cours)",
+    "verso": "Principal : lait pasteurisé. Générique : consommer des produits laitiers. Substitution : lait de brebis, lait d'avoine, lait de riz… Complémentaire : céréales du petit-déjeuner, café…",
+    "exemple": "Refais l'exercice avec un autre produit, par exemple des capsules de café."
+  },
+  {
+    "id": "fc-tm-07",
+    "seance": 1,
+    "notion": "types-de-marche",
+    "recto": "Substitution ou complémentaire : comment ne pas confondre ?",
+    "verso": "Un produit de substitution peut remplacer le produit principal. Un produit complémentaire se consomme avec lui.",
+    "exemple": "Ex. pour le lait : le lait d'avoine le remplace (substitution), les céréales se mangent avec (complémentaire)."
+  },
+  {
+    "id": "fc-ac-01",
+    "seance": 1,
+    "notion": "acteurs-canaux",
+    "recto": "Qui fait du marketing ?",
+    "verso": "De nombreux acteurs : les entreprises, les associations, les individus, les organisations.",
+    "exemple": "Ex. du cours : L'Oréal, Crédit Agricole, Orange, Danone (entreprises) ; Greenpeace, Croix-Rouge française, Restos du Cœur (associations) ; influenceurs, sportifs (individus)."
+  },
+  {
+    "id": "fc-ac-02",
+    "seance": 1,
+    "notion": "acteurs-canaux",
+    "recto": "Des associations qui font du marketing (exemples du cours)",
+    "verso": "Greenpeace, la Croix-Rouge française, les Restos du Cœur.",
+    "exemple": "Le marketing n'est donc pas réservé aux grandes entreprises."
+  },
+  {
+    "id": "fc-ac-03",
+    "seance": 1,
+    "notion": "acteurs-canaux",
+    "recto": "Où se fait le marketing ? (les canaux)",
+    "verso": "Au sein des entreprises, dans les agences, en supermarché, sur les marchés, par la publicité (affichage), le courrier promotionnel, les sites web, la publicité en ligne, les médias sociaux.",
+    "exemple": "Ex. : une affiche dans le métro, un prospectus dans ta boîte aux lettres, une publicité sur Instagram."
+  },
+  {
+    "id": "fc-te-01",
+    "seance": 1,
+    "notion": "taux-evolution",
+    "recto": "Formule du taux d'évolution",
+    "verso": "Taux d'évolution (%) = (Taille du marché année N − Taille du marché année N-1) / Taille du marché année N-1 × 100",
+    "exemple": "Ex. : un marché qui passe de 420 000 à 504 000 vélos : (504 000 − 420 000) / 420 000 × 100 = +20 %."
+  },
+  {
+    "id": "fc-te-02",
+    "seance": 1,
+    "notion": "taux-evolution",
+    "recto": "Se situer par rapport à l'année précédente : quel outil ?",
+    "verso": "Le taux d'évolution : il mesure l'évolution de la taille du marché dans le temps.",
+    "exemple": "Ex. : les ventes d'eaux plates en GMS ont progressé de +2,9 % en volume en 2019 (Xerfi / LSA)."
+  },
+  {
+    "id": "fc-te-03",
+    "seance": 1,
+    "notion": "taux-evolution",
+    "recto": "Taux d'évolution : par quoi divise-t-on ?",
+    "verso": "Par la taille du marché de l'année N-1 (l'année de départ), jamais par l'année N. Et on n'oublie pas le × 100.",
+    "exemple": "Ex. : de 200 à 250 → (250 − 200) / 200 × 100 = +25 % (et non 50 / 250 = 20 %)."
+  },
+  {
+    "id": "fc-pdm-01",
+    "seance": 1,
+    "notion": "part-de-marche",
+    "recto": "Formule de la part de marché",
+    "verso": "Part de marché (%) = Ventes de l'entreprise / Ventes du marché × 100",
+    "exemple": "Ex. : une marque qui vend 30 000 unités sur un marché de 120 000 unités a 25 % de part de marché."
+  },
+  {
+    "id": "fc-pdm-02",
+    "seance": 1,
+    "notion": "part-de-marche",
+    "recto": "Se situer par rapport à ses concurrents : quel outil ?",
+    "verso": "La part de marché : le poids de l'entreprise sur le marché total.",
+    "exemple": "Ex. : Cristaline (Alma) détenait 34,5 % du marché des eaux plates en GMS, en volume, en 2016 (Xerfi / Iri)."
+  },
+  {
+    "id": "fc-pdm-03",
+    "seance": 1,
+    "notion": "part-de-marche",
+    "recto": "Part de marché en volume ou en valeur ?",
+    "verso": "En volume : on compare des quantités vendues. En valeur : on compare des chiffres d'affaires. Les deux ne donnent pas le même résultat.",
+    "exemple": "Ex. : une marque qui vend moins de bouteilles mais plus cher aura une part de marché plus élevée en valeur qu'en volume."
+  },
+  {
+    "id": "fc-pdm-04",
+    "seance": 1,
+    "notion": "part-de-marche",
+    "recto": "Pourquoi les ventes en valeur peuvent-elles progresser plus vite que les ventes en volume ?",
+    "verso": "Parce que le prix moyen augmente : les consommateurs achètent des produits plus chers (montée en gamme) ou les prix augmentent.",
+    "exemple": "Ex. : eaux aromatisées en GMS en 2019 : +9,7 % en volume mais +16,5 % en valeur (Xerfi / LSA)."
+  },
+  {
+    "id": "fc-env-01",
+    "seance": 2,
+    "notion": "micro-environnement",
+    "recto": "Dans quels environnements chaque organisation est-elle ancrée ?",
+    "verso": "Dans deux environnements : le micro-environnement et le macro-environnement.",
+    "exemple": "Ex. : Vinted dépend de ses utilisateurs (micro) mais aussi des lois sur les plateformes en ligne (macro)."
+  },
+  {
+    "id": "fc-env-02",
+    "seance": 2,
+    "notion": "micro-environnement",
+    "recto": "Micro-environnement",
+    "verso": "Les facteurs internes à l'entreprise ou proches d'elle.",
+    "exemple": "Ex. : ses services internes, ses clients, ses concurrents, ses fournisseurs, ses groupes d'influence."
+  },
+  {
+    "id": "fc-env-03",
+    "seance": 2,
+    "notion": "macro-environnement",
+    "recto": "Macro-environnement",
+    "verso": "Des facteurs plus larges, qui influencent non seulement l'entreprise mais aussi d'autres entités.",
+    "exemple": "Ex. : une hausse du chômage touche toutes les entreprises d'un pays, pas une seule."
+  },
+  {
+    "id": "fc-mi-01",
+    "seance": 2,
+    "notion": "micro-environnement",
+    "recto": "Les 5 composantes du micro-environnement",
+    "verso": "Services internes · Clients · Concurrents · Fournisseurs · Groupes d'influence.",
+    "exemple": "Astuce : tout ce qui a un « visage » proche de l'entreprise (un service, un client, un concurrent…) est dans le micro."
+  },
+  {
+    "id": "fc-mi-02",
+    "seance": 2,
+    "notion": "micro-environnement",
+    "recto": "Services internes (micro-environnement)",
+    "verso": "Les départements de l'entreprise : finance, R&D, achats…",
+    "exemple": "Ex. : le service R&D d'une marque de capsules qui développe une capsule compostable."
+  },
+  {
+    "id": "fc-mi-03",
+    "seance": 2,
+    "notion": "micro-environnement",
+    "recto": "Clients (micro-environnement)",
+    "verso": "Qui achète les produits, et qu'attendent les clients ?",
+    "exemple": "Ex. : pour Back Market, les personnes qui achètent un smartphone reconditionné et attendent un bon prix et un appareil fiable."
+  },
+  {
+    "id": "fc-mi-04",
+    "seance": 2,
+    "notion": "micro-environnement",
+    "recto": "Concurrents (micro-environnement)",
+    "verso": "Les autres entreprises positionnées sur le même marché.",
+    "exemple": "Ex. : pour une marque d'eau plate, les autres marques d'eau plate (Cristaline, Vittel, Évian…)."
+  },
+  {
+    "id": "fc-mi-05",
+    "seance": 2,
+    "notion": "micro-environnement",
+    "recto": "Fournisseurs (micro-environnement)",
+    "verso": "Les entités qui fournissent les ressources nécessaires à l'entreprise pour produire son offre.",
+    "exemple": "Ex. : pour une marque de lait, les producteurs de lait."
+  },
+  {
+    "id": "fc-mi-06",
+    "seance": 2,
+    "notion": "micro-environnement",
+    "recto": "Groupes d'influence (micro-environnement)",
+    "verso": "Tout groupe qui a un intérêt lié aux activités de l'entreprise : lobbys, groupes de citoyens, médias…",
+    "exemple": "Ex. : une association de consommateurs qui publie un test des produits d'une marque."
+  },
+  {
+    "id": "fc-ma-01",
+    "seance": 2,
+    "notion": "macro-environnement",
+    "recto": "Les 6 composantes du macro-environnement",
+    "verso": "Démographique · Économique · Politique · Technologique · Naturel · Culturel.",
+    "exemple": "Astuce : ce sont de grandes tendances qui touchent tout le monde, pas un acteur en particulier."
+  },
+  {
+    "id": "fc-ma-02",
+    "seance": 2,
+    "notion": "macro-environnement",
+    "recto": "Environnement démographique",
+    "verso": "Taille de la population, localisation, âge, genre…",
+    "exemple": "Ex. : le vieillissement de la population."
+  },
+  {
+    "id": "fc-ma-03",
+    "seance": 2,
+    "notion": "macro-environnement",
+    "recto": "Environnement économique",
+    "verso": "Les conditions économiques qui affectent le pouvoir d'achat des consommateurs.",
+    "exemple": "Ex. : une hausse du chômage ou de l'inflation."
+  },
+  {
+    "id": "fc-ma-04",
+    "seance": 2,
+    "notion": "macro-environnement",
+    "recto": "Environnement politique",
+    "verso": "Les lois et réglementations, y compris internationales.",
+    "exemple": "Ex. : une loi qui interdit les emballages plastiques à usage unique."
+  },
+  {
+    "id": "fc-ma-05",
+    "seance": 2,
+    "notion": "macro-environnement",
+    "recto": "Environnement technologique",
+    "verso": "Les innovations qui impactent le marché.",
+    "exemple": "Ex. : le paiement sur smartphone, qui change la façon d'acheter en ligne."
+  },
+  {
+    "id": "fc-ma-06",
+    "seance": 2,
+    "notion": "macro-environnement",
+    "recto": "Environnement naturel",
+    "verso": "Les ressources naturelles nécessaires (matières premières) et les conditions environnementales qui peuvent affecter les opérations de l'entreprise.",
+    "exemple": "Ex. : une sécheresse qui réduit la production de lait."
+  },
+  {
+    "id": "fc-ma-07",
+    "seance": 2,
+    "notion": "macro-environnement",
+    "recto": "Environnement culturel",
+    "verso": "Les valeurs et les codes qui affectent les préférences et les comportements de la société.",
+    "exemple": "Ex. : l'envie croissante de consommer de façon plus responsable, qui favorise la seconde main."
+  },
+  {
+    "id": "fc-piege-01",
+    "seance": 2,
+    "notion": "micro-environnement",
+    "recto": "Les concurrents et les fournisseurs : micro ou macro ?",
+    "verso": "Micro-environnement ! Ce sont des acteurs proches de l'entreprise. Les ranger dans le macro est un piège classique.",
+    "exemple": "Ex. : pour Vinted, Leboncoin (concurrent sur la revente d'objets d'occasion) fait partie du micro-environnement."
+  },
+  {
+    "id": "fc-piege-02",
+    "seance": 2,
+    "notion": "micro-environnement",
+    "recto": "Les médias : micro ou macro ?",
+    "verso": "Micro-environnement, dans les groupes d'influence (avec les lobbys et les groupes de citoyens).",
+    "exemple": "Ex. : un reportage télévisé sur une marque peut influencer son image."
+  },
+  {
+    "id": "fc-piege-03",
+    "seance": 2,
+    "notion": "macro-environnement",
+    "recto": "Un lobby ou une nouvelle loi : où les ranger ?",
+    "verso": "Le lobby est un groupe d'influence (micro-environnement). La loi votée relève de l'environnement politique (macro-environnement).",
+    "exemple": "Ex. : un lobby défend les intérêts d'un secteur ; la loi, elle, s'impose à toutes les entreprises."
+  },
+  {
+    "id": "fc-piege-04",
+    "seance": 2,
+    "notion": "macro-environnement",
+    "recto": "Naturel ou culturel : comment ne pas confondre ?",
+    "verso": "Naturel : les ressources et les conditions physiques (matières premières, climat). Culturel : les valeurs et les codes de la société (ce que les gens pensent et préfèrent).",
+    "exemple": "Ex. : une sécheresse = naturel ; l'envie de consommer de façon responsable = culturel."
+  },
+  {
+    "id": "fc-ma-08",
+    "seance": 2,
+    "notion": "macro-environnement",
+    "recto": "Une hausse du chômage relève de quel environnement ?",
+    "verso": "Du macro-environnement, composante économique : elle affecte le pouvoir d'achat des consommateurs.",
+    "exemple": "Elle touche toutes les entreprises, pas une seule : c'est bien du macro."
+  }
+]

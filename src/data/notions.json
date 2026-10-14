@@ -1,0 +1,12 @@
+[
+  { "id": "definition-marketing", "titre": "Définition du marketing", "seance": 1 },
+  { "id": "marketing-management", "titre": "Marketing management", "seance": 1 },
+  { "id": "recherche-marketing", "titre": "Recherche en marketing", "seance": 1 },
+  { "id": "besoins-offres", "titre": "Besoins et offres", "seance": 1 },
+  { "id": "types-de-marche", "titre": "Les 4 types de marché", "seance": 1 },
+  { "id": "acteurs-canaux", "titre": "Acteurs et canaux", "seance": 1 },
+  { "id": "taux-evolution", "titre": "Taux d'évolution", "seance": 1 },
+  { "id": "part-de-marche", "titre": "Part de marché", "seance": 1 },
+  { "id": "micro-environnement", "titre": "Micro-environnement", "seance": 2 },
+  { "id": "macro-environnement", "titre": "Macro-environnement", "seance": 2 }
+]

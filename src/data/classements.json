@@ -1,0 +1,905 @@
+[
+  {
+    "id": "cl-marche-lait",
+    "seance": 1,
+    "notion": "types-de-marche",
+    "titre": "Les 4 marchés du lait pasteurisé",
+    "consigne": "Tu es une marque de lait pasteurisé. Range chaque élément dans le bon type de marché.",
+    "categories": [
+      {
+        "id": "principal",
+        "label": "Marché principal",
+        "aide": "Le marché du produit"
+      },
+      {
+        "id": "generique",
+        "label": "Marché générique",
+        "aide": "Défini par un besoin"
+      },
+      {
+        "id": "substitution",
+        "label": "Marché de substitution",
+        "aide": "Peut remplacer le produit"
+      },
+      {
+        "id": "complementaire",
+        "label": "Marché complémentaire",
+        "aide": "Se consomme avec le produit"
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Lait pasteurisé d'une autre marque",
+        "categorie": "principal",
+        "explication": "C'est le même produit : il est sur le marché principal (c'est un concurrent direct)."
+      },
+      {
+        "id": "e2",
+        "texte": "Consommer des produits laitiers",
+        "categorie": "generique",
+        "explication": "C'est un besoin : marché générique (exemple du cours)."
+      },
+      {
+        "id": "e3",
+        "texte": "Lait d'avoine",
+        "categorie": "substitution",
+        "explication": "Il peut remplacer le lait pasteurisé (exemple du cours)."
+      },
+      {
+        "id": "e4",
+        "texte": "Lait de brebis",
+        "categorie": "substitution",
+        "explication": "Il peut remplacer le lait pasteurisé (exemple du cours)."
+      },
+      {
+        "id": "e5",
+        "texte": "Lait de riz",
+        "categorie": "substitution",
+        "explication": "Il peut remplacer le lait pasteurisé (exemple du cours)."
+      },
+      {
+        "id": "e6",
+        "texte": "Céréales du petit-déjeuner",
+        "categorie": "complementaire",
+        "explication": "Elles se mangent avec le lait (exemple du cours)."
+      },
+      {
+        "id": "e7",
+        "texte": "Café",
+        "categorie": "complementaire",
+        "explication": "On met du lait dans son café : consommation associée (exemple du cours)."
+      }
+    ]
+  },
+  {
+    "id": "cl-marche-cafe",
+    "seance": 1,
+    "notion": "types-de-marche",
+    "titre": "Les 4 marchés des capsules de café",
+    "consigne": "Tu es un fabricant de capsules de café. Range chaque élément dans le bon type de marché.",
+    "categories": [
+      {
+        "id": "principal",
+        "label": "Marché principal",
+        "aide": "Le marché du produit"
+      },
+      {
+        "id": "generique",
+        "label": "Marché générique",
+        "aide": "Défini par un besoin"
+      },
+      {
+        "id": "substitution",
+        "label": "Marché de substitution",
+        "aide": "Peut remplacer le produit"
+      },
+      {
+        "id": "complementaire",
+        "label": "Marché complémentaire",
+        "aide": "Se consomme avec le produit"
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Capsules de café d'une marque concurrente",
+        "categorie": "principal",
+        "explication": "Même produit : marché principal."
+      },
+      {
+        "id": "e2",
+        "texte": "Boire du café",
+        "categorie": "generique",
+        "explication": "C'est le besoin : marché générique."
+      },
+      {
+        "id": "e3",
+        "texte": "Café moulu pour cafetière",
+        "categorie": "substitution",
+        "explication": "Il répond au même besoin et peut remplacer les capsules."
+      },
+      {
+        "id": "e4",
+        "texte": "Café soluble",
+        "categorie": "substitution",
+        "explication": "Il répond au même besoin et peut remplacer les capsules."
+      },
+      {
+        "id": "e5",
+        "texte": "Lait d'avoine",
+        "categorie": "complementaire",
+        "explication": "On le met dans son café : il se consomme avec."
+      },
+      {
+        "id": "e6",
+        "texte": "Sucre",
+        "categorie": "complementaire",
+        "explication": "On le met dans son café : il se consomme avec."
+      },
+      {
+        "id": "e7",
+        "texte": "Machine à capsules",
+        "categorie": "complementaire",
+        "explication": "Elle est indispensable pour utiliser les capsules : son usage est associé au produit."
+      }
+    ]
+  },
+  {
+    "id": "cl-marche-velo",
+    "seance": 1,
+    "notion": "types-de-marche",
+    "titre": "Les 4 marchés du vélo électrique",
+    "consigne": "Tu es une marque de vélos électriques. Range chaque élément dans le bon type de marché.",
+    "categories": [
+      {
+        "id": "principal",
+        "label": "Marché principal",
+        "aide": "Le marché du produit"
+      },
+      {
+        "id": "generique",
+        "label": "Marché générique",
+        "aide": "Défini par un besoin"
+      },
+      {
+        "id": "substitution",
+        "label": "Marché de substitution",
+        "aide": "Peut remplacer le produit"
+      },
+      {
+        "id": "complementaire",
+        "label": "Marché complémentaire",
+        "aide": "Se consomme avec le produit"
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Vélos électriques d'autres marques",
+        "categorie": "principal",
+        "explication": "Même produit : marché principal."
+      },
+      {
+        "id": "e2",
+        "texte": "Se déplacer en ville",
+        "categorie": "generique",
+        "explication": "C'est le besoin : marché générique."
+      },
+      {
+        "id": "e3",
+        "texte": "Trottinette électrique",
+        "categorie": "substitution",
+        "explication": "Elle répond au même besoin (se déplacer) et peut remplacer le vélo."
+      },
+      {
+        "id": "e4",
+        "texte": "Abonnement aux transports en commun",
+        "categorie": "substitution",
+        "explication": "Il répond au même besoin et peut remplacer le vélo."
+      },
+      {
+        "id": "e5",
+        "texte": "Vélo classique (sans moteur)",
+        "categorie": "substitution",
+        "explication": "Il répond au même besoin et peut remplacer le vélo électrique."
+      },
+      {
+        "id": "e6",
+        "texte": "Casque de vélo",
+        "categorie": "complementaire",
+        "explication": "Il s'utilise avec le vélo."
+      },
+      {
+        "id": "e7",
+        "texte": "Antivol",
+        "categorie": "complementaire",
+        "explication": "Il s'utilise avec le vélo."
+      }
+    ]
+  },
+  {
+    "id": "cl-marche-backmarket",
+    "seance": 2,
+    "notion": "types-de-marche",
+    "titre": "Back Market : les 4 marchés",
+    "consigne": "Back Market est une marketplace de smartphones et d'appareils reconditionnés. Range chaque élément dans le bon type de marché.",
+    "categories": [
+      {
+        "id": "principal",
+        "label": "Marché principal",
+        "aide": "Le marché du produit"
+      },
+      {
+        "id": "generique",
+        "label": "Marché générique",
+        "aide": "Défini par un besoin"
+      },
+      {
+        "id": "substitution",
+        "label": "Marché de substitution",
+        "aide": "Peut remplacer le produit"
+      },
+      {
+        "id": "complementaire",
+        "label": "Marché complémentaire",
+        "aide": "Se consomme avec le produit"
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Smartphones reconditionnés",
+        "categorie": "principal",
+        "explication": "C'est le produit vendu sur la plateforme : marché principal."
+      },
+      {
+        "id": "e2",
+        "texte": "Avoir un téléphone pour communiquer",
+        "categorie": "generique",
+        "explication": "C'est le besoin : marché générique."
+      },
+      {
+        "id": "e3",
+        "texte": "Smartphone neuf",
+        "categorie": "substitution",
+        "explication": "Il répond au même besoin et peut remplacer un reconditionné."
+      },
+      {
+        "id": "e5",
+        "texte": "Coque de protection",
+        "categorie": "complementaire",
+        "explication": "Elle s'utilise avec le smartphone."
+      },
+      {
+        "id": "e6",
+        "texte": "Forfait mobile",
+        "categorie": "complementaire",
+        "explication": "Il s'utilise avec le smartphone."
+      },
+      {
+        "id": "e7",
+        "texte": "Chargeur",
+        "categorie": "complementaire",
+        "explication": "Il s'utilise avec le smartphone."
+      }
+    ]
+  },
+  {
+    "id": "cl-marche-musique",
+    "seance": 1,
+    "notion": "types-de-marche",
+    "titre": "Les 4 marchés du streaming musical",
+    "consigne": "Tu es une application de streaming musical sur abonnement. Range chaque élément dans le bon type de marché.",
+    "categories": [
+      {
+        "id": "principal",
+        "label": "Marché principal",
+        "aide": "Le marché du produit"
+      },
+      {
+        "id": "generique",
+        "label": "Marché générique",
+        "aide": "Défini par un besoin"
+      },
+      {
+        "id": "substitution",
+        "label": "Marché de substitution",
+        "aide": "Peut remplacer le produit"
+      },
+      {
+        "id": "complementaire",
+        "label": "Marché complémentaire",
+        "aide": "Se consomme avec le produit"
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Autres applications de streaming musical",
+        "categorie": "principal",
+        "explication": "Même produit : marché principal."
+      },
+      {
+        "id": "e2",
+        "texte": "Écouter de la musique",
+        "categorie": "generique",
+        "explication": "C'est le besoin : marché générique."
+      },
+      {
+        "id": "e3",
+        "texte": "La radio",
+        "categorie": "substitution",
+        "explication": "Elle répond au même besoin et peut remplacer le streaming."
+      },
+      {
+        "id": "e4",
+        "texte": "Les vinyles",
+        "categorie": "substitution",
+        "explication": "Ils répondent au même besoin et peuvent remplacer le streaming."
+      },
+      {
+        "id": "e5",
+        "texte": "Écouteurs sans fil",
+        "categorie": "complementaire",
+        "explication": "Ils s'utilisent avec l'application."
+      },
+      {
+        "id": "e6",
+        "texte": "Enceinte connectée",
+        "categorie": "complementaire",
+        "explication": "Elle s'utilise avec l'application."
+      }
+    ]
+  },
+  {
+    "id": "cl-env-general",
+    "seance": 2,
+    "notion": "micro-environnement",
+    "titre": "Micro ou macro ? Les bases",
+    "consigne": "Étape 1 : range chaque élément dans le micro-environnement ou le macro-environnement. Étape 2 : choisis la bonne composante.",
+    "categories": [
+      {
+        "id": "micro",
+        "label": "Micro-environnement",
+        "aide": "Internes ou proches de l'entreprise"
+      },
+      {
+        "id": "macro",
+        "label": "Macro-environnement",
+        "aide": "Facteurs larges qui touchent aussi d'autres entités"
+      }
+    ],
+    "sousCategories": {
+      "micro": [
+        {
+          "id": "services-internes",
+          "label": "Services internes"
+        },
+        {
+          "id": "clients",
+          "label": "Clients"
+        },
+        {
+          "id": "concurrents",
+          "label": "Concurrents"
+        },
+        {
+          "id": "fournisseurs",
+          "label": "Fournisseurs"
+        },
+        {
+          "id": "groupes-influence",
+          "label": "Groupes d'influence"
+        }
+      ],
+      "macro": [
+        {
+          "id": "demographique",
+          "label": "Démographique"
+        },
+        {
+          "id": "economique",
+          "label": "Économique"
+        },
+        {
+          "id": "politique",
+          "label": "Politique"
+        },
+        {
+          "id": "technologique",
+          "label": "Technologique"
+        },
+        {
+          "id": "naturel",
+          "label": "Naturel"
+        },
+        {
+          "id": "culturel",
+          "label": "Culturel"
+        }
+      ]
+    },
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Le service finance de l'entreprise",
+        "categorie": "micro",
+        "sousCategorie": "services-internes",
+        "explication": "Un département de l'entreprise : services internes."
+      },
+      {
+        "id": "e2",
+        "texte": "Les personnes qui achètent les produits",
+        "categorie": "micro",
+        "sousCategorie": "clients",
+        "explication": "Ceux qui achètent : clients."
+      },
+      {
+        "id": "e3",
+        "texte": "Une autre marque qui vend le même produit",
+        "categorie": "micro",
+        "sousCategorie": "concurrents",
+        "explication": "Positionnée sur le même marché : concurrent (micro, pas macro !)."
+      },
+      {
+        "id": "e4",
+        "texte": "L'entreprise qui livre les matières premières",
+        "categorie": "micro",
+        "sousCategorie": "fournisseurs",
+        "explication": "Elle fournit les ressources nécessaires : fournisseur (micro, pas macro !)."
+      },
+      {
+        "id": "e5",
+        "texte": "Un journal qui enquête sur l'entreprise",
+        "categorie": "micro",
+        "sousCategorie": "groupes-influence",
+        "explication": "Les médias font partie des groupes d'influence."
+      },
+      {
+        "id": "e6",
+        "texte": "Une hausse du chômage",
+        "categorie": "macro",
+        "sousCategorie": "economique",
+        "explication": "Elle affecte le pouvoir d'achat : économique."
+      },
+      {
+        "id": "e7",
+        "texte": "Le vieillissement de la population",
+        "categorie": "macro",
+        "sousCategorie": "demographique",
+        "explication": "Âge de la population : démographique."
+      },
+      {
+        "id": "e8",
+        "texte": "Une nouvelle loi qui interdit les emballages plastiques à usage unique",
+        "categorie": "macro",
+        "sousCategorie": "politique",
+        "explication": "Une loi : politique (avec un lien possible avec le naturel)."
+      },
+      {
+        "id": "e9",
+        "texte": "L'arrivée de l'intelligence artificielle dans les outils du quotidien",
+        "categorie": "macro",
+        "sousCategorie": "technologique",
+        "explication": "Une innovation qui impacte le marché : technologique."
+      },
+      {
+        "id": "e10",
+        "texte": "La raréfaction d'une matière première",
+        "categorie": "macro",
+        "sousCategorie": "naturel",
+        "explication": "Ressources naturelles : naturel."
+      },
+      {
+        "id": "e11",
+        "texte": "L'envie croissante de consommer de façon responsable",
+        "categorie": "macro",
+        "sousCategorie": "culturel",
+        "explication": "Des valeurs qui changent les comportements : culturel."
+      }
+    ]
+  },
+  {
+    "id": "cl-env-vinted",
+    "seance": 2,
+    "notion": "macro-environnement",
+    "titre": "L'environnement de Vinted",
+    "consigne": "Vinted est une marketplace de vêtements et d'objets de seconde main entre particuliers. Range chaque élément, puis choisis la bonne composante.",
+    "categories": [
+      {
+        "id": "micro",
+        "label": "Micro-environnement",
+        "aide": "Internes ou proches de l'entreprise"
+      },
+      {
+        "id": "macro",
+        "label": "Macro-environnement",
+        "aide": "Facteurs larges qui touchent aussi d'autres entités"
+      }
+    ],
+    "sousCategories": {
+      "micro": [
+        {
+          "id": "services-internes",
+          "label": "Services internes"
+        },
+        {
+          "id": "clients",
+          "label": "Clients"
+        },
+        {
+          "id": "concurrents",
+          "label": "Concurrents"
+        },
+        {
+          "id": "fournisseurs",
+          "label": "Fournisseurs"
+        },
+        {
+          "id": "groupes-influence",
+          "label": "Groupes d'influence"
+        }
+      ],
+      "macro": [
+        {
+          "id": "demographique",
+          "label": "Démographique"
+        },
+        {
+          "id": "economique",
+          "label": "Économique"
+        },
+        {
+          "id": "politique",
+          "label": "Politique"
+        },
+        {
+          "id": "technologique",
+          "label": "Technologique"
+        },
+        {
+          "id": "naturel",
+          "label": "Naturel"
+        },
+        {
+          "id": "culturel",
+          "label": "Culturel"
+        }
+      ]
+    },
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Les particuliers qui achètent sur l'application",
+        "categorie": "micro",
+        "sousCategorie": "clients",
+        "explication": "Ceux qui achètent : clients."
+      },
+      {
+        "id": "e2",
+        "texte": "Le service client de Vinted",
+        "categorie": "micro",
+        "sousCategorie": "services-internes",
+        "explication": "Un département de l'entreprise : services internes."
+      },
+      {
+        "id": "e3",
+        "texte": "Leboncoin, où l'on peut aussi revendre des objets d'occasion",
+        "categorie": "micro",
+        "sousCategorie": "concurrents",
+        "explication": "Une entreprise positionnée sur le même marché : concurrent."
+      },
+      {
+        "id": "e4",
+        "texte": "Une association de consommateurs qui compare les plateformes",
+        "categorie": "micro",
+        "sousCategorie": "groupes-influence",
+        "explication": "Un groupe de citoyens intéressé par l'activité de l'entreprise : groupe d'influence."
+      },
+      {
+        "id": "e5",
+        "texte": "L'inflation, qui réduit le pouvoir d'achat",
+        "categorie": "macro",
+        "sousCategorie": "economique",
+        "explication": "Conditions économiques qui affectent le pouvoir d'achat : économique."
+      },
+      {
+        "id": "e6",
+        "texte": "Le rejet du gaspillage et de la « fast fashion »",
+        "categorie": "macro",
+        "sousCategorie": "culturel",
+        "explication": "Des valeurs qui changent les comportements : culturel."
+      },
+      {
+        "id": "e7",
+        "texte": "Une nouvelle réglementation européenne sur les plateformes en ligne",
+        "categorie": "macro",
+        "sousCategorie": "politique",
+        "explication": "Une réglementation (internationale) : politique."
+      },
+      {
+        "id": "e8",
+        "texte": "La généralisation du paiement sur smartphone",
+        "categorie": "macro",
+        "sousCategorie": "technologique",
+        "explication": "Une innovation qui impacte le marché : technologique."
+      },
+      {
+        "id": "e9",
+        "texte": "La hausse du prix du coton",
+        "categorie": "macro",
+        "sousCategorie": "naturel",
+        "explication": "Une matière première : naturel. Elle rend les vêtements neufs plus chers."
+      }
+    ]
+  },
+  {
+    "id": "cl-env-backmarket",
+    "seance": 2,
+    "notion": "micro-environnement",
+    "titre": "L'environnement de Back Market",
+    "consigne": "Back Market est une marketplace qui met en relation des vendeurs professionnels d'appareils reconditionnés et des acheteurs. Range chaque élément, puis choisis la bonne composante.",
+    "categories": [
+      {
+        "id": "micro",
+        "label": "Micro-environnement",
+        "aide": "Internes ou proches de l'entreprise"
+      },
+      {
+        "id": "macro",
+        "label": "Macro-environnement",
+        "aide": "Facteurs larges qui touchent aussi d'autres entités"
+      }
+    ],
+    "sousCategories": {
+      "micro": [
+        {
+          "id": "services-internes",
+          "label": "Services internes"
+        },
+        {
+          "id": "clients",
+          "label": "Clients"
+        },
+        {
+          "id": "concurrents",
+          "label": "Concurrents"
+        },
+        {
+          "id": "fournisseurs",
+          "label": "Fournisseurs"
+        },
+        {
+          "id": "groupes-influence",
+          "label": "Groupes d'influence"
+        }
+      ],
+      "macro": [
+        {
+          "id": "demographique",
+          "label": "Démographique"
+        },
+        {
+          "id": "economique",
+          "label": "Économique"
+        },
+        {
+          "id": "politique",
+          "label": "Politique"
+        },
+        {
+          "id": "technologique",
+          "label": "Technologique"
+        },
+        {
+          "id": "naturel",
+          "label": "Naturel"
+        },
+        {
+          "id": "culturel",
+          "label": "Culturel"
+        }
+      ]
+    },
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Les vendeurs professionnels qui reconditionnent les appareils",
+        "categorie": "micro",
+        "sousCategorie": "fournisseurs",
+        "explication": "Ils fournissent les produits proposés sur la plateforme : fournisseurs."
+      },
+      {
+        "id": "e2",
+        "texte": "Les personnes qui achètent un smartphone reconditionné",
+        "categorie": "micro",
+        "sousCategorie": "clients",
+        "explication": "Ceux qui achètent : clients."
+      },
+      {
+        "id": "e3",
+        "texte": "L'équipe qui développe le site et l'application",
+        "categorie": "micro",
+        "sousCategorie": "services-internes",
+        "explication": "Un département de l'entreprise : services internes."
+      },
+      {
+        "id": "e4",
+        "texte": "Un autre site qui vend des smartphones reconditionnés",
+        "categorie": "micro",
+        "sousCategorie": "concurrents",
+        "explication": "Même marché : concurrent."
+      },
+      {
+        "id": "e5",
+        "texte": "Une émission de télévision qui teste les sites de reconditionné",
+        "categorie": "micro",
+        "sousCategorie": "groupes-influence",
+        "explication": "Les médias sont des groupes d'influence."
+      },
+      {
+        "id": "e6",
+        "texte": "La raréfaction des métaux utilisés pour fabriquer les smartphones",
+        "categorie": "macro",
+        "sousCategorie": "naturel",
+        "explication": "Ressources naturelles / matières premières : naturel."
+      },
+      {
+        "id": "e7",
+        "texte": "Une loi qui oblige à afficher la réparabilité des appareils",
+        "categorie": "macro",
+        "sousCategorie": "politique",
+        "explication": "Une loi : politique."
+      },
+      {
+        "id": "e8",
+        "texte": "La sortie de smartphones avec une innovation majeure",
+        "categorie": "macro",
+        "sousCategorie": "technologique",
+        "explication": "Une innovation qui impacte le marché : technologique."
+      },
+      {
+        "id": "e9",
+        "texte": "La baisse du pouvoir d'achat des étudiants",
+        "categorie": "macro",
+        "sousCategorie": "economique",
+        "explication": "Conditions économiques qui affectent le pouvoir d'achat : économique."
+      }
+    ]
+  },
+  {
+    "id": "cl-env-lait",
+    "seance": 2,
+    "notion": "macro-environnement",
+    "titre": "L'environnement d'une marque de lait",
+    "consigne": "Tu es une marque de lait comme « C'est qui le patron ?! ». Range chaque élément, puis choisis la bonne composante.",
+    "categories": [
+      {
+        "id": "micro",
+        "label": "Micro-environnement",
+        "aide": "Internes ou proches de l'entreprise"
+      },
+      {
+        "id": "macro",
+        "label": "Macro-environnement",
+        "aide": "Facteurs larges qui touchent aussi d'autres entités"
+      }
+    ],
+    "sousCategories": {
+      "micro": [
+        {
+          "id": "services-internes",
+          "label": "Services internes"
+        },
+        {
+          "id": "clients",
+          "label": "Clients"
+        },
+        {
+          "id": "concurrents",
+          "label": "Concurrents"
+        },
+        {
+          "id": "fournisseurs",
+          "label": "Fournisseurs"
+        },
+        {
+          "id": "groupes-influence",
+          "label": "Groupes d'influence"
+        }
+      ],
+      "macro": [
+        {
+          "id": "demographique",
+          "label": "Démographique"
+        },
+        {
+          "id": "economique",
+          "label": "Économique"
+        },
+        {
+          "id": "politique",
+          "label": "Politique"
+        },
+        {
+          "id": "technologique",
+          "label": "Technologique"
+        },
+        {
+          "id": "naturel",
+          "label": "Naturel"
+        },
+        {
+          "id": "culturel",
+          "label": "Culturel"
+        }
+      ]
+    },
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Les producteurs de lait",
+        "categorie": "micro",
+        "sousCategorie": "fournisseurs",
+        "explication": "Ils fournissent la ressource nécessaire (le lait) : fournisseurs."
+      },
+      {
+        "id": "e2",
+        "texte": "Les consommateurs qui votent pour les produits",
+        "categorie": "micro",
+        "sousCategorie": "clients",
+        "explication": "Ceux qui achètent, avec leurs attentes : clients."
+      },
+      {
+        "id": "e3",
+        "texte": "Les autres marques de lait du rayon",
+        "categorie": "micro",
+        "sousCategorie": "concurrents",
+        "explication": "Même marché : concurrents."
+      },
+      {
+        "id": "e4",
+        "texte": "Le service des achats",
+        "categorie": "micro",
+        "sousCategorie": "services-internes",
+        "explication": "Un département de l'entreprise : services internes."
+      },
+      {
+        "id": "e5",
+        "texte": "Un groupe de citoyens qui défend les agriculteurs",
+        "categorie": "micro",
+        "sousCategorie": "groupes-influence",
+        "explication": "Un groupe qui a un intérêt lié aux activités de l'entreprise : groupe d'influence."
+      },
+      {
+        "id": "e6",
+        "texte": "Une sécheresse qui réduit la production de lait",
+        "categorie": "macro",
+        "sousCategorie": "naturel",
+        "explication": "Des conditions environnementales qui affectent les opérations : naturel."
+      },
+      {
+        "id": "e7",
+        "texte": "La baisse du pouvoir d'achat des ménages",
+        "categorie": "macro",
+        "sousCategorie": "economique",
+        "explication": "Économique."
+      },
+      {
+        "id": "e8",
+        "texte": "Une nouvelle règle d'étiquetage de l'origine des produits",
+        "categorie": "macro",
+        "sousCategorie": "politique",
+        "explication": "Une réglementation : politique."
+      },
+      {
+        "id": "e9",
+        "texte": "Le succès croissant des boissons végétales",
+        "categorie": "macro",
+        "sousCategorie": "culturel",
+        "explication": "Une évolution des préférences et des comportements de la société : culturel."
+      }
+    ]
+  }
+]

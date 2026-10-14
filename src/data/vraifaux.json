@@ -1,0 +1,101 @@
+[
+  {
+    "id": "vf-01",
+    "seance": 1,
+    "notion": "definition-marketing",
+    "affirmation": "Le marketing, c'est de la vente.",
+    "reponse": "faux",
+    "verdict": "Plutôt faux",
+    "argument": "La vente n'est qu'une partie de la diffusion des offres. Selon l'AFM, le marketing est « une conception des échanges et un ensemble de pratiques » : il commence bien avant la vente, par l'étude des publics et de leurs besoins, puis la création des offres."
+  },
+  {
+    "id": "vf-02",
+    "seance": 1,
+    "notion": "definition-marketing",
+    "affirmation": "Le marketing, c'est de la manipulation.",
+    "reponse": "faux",
+    "verdict": "Plutôt faux",
+    "argument": "Certaines pratiques peuvent être critiquées, et la recherche en marketing étudie justement leurs conséquences négatives. Mais selon la définition AFM, le marketing vise à créer de la valeur durable pour l'ensemble des parties prenantes, y compris les consommateurs. Manipuler ses clients ne crée pas de valeur durable."
+  },
+  {
+    "id": "vf-03",
+    "seance": 1,
+    "notion": "acteurs-canaux",
+    "affirmation": "Le marketing, c'est de la publicité.",
+    "reponse": "faux",
+    "verdict": "Plutôt faux",
+    "argument": "La publicité n'est qu'un canal parmi d'autres (affichage, publicité en ligne…), qui sert à diffuser les offres. Le marketing comprend aussi l'étude des besoins des publics et la création des offres de produits, services et expériences."
+  },
+  {
+    "id": "vf-04",
+    "seance": 1,
+    "notion": "besoins-offres",
+    "affirmation": "Le marketing pousse à acheter des choses inutiles.",
+    "reponse": "faux",
+    "verdict": "Plutôt faux (à nuancer)",
+    "argument": "Ça peut arriver, et la recherche en marketing étudie ces effets négatifs. Mais dans le cours, le marketing part des besoins, désirs et demandes exprimés par les individus, auxquels il répond par des offres. Ex. : « C'est qui le patron ?! » répond au besoin de consommer des produits laitiers respectueux des producteurs."
+  },
+  {
+    "id": "vf-05",
+    "seance": 1,
+    "notion": "acteurs-canaux",
+    "affirmation": "Le marketing, c'est uniquement pour les grandes entreprises.",
+    "reponse": "faux",
+    "verdict": "Faux",
+    "argument": "De nombreux acteurs font du marketing : les entreprises, mais aussi les associations (Greenpeace, Croix-Rouge française, Restos du Cœur), les individus (influenceurs, sportifs) et les organisations. Et la diffusion peut être non marchande."
+  },
+  {
+    "id": "vf-06",
+    "seance": 1,
+    "notion": "recherche-marketing",
+    "affirmation": "Le marketing influence nos choix sans qu'on le sache.",
+    "reponse": "nuance",
+    "verdict": "En partie vrai : à nuancer",
+    "argument": "Le marketing cherche bien à influencer les choix, et on n'en a pas toujours conscience. C'est pour ça que la recherche en marketing étudie les phénomènes de consommation et les conséquences, positives et négatives, des pratiques marketing sur la société. Connaître ces pratiques aide aussi à mieux les repérer."
+  },
+  {
+    "id": "vf-07",
+    "seance": 1,
+    "notion": "besoins-offres",
+    "affirmation": "Le marketing, c'est créer des besoins qui n'existent pas.",
+    "reponse": "faux",
+    "verdict": "Plutôt faux",
+    "argument": "Dans le cours, ce sont les individus qui expriment des besoins, des désirs, des demandes, et les offres y répondent. Le 1er objectif du marketing management est d'ailleurs d'étudier les besoins, désirs et aspirations des publics. Le marketing peut faire naître une envie pour un produit précis, mais le besoin de fond (se nourrir, se déplacer, communiquer…) existe déjà."
+  },
+  {
+    "id": "vf-08",
+    "seance": 1,
+    "notion": "definition-marketing",
+    "affirmation": "Le marketing et la consommation responsable, c'est incompatible.",
+    "reponse": "faux",
+    "verdict": "Faux",
+    "argument": "La définition AFM parle de « valeur durable pour l'ensemble des parties prenantes ». Ex. : « C'est qui le patron ?! » utilise le marketing pour garantir une juste rémunération des producteurs. Et des marketplaces comme Vinted ou Back Market s'appuient sur la seconde main et le reconditionné."
+  },
+  {
+    "id": "vf-09",
+    "seance": 1,
+    "notion": "definition-marketing",
+    "affirmation": "Le marketing, ce n'est que du business.",
+    "reponse": "faux",
+    "verdict": "Plutôt faux",
+    "argument": "La diffusion des offres peut se faire dans un mode marchand ou non marchand. Les associations (Restos du Cœur, Croix-Rouge française…) font aussi du marketing. Et la définition AFM vise la valeur pour l'ensemble des parties prenantes, pas seulement le profit de l'entreprise."
+  },
+  {
+    "id": "vf-10",
+    "seance": 1,
+    "notion": "acteurs-canaux",
+    "affirmation": "Le marketing, c'est juste publier sur Instagram.",
+    "reponse": "faux",
+    "verdict": "Faux",
+    "argument": "Les médias sociaux sont un canal parmi beaucoup d'autres : au sein des entreprises, dans les agences, en supermarché, sur les marchés, par l'affichage, le courrier promotionnel, les sites web, la publicité en ligne. Et avant de diffuser, il faut étudier les publics et créer les offres."
+  },
+  {
+    "id": "vf-11",
+    "seance": 1,
+    "notion": "definition-marketing",
+    "affirmation": "Le marketing existe depuis 3 000 ans.",
+    "reponse": "nuance",
+    "verdict": "Plutôt vrai, si on parle des pratiques",
+    "argument": "Le marketing est « une conception des échanges et un ensemble de pratiques » : des pratiques comme vendre sur un marché, mettre en avant sa marchandise ou attirer les clients existent depuis l'Antiquité. En revanche, le mot « marketing » et la discipline organisée telle qu'on l'étudie sont beaucoup plus récents."
+  }
+]
