@@ -1,0 +1,190 @@
+// Types partagés par tout le site.
+
+export type Seance = 1 | 2
+export type FiltreSeance = 'toutes' | '1' | '2'
+
+export type NotionId =
+  | 'definition-marketing'
+  | 'marketing-management'
+  | 'recherche-marketing'
+  | 'besoins-offres'
+  | 'types-de-marche'
+  | 'acteurs-canaux'
+  | 'taux-evolution'
+  | 'part-de-marche'
+  | 'micro-environnement'
+  | 'macro-environnement'
+
+export interface Notion {
+  id: NotionId
+  titre: string
+  seance: Seance
+}
+
+// ---------- Contenu pédagogique (fichiers JSON de src/data) ----------
+
+export interface Flashcard {
+  id: string
+  seance: Seance
+  notion: NotionId
+  recto: string
+  verso: string
+  exemple: string
+}
+
+export interface QuestionQcm {
+  id: string
+  seance: Seance
+  notion: NotionId
+  question: string
+  /** Les propositions, dans l'ordre d'écriture (elles sont mélangées à l'affichage). */
+  choix: { texte: string; correct: boolean; pourquoi: string }[]
+  /** true = « plusieurs réponses possibles » (affiché clairement à l'étudiant). */
+  multiple?: boolean
+  explication: string
+}
+
+export interface CategorieClassement {
+  id: string
+  label: string
+  aide?: string
+}
+
+export interface ElementClassement {
+  id: string
+  texte: string
+  /** id de la catégorie attendue (étape 1). */
+  categorie: string
+  /** id de la sous-catégorie attendue (étape 2, seulement pour l'environnement). */
+  sousCategorie?: string
+  explication: string
+}
+
+export interface ExerciceClassement {
+  id: string
+  seance: Seance
+  notion: NotionId
+  titre: string
+  consigne: string
+  categories: CategorieClassement[]
+  /** Sous-catégories, rangées par catégorie (ex. : macro → démographique, économique…). */
+  sousCategories?: Record<string, CategorieClassement[]>
+  elements: ElementClassement[]
+}
+
+export interface VraiFaux {
+  id: string
+  seance: Seance
+  notion: NotionId
+  affirmation: string
+  /** "nuance" : les deux réponses se défendent, l'important est l'argument. */
+  reponse: 'vrai' | 'faux' | 'nuance'
+  verdict: string
+  argument: string
+}
+
+export interface QuestionCas {
+  question: string
+  aide?: string
+  corrige: string
+}
+
+export interface CasPratique {
+  id: string
+  seance: Seance
+  notions: NotionId[]
+  titre: string
+  type: 'court' | '6-etapes'
+  duree: string
+  enonce: string
+  questions: QuestionCas[]
+}
+
+export interface QuestionDonneesCours {
+  id: string
+  notion: NotionId
+  question: string
+  reponse: number
+  unite: string
+  calcul: string[]
+  source: string
+}
+
+// ---------- Progression de l'étudiant ----------
+
+export type TypeTentative = 'flashcard' | 'qcm' | 'exercice' | 'cas'
+
+export interface Tentative {
+  itemId: string
+  type: TypeTentative
+  notion: NotionId
+  seance: Seance
+  correct: boolean
+  /** Date ISO complète. */
+  le: string
+}
+
+export interface RevisionCarte {
+  boite: 1 | 2 | 3 | 4 | 5
+  /** Date "AAAA-MM-JJ" à partir de laquelle la carte est à revoir. */
+  prochaine: string
+  derniere: string | null
+  nbRevisions: number
+  nbEchecs: number
+}
+
+export type TypeSession = 'pomodoro' | 'guidee' | 'libre'
+
+export interface SessionEtude {
+  id: string
+  debut: string
+  dureeMinutes: number
+  type: TypeSession
+  xp: number
+}
+
+export interface Preferences {
+  son: boolean
+  notifications: boolean
+  travail: number
+  pause: number
+  pauseLongue: number
+}
+
+export interface Profil {
+  prenom: string
+  pseudo: string
+  objectifHebdo: 3 | 5 | 7
+  dateQcm: string | null
+  apparaitClassement: boolean
+  preferences: Preferences
+}
+
+export interface Stats {
+  xpTotal: number
+  serieActuelle: number
+  meilleureSerie: number
+  /** Clé de la semaine (lundi "AAAA-MM-JJ") où le joker a été utilisé. */
+  jokerSemaine: string | null
+  /** Dernier jour "AAAA-MM-JJ" qui a compté pour la série. */
+  derniereActivite: string | null
+  /** XP gagnés pendant la semaine en cours (pour le classement). */
+  xpSemaine: number
+  semaineCle: string | null
+}
+
+export interface Progression {
+  version: 1
+  /** Date ISO de la dernière modification (sert à fusionner avec Supabase). */
+  majLe: string
+  onboardingFait: boolean
+  profil: Profil
+  cartes: Record<string, RevisionCarte>
+  tentatives: Tentative[]
+  sessions: SessionEtude[]
+  stats: Stats
+  /** badgeId → date ISO d'obtention. */
+  badges: Record<string, string>
+  /** Minutes de révision par jour ("AAAA-MM-JJ" → minutes). */
+  minutesParJour: Record<string, number>
+}
