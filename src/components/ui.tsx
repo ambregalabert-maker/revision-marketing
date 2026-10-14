@@ -80,7 +80,7 @@ export function Etiquette({ children, ton = 'bleu' }: { children: ReactNode; ton
     orange: 'bg-orange-100 text-orange-700',
     neutre: 'bg-surface-2 text-muted',
   }[ton]
-  return <span className={`inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-sm font-bold ${cls}`}>{children}</span>
+  return <span className={`inline-flex items-center gap-1 shrink-0 whitespace-nowrap rounded-full px-2.5 py-0.5 text-sm font-bold ${cls}`}>{children}</span>
 }
 
 /** Onglets simples (boutons radio visuels). */
