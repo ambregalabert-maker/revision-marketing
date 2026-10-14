@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { vraiFaux } from '../../lib/contenu'
+import { vraiFaux as tousLesVraiFaux } from '../../lib/contenu'
+import type { VraiFaux } from '../../lib/types'
 import { XP } from '../../lib/gamification'
 import { useProgression } from '../../state/progression'
 import { Barre, Correction, EcranFin, PuceXp } from '../ui'
@@ -9,7 +10,8 @@ import Icone from '../Icone'
  * Le « Vrai / Faux du marketing » (les clichés de la séance 1).
  * Tu choisis, puis tu lis l'argument nuancé, construit à partir de la définition de l'AFM.
  */
-export default function VraiFauxEx() {
+export default function VraiFauxEx({ items, onTermine }: { items?: VraiFaux[]; onTermine?: () => void } = {}) {
+  const vraiFaux = items ?? tousLesVraiFaux
   const { repondre, p } = useProgression()
   const [index, setIndex] = useState(0)
   const [choix, setChoix] = useState<'vrai' | 'faux' | null>(null)
@@ -30,7 +32,10 @@ export default function VraiFauxEx() {
   }
 
   const suivant = () => {
-    if (index + 1 >= vraiFaux.length) return setFini(true)
+    if (index + 1 >= vraiFaux.length) {
+      if (onTermine) return onTermine()
+      return setFini(true)
+    }
     setIndex(index + 1)
     setChoix(null)
     setGain(0)
@@ -56,7 +61,7 @@ export default function VraiFauxEx() {
         </span>
         <Barre valeur={index + (choix ? 1 : 0)} max={vraiFaux.length} label="Avancement du vrai/faux" />
       </div>
-      <p className="text-sm text-muted">Clichés déjà travaillés : {dejaFaits} / {vraiFaux.length}</p>
+      {!items && <p className="text-sm text-muted">Clichés déjà travaillés : {dejaFaits} / {vraiFaux.length}</p>}
 
       <div className="carte p-6 text-center">
         <p className="text-sm font-bold text-blue-700 mb-2">Vrai ou faux ?</p>

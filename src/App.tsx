@@ -6,6 +6,8 @@ import Reviser from './pages/Reviser'
 import Flashcards from './pages/Flashcards'
 import Qcm from './pages/Qcm'
 import Exercices from './pages/Exercices'
+import Seance from './pages/Seance'
+import Celebrations from './components/Celebrations'
 import Profil from './pages/Profil'
 import Classement from './pages/Classement'
 import Connexion from './pages/Connexion'
@@ -23,12 +25,14 @@ export default function App() {
           <Route path="reviser/flashcards" element={<Flashcards />} />
           <Route path="reviser/qcm" element={<Qcm />} />
           <Route path="reviser/exercices" element={<Exercices />} />
+          <Route path="reviser/seance" element={<Seance />} />
           <Route path="profil" element={<Profil />} />
           <Route path="classement" element={<Classement />} />
           <Route path="connexion" element={<Connexion />} />
           <Route path="*" element={<Introuvable />} />
         </Route>
       </Routes>
+      <Celebrations />
     </BrowserRouter>
   )
 }

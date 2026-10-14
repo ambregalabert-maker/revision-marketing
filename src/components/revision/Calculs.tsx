@@ -59,10 +59,10 @@ function GraphiqueEaux() {
  * Exercices de calcul : données aléatoires (illimitées) ou données réelles du cours.
  * Tolérance d'arrondi de ±0,1 point, correction pas à pas.
  */
-export default function Calculs({ onReussi }: { onReussi?: () => void }) {
+export default function Calculs({ onVerifie, genreInitial = 'tous' }: { onVerifie?: (juste: boolean) => void; genreInitial?: GenreCalcul } = {}) {
   const { repondre } = useProgression()
-  const [source, setSource] = useState<GenreCalcul | 'cours'>('tous')
-  const [exo, setExo] = useState<ExerciceCalcul>(() => genererCalcul('tous'))
+  const [source, setSource] = useState<GenreCalcul | 'cours'>(genreInitial)
+  const [exo, setExo] = useState<ExerciceCalcul>(() => genererCalcul(genreInitial))
   const [indexCours, setIndexCours] = useState(0)
   const [saisie, setSaisie] = useState('')
   const [verdict, setVerdict] = useState<{ juste: boolean; xp: number } | null>(null)
@@ -97,7 +97,7 @@ export default function Calculs({ onReussi }: { onReussi?: () => void }) {
     const xp = repondre({ itemId: exo.id, type: 'exercice', notion: exo.notion, seance: 1, correct: juste }, XP.exerciceReussi)
     setSuite((s) => (juste ? s + 1 : 0))
     setVerdict({ juste, xp })
-    if (juste) onReussi?.()
+    onVerifie?.(juste)
   }
 
   const suivant = () => {
@@ -108,6 +108,7 @@ export default function Calculs({ onReussi }: { onReussi?: () => void }) {
 
   return (
     <div className="flex flex-col gap-4">
+      {!onVerifie && (
       <Onglets
         label="Type de calcul"
         valeur={source}
@@ -119,6 +120,7 @@ export default function Calculs({ onReussi }: { onReussi?: () => void }) {
           { id: 'cours', label: 'Données du cours' },
         ]}
       />
+      )}
 
       <div className="carte p-5 flex flex-col gap-4">
         {source === 'cours' && exo.notion === 'part-de-marche' && <GraphiqueEaux />}
@@ -177,7 +179,7 @@ export default function Calculs({ onReussi }: { onReussi?: () => void }) {
           )}
         </div>
 
-        {verdict && (
+        {verdict && !onVerifie && (
           <button type="button" className="btn btn-orange" onClick={suivant}>
             {source === 'cours' ? 'Question suivante' : 'Nouveau calcul'} <Icone nom="suivant" />
           </button>
