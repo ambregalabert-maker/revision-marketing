@@ -172,7 +172,15 @@ export default function Chemin() {
             {/* Les ronds, dans l'ordre du cours (liste ordonnée pour les lecteurs d'écran) */}
             <ol>
               {plan.points.map((pt) => (
-                <Rond key={pt.etape.id} point={pt} ici={pt.etape.id === ici} taille={plan.t} galaxie={monde === 'galaxie'} />
+                <Rond
+                  key={pt.etape.id}
+                  point={pt}
+                  ici={pt.etape.id === ici}
+                  taille={plan.t}
+                  galaxie={monde === 'galaxie'}
+                  // Avec un compagnon, c'est lui qui dit « C'est ici ! » ; sinon une bulle à côté du rond.
+                  bulle={p.boutique.compagnon ? null : pt.x > largeur / 2 ? 'gauche' : 'droite'}
+                />
               ))}
             </ol>
 
@@ -186,7 +194,7 @@ export default function Chemin() {
 
 type Tailles = ReturnType<typeof dessiner>['t']
 
-function Rond({ point, ici, taille, galaxie }: { point: Point; ici: boolean; taille: Tailles; galaxie: boolean }) {
+function Rond({ point, ici, taille, galaxie, bulle }: { point: Point; ici: boolean; taille: Tailles; galaxie: boolean; bulle: 'gauche' | 'droite' | null }) {
   const { p } = useProgression()
   const { etape, x, y } = point
   const etat = p.chemin[etape.id]
@@ -225,11 +233,11 @@ function Rond({ point, ici, taille, galaxie }: { point: Point; ici: boolean; tai
       : `${etoiles} étoile${etoiles > 1 ? 's' : ''} sur 3${etoiles < 3 && prochaine ? (dispo ? ', une étoile à gagner aujourd’hui' : `, prochaine étoile ${formatDans(prochaine)}`) : ''}`
 
   return (
-    <li className="absolute flex flex-col items-center" style={{ left: x - taille.colonne / 2, top: y - n / 2, width: taille.colonne }}>
-      {ici && (
+    <li className="absolute z-[2] flex flex-col items-center" style={{ left: x - taille.colonne / 2, top: y - n / 2, width: taille.colonne }}>
+      {ici && bulle && (
         <span
           className="rebond absolute px-3 py-1 rounded-xl bg-surface border-2 border-accent-500 font-extrabold text-accent-700 shadow-carte whitespace-nowrap"
-          style={{ top: taille.grand ? -48 : -40, fontSize: taille.grand ? 16 : 14 }}
+          style={{ top: n / 2 - 18, fontSize: taille.grand ? 16 : 14, [bulle === 'droite' ? 'left' : 'right']: taille.colonne / 2 + n / 2 + 12 }}
           aria-hidden
         >
           C'est ici !
@@ -309,14 +317,13 @@ function CompagnonDuChemin({ ici, points, t, largeur }: { ici: string; points: P
 
   const pt = points.find((x) => x.etape.id === pos) ?? points[0]
   const c = t.compagnon
-  const aGauche = pt.x > largeur / 2
-  const gauche = Math.max(4, Math.min(largeur - c - 4, aGauche ? pt.x - t.rond / 2 - 14 - c : pt.x + t.rond / 2 + 14))
-  const phrase = endormi ? 'Zzz… on révise ?' : ['On y va ? ✨', 'Allez, 3 minutes !', 'Je t’attends !'][new Date().getDate() % 3]
+  const { gauche, haut } = placeLibre(pt, points, t, largeur)
+  const phrase = endormi ? 'Zzz… on révise ?' : ['C’est ici ! On y va ? ✨', 'C’est ici ! 3 minutes ?', 'C’est ici, je t’attends !'][new Date().getDate() % 3]
 
   return (
     <div
-      className="absolute flex flex-col items-center pointer-events-none"
-      style={{ left: gauche, top: pt.y - c / 2 - 18, width: c, transition: 'left 1.1s ease-in-out, top 1.1s ease-in-out' }}
+      className="absolute z-[1] flex flex-col items-center pointer-events-none"
+      style={{ left: gauche, top: haut, width: c, transition: 'left 1.1s ease-in-out, top 1.1s ease-in-out' }}
       aria-hidden
     >
       <span
@@ -330,6 +337,42 @@ function CompagnonDuChemin({ ici, points, t, largeur }: { ici: string; points: P
       </div>
     </div>
   )
+}
+
+type Boite = { g: number; h: number; d: number; b: number }
+const chevauchement = (a: Boite, z: Boite) => Math.max(0, Math.min(a.d, z.d) - Math.max(a.g, z.g)) * Math.max(0, Math.min(a.b, z.b) - Math.max(a.h, z.h))
+
+/** Cherche, à côté du rond, la place où le compagnon (et sa bulle) ne cache ni un rond ni le nom d'une notion. */
+function placeLibre(pt: Point, points: Point[], t: Tailles, largeur: number) {
+  const c = t.compagnon
+  const bulle = t.grand ? 230 : 180
+  const largeurBoite = Math.max(c, bulle)
+  const hauteurBoite = c + (t.grand ? 30 : 26)
+  const lettre = t.grand ? 8.6 : 7.6
+  const ligne = t.grand ? 21 : 18
+  // Ce qu'il ne faut pas cacher : les ronds, leur nom, leurs étoiles et la bulle « C'est ici ! ».
+  const obstacles: Boite[] = []
+  for (const q of points) {
+    if (Math.abs(q.y - pt.y) > t.pas * 2) continue
+    const r = t.rond / 2
+    obstacles.push({ g: q.x - r - 6, d: q.x + r + 6, h: q.y - r - 6, b: q.y + r + 10 })
+    const texte = q.etape.titre.length * lettre
+    const lignes = Math.ceil(texte / (t.colonne - 16))
+    const l = Math.min(t.colonne, texte + 16)
+    obstacles.push({ g: q.x - l / 2, d: q.x + l / 2, h: q.y + r + 8, b: q.y + r + 14 + lignes * ligne + (t.grand ? 26 : 22) })
+  }
+  let meilleur = { gauche: 0, haut: 0, score: Infinity }
+  for (const cote of [pt.x > largeur / 2 ? -1 : 1, pt.x > largeur / 2 ? 1 : -1]) {
+    for (const dy of [0, 20, -20, 40, -40, 60, 80, -60]) {
+      const centre = cote < 0 ? pt.x - t.rond / 2 - 12 - c / 2 : pt.x + t.rond / 2 + 12 + c / 2
+      const gB = Math.max(2, Math.min(largeur - largeurBoite - 2, centre - largeurBoite / 2))
+      const haut = pt.y - c / 2 - 18 + dy
+      const boite = { g: gB, d: gB + largeurBoite, h: haut, b: haut + hauteurBoite }
+      const score = obstacles.reduce((s, o) => s + chevauchement(boite, o), 0) + Math.abs(dy) * 2 + (cote === (pt.x > largeur / 2 ? -1 : 1) ? 0 : 30)
+      if (score < meilleur.score) meilleur = { gauche: gB + (largeurBoite - c) / 2, haut, score }
+    }
+  }
+  return meilleur
 }
 
 /** L'étoile part du rond et vole jusqu'au compteur ⭐, qui fait « boing ». */
