@@ -1,112 +1,233 @@
 {
   "accroche": "Le cours donne les notions. L'entraînement donne les notes.",
-  "sections": [
+  "stories": [
     {
-      "id": "diagnostic",
-      "titre": "Le diagnostic : pourquoi relire ne suffit pas",
-      "intro": "Le cours et l'examen ne demandent pas la même chose. Entre les deux, il manque le travail personnel : s'entraîner, appliquer, se corriger.",
-      "tableau": {
-        "colonnes": ["Ce que le cours te donne", "Ce que l'examen te demande"],
-        "lignes": [
-          ["Des notions et des outils", "Choisir les bons outils face à un cas"],
-          ["Des exemples déjà résolus par le prof", "Résoudre seul un cas jamais vu"],
-          ["Aucun exercice corrigé", "Être déjà entraîné au cas pratique"],
-          ["Un contenu à écouter et à noter", "Argumenter et justifier tes choix"],
-          ["Aucune méthode pour réviser", "Être prêt le jour J, sans stress"]
-        ]
-      },
+      "emoji": "🎯",
+      "fond": "accent",
+      "titre": "Pourquoi relire ne suffit pas",
+      "texte": "Quand tu relis, tu reconnais le cours… et tu crois le savoir. Mais l'examen te demande autre chose.",
       "points": [
-        "Quand tu relis, tu reconnais le cours, donc tu crois le maîtriser. Mais reconnaître n'est pas savoir appliquer.",
-        "Tout réviser la veille, seul, c'est beaucoup d'heures, aucun retour sur tes erreurs et beaucoup de stress."
-      ]
-    },
-    {
-      "id": "techniques",
-      "titre": "3 techniques pour réviser mieux, pas plus",
-      "cartes": [
-        {
-          "titre": "L'autotest",
-          "texte": "Teste-toi au lieu de relire. Chercher la réponse dans ta mémoire, c'est ce qui la fixe.",
-          "marketing": "Des flashcards : la notion au recto, la définition et un exemple de marque au verso.",
-          "lien": { "label": "Ouvrir les flashcards", "to": "/reviser/flashcards" }
-        },
-        {
-          "titre": "La répétition espacée",
-          "texte": "Revois une notion à J+1, J+7 puis J+30. Ce que tu rates revient plus tôt, ce que tu sais revient plus tard.",
-          "marketing": "Ici, le site programme tes flashcards pour toi (boîtes de Leitner) : il te suffit d'ouvrir ta séance du jour.",
-          "lien": { "label": "Voir mes cartes du jour", "to": "/reviser/flashcards" }
-        },
-        {
-          "titre": "Les séances courtes",
-          "texte": "25 minutes concentré, 5 minutes de pause, téléphone dans une autre pièce (ou en mode avion si tu révises dessus).",
-          "marketing": "1 séance = 1 notion appliquée à 1 marque.",
-          "lien": { "label": "Lancer une séance de 25 min", "to": "/reviser/seance" }
-        }
-      ]
-    },
-    {
-      "id": "semaine",
-      "titre": "Ta semaine type : 1 h 30, en petites séances",
-      "intro": "1 h 30 par semaine, en petites séances, au lieu d'une nuit entière la veille de l'examen.",
-      "semaine": [
-        { "quand": "Le soir du cours", "duree": "25 min", "quoi": "Résumé en 3 lignes + flashcards", "lien": { "label": "Flashcards", "to": "/reviser/flashcards" } },
-        { "quand": "Le lendemain", "duree": "25 min", "quoi": "Un mini-exo sur une vraie marque", "lien": { "label": "Exercices", "to": "/reviser/exercices" } },
-        { "quand": "En milieu de semaine", "duree": "10 min", "quoi": "Revoir tes flashcards", "lien": { "label": "Cartes du jour", "to": "/reviser/flashcards" } },
-        { "quand": "En fin de semaine", "duree": "30 min", "quoi": "Quiz entre pairs, en groupe (ou un QCM ici pour t'échauffer)", "lien": { "label": "QCM", "to": "/reviser/qcm" } },
-        { "quand": "Toutes les 3 semaines", "duree": "45 min", "quoi": "Un cas complet chronométré", "lien": { "label": "Cas pratiques", "to": "/reviser/exercices?onglet=cas" } }
-      ]
-    },
-    {
-      "id": "fabriquer",
-      "titre": "Fabrique tes propres exercices",
-      "intro": "Pas assez d'exercices ? Tu en as partout autour de toi.",
-      "liste": [
-        { "titre": "L'actualité des marques", "texte": "Un lancement, une pub, un bad buzz : c'est un mini-cas tout prêt." },
-        { "titre": "Les marques de ton quotidien", "texte": "Ton café, tes baskets, ton abonnement : applique-leur la notion du jour (ex. : trouve leurs 4 marchés)." },
-        { "titre": "Les exemples du cours", "texte": "Reprends un exemple du prof et change la marque ou la situation." },
-        { "titre": "Les annales", "texte": "Demande au prof ou aux 2e année s'il existe d'anciens sujets." },
-        { "titre": "Une IA, comme générateur de cas", "texte": "Elle invente un cas fictif, tu le résous toi-même, puis tu vérifies avec le cours. Ne lui demande pas la réponse avant d'avoir cherché !" }
-      ]
-    },
-    {
-      "id": "pairs",
-      "titre": "Le quiz entre pairs en 5 temps",
-      "intro": "Pas de corrigé ? Le groupe corrige. Créer une question oblige à comprendre. Expliquer à quelqu'un, c'est apprendre deux fois.",
-      "etapes": [
-        { "titre": "Préparer", "texte": "3 questions + 1 mini-cas, avec ta propre correction." },
-        { "titre": "Échanger", "texte": "Personne ne traite son propre sujet." },
-        { "titre": "Répondre", "texte": "15 minutes, seul, sans le cours." },
-        { "titre": "Corriger", "texte": "L'auteur corrige et explique ; on peut contester avec le cours." },
-        { "titre": "Noter", "texte": "Chaque erreur va dans ta liste « à revoir »." }
-      ]
-    },
-    {
-      "id": "motivation",
-      "titre": "Rester motivé·e",
-      "liste": [
-        { "titre": "Un petit objectif par semaine", "texte": "3, 5 ou 7 séances : choisis un objectif tenable, tu peux le changer dans ton profil." },
-        { "titre": "Ne casse jamais ta série deux jours de suite", "texte": "Un jour raté, ça arrive (et tu as un joker par semaine). Deux jours, c'est le début d'une habitude perdue." },
-        { "titre": "Révise à plusieurs", "texte": "Le quiz entre pairs rend les révisions plus vivantes et plus efficaces." },
-        { "titre": "Pas envie ? Commence par 5 minutes", "texte": "Ouvre tes flashcards pour 5 minutes seulement. Le plus dur, c'est de commencer." },
-        { "titre": "Célèbre tes progrès", "texte": "Chaque notion qui passe au vert sur ton tableau de bord est une vraie victoire." }
-      ]
-    },
-    {
-      "id": "pieges",
-      "titre": "Spécial chapitre 1 : les pièges classiques",
-      "pieges": [
-        { "piege": "Confondre marché générique et marché principal", "parade": "Générique = un besoin (souvent un verbe : « consommer des produits laitiers »). Principal = le produit (« lait pasteurisé »)." },
-        { "piege": "Confondre substitution et complémentaire", "parade": "Substitution = « à la place de » (lait d'avoine au lieu du lait). Complémentaire = « avec » (céréales avec le lait)." },
-        { "piege": "Oublier le × 100", "parade": "0,25 n'est pas une part de marché de 0,25 % : c'est 25 %. Un taux ou une part s'exprime en %." },
-        { "piege": "Diviser par N au lieu de N-1 dans le taux d'évolution", "parade": "On divise toujours par l'année de départ : (N − N-1) / N-1 × 100." },
-        { "piege": "Ranger les concurrents ou les fournisseurs dans le macro-environnement", "parade": "Concurrents et fournisseurs sont des acteurs proches de l'entreprise : micro-environnement." }
+        "Choisir les bons outils face à un cas",
+        "Résoudre seul·e un cas jamais vu",
+        "Argumenter et justifier tes choix"
       ],
-      "lien": { "label": "M'entraîner sur ces pièges", "to": "/reviser/qcm" }
+      "chute": "Entre les deux : s'entraîner, appliquer, se corriger."
+    },
+    {
+      "emoji": "🧠",
+      "fond": "bleu",
+      "titre": "Technique 1 · L'autotest",
+      "texte": "Teste-toi au lieu de relire. Chercher la réponse dans ta mémoire, même quand tu te trompes, c'est ce qui la fixe.",
+      "points": ["En marketing : des flashcards, la notion au recto, la définition et un exemple de marque au verso."],
+      "lien": { "label": "Ouvrir les flashcards", "to": "/reviser/flashcards" }
+    },
+    {
+      "emoji": "📆",
+      "fond": "or",
+      "titre": "Technique 2 · La répétition espacée",
+      "texte": "Revois une notion à J+1, J+7 puis J+30. Ce que tu rates revient plus tôt, ce que tu sais revient plus tard.",
+      "points": ["Mark'Up s'en charge pour toi : c'est le principe des étoiles du chemin et des flashcards du jour."],
+      "lien": { "label": "Voir mon chemin", "to": "/" }
+    },
+    {
+      "emoji": "⏱️",
+      "fond": "rose",
+      "titre": "Technique 3 · Les séances courtes",
+      "texte": "25 minutes concentré·e, 5 minutes de pause, téléphone dans une autre pièce (ou en mode avion).",
+      "points": ["En marketing : 1 séance = 1 notion appliquée à 1 marque."],
+      "lien": { "label": "Lancer une séance Tryhard", "to": "/reviser/seance" }
+    },
+    {
+      "emoji": "🛠️",
+      "fond": "bleu",
+      "titre": "Fabrique tes propres exercices",
+      "texte": "Pas assez d'exercices ? Il y en a partout autour de toi.",
+      "points": [
+        "L'actualité des marques : un lancement, une pub, un bad buzz",
+        "Les marques de ton quotidien : ton café, tes baskets, ton abonnement",
+        "Les exemples du cours, avec une autre marque",
+        "Les annales : demande au prof ou aux 2e année",
+        "Une IA pour inventer un cas : tu le résous seul·e, puis tu vérifies avec le cours"
+      ]
+    },
+    {
+      "emoji": "👯",
+      "fond": "accent",
+      "titre": "Le quiz entre pairs en 5 temps",
+      "texte": "Pas de corrigé ? Le groupe corrige. Créer une question oblige à comprendre ; l'expliquer, c'est apprendre deux fois.",
+      "points": [
+        "1. Préparer : 3 questions + 1 mini-cas, avec ta correction",
+        "2. Échanger : personne ne traite son propre sujet",
+        "3. Répondre : 15 min, seul·e, sans le cours",
+        "4. Corriger : l'auteur explique, on peut contester avec le cours",
+        "5. Noter : chaque erreur va dans ta liste « à revoir »"
+      ]
+    },
+    {
+      "emoji": "💪",
+      "fond": "rose",
+      "titre": "Rester motivé·e",
+      "texte": "La régularité bat l'intensité.",
+      "points": [
+        "Un petit objectif par semaine (3, 5 ou 7 séances)",
+        "Ne casse jamais ta série deux jours de suite (tu as un joker par semaine)",
+        "Révise à plusieurs",
+        "Pas envie ? Commence par 5 minutes : le plus dur, c'est de commencer",
+        "Célèbre chaque étoile gagnée"
+      ]
+    },
+    {
+      "emoji": "⭐",
+      "fond": "or",
+      "titre": "3 règles à retenir",
+      "texte": "Si tu ne devais garder qu'une carte, ce serait celle-ci.",
+      "points": ["1. Ne relis plus : teste-toi.", "2. Un cas se résout toujours avec la même méthode.", "3. Peu mais souvent, et à plusieurs."]
     }
   ],
-  "regles": [
-    "Ne relis plus : teste-toi.",
-    "Un cas se résout toujours avec la même méthode.",
-    "Peu mais souvent, et à plusieurs."
+  "quiz": {
+    "questions": [
+      {
+        "question": "La veille d'un QCM, tu…",
+        "reponses": [
+          { "texte": "Révises tout d'un coup, jusqu'à tard", "profil": "sprint" },
+          { "texte": "Relis tes slides et tes notes", "profil": "relecteur" },
+          { "texte": "Suis le planning prévu depuis une semaine", "profil": "organise" },
+          { "texte": "Appelles un·e ami·e pour réviser ensemble", "profil": "social" }
+        ]
+      },
+      {
+        "question": "Quand tu découvres une nouvelle définition, tu…",
+        "reponses": [
+          { "texte": "Te dis « je verrai ça plus tard »", "profil": "sprint" },
+          { "texte": "La relis plusieurs fois", "profil": "relecteur" },
+          { "texte": "La recopies sur une fiche bien rangée", "profil": "organise" },
+          { "texte": "Essaies de l'expliquer à quelqu'un", "profil": "social" }
+        ]
+      },
+      {
+        "question": "Ce qui te motive le plus pour réviser :",
+        "reponses": [
+          { "texte": "La pression de la deadline", "profil": "sprint" },
+          { "texte": "Avoir l'impression de bien connaître mon cours", "profil": "relecteur" },
+          { "texte": "Cocher les tâches de ma liste", "profil": "organise" },
+          { "texte": "Ne pas lâcher mon groupe", "profil": "social" }
+        ]
+      },
+      {
+        "question": "Face à un cas pratique jamais vu, tu…",
+        "reponses": [
+          { "texte": "Paniques un peu et improvises", "profil": "sprint" },
+          { "texte": "Cherches la page du cours qui y ressemble", "profil": "relecteur" },
+          { "texte": "Suis une méthode, étape par étape", "profil": "organise" },
+          { "texte": "Compares tes idées avec celles des autres", "profil": "social" }
+        ]
+      },
+      {
+        "question": "Ta séance de révision idéale :",
+        "reponses": [
+          { "texte": "Une grosse soirée intense", "profil": "sprint" },
+          { "texte": "Au calme, seul·e avec mes fiches", "profil": "relecteur" },
+          { "texte": "Un créneau fixe dans mon agenda", "profil": "organise" },
+          { "texte": "À la BU, avec des ami·es", "profil": "social" }
+        ]
+      }
+    ],
+    "profils": {
+      "sprint": {
+        "nom": "Le sprint de la veille",
+        "emoji": "🏃",
+        "couleur": "jaune",
+        "description": "Tu as de l'énergie à revendre… mais tu la dépenses au dernier moment. Ton cerveau sature, et le jour J, tout se mélange.",
+        "astuces": [
+          { "titre": "Coupe en petites séances", "texte": "5 à 25 minutes, mais souvent : bien plus efficace qu'une nuit entière.", "lien": { "label": "Séance de 5 min", "to": "/reviser/seance" } },
+          { "titre": "Laisse le chemin te rappeler", "texte": "Les étoiles reviennent à J+1 et J+7 : tu révises juste avant d'oublier.", "lien": { "label": "Mon chemin", "to": "/" } },
+          { "titre": "Pas envie ? 5 minutes", "texte": "Une seule étape du chemin suffit à garder ta série.", "lien": { "label": "Étape du jour", "to": "/" } }
+        ]
+      },
+      "relecteur": {
+        "nom": "Le relecteur appliqué",
+        "emoji": "📖",
+        "couleur": "rouge",
+        "description": "Tu es sérieux·se et tu connais tes définitions. Mais reconnaître le cours, ce n'est pas savoir l'appliquer à un cas.",
+        "astuces": [
+          { "titre": "Remplace la relecture par l'autotest", "texte": "Cherche la réponse avant de la voir : c'est ce qui fixe la notion.", "lien": { "label": "Flashcards", "to": "/reviser/flashcards" } },
+          { "titre": "Applique à une vraie marque", "texte": "Trouve les 4 marchés de ton café ou de tes baskets.", "lien": { "label": "Classements", "to": "/reviser/exercices?onglet=classement" } },
+          { "titre": "Entraîne-toi sur des cas", "texte": "La méthode des 6 étapes, avec un corrigé type.", "lien": { "label": "Cas pratiques", "to": "/reviser/exercices?onglet=cas" } }
+        ]
+      },
+      "organise": {
+        "nom": "L'organisé·e",
+        "emoji": "🗓️",
+        "couleur": "bleu",
+        "description": "Planning, fiches, listes : tu es carré·e, bravo ! Il te manque peut-être l'entraînement en conditions réelles.",
+        "astuces": [
+          { "titre": "Coche ta semaine type", "texte": "1 h 30 par semaine, réparties en petites séances.", "lien": { "label": "Ma semaine type", "to": "/astuces#semaine" } },
+          { "titre": "Passe l'examen blanc", "texte": "10 questions, 10 minutes, une note sur 10.", "lien": { "label": "QCM mode examen", "to": "/reviser/qcm" } },
+          { "titre": "Chronomètre un cas complet", "texte": "Toutes les 3 semaines, un cas en 45 minutes.", "lien": { "label": "Cas pratiques", "to": "/reviser/exercices?onglet=cas" } }
+        ]
+      },
+      "social": {
+        "nom": "L'esprit d'équipe",
+        "emoji": "👯",
+        "couleur": "rose",
+        "description": "Tu apprends mieux à plusieurs : c'est une vraie force, à condition de vraiment vous tester entre vous.",
+        "astuces": [
+          { "titre": "Organise un quiz entre pairs", "texte": "3 questions + 1 mini-cas chacun, et on échange les sujets.", "lien": { "label": "Les 5 temps", "to": "/astuces#stories" } },
+          { "titre": "Défie la classe", "texte": "Le classement de la semaine repart de zéro chaque lundi.", "lien": { "label": "Classement", "to": "/classement" } },
+          { "titre": "Explique à quelqu'un", "texte": "Expliquer une notion, c'est l'apprendre deux fois.", "lien": { "label": "Une flashcard", "to": "/reviser/flashcards" } }
+        ]
+      }
+    }
+  },
+  "repereErreur": [
+    {
+      "contexte": "Le marché passe de 200 à 250 millions d'euros.",
+      "copie": "Taux d'évolution = (250 − 200) / 250 × 100 = 20 %",
+      "choix": ["Il fallait diviser par 200 (l'année N-1), pas par 250", "Il manque le × 100", "La soustraction est à l'envers", "Il n'y a pas d'erreur"],
+      "bonne": 0,
+      "explication": "On divise toujours par l'année de départ : (250 − 200) / 200 × 100 = +25 %."
+    },
+    {
+      "contexte": "Une marque vend 30 000 unités sur un marché de 120 000 unités.",
+      "copie": "Part de marché = 30 000 / 120 000 = 0,25 %",
+      "choix": ["Il fallait diviser 120 000 par 30 000", "Il manque le × 100 : c'est 25 %", "C'est une part de marché en valeur", "Il n'y a pas d'erreur"],
+      "bonne": 1,
+      "explication": "0,25 est une proportion. × 100 → 25 % de part de marché (en volume)."
+    },
+    {
+      "contexte": "Une marque de lait pasteurisé analyse ses marchés.",
+      "copie": "Marché principal = consommer des produits laitiers · Marché générique = le lait pasteurisé",
+      "choix": ["Le principal et le générique sont inversés", "Le lait pasteurisé est un marché de substitution", "« Consommer des produits laitiers » est un marché complémentaire", "Il n'y a pas d'erreur"],
+      "bonne": 0,
+      "explication": "Principal = le marché du produit (le lait pasteurisé). Générique = le besoin (consommer des produits laitiers)."
+    },
+    {
+      "contexte": "Toujours pour la marque de lait.",
+      "copie": "Marché de substitution = les céréales du petit-déjeuner",
+      "choix": ["Les céréales sont sur le marché principal", "Les céréales se mangent avec le lait : c'est complémentaire", "Les céréales sont le marché générique", "Il n'y a pas d'erreur"],
+      "bonne": 1,
+      "explication": "Substitution = « à la place de » (lait d'avoine). Complémentaire = « avec » (céréales, café)."
+    },
+    {
+      "contexte": "Analyse de l'environnement de Vinted.",
+      "copie": "Macro-environnement : Leboncoin, un concurrent qui permet aussi de revendre des objets d'occasion",
+      "choix": ["Leboncoin est un fournisseur", "Les concurrents font partie du micro-environnement", "C'est un facteur culturel", "Il n'y a pas d'erreur"],
+      "bonne": 1,
+      "explication": "Les concurrents sont des acteurs proches de l'entreprise : micro-environnement."
+    },
+    {
+      "contexte": "Analyse de l'environnement d'une marque de lait.",
+      "copie": "Macro-environnement, facteur naturel : les producteurs de lait",
+      "choix": ["Les producteurs sont des fournisseurs : micro-environnement", "C'est un facteur économique", "C'est un groupe d'influence", "Il n'y a pas d'erreur"],
+      "bonne": 0,
+      "explication": "Ceux qui fournissent la ressource sont des fournisseurs (micro). Le « naturel », ce sont les ressources et le climat en général (ex. une sécheresse)."
+    }
+  ],
+  "semaine": [
+    { "id": "soir", "quand": "Le soir du cours", "duree": "25 min", "quoi": "Résumé en 3 lignes + flashcards", "lien": { "label": "Flashcards", "to": "/reviser/flashcards" } },
+    { "id": "lendemain", "quand": "Le lendemain", "duree": "25 min", "quoi": "Un mini-exo sur une vraie marque", "lien": { "label": "Exercices", "to": "/reviser/exercices" } },
+    { "id": "milieu", "quand": "En milieu de semaine", "duree": "10 min", "quoi": "Revoir tes flashcards", "lien": { "label": "Étape du jour", "to": "/" } },
+    { "id": "fin", "quand": "En fin de semaine", "duree": "30 min", "quoi": "Quiz entre pairs (ou un QCM ici pour t'échauffer)", "lien": { "label": "QCM", "to": "/reviser/qcm" } },
+    { "id": "cas", "quand": "Toutes les 3 semaines", "duree": "45 min", "quoi": "Un cas complet chronométré", "lien": { "label": "Cas pratiques", "to": "/reviser/exercices?onglet=cas" } }
   ]
 }

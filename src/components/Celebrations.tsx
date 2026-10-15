@@ -13,7 +13,10 @@ function confettis() {
   document.body.appendChild(canvas)
   const ctx = canvas.getContext('2d')
   if (!ctx) return canvas.remove()
-  const couleurs = ['#F28C38', '#F7A35C', '#3A8DDE', '#9CCBF5', '#2E9E6B']
+  // Les confettis prennent la couleur choisie dans « Personnaliser », plus le doré des récompenses.
+  const css = getComputedStyle(document.documentElement)
+  const v = (nom: string, defaut: string) => css.getPropertyValue(nom).trim() || defaut
+  const couleurs = [v('--accent-500', '#ffb59a'), v('--accent-600', '#e8957a'), v('--gold', '#f5c451'), v('--blue-500', '#5ba3e6'), '#2E9E6B']
   const morceaux = Array.from({ length: 110 }, () => ({
     x: canvas.width / 2 + (Math.random() - 0.5) * 120,
     y: canvas.height * 0.35,

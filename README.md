@@ -1,6 +1,11 @@
-# Révision Marketing · Chapitre 1 « Le concept de marché »
+# Mark'Up · Marketing, chapitre 1 « Le concept de marché »
 
-Site de révision pour les étudiants de Bachelor 1re année : flashcards avec répétition espacée, QCM au format du QCM noté (avec un mode examen sur 10), exercices corrigés (calculs, classements, vrai/faux, cas pratiques), séance guidée de 25 minutes avec minuteur Pomodoro, XP, niveaux, séries et badges.
+Site de révision pour les étudiants de Bachelor 1re année, en deux modes :
+
+- **Le daily** (page d'accueil) : un chemin façon Duolingo, une étape de 3 minutes par notion. Les étoiles suivent la répétition espacée : ⭐ au 1er passage, ⭐⭐ en revenant au moins 1 jour plus tard (70 % de bonnes réponses), ⭐⭐⭐ une semaine après. Pas de minuteur.
+- **Le mode Tryhard** : une séance de 5, 10, 25 minutes ou plus, qui s'adapte à la durée et commence par tes points faibles et tes erreurs (minuteur discret, masquable). Plus l'accès direct aux flashcards, au QCM (avec un mode examen noté sur 10), aux calculs, classements, vrai/faux et cas pratiques.
+
+Et aussi : XP, niveaux, série avec joker, badges, un menu **Personnaliser** (couleur Pêche, Menthe, Lavande ou Rose, mode sombre, durée de séance préférée, minuteur), et une page **Astuces** ludique (quiz « Quel·le réviseur·se es-tu ? », astuces en stories, mini-jeu « Repère l'erreur », semaine type à cocher).
 
 - **Sans compte** (mode invité), la progression est sauvegardée dans le navigateur.
 - **Avec un compte** (Supabase, gratuit), elle est sauvegardée en ligne et tu la retrouves sur tous tes appareils.
@@ -59,6 +64,8 @@ Autres commandes utiles :
 2. Clique sur **New query** (ou le **+**).
 3. Ouvre le fichier [`supabase/schema.sql`](supabase/schema.sql) de ce projet, **copie tout son contenu** et colle-le dans l'éditeur.
 4. Clique sur **Run** (en bas à droite). Tu dois voir « Success. No rows returned ».
+
+> Tu avais déjà collé une ancienne version de ce fichier ? Recolle simplement la nouvelle en entier : elle ajoute ce qui manque (les étoiles du chemin) sans effacer les données.
 
 > Supabase peut afficher un avertissement sur la vue `classement_semaine` (« security definer view »). C'est voulu : cette vue ne montre que le pseudo et les XP de la semaine des étudiants qui ont accepté d'apparaître dans le classement.
 
@@ -128,7 +135,7 @@ Tout le contenu pédagogique est dans **`src/data/`**, en fichiers JSON. Tu peux
 | `vraifaux.json` | Le vrai/faux du marketing |
 | `cas.json` | Les cas pratiques |
 | `donnees-cours.json` | Les calculs sur les données réelles du cours |
-| `astuces.json` | Le texte de la page Astuces |
+| `astuces.json` | La page Astuces : les stories, le quiz « Quel·le réviseur·se es-tu ? », le mini-jeu « Repère l'erreur » et la semaine type |
 
 ### Exemple : ajouter une question de QCM
 
@@ -169,8 +176,9 @@ Après une modification, lance `npm run check` : le script te dit s'il manque qu
 src/
   data/            → le contenu pédagogique (JSON)
   lib/             → la logique sans écran : répétition espacée (leitner.ts), XP/niveaux/badges
-                     (gamification.ts), calculs aléatoires (calculs.ts), synchronisation Supabase (sync.ts)
-  state/           → l'état partagé : progression, minuteur Pomodoro, compte, thème, filtres
+                     (gamification.ts), chemin et étoiles (chemin.ts), contenu des séances (plan.ts),
+                     calculs aléatoires (calculs.ts), synchronisation Supabase (sync.ts)
+  state/           → l'état partagé : progression, compte, thème et couleur, filtres
   components/      → les morceaux d'interface (navigation, minuteur, cartes, exercices…)
   pages/           → une page par adresse (/, /reviser, /astuces, /profil, /classement…)
 supabase/schema.sql → la base de données (tables + sécurité)
@@ -178,7 +186,9 @@ tests/             → tests automatiques (npm test)
 scripts/           → vérification du contenu (npm run check)
 ```
 
-**Règles de motivation** (dans `src/lib/gamification.ts`) : flashcard révisée 2 XP · bonne réponse QCM 5 XP · exercice réussi 10 XP · cas pratique terminé 25 XP · Pomodoro terminé 15 XP · séance guidée complète +20 XP. Une erreur ne fait jamais perdre d'XP. Un jour compte pour la série à partir de 10 minutes de révision ou d'un Pomodoro ; un joker par semaine sauve un jour manqué.
+**Règles de motivation** (dans `src/lib/gamification.ts`) : flashcard révisée 2 XP · bonne réponse QCM 5 XP · exercice réussi 10 XP · cas pratique terminé 25 XP · étape du chemin terminée +10 XP · séance Tryhard complète jusqu'à +20 XP. Une erreur ne fait jamais perdre d'XP. Un jour compte pour la série dès qu'une séance est terminée (même une étape de 3 minutes) ou après 10 minutes de révision ; un joker par semaine sauve un jour manqué.
+
+**Le chemin** (dans `src/lib/chemin.ts`) : une étape par notion, un bilan par séance et une étape finale « Prêt·e pour le QCM ». Le contenu des séances est préparé dans `src/lib/plan.ts`.
 
 **Répétition espacée** (dans `src/lib/leitner.ts`) : 5 boîtes, J+0 (même séance), J+1, J+3, J+7, J+30. « Je ne savais pas » → boîte 1 ; « Hésitant » → reste dans sa boîte ; « Je savais » → boîte suivante.
 

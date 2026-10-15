@@ -113,7 +113,7 @@ export const LIBELLE_MAITRISE: Record<NiveauMaitrise, string> = {
   maitrise: 'Maîtrisé',
 }
 
-/** La notion la plus faible (pour la séance guidée), en privilégiant celles déjà travaillées. */
+/** La notion la plus faible (pour les séances Tryhard), en privilégiant celles déjà travaillées. */
 export function notionLaPlusFaible(tentatives: Tentative[], parmi: NotionId[] = notions.map((n) => n.id)): NotionId {
   const scores = parmi.map((id) => ({ id, ...maitrise(tentatives, id) }))
   const commencees = scores.filter((s) => s.nb > 0 && s.niveau !== 'maitrise')

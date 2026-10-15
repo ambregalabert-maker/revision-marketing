@@ -29,6 +29,12 @@
   --error-ink: #b3322e;
   --error-bg: #fbe7e6;
   --on-accent: #1e2a3a;
+  --rose-bg: #fde4eb;
+  /* Couleurs du graphique « Quel·le réviseur·se es-tu ? » (validées pour le daltonisme). */
+  --q-jaune: #d99a0f;
+  --q-rouge: #e0504d;
+  --q-bleu: #3d86d1;
+  --q-rose: #d45a8a;
   --shadow: 0 1px 2px rgb(30 42 58 / 0.05), 0 4px 16px rgb(30 42 58 / 0.05);
   color-scheme: light;
 
@@ -93,6 +99,8 @@
     --error-bg: #42201f;
     --accent-100: var(--accent-sombre-100);
     --accent-700: var(--accent-sombre-700);
+    --rose-bg: #3d2029;
+    --q-jaune: #c98c0a;
     --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
     color-scheme: dark;
   }
@@ -117,6 +125,8 @@
   --error-bg: #42201f;
   --accent-100: var(--accent-sombre-100);
   --accent-700: var(--accent-sombre-700);
+  --rose-bg: #3d2029;
+  --q-jaune: #c98c0a;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
   color-scheme: dark;
 }
@@ -138,6 +148,7 @@
   --color-accent-600: var(--accent-600);
   --color-accent-700: var(--accent-700);
   --color-on-accent: var(--on-accent);
+  --color-rose-bg: var(--rose-bg);
   --color-gold: var(--gold);
   --color-gold-600: var(--gold-600);
   --color-gold-ink: var(--gold-ink);
@@ -354,13 +365,13 @@ h4 {
   animation: rebond 1.6s ease-in-out infinite;
 }
 
-/* Barres de progression des « stories » d'astuces. */
-@keyframes remplir {
+/* Les barres d'un graphique « poussent » depuis la gauche. */
+@keyframes pousser {
   from {
-    width: 0;
+    transform: scaleX(0);
   }
   to {
-    width: 100%;
+    transform: scaleX(1);
   }
 }
 

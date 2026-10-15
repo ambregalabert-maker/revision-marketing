@@ -28,13 +28,17 @@ export default function Onboarding() {
 
       {ecran === 0 && (
         <div className="flex flex-col gap-4">
-          <h1 id="titre-onboarding" className="text-2xl font-bold">Comment marche le site</h1>
-          <p>Ici, tu révises le chapitre 1 de Marketing, « Le concept de marché », en petites séances :</p>
-          <ul className="flex flex-col gap-2">
-            <li className="flex gap-2"><Icone nom="cartes" className="text-blue-700" /> des <strong>flashcards</strong> qui reviennent au bon moment ;</li>
-            <li className="flex gap-2"><Icone nom="qcm" className="text-blue-700" /> des <strong>QCM</strong> au format du vrai QCM noté ;</li>
-            <li className="flex gap-2"><Icone nom="cible" className="text-blue-700" /> des <strong>exercices et des cas</strong> corrigés, pour savoir appliquer ;</li>
-            <li className="flex gap-2"><Icone nom="minuteur" className="text-blue-700" /> un <strong>minuteur</strong> de 25 minutes pour rester concentré·e.</li>
+          <h1 id="titre-onboarding" className="text-2xl font-bold">Bienvenue sur Mark'Up !</h1>
+          <p>Ici, tu révises le chapitre 1 de Marketing, « Le concept de marché », de deux façons :</p>
+          <ul className="flex flex-col gap-3">
+            <li className="flex gap-3">
+              <span className="text-2xl" aria-hidden>🗺️</span>
+              <span><strong>Le daily</strong> : un chemin, une étape de 3 minutes par notion. Tu gagnes des étoiles en revenant le lendemain, puis une semaine après.</span>
+            </li>
+            <li className="flex gap-3">
+              <span className="text-2xl" aria-hidden>⚡</span>
+              <span><strong>Le mode Tryhard</strong> : tu choisis ta durée (5, 10, 25 min ou plus) et tu t'entraînes sur tes points faibles, avec QCM, exercices et cas corrigés.</span>
+            </li>
           </ul>
           <label className="flex flex-col gap-1 font-semibold">
             Comment tu t'appelles ? <span className="text-sm font-normal text-muted">(facultatif, juste pour te dire bonjour)</span>
