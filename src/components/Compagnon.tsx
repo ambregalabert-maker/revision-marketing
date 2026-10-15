@@ -1,119 +1,86 @@
 import type { Espece } from '../lib/types'
 
-// Les compagnons kawaii de Mark'Up, dessinés en SVG (aucune image à charger).
-// Tous partagent la même silhouette : grosse tête ronde, petit corps, grands yeux brillants, joues roses.
+// Les compagnons kawaii de Mark'Up, style « Mochi » : tout ronds comme une petite boule,
+// grands yeux brillants à double reflet, bouche en « ω », grosses joues roses.
+// Dessinés en SVG (aucune image à charger).
 
 export type Humeur = 'normal' | 'content' | 'fete' | 'sieste'
 
-const ENCRE = '#2B2B38'
-const JOUES = '#FF8FAB'
+const ENCRE = '#1E1E2A'
 
-const ARC_EN_CIEL = ['#FF8FB8', '#FFB59A', '#FFE08A', '#9FE3C9', '#9CCBF5', '#C4B8F8']
-
-function Yeux({ humeur, panda }: { humeur: Humeur; panda: boolean }) {
-  if (humeur === 'content' || humeur === 'fete') {
-    return (
-      <g fill="none" stroke={panda ? '#FFFFFF' : ENCRE} strokeWidth="3.6" strokeLinecap="round">
-        <path d="M39 60 q7 -8 14 0" />
-        <path d="M67 60 q7 -8 14 0" />
-      </g>
-    )
-  }
-  if (humeur === 'sieste') {
-    return (
-      <g fill="none" stroke={panda ? '#FFFFFF' : ENCRE} strokeWidth="3.4" strokeLinecap="round">
-        <path d="M39 58 q7 6 14 0" />
-        <path d="M67 58 q7 6 14 0" />
-      </g>
-    )
-  }
+function Visage({ humeur, panda }: { humeur: Humeur; panda: boolean }) {
+  const trait = panda ? '#FFFFFF' : ENCRE
+  const rieur = humeur === 'content' || humeur === 'fete'
   return (
     <g>
-      <ellipse cx="46" cy="58" rx="6" ry="7.5" fill={panda ? '#121218' : ENCRE} />
-      <ellipse cx="74" cy="58" rx="6" ry="7.5" fill={panda ? '#121218' : ENCRE} />
-      <circle cx="48" cy="55" r="2.4" fill="#FFFFFF" />
-      <circle cx="76" cy="55" r="2.4" fill="#FFFFFF" />
-      <circle cx="44.5" cy="61" r="1.1" fill="#FFFFFF" />
-      <circle cx="72.5" cy="61" r="1.1" fill="#FFFFFF" />
-    </g>
-  )
-}
-
-function Bouche({ humeur, nez }: { humeur: Humeur; nez: boolean }) {
-  return (
-    <g>
-      {nez && <ellipse cx="60" cy="66" rx="3.2" ry="2.3" fill={ENCRE} />}
-      {humeur === 'content' || humeur === 'fete' ? (
-        <path d="M53 70 q7 9 14 0 z" fill="#E8667E" stroke={ENCRE} strokeWidth="2" strokeLinejoin="round" />
-      ) : humeur === 'sieste' ? (
-        <ellipse cx="60" cy="72" rx="2.4" ry="2" fill={ENCRE} />
+      <g fill="#FF8FAB" opacity="0.6">
+        <ellipse cx="30" cy="84" rx="8.5" ry="5" />
+        <ellipse cx="90" cy="84" rx="8.5" ry="5" />
+      </g>
+      {humeur === 'normal' && (
+        <g>
+          <ellipse cx="44" cy="68" rx="8.5" ry="10" fill={panda ? '#0E0E14' : ENCRE} />
+          <ellipse cx="76" cy="68" rx="8.5" ry="10" fill={panda ? '#0E0E14' : ENCRE} />
+          <circle cx="47.5" cy="63.5" r="3.8" fill="#FFFFFF" />
+          <circle cx="79.5" cy="63.5" r="3.8" fill="#FFFFFF" />
+          <circle cx="41" cy="72.5" r="1.8" fill="#FFFFFF" />
+          <circle cx="73" cy="72.5" r="1.8" fill="#FFFFFF" />
+        </g>
+      )}
+      {rieur && (
+        <g fill="none" stroke={trait} strokeWidth="4" strokeLinecap="round">
+          <path d="M36 70 q8 -10 16 0" />
+          <path d="M68 70 q8 -10 16 0" />
+        </g>
+      )}
+      {humeur === 'sieste' && (
+        <g fill="none" stroke={trait} strokeWidth="3.6" strokeLinecap="round">
+          <path d="M36 68 q8 7 16 0" />
+          <path d="M68 68 q8 7 16 0" />
+        </g>
+      )}
+      {rieur ? (
+        <path d="M53 80 q7 10 14 0 z" fill="#E8667E" stroke="#2B2B38" strokeWidth="2" strokeLinejoin="round" />
       ) : (
-        <path d="M54.5 70 q2.75 3.2 5.5 0 q2.75 3.2 5.5 0" fill="none" stroke={ENCRE} strokeWidth="2.2" strokeLinecap="round" />
+        <path d="M54 80 q3 3.6 6 0 q3 3.6 6 0" fill="none" stroke="#2B2B38" strokeWidth="2.4" strokeLinecap="round" />
       )}
     </g>
   )
 }
 
-function Joues() {
-  return (
-    <g fill={JOUES} opacity="0.55">
-      <ellipse cx="36" cy="70" rx="7.5" ry="4.5" />
-      <ellipse cx="84" cy="70" rx="7.5" ry="4.5" />
-    </g>
-  )
-}
-
 function Renard({ humeur }: { humeur: Humeur }) {
-  const roux = '#F59E5B'
-  const clair = '#FFF4E8'
+  const roux = '#F7A262'
   return (
     <g>
-      {/* Queue touffue */}
-      <ellipse cx="94" cy="96" rx="20" ry="10" fill={roux} transform="rotate(-35 94 96)" />
-      <ellipse cx="106" cy="86" rx="8" ry="6" fill={clair} transform="rotate(-35 106 86)" />
-      {/* Corps */}
-      <ellipse cx="60" cy="100" rx="25" ry="15" fill={roux} />
-      <ellipse cx="60" cy="102" rx="14" ry="10" fill={clair} />
-      <ellipse cx="48" cy="112" rx="7" ry="4" fill="#8A4B2A" />
-      <ellipse cx="72" cy="112" rx="7" ry="4" fill="#8A4B2A" />
-      {/* Oreilles */}
-      <path d="M24 42 L22 8 L52 26 Z" fill={roux} stroke={roux} strokeWidth="6" strokeLinejoin="round" />
-      <path d="M96 42 L98 8 L68 26 Z" fill={roux} stroke={roux} strokeWidth="6" strokeLinejoin="round" />
-      <path d="M29 34 L28 16 L44 26 Z" fill="#FFC2C7" />
-      <path d="M91 34 L92 16 L76 26 Z" fill="#FFC2C7" />
-      {/* Tête */}
-      <ellipse cx="60" cy="56" rx="40" ry="34" fill={roux} />
-      <circle cx="45" cy="72" r="17" fill={clair} />
-      <circle cx="75" cy="72" r="17" fill={clair} />
-      <ellipse cx="60" cy="78" rx="18" ry="11" fill={clair} />
-      <Joues />
-      <Yeux humeur={humeur} panda={false} />
-      <Bouche humeur={humeur} nez />
+      <path d="M100 92 q22 -2 16 -26 q-8 12 -20 16 z" fill={roux} />
+      <path d="M113 70 q4 -4 3 -8 q-6 4 -8 8 z" fill="#FFF3E6" />
+      <path d="M28 50 Q20 18 50 34 Z" fill={roux} stroke={roux} strokeWidth="8" strokeLinejoin="round" />
+      <path d="M92 50 Q100 18 70 34 Z" fill={roux} stroke={roux} strokeWidth="8" strokeLinejoin="round" />
+      <path d="M32 44 Q28 28 44 36 Z" fill="#FFC2CC" />
+      <path d="M88 44 Q92 28 76 36 Z" fill="#FFC2CC" />
+      <ellipse cx="42" cy="110" rx="10" ry="5" fill="#B8643A" />
+      <ellipse cx="78" cy="110" rx="10" ry="5" fill="#B8643A" />
+      <ellipse cx="60" cy="72" rx="46" ry="40" fill={roux} />
+      <ellipse cx="60" cy="88" rx="32" ry="22" fill="#FFF3E6" />
+      <ellipse cx="60" cy="75" rx="3.6" ry="2.6" fill="#2B2B38" />
+      <Visage humeur={humeur} panda={false} />
     </g>
   )
 }
 
 function Panda({ humeur }: { humeur: Humeur }) {
-  const blanc = '#FFFFFF'
   const noir = '#3A3A46'
   return (
     <g>
-      {/* Corps */}
-      <ellipse cx="60" cy="100" rx="25" ry="15" fill={noir} />
-      <ellipse cx="60" cy="102" rx="15" ry="11" fill={blanc} />
-      <ellipse cx="47" cy="112" rx="7" ry="4" fill={noir} />
-      <ellipse cx="73" cy="112" rx="7" ry="4" fill={noir} />
-      {/* Oreilles */}
-      <circle cx="26" cy="26" r="13" fill={noir} />
-      <circle cx="94" cy="26" r="13" fill={noir} />
-      {/* Tête */}
-      <ellipse cx="60" cy="56" rx="40" ry="34" fill={blanc} stroke="#E3E8F0" strokeWidth="1.5" />
-      {/* Taches autour des yeux */}
-      <ellipse cx="46" cy="59" rx="11" ry="13" fill={noir} transform="rotate(22 46 59)" />
-      <ellipse cx="74" cy="59" rx="11" ry="13" fill={noir} transform="rotate(-22 74 59)" />
-      <Joues />
-      <Yeux humeur={humeur} panda />
-      <Bouche humeur={humeur} nez />
+      <circle cx="30" cy="40" r="13" fill={noir} />
+      <circle cx="90" cy="40" r="13" fill={noir} />
+      <ellipse cx="40" cy="110" rx="10" ry="5" fill={noir} />
+      <ellipse cx="80" cy="110" rx="10" ry="5" fill={noir} />
+      <ellipse cx="60" cy="72" rx="46" ry="40" fill="#FFFFFF" stroke="#E3E8F0" strokeWidth="2" />
+      <ellipse cx="43" cy="67" rx="13" ry="14" fill={noir} transform="rotate(18 43 67)" />
+      <ellipse cx="77" cy="67" rx="13" ry="14" fill={noir} transform="rotate(-18 77 67)" />
+      <ellipse cx="60" cy="77" rx="3.6" ry="2.6" fill="#2B2B38" />
+      <Visage humeur={humeur} panda />
     </g>
   )
 }
@@ -122,35 +89,26 @@ function Licorne({ humeur }: { humeur: Humeur }) {
   const rose = '#FFE1EC'
   return (
     <g>
-      {/* Queue arc-en-ciel */}
-      {ARC_EN_CIEL.map((c, i) => (
-        <circle key={c} cx={88 + i * 3.4} cy={104 - i * 6} r={8 - i * 0.6} fill={c} />
-      ))}
-      {/* Corps */}
-      <ellipse cx="60" cy="100" rx="25" ry="15" fill={rose} stroke="#F7C3D6" strokeWidth="1.5" />
-      <ellipse cx="47" cy="112" rx="7" ry="4" fill="#F7A8BE" />
-      <ellipse cx="73" cy="112" rx="7" ry="4" fill="#F7A8BE" />
-      {/* Crinière arrière */}
-      {ARC_EN_CIEL.map((c, i) => (
-        <circle key={c} cx={22 - (i % 2) * 3} cy={30 + i * 9} r="10" fill={c} />
-      ))}
-      {/* Oreilles */}
-      <path d="M30 34 L30 10 L50 24 Z" fill={rose} stroke={rose} strokeWidth="6" strokeLinejoin="round" />
-      <path d="M90 34 L90 10 L70 24 Z" fill={rose} stroke={rose} strokeWidth="6" strokeLinejoin="round" />
-      <path d="M34 28 L34 16 L44 24 Z" fill="#FF9EC0" />
-      <path d="M86 28 L86 16 L76 24 Z" fill="#FF9EC0" />
-      {/* Tête */}
-      <ellipse cx="60" cy="56" rx="40" ry="34" fill={rose} stroke="#F7C3D6" strokeWidth="1.5" />
-      {/* Corne dorée */}
-      <path d="M53 26 L60 -2 L67 26 Z" fill="#FFD966" stroke="#E0B030" strokeWidth="2" strokeLinejoin="round" />
-      <path d="M55 18 L65 14 M56 11 L64 7" stroke="#E0B030" strokeWidth="2" strokeLinecap="round" />
-      {/* Mèche arc-en-ciel sur le front */}
-      {ARC_EN_CIEL.slice(0, 4).map((c, i) => (
-        <circle key={c} cx={36 + i * 8} cy={27 + i * 1.5} r="8.5" fill={c} />
-      ))}
-      <Joues />
-      <Yeux humeur={humeur} panda={false} />
-      <Bouche humeur={humeur} nez={false} />
+      <circle cx="104" cy="96" r="9" fill="#FF8FB8" />
+      <circle cx="110" cy="86" r="7.5" fill="#FFE08A" />
+      <circle cx="113" cy="77" r="6" fill="#9FE3C9" />
+      <circle cx="114" cy="69" r="4.5" fill="#C4B8F8" />
+      <path d="M34 46 L32 24 L50 36 Z" fill={rose} stroke={rose} strokeWidth="7" strokeLinejoin="round" />
+      <path d="M86 46 L88 24 L70 36 Z" fill={rose} stroke={rose} strokeWidth="7" strokeLinejoin="round" />
+      <path d="M37 40 L36 30 L45 36 Z" fill="#FF9EC0" />
+      <path d="M83 40 L84 30 L75 36 Z" fill="#FF9EC0" />
+      <ellipse cx="42" cy="110" rx="10" ry="5" fill="#F7A8BE" />
+      <ellipse cx="78" cy="110" rx="10" ry="5" fill="#F7A8BE" />
+      <ellipse cx="60" cy="72" rx="46" ry="40" fill={rose} stroke="#F7C3D6" strokeWidth="2" />
+      <path d="M53 38 L60 6 L67 38 Z" fill="#FFD966" stroke="#E0B030" strokeWidth="2" strokeLinejoin="round" />
+      <path d="M55 29 L65 25 M57 20 L64 17" stroke="#E0B030" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="34" cy="44" r="10" fill="#FF8FB8" />
+      <circle cx="44" cy="37" r="9" fill="#FFB59A" />
+      <circle cx="26" cy="54" r="8.5" fill="#FFE08A" />
+      <circle cx="23" cy="66" r="7.5" fill="#9FE3C9" />
+      <circle cx="24" cy="77" r="6.5" fill="#9CCBF5" />
+      <circle cx="27" cy="86" r="5.5" fill="#C4B8F8" />
+      <Visage humeur={humeur} panda={false} />
     </g>
   )
 }
@@ -266,6 +224,9 @@ function Accessoire({ id }: { id: string }) {
   }
 }
 
+/** Décalage vertical des accessoires pour la silhouette ronde « Mochi ». */
+const DECALAGE: Record<string, number> = { 'lunettes-rondes': 10, 'lunettes-soleil': 10, noeud: 12, echarpe: 14 }
+
 /** Ordre de dessin : le cou, puis les yeux, puis la tête (le chapeau passe par-dessus tout). */
 const ORDRE: Record<string, number> = { noeud: 0, echarpe: 0, 'lunettes-rondes': 1, 'lunettes-soleil': 1 }
 
@@ -301,7 +262,9 @@ export default function Compagnon({
       {espece === 'panda' && <Panda humeur={humeur} />}
       {espece === 'licorne' && <Licorne humeur={humeur} />}
       {tries.map((id) => (
-        <Accessoire key={id} id={id} />
+        <g key={id} transform={`translate(0 ${DECALAGE[id] ?? 12})`}>
+          <Accessoire id={id} />
+        </g>
       ))}
       {humeur === 'sieste' && (
         <g fill="#7A8AA0" fontFamily="Rubik, sans-serif" fontWeight="700">
