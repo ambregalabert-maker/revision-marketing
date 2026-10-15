@@ -39,3 +39,26 @@ describe('Préparation des séances', () => {
     expect(longue.exercices.length).toBeGreaterThan(0)
   })
 })
+
+import { acheter, adopter, basculerAccessoire, marksDisponibles } from '../src/lib/boutique'
+
+describe('Boutique', () => {
+  it('1 Mark pour 10 XP, et les achats ne touchent pas aux XP', () => {
+    const p = progressionVide()
+    p.stats.xpTotal = 250
+    p.boutique = adopter(p.boutique, 'licorne', 'Paillette')
+    expect(marksDisponibles(p)).toBe(25)
+    const b = acheter(p, 'bonnet')!
+    expect(b.depenses).toBe(20)
+    expect(marksDisponibles({ ...p, boutique: b })).toBe(5)
+    expect(acheter({ ...p, boutique: b }, 'magicien')).toBeNull() // pas assez de Marks
+  })
+  it('un seul accessoire par emplacement', () => {
+    let b = adopter(progressionVide().boutique, 'renard', '')
+    b = basculerAccessoire(b, 'bonnet')
+    b = basculerAccessoire(b, 'casquette')
+    b = basculerAccessoire(b, 'noeud')
+    expect(b.porte.sort()).toEqual(['casquette', 'noeud'])
+    expect(b.nom).toBe('Roux')
+  })
+})

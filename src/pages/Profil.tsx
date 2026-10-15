@@ -11,6 +11,8 @@ import { BADGES, NIVEAUX, niveauPour, serieAffichee } from '../lib/gamification'
 import { ETAPES, totalEtoiles } from '../lib/chemin'
 import { ecartJours, formatDuree, formatJour, jour } from '../lib/dates'
 import { useProgression } from '../state/progression'
+import MonCompagnon from '../components/MonCompagnon'
+import { marksDisponibles } from '../lib/boutique'
 
 export default function Profil() {
   const { p, majProfil, reinitialiser } = useProgression()
@@ -32,9 +34,18 @@ export default function Profil() {
       {/* Carte « héros » : niveau, série, étoiles */}
       <section className="carte p-5 mb-4" aria-labelledby="t-niveau">
         <div className="flex items-center gap-4">
-          <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gold-bg text-gold-ink font-titre font-bold text-2xl shrink-0" aria-hidden>
-            {niveau.numero}
-          </div>
+          {p.boutique.compagnon ? (
+            <Link to="/boutique" className="relative shrink-0 rounded-3xl bg-accent-100 p-1" aria-label={`${p.boutique.nom} : ouvrir la boutique`}>
+              <MonCompagnon taille={84} />
+              <span className="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-gold text-[#1e2a3a] font-titre font-bold flex items-center justify-center border-2 border-surface" aria-hidden>
+                {niveau.numero}
+              </span>
+            </Link>
+          ) : (
+            <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-gold-bg text-gold-ink font-titre font-bold text-2xl shrink-0" aria-hidden>
+              {niveau.numero}
+            </div>
+          )}
           <div className="flex-1 min-w-0">
             <p className="text-sm text-muted font-semibold">Niveau {niveau.numero}</p>
             <h2 id="t-niveau" className="text-xl font-bold leading-tight">
@@ -67,6 +78,17 @@ export default function Profil() {
           </p>
         </details>
       </section>
+
+      <Link to="/boutique" className="carte p-4 mb-4 flex items-center gap-3 hover:border-blue-500">
+        <span className="text-3xl" aria-hidden>
+          🛍️
+        </span>
+        <span className="flex-1">
+          <span className="block font-semibold">{p.boutique.compagnon ? `La boutique de ${p.boutique.nom}` : 'Adopte ton compagnon'}</span>
+          <span className="block text-sm text-muted">{p.boutique.compagnon ? 'Accessoires et compagnons à débloquer avec tes Marks.' : 'Le premier est offert : renard, panda ou licorne !'}</span>
+        </span>
+        <span className="rounded-full bg-gold-bg text-gold-ink font-extrabold px-3 py-1">🪙 {marksDisponibles(p)}</span>
+      </Link>
 
       <Personnaliser />
 

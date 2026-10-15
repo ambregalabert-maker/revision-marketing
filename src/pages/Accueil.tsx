@@ -8,6 +8,7 @@ import { erreursARevoir, joursDeLaSemaine, seancesDeLaSemaine, serieAffichee } f
 import { etapeDuJour } from '../lib/chemin'
 import { ecartJours, jour } from '../lib/dates'
 import { useProgression } from '../state/progression'
+import { marksDisponibles } from '../lib/boutique'
 
 /**
  * L'accueil = le mode « daily » : tes pastilles, ta semaine, un bouton, et le chemin.
@@ -52,6 +53,13 @@ export default function Accueil() {
           >
             <Icone nom="eclair" taille={18} plein /> {p.stats.xpTotal}
           </Link>
+          <Link
+            to="/boutique"
+            className="inline-flex items-center gap-1 rounded-full bg-surface border border-line px-3 min-h-10 font-extrabold text-gold-ink"
+            aria-label={`${marksDisponibles(p)} Marks : ouvrir la boutique`}
+          >
+            🪙 {marksDisponibles(p)}
+          </Link>
         </div>
       }
     >
@@ -64,6 +72,11 @@ export default function Accueil() {
         ) : (
           <Bulle to="/profil" icone="calendrier">
             Ajoute la date de ton QCM
+          </Bulle>
+        )}
+        {!p.boutique.compagnon && (
+          <Bulle to="/boutique" icone="astuces">
+            🐾 <strong>Adopte ton compagnon</strong>
           </Bulle>
         )}
         {erreurs > 0 && (

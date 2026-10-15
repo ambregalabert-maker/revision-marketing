@@ -195,6 +195,23 @@ export interface Progression {
   minutesParJour: Record<string, number>
   /** Étoiles gagnées sur chaque étape du chemin (mode daily). */
   chemin: Record<string, EtoilesEtape>
+  /** Le compagnon et la boutique (Marks, accessoires). */
+  boutique: Boutique
+}
+
+export type Espece = 'renard' | 'panda' | 'licorne'
+
+export interface Boutique {
+  /** Compagnon actuellement choisi (null tant qu'il n'est pas adopté). */
+  compagnon: Espece | null
+  /** Le nom donné par l'étudiant. */
+  nom: string
+  /** Compagnons et accessoires achetés (identifiants). */
+  possedes: string[]
+  /** Accessoires portés, un par emplacement (tête, yeux, cou). */
+  porte: string[]
+  /** Marks déjà dépensés (les Marks gagnés se calculent à partir des XP). */
+  depenses: number
 }
 
 export interface EtoilesEtape {

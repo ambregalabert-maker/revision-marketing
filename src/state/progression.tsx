@@ -14,7 +14,7 @@ import {
   niveauPour,
   nouveauxBadges,
 } from '../lib/gamification'
-import type { NotionId, Preferences, Profil, Progression, Seance, SessionEtude, Tentative, TypeSession, TypeTentative } from '../lib/types'
+import type { Boutique, NotionId, Preferences, Profil, Progression, Seance, SessionEtude, Tentative, TypeSession, TypeTentative } from '../lib/types'
 
 export const CLE_PROGRESSION = 'rm-progression'
 
@@ -46,6 +46,7 @@ export function progressionVide(): Progression {
     badges: {},
     minutesParJour: {},
     chemin: {},
+    boutique: { compagnon: null, nom: '', possedes: [], porte: [], depenses: 0 },
   }
 }
 
@@ -64,6 +65,7 @@ export function normaliser(p: Partial<Progression> | null | undefined): Progress
     badges: p.badges ?? {},
     minutesParJour: p.minutesParJour ?? {},
     chemin: p.chemin ?? {},
+    boutique: { ...vide.boutique, ...p.boutique },
   }
 }
 
@@ -92,6 +94,8 @@ interface ValeurContexte {
   /** Ajoute une minute de révision « libre » (compteur de temps sur les pages de révision). */
   ajouterMinute: () => void
   debloquerBadge: (id: string) => void
+  /** Modifie la boutique (adopter, acheter, habiller). Renvoie false si l'action est impossible. */
+  majBoutique: (modif: (p: Progression) => Boutique | null) => boolean
   majProfil: (modif: Partial<Omit<Profil, 'preferences'>> & { preferences?: Partial<Preferences> }) => void
   terminerOnboarding: () => void
   reinitialiser: () => void
@@ -262,6 +266,16 @@ export function ProgressionProvider({ children }: { children: ReactNode }) {
     [appliquer],
   )
 
+  const majBoutique = useCallback<ValeurContexte['majBoutique']>(
+    (modif) => {
+      const nouvelle = modif(ref.current)
+      if (!nouvelle) return false
+      appliquer((avant) => ({ ...avant, boutique: nouvelle }))
+      return true
+    },
+    [appliquer],
+  )
+
   const majProfil = useCallback(
     (modif: Parameters<ValeurContexte['majProfil']>[0]) =>
       appliquer((avant) => ({
@@ -294,12 +308,13 @@ export function ProgressionProvider({ children }: { children: ReactNode }) {
       terminerEtape,
       ajouterMinute,
       debloquerBadge,
+      majBoutique,
       majProfil,
       terminerOnboarding,
       reinitialiser,
       remplacer,
     }),
-    [p, celebrations, retirerCelebration, repondre, noterCarte, terminerSession, terminerEtape, ajouterMinute, debloquerBadge, majProfil, terminerOnboarding, reinitialiser, remplacer],
+    [p, celebrations, retirerCelebration, repondre, noterCarte, terminerSession, terminerEtape, ajouterMinute, debloquerBadge, majBoutique, majProfil, terminerOnboarding, reinitialiser, remplacer],
   )
 
   return <Contexte.Provider value={valeur}>{children}</Contexte.Provider>

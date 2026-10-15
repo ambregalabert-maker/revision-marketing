@@ -8,6 +8,8 @@ import { planDaily } from '../lib/plan'
 import { encouragement } from '../lib/gamification'
 import { formatDans } from '../lib/dates'
 import { useProgression } from '../state/progression'
+import MonCompagnon from '../components/MonCompagnon'
+import { XP_PAR_MARK } from '../lib/boutique'
 
 /**
  * Mode daily : la mini-séance d'environ 3 minutes d'une étape du chemin.
@@ -21,6 +23,7 @@ export default function Daily() {
   // Le programme est figé à l'ouverture (sinon il changerait à chaque réponse).
   const plan = useMemo(() => (etape ? planDaily(etape, p) : null), [etape?.id]) // volontairement figé
   const debut = useRef(Date.now())
+  const xpDepart = useRef(p.stats.xpTotal)
   const [resultat, setResultat] = useState<{ score: Score; avant: number; apres: number } | null>(null)
 
   useEffect(() => {
@@ -62,6 +65,7 @@ export default function Daily() {
     return (
       <div className="flex flex-col items-center text-center gap-5 apparition pt-4">
         <p className="text-sm font-bold text-muted">{etape.titre}</p>
+        <MonCompagnon taille={120} humeur={nouvelle ? 'fete' : 'content'} anime />
         <div className="flex items-end gap-2" role="img" aria-label={`${resultat.apres} étoile${resultat.apres > 1 ? 's' : ''} sur 3`}>
           {[1, 2, 3].map((n) => (
             <span key={n} className={n === resultat.apres && nouvelle ? 'pop' : ''} style={{ animationDelay: `${n * 0.12}s` }}>
@@ -73,14 +77,20 @@ export default function Daily() {
           <h1 className="text-2xl font-bold">{nouvelle ? 'Étoile gagnée !' : 'Étape terminée !'}</h1>
           <p className="text-muted mt-2 max-w-sm">{message}</p>
         </div>
-        <div className="grid grid-cols-2 gap-3 w-full max-w-sm">
+        <div className="grid grid-cols-3 gap-2 w-full max-w-sm">
           <div className="carte p-3">
             <p className="font-titre font-bold text-2xl text-ink">{pct} %</p>
             <p className="text-xs text-muted">de bonnes réponses</p>
           </div>
           <div className="carte p-3">
-            <p className="font-titre font-bold text-2xl text-gold-ink">+10 XP</p>
-            <p className="text-xs text-muted">bonus d'étape</p>
+            <p className="font-titre font-bold text-2xl text-gold-ink">+{p.stats.xpTotal - xpDepart.current}</p>
+            <p className="text-xs text-muted">XP gagnés</p>
+          </div>
+          <div className="carte p-3">
+            <p className="font-titre font-bold text-2xl text-gold-ink">
+              +{Math.floor(p.stats.xpTotal / XP_PAR_MARK) - Math.floor(xpDepart.current / XP_PAR_MARK)}
+            </p>
+            <p className="text-xs text-muted">🪙 Marks</p>
           </div>
         </div>
         <p className="text-muted text-sm">{encouragement()}</p>

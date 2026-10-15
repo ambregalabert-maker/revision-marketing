@@ -13,6 +13,7 @@ create table if not exists public.profiles (
   date_qcm date,
   apparait_classement boolean not null default false,
   onboarding_fait boolean not null default false,
+  boutique jsonb not null default '{}'::jsonb,       -- compagnon, accessoires, Marks dépensés
   preferences jsonb not null default '{}'::jsonb,
   created_at timestamptz not null default now()
 );
@@ -80,6 +81,7 @@ create table if not exists public.badges (
 
 -- ---------- Mises à jour (si tu avais déjà collé une ancienne version de ce fichier) ----------
 alter table public.user_stats add column if not exists chemin jsonb not null default '{}'::jsonb;
+alter table public.profiles add column if not exists boutique jsonb not null default '{}'::jsonb;
 alter table public.study_sessions drop constraint if exists study_sessions_type_check;
 alter table public.study_sessions add constraint study_sessions_type_check check (type in ('pomodoro', 'guidee', 'daily', 'libre'));
 

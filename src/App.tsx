@@ -13,6 +13,7 @@ const Qcm = lazy(() => import('./pages/Qcm'))
 const Exercices = lazy(() => import('./pages/Exercices'))
 const Seance = lazy(() => import('./pages/Seance'))
 const Daily = lazy(() => import('./pages/Daily'))
+const Boutique = lazy(() => import('./pages/Boutique'))
 const Profil = lazy(() => import('./pages/Profil'))
 const Classement = lazy(() => import('./pages/Classement'))
 const Connexion = lazy(() => import('./pages/Connexion'))
@@ -37,6 +38,7 @@ export default function App() {
             <Route path="reviser/exercices" element={<Exercices />} />
             <Route path="reviser/seance" element={<Seance />} />
             <Route path="chemin/:id" element={<Daily />} />
+            <Route path="boutique" element={<Boutique />} />
             <Route path="profil" element={<Profil />} />
             <Route path="classement" element={<Classement />} />
             <Route path="connexion" element={<Connexion />} />

@@ -12,6 +12,7 @@ import { XP, encouragement, maitrise } from '../lib/gamification'
 import { formatDans, jour } from '../lib/dates'
 import { carillon } from '../lib/son'
 import { useProgression } from '../state/progression'
+import MonCompagnon from '../components/MonCompagnon'
 import { useTempsEtude } from '../state/useTempsEtude'
 
 const DESCRIPTION: Record<string, { nom: string; contenu: string }> = {
@@ -75,9 +76,15 @@ export default function Seance() {
     return (
       <Page titre="Séance terminée !">
         <div className="carte p-6 text-center apparition">
-          <div aria-hidden className="text-5xl mb-2">
-            🎉
-          </div>
+          {p.boutique.compagnon ? (
+            <div className="flex justify-center mb-1">
+              <MonCompagnon taille={120} humeur="fete" anime />
+            </div>
+          ) : (
+            <div aria-hidden className="text-5xl mb-2">
+              🎉
+            </div>
+          )}
           <p className="text-xl font-titre font-bold">Bravo ! Fais une pause 🙂</p>
           <p className="text-muted mt-1">{encouragement()}</p>
           <div className="flex justify-center gap-2 mt-4">

@@ -86,6 +86,7 @@ export async function chargerDistant(client: SupabaseClient, userId: string): Pr
     badges: Object.fromEntries(badges.map((b) => [b.badge_id as string, new Date(b.obtenu_le as string).toISOString()])),
     minutesParJour: (st.minutes_par_jour as Record<string, number>) ?? {},
     chemin: (st.chemin as Progression['chemin']) ?? {},
+    boutique: { ...vide.boutique, ...((pr.boutique as object) ?? {}) },
   })
 }
 
@@ -110,7 +111,11 @@ export async function pousser(client: SupabaseClient, userId: string, deja: Prog
 
   const travaux: PromiseLike<{ error: unknown }>[] = []
 
-  if (JSON.stringify(deja.profil) !== JSON.stringify(actuel.profil) || deja.onboardingFait !== actuel.onboardingFait) {
+  if (
+    JSON.stringify(deja.profil) !== JSON.stringify(actuel.profil) ||
+    deja.onboardingFait !== actuel.onboardingFait ||
+    JSON.stringify(deja.boutique) !== JSON.stringify(actuel.boutique)
+  ) {
     const pr = actuel.profil
     travaux.push(
       client.from('profiles').upsert({
@@ -122,6 +127,7 @@ export async function pousser(client: SupabaseClient, userId: string, deja: Prog
         apparait_classement: pr.apparaitClassement,
         onboarding_fait: actuel.onboardingFait,
         preferences: pr.preferences,
+        boutique: actuel.boutique,
       }),
     )
   }
@@ -230,6 +236,11 @@ export function fusionner(compte: Progression, invite: Progression): Progression
     badges,
     minutesParJour: minutes,
     chemin,
+    boutique: {
+      ...(compte.boutique.compagnon ? compte.boutique : invite.boutique),
+      possedes: [...new Set([...compte.boutique.possedes, ...invite.boutique.possedes])],
+      depenses: compte.boutique.depenses + invite.boutique.depenses,
+    },
     stats: {
       ...plusRecente,
       xpTotal: compte.stats.xpTotal + invite.stats.xpTotal,

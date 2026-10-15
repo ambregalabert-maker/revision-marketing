@@ -215,6 +215,7 @@ export const BADGES: Badge[] = [
   { id: 'premiere-etoile', nom: 'Première étoile', description: 'Ta première étoile sur le chemin.', icone: '⭐', test: (p) => Object.values(p.chemin).some((e) => e.etoiles > 0) },
   { id: 'chemin-complet', nom: 'Explorateur·rice', description: 'Une étoile sur chaque étape du chemin.', icone: '🗺️', test: (p) => ETAPES.every((e) => (p.chemin[e.id]?.etoiles ?? 0) >= 1) },
   { id: 'chemin-dore', nom: 'Chemin doré', description: '3 étoiles sur toutes les étapes du chemin.', icone: '🌟', test: (p) => ETAPES.every((e) => (p.chemin[e.id]?.etoiles ?? 0) >= 3) },
+  { id: 'compagnon', nom: 'Ami·e pour la vie', description: 'Tu as adopté ton compagnon.', icone: '🐾', test: (p) => !!p.boutique.compagnon },
   { id: 'semaine-type', nom: 'Semaine parfaite', description: 'Toute la semaine type cochée dans les Astuces.', icone: '✅' },
   { id: 'profil-reviseur', nom: 'Connais-toi toi-même', description: 'Le quiz « Quel·le réviseur·se es-tu ? » terminé.', icone: '🔮' },
   { id: 'chasseur-erreurs', nom: "Chasseur·se d'erreurs", description: 'Toutes les erreurs du mini-jeu repérées.', icone: '🕵️' },

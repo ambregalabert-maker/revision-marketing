@@ -2,6 +2,7 @@ import { Link } from 'react-router'
 import { ETAPES, etapeDuJour, etoileDisponible, prochaineEtoile, type Etape } from '../lib/chemin'
 import { formatDans } from '../lib/dates'
 import { useProgression } from '../state/progression'
+import MonCompagnon, { useCompagnonEndormi } from './MonCompagnon'
 
 /** Une étoile dorée (pleine) ou grise (vide). */
 export function Etoile({ pleine, taille = 16 }: { pleine: boolean; taille?: number }) {
@@ -35,6 +36,7 @@ function Rond({ etape, index, ici }: { etape: Etape; index: number; ici: boolean
   const etoiles = etat?.etoiles ?? 0
   const dispo = etoiles > 0 && etoileDisponible(etat)
   const prochaine = prochaineEtoile(etat)
+  const decalage = VAGUE[index % VAGUE.length]
 
   // Couleurs selon l'avancement : à faire (blanc), commencé (accent), en or (3 étoiles).
   let fond = 'var(--surface)'
@@ -66,12 +68,15 @@ function Rond({ etape, index, ici }: { etape: Etape; index: number; ici: boolean
       : `${etoiles} étoile${etoiles > 1 ? 's' : ''} sur 3${etoiles < 3 && prochaine ? (dispo ? ', une étoile à gagner aujourd’hui' : `, prochaine étoile ${formatDans(prochaine)}`) : ''}`
 
   return (
-    <li className="flex flex-col items-center" style={{ transform: `translateX(${VAGUE[index % VAGUE.length]}px)` }}>
+    <li className="flex flex-col items-center" style={{ transform: `translateX(${decalage}px)` }}>
       {ici && (
         <span className="rebond mb-2 px-3 py-1 rounded-xl bg-surface border-2 border-accent-500 text-sm font-extrabold text-accent-700 shadow-carte" aria-hidden>
           C'est ici !
         </span>
       )}
+      <div className="relative">
+      {/* Le compagnon attend à côté de l'étape du jour */}
+      {ici && p.boutique.compagnon && <CompagnonDuChemin cote={decalage > 0 ? 'gauche' : 'droite'} />}
       <Link
         to={`/chemin/${etape.id}`}
         className={`relative flex items-center justify-center w-[72px] h-[72px] rounded-full transition-transform active:translate-y-1 ${ici ? 'respire' : ''}`}
@@ -89,6 +94,7 @@ function Rond({ etape, index, ici }: { etape: Etape; index: number; ici: boolean
           <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-gold border-2 border-surface" aria-hidden title="Une étoile à gagner aujourd'hui" />
         )}
       </Link>
+      </div>
       <span className="mt-2 text-sm font-bold text-center max-w-36 leading-tight">{etape.titre}</span>
       <span className="flex gap-0.5 mt-1" aria-hidden>
         {[1, 2, 3].map((n) => (
@@ -96,6 +102,21 @@ function Rond({ etape, index, ici }: { etape: Etape; index: number; ici: boolean
         ))}
       </span>
     </li>
+  )
+}
+
+/** Le compagnon posé à côté du rond du jour, avec une petite bulle. */
+function CompagnonDuChemin({ cote }: { cote: 'gauche' | 'droite' }) {
+  const endormi = useCompagnonEndormi()
+  const phrase = endormi ? 'Zzz… on révise ?' : ['On y va ?', 'Allez, 3 minutes !', 'Je t’attends !'][new Date().getDate() % 3]
+  return (
+    <div
+      className={`absolute top-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-none ${cote === 'gauche' ? 'right-full mr-3' : 'left-full ml-3'}`}
+      aria-hidden
+    >
+      <span className="mb-1 whitespace-nowrap rounded-xl bg-surface border border-line px-2 py-0.5 text-xs font-bold shadow-carte">{phrase}</span>
+      <MonCompagnon taille={72} anime={!endormi} />
+    </div>
   )
 }
 

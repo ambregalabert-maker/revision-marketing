@@ -3,6 +3,7 @@ import SessionFlashcards from './SessionFlashcards'
 import SerieQcm from './SerieQcm'
 import ExerciceAuto from './ExerciceAuto'
 import Icone from '../Icone'
+import CompagnonReactif from '../CompagnonReactif'
 import type { Plan } from '../../lib/plan'
 
 export interface Score {
@@ -65,6 +66,7 @@ export default function DeroulementSeance({ plan, onFin, entete }: { plan: Plan;
             </li>
           ))}
         </ol>
+        <CompagnonReactif />
       </div>
       <p className="text-sm font-bold text-muted -mb-1">{etape.label}</p>
 
