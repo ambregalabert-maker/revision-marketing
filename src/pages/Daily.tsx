@@ -2,14 +2,14 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 import DeroulementSeance, { type Score } from '../components/revision/DeroulementSeance'
 import Icone from '../components/Icone'
-import { Etoile } from '../components/Chemin'
+import { CLE_ETOILE_ENVOLEE, Etoile } from '../components/Chemin'
 import { ETAPES, SEUIL_REUSSITE, etapeDuJour, prochaineEtoile } from '../lib/chemin'
 import { planDaily } from '../lib/plan'
 import { encouragement } from '../lib/gamification'
 import { formatDans } from '../lib/dates'
 import { useProgression } from '../state/progression'
 import MonCompagnon from '../components/MonCompagnon'
-import { XP_PAR_MARK } from '../lib/boutique'
+import { MARKS_COFFRE, XP_PAR_MARK } from '../lib/boutique'
 
 /**
  * Mode daily : la mini-séance d'environ 3 minutes d'une étape du chemin.
@@ -24,7 +24,7 @@ export default function Daily() {
   const plan = useMemo(() => (etape ? planDaily(etape, p) : null), [etape?.id]) // volontairement figé
   const debut = useRef(Date.now())
   const xpDepart = useRef(p.stats.xpTotal)
-  const [resultat, setResultat] = useState<{ score: Score; avant: number; apres: number } | null>(null)
+  const [resultat, setResultat] = useState<{ score: Score; avant: number; apres: number; coffre: boolean } | null>(null)
 
   useEffect(() => {
     document.title = `${etape?.titre ?? 'Étape'} · Mark'Up`
@@ -45,6 +45,14 @@ export default function Daily() {
     const reussi = score.total === 0 || score.justes / score.total >= SEUIL_REUSSITE
     const minutes = Math.max(1, Math.round((Date.now() - debut.current) / 60_000))
     const r = terminerEtape(etape.id, reussi, minutes)
+    // De retour sur le chemin, l'étoile gagnée s'envolera jusqu'au compteur.
+    if (r.apres > r.avant) {
+      try {
+        sessionStorage.setItem(CLE_ETOILE_ENVOLEE, etape.id)
+      } catch {
+        /* pas grave */
+      }
+    }
     setResultat({ score, ...r })
     window.scrollTo(0, 0)
   }
@@ -65,7 +73,11 @@ export default function Daily() {
     return (
       <div className="flex flex-col items-center text-center gap-5 apparition pt-4">
         <p className="text-sm font-bold text-muted">{etape.titre}</p>
-        <MonCompagnon taille={120} humeur={nouvelle ? 'fete' : 'content'} anime />
+        {resultat.coffre ? (
+          <Coffre />
+        ) : (
+          <MonCompagnon taille={150} humeur={nouvelle ? 'fete' : 'content'} anime />
+        )}
         <div className="flex items-end gap-2" role="img" aria-label={`${resultat.apres} étoile${resultat.apres > 1 ? 's' : ''} sur 3`}>
           {[1, 2, 3].map((n) => (
             <span key={n} className={n === resultat.apres && nouvelle ? 'pop' : ''} style={{ animationDelay: `${n * 0.12}s` }}>
@@ -88,7 +100,7 @@ export default function Daily() {
           </div>
           <div className="carte p-3">
             <p className="font-titre font-bold text-2xl text-gold-ink">
-              +{Math.floor(p.stats.xpTotal / XP_PAR_MARK) - Math.floor(xpDepart.current / XP_PAR_MARK)}
+              +{Math.floor(p.stats.xpTotal / XP_PAR_MARK) - Math.floor(xpDepart.current / XP_PAR_MARK) + (resultat.coffre ? MARKS_COFFRE : 0)}
             </p>
             <p className="text-xs text-muted">🪙 Marks</p>
           </div>
@@ -119,6 +131,39 @@ export default function Daily() {
           </Link>
         }
       />
+    </div>
+  )
+}
+
+/** Le coffre du bilan s'ouvre : +20 Marks, la première fois. */
+function Coffre() {
+  return (
+    <div className="flex flex-col items-center" role="img" aria-label={`Coffre ouvert : ${MARKS_COFFRE} Marks gagnés`}>
+      <div className="relative w-[150px] h-[150px]">
+        <svg width="150" height="150" viewBox="0 0 120 120" aria-hidden="true">
+          <rect x="14" y="60" width="92" height="50" rx="10" fill="#e8a35c" />
+          <rect x="14" y="60" width="92" height="12" fill="#c9813e" />
+          <rect x="54" y="66" width="12" height="18" rx="3" fill="#f5c451" />
+          <g className="couvercle">
+            <path d="M14 52 Q14 28 60 28 Q106 28 106 52 Z" fill="#f0b470" />
+            <rect x="14" y="48" width="92" height="10" rx="4" fill="#c9813e" />
+          </g>
+        </svg>
+        {[-44, 0, 44].map((dx, i) => (
+          <span
+            key={dx}
+            className="piece absolute text-3xl"
+            style={{ left: 58, top: 62, ['--dx' as string]: `${dx}px`, animationDelay: `${0.7 + i * 0.12}s` }}
+            aria-hidden
+          >
+            🪙
+          </span>
+        ))}
+      </div>
+      <p className="pop font-titre font-bold text-2xl text-gold-ink" style={{ animationDelay: '1s' }}>
+        +{MARKS_COFFRE} 🪙
+      </p>
+      <p className="text-sm text-muted">Coffre du bilan ouvert !</p>
     </div>
   )
 }

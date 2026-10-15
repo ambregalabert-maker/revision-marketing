@@ -2,10 +2,10 @@ import type { ReactNode } from 'react'
 import { Link } from 'react-router'
 import Page from '../components/Page'
 import Onboarding from '../components/Onboarding'
-import Chemin from '../components/Chemin'
+import Chemin, { Etoile } from '../components/Chemin'
 import Icone from '../components/Icone'
 import { erreursARevoir, joursDeLaSemaine, seancesDeLaSemaine, serieAffichee } from '../lib/gamification'
-import { etapeDuJour } from '../lib/chemin'
+import { etapeDuJour, totalEtoiles } from '../lib/chemin'
 import { ecartJours, jour } from '../lib/dates'
 import { useProgression } from '../state/progression'
 import { marksDisponibles } from '../lib/boutique'
@@ -38,7 +38,7 @@ export default function Accueil() {
     <Page
       titre={prenom ? `Salut ${prenom} 👋` : 'Salut 👋'}
       actions={
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <Link
             to="/profil"
             className="inline-flex items-center gap-1 rounded-full bg-surface border border-line px-3 min-h-10 font-extrabold text-accent-700"
@@ -46,6 +46,13 @@ export default function Accueil() {
           >
             <Icone nom="flamme" taille={18} /> {serie.serie}
           </Link>
+          <span
+            id="compteur-etoiles"
+            className="inline-flex items-center gap-1 rounded-full bg-surface border border-line px-3 min-h-10 font-extrabold text-gold-ink"
+            aria-label={`${totalEtoiles(p)} étoiles gagnées sur le chemin`}
+          >
+            <Etoile pleine taille={18} /> {totalEtoiles(p)}
+          </span>
           <Link
             to="/profil"
             className="inline-flex items-center gap-1 rounded-full bg-surface border border-line px-3 min-h-10 font-extrabold text-gold-ink"

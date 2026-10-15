@@ -3,7 +3,8 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { ecrire, lire } from '../lib/stockage'
 import { idUnique, jour } from '../lib/dates'
-import { gagnerEtoile } from '../lib/chemin'
+import { ETAPES, gagnerEtoile } from '../lib/chemin'
+import { MARKS_COFFRE } from '../lib/boutique'
 import { noter, type NoteCarte } from '../lib/leitner'
 import {
   BADGES,
@@ -29,7 +30,7 @@ export function progressionVide(): Progression {
       objectifHebdo: 5,
       dateQcm: null,
       apparaitClassement: false,
-      preferences: { son: true, couleur: 'peche', dureeSeance: 10, minuteur: true },
+      preferences: { son: true, couleur: 'peche', dureeSeance: 10, minuteur: true, monde: 'arc' },
     },
     cartes: {},
     tentatives: [],
@@ -46,7 +47,7 @@ export function progressionVide(): Progression {
     badges: {},
     minutesParJour: {},
     chemin: {},
-    boutique: { compagnon: null, nom: '', possedes: [], porte: [], depenses: 0 },
+    boutique: { compagnon: null, nom: '', possedes: [], porte: [], depenses: 0, bonus: 0 },
   }
 }
 
@@ -90,7 +91,8 @@ interface ValeurContexte {
   /** Termine une séance (Tryhard ou daily). */
   terminerSession: (type: TypeSession, minutes: number, xp: number) => void
   /** Termine une mini-séance du chemin : enregistre la séance et, si mérité, une étoile. */
-  terminerEtape: (etapeId: string, reussi: boolean, minutes: number) => { avant: number; apres: number }
+  /** `coffre` : true si c'est la première fois qu'on termine un bilan (+20 Marks). */
+  terminerEtape: (etapeId: string, reussi: boolean, minutes: number) => { avant: number; apres: number; coffre: boolean }
   /** Ajoute une minute de révision « libre » (compteur de temps sur les pages de révision). */
   ajouterMinute: () => void
   debloquerBadge: (id: string) => void
@@ -216,16 +218,19 @@ export function ProgressionProvider({ children }: { children: ReactNode }) {
     (etapeId, reussi, minutes) => {
       const avant = ref.current.chemin[etapeId]?.etoiles ?? 0
       const nouvel = gagnerEtoile(ref.current.chemin[etapeId], reussi)
+      const genre = ETAPES.find((e) => e.id === etapeId)?.genre
+      const coffre = avant === 0 && (genre === 'bilan' || genre === 'final')
       appliquer((p) => {
         const session: SessionEtude = { id: idUnique(), debut: new Date(Date.now() - minutes * 60_000).toISOString(), dureeMinutes: minutes, type: 'daily', xp: XP.bonusDaily }
         return {
           ...p,
           chemin: { ...p.chemin, [etapeId]: nouvel },
+          boutique: coffre ? { ...p.boutique, bonus: p.boutique.bonus + MARKS_COFFRE } : p.boutique,
           sessions: [...p.sessions, session],
           stats: ajouterXpStats(p.stats, XP.bonusDaily),
         }
       })
-      return { avant, apres: nouvel.etoiles }
+      return { avant, apres: nouvel.etoiles, coffre }
     },
     [appliquer],
   )

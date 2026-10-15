@@ -3,10 +3,11 @@ import Icone, { type NomIcone } from './Icone'
 import { COULEURS, useTheme, type ChoixTheme } from '../state/theme'
 import { useProgression } from '../state/progression'
 import type { CouleurTheme } from '../lib/types'
+import { MONDES } from '../lib/mondes'
 
 export const DUREES = [5, 10, 25] as const
 
-/** Le menu « Personnaliser » : couleur, thème, durée de séance, minuteur, son, objectif. */
+/** Le menu « Personnaliser » : couleur, monde du chemin, thème, durée de séance, minuteur, son, objectif. */
 export default function Personnaliser() {
   const { p, majProfil } = useProgression()
   const { choix, setChoix } = useTheme()
@@ -47,8 +48,31 @@ export default function Personnaliser() {
         </div>
       </fieldset>
 
+      <fieldset className="mt-5">
+        <legend className="font-semibold">Ton monde</legend>
+        <p className="text-sm text-muted mb-2">Le décor de ton chemin. Tous les mondes sont gratuits !</p>
+        <div className="grid grid-cols-4 gap-2">
+          {MONDES.map((m) => {
+            const actif = (prefs.monde ?? 'arc') === m.id
+            return (
+              <label key={m.id} className="flex flex-col items-center gap-1.5 cursor-pointer">
+                <input type="radio" name="monde" className="sr-only peer" checked={actif} onChange={() => majProfil({ preferences: { monde: m.id } })} />
+                <span
+                  className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-transform peer-focus-visible:outline-3 peer-focus-visible:outline-blue-500 ${actif ? 'scale-110' : ''}`}
+                  style={{ background: m.fond, boxShadow: `0 4px 0 ${m.ombre}${actif ? ', 0 0 0 3px var(--surface), 0 0 0 6px var(--ink)' : ''}` }}
+                  aria-hidden
+                >
+                  {m.emoji}
+                </span>
+                <span className={`text-sm text-center leading-tight ${actif ? 'font-bold' : 'text-muted'}`}>{m.nom}</span>
+              </label>
+            )
+          })}
+        </div>
+      </fieldset>
+
       <Choix
-        legende="Ambiance"
+        legende="Clair ou sombre"
         nom="theme"
         valeur={choix}
         onChange={(v) => setChoix(v as ChoixTheme)}

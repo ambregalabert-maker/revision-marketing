@@ -240,6 +240,7 @@ export function fusionner(compte: Progression, invite: Progression): Progression
       ...(compte.boutique.compagnon ? compte.boutique : invite.boutique),
       possedes: [...new Set([...compte.boutique.possedes, ...invite.boutique.possedes])],
       depenses: compte.boutique.depenses + invite.boutique.depenses,
+      bonus: Math.max(compte.boutique.bonus, invite.boutique.bonus),
     },
     stats: {
       ...plusRecente,

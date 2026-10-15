@@ -5,7 +5,7 @@ Site de révision pour les étudiants de Bachelor 1re année, en deux modes :
 - **Le daily** (page d'accueil) : un chemin façon Duolingo, une étape de 3 minutes par notion. Les étoiles suivent la répétition espacée : ⭐ au 1er passage, ⭐⭐ en revenant au moins 1 jour plus tard (70 % de bonnes réponses), ⭐⭐⭐ une semaine après. Pas de minuteur.
 - **Le mode Tryhard** : une séance de 5, 10, 25 minutes ou plus, qui s'adapte à la durée et commence par tes points faibles et tes erreurs (minuteur discret, masquable). Plus l'accès direct aux flashcards, au QCM (avec un mode examen noté sur 10), aux calculs, classements, vrai/faux et cas pratiques.
 
-Et aussi : un **compagnon kawaii** à adopter et à baptiser (renard, panda ou licorne arc-en-ciel) qui t'attend sur le chemin et réagit pendant tes séances, une **boutique** d'accessoires payés en Marks 🪙 (1 Mark pour 10 XP, gagnés automatiquement), XP, niveaux, série avec joker, badges, un menu **Personnaliser** (couleur Pêche, Menthe, Lavande ou Rose, mode sombre, durée de séance préférée, minuteur), et une page **Astuces** ludique (quiz « Quel·le réviseur·se es-tu ? », astuces en stories, mini-jeu « Repère l'erreur », semaine type à cocher).
+Et aussi : un **compagnon kawaii** à adopter et à baptiser (renard, panda ou licorne arc-en-ciel) qui t'attend sur le chemin et réagit pendant tes séances, une **boutique** d'accessoires payés en Marks 🪙 (1 Mark pour 10 XP, gagnés automatiquement, + un coffre de 20 Marks au premier bilan terminé), **4 mondes gratuits** pour le décor du chemin (Arc-en-ciel, Jardin, Galaxie, Hiver), de petites animations (l'étoile gagnée s'envole vers le compteur, le compagnon saute au rond suivant), XP, niveaux, série avec joker, badges, un menu **Personnaliser** (couleur Pêche, Menthe, Lavande ou Rose, mode sombre, durée de séance préférée, minuteur), et une page **Astuces** ludique (quiz « Quel·le réviseur·se es-tu ? », astuces en stories, mini-jeu « Repère l'erreur », semaine type à cocher).
 
 - **Sans compte** (mode invité), la progression est sauvegardée dans le navigateur.
 - **Avec un compte** (Supabase, gratuit), elle est sauvegardée en ligne et tu la retrouves sur tous tes appareils.
@@ -188,7 +188,7 @@ scripts/           → vérification du contenu (npm run check)
 
 **Règles de motivation** (dans `src/lib/gamification.ts`) : flashcard révisée 2 XP · bonne réponse QCM 5 XP · exercice réussi 10 XP · cas pratique terminé 25 XP · étape du chemin terminée +10 XP · séance Tryhard complète jusqu'à +20 XP. Une erreur ne fait jamais perdre d'XP. Un jour compte pour la série dès qu'une séance est terminée (même une étape de 3 minutes) ou après 10 minutes de révision ; un joker par semaine sauve un jour manqué.
 
-**La boutique** (dans `src/lib/boutique.ts`) : les prix des compagnons et des accessoires se changent dans les listes `COMPAGNONS` et `ACCESSOIRES`. Les dessins sont dans `src/components/Compagnon.tsx`.
+**La boutique** (dans `src/lib/boutique.ts`) : les prix des compagnons et des accessoires se changent dans les listes `COMPAGNONS` et `ACCESSOIRES`. Les dessins sont dans `src/components/Compagnon.tsx`. Les décors des mondes sont dans `src/lib/mondes.ts` (positions) et `src/components/DecorMonde.tsx` (dessins). Sur ordinateur, le menu de gauche se masque avec le bouton en haut à droite du menu (plein écran).
 
 **Le chemin** (dans `src/lib/chemin.ts`) : une étape par notion, un bilan par séance et une étape finale « Prêt·e pour le QCM ». Le contenu des séances est préparé dans `src/lib/plan.ts`.
 

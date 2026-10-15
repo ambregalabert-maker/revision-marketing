@@ -3,9 +3,11 @@
 import type { Boutique, Espece, Progression } from './types'
 
 export const XP_PAR_MARK = 10
+/** Le coffre d'un bilan, ouvert la première fois qu'on le termine. */
+export const MARKS_COFFRE = 20
 
 export const marksGagnes = (p: Progression) => Math.floor(p.stats.xpTotal / XP_PAR_MARK)
-export const marksDisponibles = (p: Progression) => Math.max(0, marksGagnes(p) - p.boutique.depenses)
+export const marksDisponibles = (p: Progression) => Math.max(0, marksGagnes(p) + p.boutique.bonus - p.boutique.depenses)
 
 export interface InfoCompagnon {
   id: Espece

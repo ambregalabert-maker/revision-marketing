@@ -305,6 +305,18 @@ h4 {
   -webkit-backface-visibility: hidden;
 }
 
+/* Sur ordinateur, tout est un peu plus grand (le téléphone ne change pas). */
+@media (min-width: 1024px) {
+  html {
+    font-size: 106.25%;
+  }
+}
+@media (min-width: 1440px) {
+  html {
+    font-size: 112.5%;
+  }
+}
+
 /* ---------- Petites animations ---------- */
 @keyframes apparition {
   from {
@@ -373,6 +385,220 @@ h4 {
   to {
     transform: scaleX(1);
   }
+}
+
+/* ---------- Les mondes du chemin (gratuits, choisis dans « Personnaliser ») ---------- */
+.monde {
+  --m-bg: #eef6ff;
+  --m-route: #dfeaf6;
+  --m-trait: #ffffff;
+  --m-bande: var(--blue-100);
+  --m-bande-ink: var(--blue-700);
+  --m-ink: var(--ink);
+  --m-carte: var(--surface);
+  --m-ligne: var(--line);
+  background: var(--m-bg);
+  color: var(--m-ink);
+}
+.monde[data-monde="jardin"] {
+  --m-bg: #eef8ef;
+  --m-route: #d9eed6;
+  --m-bande: #d9f0df;
+  --m-bande-ink: #2e7a4f;
+}
+.monde[data-monde="hiver"] {
+  --m-bg: #f2f7fc;
+  --m-route: #ffffff;
+  --m-trait: #d3e2f0;
+}
+/* La galaxie est toujours de nuit. */
+.monde[data-monde="galaxie"] {
+  --m-bg: #141a3b;
+  --m-route: #232b5e;
+  --m-trait: #3a4488;
+  --m-bande: #262f66;
+  --m-bande-ink: #c4b8f8;
+  --m-ink: #eef0ff;
+  --m-carte: #1f2756;
+  --m-ligne: #3a4488;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .monde:not([data-monde="galaxie"]) {
+    --m-bg: #13243a;
+    --m-route: #1f3550;
+    --m-trait: #2f4d70;
+  }
+  :root:not([data-theme="light"]) .monde[data-monde="jardin"] {
+    --m-bg: #12261f;
+    --m-route: #1d3a2e;
+    --m-bande: #1d3a2e;
+    --m-bande-ink: #8fd6ad;
+  }
+  :root:not([data-theme="light"]) .monde:not([data-monde="galaxie"]) .decor {
+    opacity: 0.5;
+  }
+}
+:root[data-theme="dark"] .monde:not([data-monde="galaxie"]) {
+  --m-bg: #13243a;
+  --m-route: #1f3550;
+  --m-trait: #2f4d70;
+}
+:root[data-theme="dark"] .monde[data-monde="jardin"] {
+  --m-bg: #12261f;
+  --m-route: #1d3a2e;
+  --m-bande: #1d3a2e;
+  --m-bande-ink: #8fd6ad;
+}
+:root[data-theme="dark"] .monde:not([data-monde="galaxie"]) .decor {
+  opacity: 0.5;
+}
+
+/* Le décor bouge tout doucement. */
+@keyframes flotte {
+  0%,
+  100% {
+    transform: translateX(-12px);
+  }
+  50% {
+    transform: translateX(12px);
+  }
+}
+@keyframes scintille {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+@keyframes tombe {
+  0% {
+    transform: translateY(-30px) rotate(0);
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(320px) rotate(220deg);
+    opacity: 0;
+  }
+}
+@keyframes papillon {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(30px, -20px);
+  }
+  50% {
+    transform: translate(10px, -40px);
+  }
+  75% {
+    transform: translate(-20px, -15px);
+  }
+}
+@keyframes ailes {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.35);
+  }
+}
+@keyframes filante {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  60%,
+  100% {
+    transform: translate(-220px, 140px);
+    opacity: 0;
+  }
+}
+.anim-flotte {
+  animation: flotte 7s ease-in-out infinite;
+}
+.anim-scintille {
+  animation: scintille 2.6s ease-in-out infinite;
+}
+.anim-tombe {
+  animation: tombe 8s linear infinite;
+}
+.anim-papillon {
+  animation: papillon 9s ease-in-out infinite;
+}
+.anim-filante {
+  animation: filante 5s ease-in infinite;
+}
+.ailes {
+  animation: ailes 0.35s ease-in-out infinite;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
+/* Le compagnon saute de rond en rond. */
+@keyframes saut {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-46px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-30px);
+  }
+}
+.saut {
+  animation: saut 1.1s ease-in-out 1;
+}
+
+/* Le coffre du bilan s'ouvre. */
+@keyframes couvercle {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(-38deg);
+  }
+}
+@keyframes piece {
+  0% {
+    transform: translate(0, 0) scale(0.4);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    transform: translate(var(--dx), -90px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--dx), -110px);
+    opacity: 0;
+  }
+}
+.couvercle {
+  animation: couvercle 0.5s 0.4s ease-out both;
+  transform-origin: 14px 52px;
+}
+.piece {
+  animation: piece 1.4s 0.7s ease-out both;
 }
 
 /* Défilement horizontal sans barre visible. */

@@ -146,6 +146,9 @@ export interface SessionEtude {
 
 export type CouleurTheme = 'peche' | 'menthe' | 'lavande' | 'rose'
 
+/** Le monde (décor) du chemin, choisi gratuitement dans « Personnaliser ». */
+export type Monde = 'arc' | 'jardin' | 'galaxie' | 'hiver'
+
 export interface Preferences {
   /** Petit son doux à la fin du minuteur (mode Tryhard). */
   son: boolean
@@ -155,6 +158,8 @@ export interface Preferences {
   dureeSeance: number
   /** Afficher le minuteur pendant une séance Tryhard. */
   minuteur: boolean
+  /** Le décor du chemin. */
+  monde: Monde
 }
 
 export interface Profil {
@@ -212,6 +217,8 @@ export interface Boutique {
   porte: string[]
   /** Marks déjà dépensés (les Marks gagnés se calculent à partir des XP). */
   depenses: number
+  /** Marks bonus (coffres des bilans). */
+  bonus: number
 }
 
 export interface EtoilesEtape {
