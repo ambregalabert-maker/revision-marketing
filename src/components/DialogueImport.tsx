@@ -28,7 +28,7 @@ export default function DialogueImport() {
             : 'On peut l’ajouter à ton compte pour la retrouver partout.'}
         </p>
         <div className="flex flex-col gap-2 mt-5">
-          <button ref={bouton} type="button" className="btn btn-orange" onClick={() => repondreImport(true)}>
+          <button ref={bouton} type="button" className="btn btn-accent" onClick={() => repondreImport(true)}>
             Oui, importer ma progression
           </button>
           <button type="button" className="btn btn-contour" onClick={() => repondreImport(false)}>

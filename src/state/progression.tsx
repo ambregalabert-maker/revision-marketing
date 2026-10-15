@@ -1,8 +1,9 @@
 // Cœur de la progression de l'étudiant : un seul état, sauvegardé dans le navigateur
 // (mode invité) et synchronisé avec Supabase quand l'étudiant est connecté (voir sync.ts).
-import { createContext, useCallback, useContext, useMemo, useRef, useState, type ReactNode } from 'react'
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { ecrire, lire } from '../lib/stockage'
 import { idUnique, jour } from '../lib/dates'
+import { gagnerEtoile } from '../lib/chemin'
 import { noter, type NoteCarte } from '../lib/leitner'
 import {
   BADGES,
@@ -13,7 +14,7 @@ import {
   niveauPour,
   nouveauxBadges,
 } from '../lib/gamification'
-import type { NotionId, Profil, Progression, Seance, SessionEtude, Tentative, TypeSession, TypeTentative } from '../lib/types'
+import type { NotionId, Preferences, Profil, Progression, Seance, SessionEtude, Tentative, TypeSession, TypeTentative } from '../lib/types'
 
 export const CLE_PROGRESSION = 'rm-progression'
 
@@ -28,7 +29,7 @@ export function progressionVide(): Progression {
       objectifHebdo: 5,
       dateQcm: null,
       apparaitClassement: false,
-      preferences: { son: true, notifications: false, travail: 25, pause: 5, pauseLongue: 15 },
+      preferences: { son: true, couleur: 'peche', dureeSeance: 10, minuteur: true },
     },
     cartes: {},
     tentatives: [],
@@ -44,6 +45,7 @@ export function progressionVide(): Progression {
     },
     badges: {},
     minutesParJour: {},
+    chemin: {},
   }
 }
 
@@ -61,6 +63,7 @@ export function normaliser(p: Partial<Progression> | null | undefined): Progress
     sessions: p.sessions ?? [],
     badges: p.badges ?? {},
     minutesParJour: p.minutesParJour ?? {},
+    chemin: p.chemin ?? {},
   }
 }
 
@@ -82,12 +85,14 @@ interface ValeurContexte {
   repondre: (t: { itemId: string; type: TypeTentative; notion: NotionId; seance: Seance; correct: boolean }, xp: number) => number
   /** Auto-évaluation d'une flashcard (Leitner). */
   noterCarte: (carte: { id: string; notion: NotionId; seance: Seance }, note: NoteCarte) => void
-  /** Termine une séance (Pomodoro ou guidée). */
+  /** Termine une séance (Tryhard ou daily). */
   terminerSession: (type: TypeSession, minutes: number, xp: number) => void
+  /** Termine une mini-séance du chemin : enregistre la séance et, si mérité, une étoile. */
+  terminerEtape: (etapeId: string, reussi: boolean, minutes: number) => { avant: number; apres: number }
   /** Ajoute une minute de révision « libre » (compteur de temps sur les pages de révision). */
   ajouterMinute: () => void
   debloquerBadge: (id: string) => void
-  majProfil: (modif: Partial<Profil>) => void
+  majProfil: (modif: Partial<Omit<Profil, 'preferences'>> & { preferences?: Partial<Preferences> }) => void
   terminerOnboarding: () => void
   reinitialiser: () => void
   /** Remplace toute la progression (import depuis Supabase ou fusion). */
@@ -112,6 +117,12 @@ export function ProgressionProvider({ children }: { children: ReactNode }) {
   const ref = useRef(p)
   const libre = useRef<{ id: string; maj: number } | null>(null)
 
+  // Applique la couleur choisie dans « Personnaliser » à tout le site.
+  const couleur = p.profil.preferences.couleur
+  useEffect(() => {
+    document.documentElement.dataset.accent = couleur
+  }, [couleur])
+
   /**
    * Applique une modification, puis :
    * 1) vérifie si la journée compte pour la série ;
@@ -126,7 +137,7 @@ export function ProgressionProvider({ children }: { children: ReactNode }) {
     const fetes: Celebration[] = []
 
     const minutes = apres.minutesParJour[aujourdhui] ?? 0
-    const seanceDuJour = apres.sessions.some((s) => s.debut.slice(0, 10) === aujourdhui && s.type !== 'libre')
+    const seanceDuJour = apres.sessions.some((s) => jour(new Date(s.debut)) === aujourdhui && s.type !== 'libre')
     if (minutes >= MINUTES_JOUR_ACTIF || seanceDuJour) {
       apres = { ...apres, stats: marquerJourActif(apres.stats, aujourdhui) }
     }
@@ -197,6 +208,24 @@ export function ProgressionProvider({ children }: { children: ReactNode }) {
     [appliquer],
   )
 
+  const terminerEtape = useCallback<ValeurContexte['terminerEtape']>(
+    (etapeId, reussi, minutes) => {
+      const avant = ref.current.chemin[etapeId]?.etoiles ?? 0
+      const nouvel = gagnerEtoile(ref.current.chemin[etapeId], reussi)
+      appliquer((p) => {
+        const session: SessionEtude = { id: idUnique(), debut: new Date(Date.now() - minutes * 60_000).toISOString(), dureeMinutes: minutes, type: 'daily', xp: XP.bonusDaily }
+        return {
+          ...p,
+          chemin: { ...p.chemin, [etapeId]: nouvel },
+          sessions: [...p.sessions, session],
+          stats: ajouterXpStats(p.stats, XP.bonusDaily),
+        }
+      })
+      return { avant, apres: nouvel.etoiles }
+    },
+    [appliquer],
+  )
+
   const ajouterMinute = useCallback(() => {
     appliquer(
       (avant) => {
@@ -234,7 +263,7 @@ export function ProgressionProvider({ children }: { children: ReactNode }) {
   )
 
   const majProfil = useCallback(
-    (modif: Partial<Profil>) =>
+    (modif: Parameters<ValeurContexte['majProfil']>[0]) =>
       appliquer((avant) => ({
         ...avant,
         profil: { ...avant.profil, ...modif, preferences: { ...avant.profil.preferences, ...modif.preferences } },
@@ -262,6 +291,7 @@ export function ProgressionProvider({ children }: { children: ReactNode }) {
       repondre,
       noterCarte,
       terminerSession,
+      terminerEtape,
       ajouterMinute,
       debloquerBadge,
       majProfil,
@@ -269,7 +299,7 @@ export function ProgressionProvider({ children }: { children: ReactNode }) {
       reinitialiser,
       remplacer,
     }),
-    [p, celebrations, retirerCelebration, repondre, noterCarte, terminerSession, ajouterMinute, debloquerBadge, majProfil, terminerOnboarding, reinitialiser, remplacer],
+    [p, celebrations, retirerCelebration, repondre, noterCarte, terminerSession, terminerEtape, ajouterMinute, debloquerBadge, majProfil, terminerOnboarding, reinitialiser, remplacer],
   )
 
   return <Contexte.Provider value={valeur}>{children}</Contexte.Provider>

@@ -71,7 +71,7 @@ export async function chargerDistant(client: SupabaseClient, userId: string): Pr
       id: s.id as string,
       debut: new Date(s.debut as string).toISOString(),
       dureeMinutes: s.duree_minutes as number,
-      type: s.type as 'pomodoro' | 'guidee' | 'libre',
+      type: s.type as 'pomodoro' | 'guidee' | 'daily' | 'libre',
       xp: s.xp_gagnes as number,
     })),
     stats: {
@@ -85,6 +85,7 @@ export async function chargerDistant(client: SupabaseClient, userId: string): Pr
     },
     badges: Object.fromEntries(badges.map((b) => [b.badge_id as string, new Date(b.obtenu_le as string).toISOString()])),
     minutesParJour: (st.minutes_par_jour as Record<string, number>) ?? {},
+    chemin: (st.chemin as Progression['chemin']) ?? {},
   })
 }
 
@@ -162,7 +163,11 @@ export async function pousser(client: SupabaseClient, userId: string, deja: Prog
     )
   }
 
-  if (JSON.stringify(deja.stats) !== JSON.stringify(actuel.stats) || JSON.stringify(deja.minutesParJour) !== JSON.stringify(actuel.minutesParJour)) {
+  if (
+    JSON.stringify(deja.stats) !== JSON.stringify(actuel.stats) ||
+    JSON.stringify(deja.minutesParJour) !== JSON.stringify(actuel.minutesParJour) ||
+    JSON.stringify(deja.chemin) !== JSON.stringify(actuel.chemin)
+  ) {
     const s = actuel.stats
     travaux.push(
       client.from('user_stats').upsert({
@@ -176,6 +181,7 @@ export async function pousser(client: SupabaseClient, userId: string, deja: Prog
         xp_semaine: s.xpSemaine,
         semaine_cle: s.semaineCle,
         minutes_par_jour: actuel.minutesParJour,
+        chemin: actuel.chemin,
         maj_le: actuel.majLe,
       }),
     )
@@ -207,6 +213,9 @@ export function fusionner(compte: Progression, invite: Progression): Progression
   const minutes = { ...compte.minutesParJour }
   for (const [j, m] of Object.entries(invite.minutesParJour)) minutes[j] = (minutes[j] ?? 0) + m
   const badges = { ...invite.badges, ...compte.badges }
+  // Chemin : on garde, pour chaque étape, le plus d'étoiles des deux côtés.
+  const chemin = { ...compte.chemin }
+  for (const [id, e] of Object.entries(invite.chemin)) if (!chemin[id] || e.etoiles > chemin[id].etoiles) chemin[id] = e
   const memeSemaine = compte.stats.semaineCle === invite.stats.semaineCle
   const plusRecente = (compte.stats.derniereActivite ?? '') >= (invite.stats.derniereActivite ?? '') ? compte.stats : invite.stats
 
@@ -220,6 +229,7 @@ export function fusionner(compte: Progression, invite: Progression): Progression
     cartes,
     badges,
     minutesParJour: minutes,
+    chemin,
     stats: {
       ...plusRecente,
       xpTotal: compte.stats.xpTotal + invite.stats.xpTotal,

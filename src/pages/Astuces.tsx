@@ -46,7 +46,7 @@ export default function Astuces() {
                     <thead>
                       <tr>
                         {s.tableau.colonnes.map((c, k) => (
-                          <th key={c} scope="col" className={`text-left p-2 rounded-lg ${k === 0 ? 'bg-blue-100 text-blue-700' : 'bg-orange-100 text-orange-700'}`}>
+                          <th key={c} scope="col" className={`text-left p-2 rounded-lg ${k === 0 ? 'bg-blue-100 text-blue-700' : 'bg-accent-100 text-accent-700'}`}>
                             {c}
                           </th>
                         ))}
@@ -97,7 +97,7 @@ export default function Astuces() {
                 <ol className="flex flex-col gap-2">
                   {s.semaine.map((l) => (
                     <li key={l.quand} className="rounded-2xl bg-surface-2 p-3 flex flex-wrap items-center gap-3">
-                      <span className="w-16 text-center shrink-0 rounded-xl bg-orange-100 text-orange-700 font-titre font-bold py-1">{l.duree}</span>
+                      <span className="w-16 text-center shrink-0 rounded-xl bg-accent-100 text-accent-700 font-titre font-bold py-1">{l.duree}</span>
                       <span className="flex-1 min-w-40">
                         <span className="block font-semibold">{l.quand}</span>
                         <span className="block text-sm text-muted">{l.quoi}</span>
@@ -152,7 +152,7 @@ export default function Astuces() {
               )}
 
               {s.lien && (
-                <Link to={s.lien.to} className="btn btn-orange self-start">
+                <Link to={s.lien.to} className="btn btn-accent self-start">
                   {s.lien.label}
                 </Link>
               )}
@@ -161,14 +161,14 @@ export default function Astuces() {
         ))}
       </div>
 
-      <section aria-labelledby="titre-regles" className="mt-6 rounded-3xl border-2 border-orange-500 bg-orange-100 p-5">
+      <section aria-labelledby="titre-regles" className="mt-6 rounded-3xl border-2 border-accent-500 bg-accent-100 p-5">
         <h2 id="titre-regles" className="text-xl font-bold mb-3">
           3 règles à retenir
         </h2>
         <ol className="flex flex-col gap-2">
           {astuces.regles.map((r, i) => (
             <li key={r} className="flex items-center gap-3 font-titre font-semibold text-lg">
-              <span className="flex items-center justify-center w-9 h-9 shrink-0 rounded-full bg-orange-500 text-on-orange">{i + 1}</span>
+              <span className="flex items-center justify-center w-9 h-9 shrink-0 rounded-full bg-accent-500 text-on-accent">{i + 1}</span>
               {r}
             </li>
           ))}

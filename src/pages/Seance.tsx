@@ -1,66 +1,45 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import Page from '../components/Page'
-import SessionFlashcards from '../components/revision/SessionFlashcards'
-import SerieQcm from '../components/revision/SerieQcm'
-import Calculs from '../components/revision/Calculs'
-import Classement from '../components/revision/Classement'
-import VraiFauxEx from '../components/revision/VraiFauxEx'
-import CasEx from '../components/revision/CasEx'
-import { Etiquette, PuceXp } from '../components/ui'
+import DeroulementSeance, { type Score } from '../components/revision/DeroulementSeance'
+import { DUREES } from '../components/Personnaliser'
+import { Interrupteur } from '../components/Personnaliser'
 import Icone from '../components/Icone'
-import { casPratiques, classements, flashcards, melanger, notions, qcm, titreNotion, vraiFaux } from '../lib/contenu'
-import { ordonner } from '../lib/leitner'
-import { XP, encouragement, maitrise, notionLaPlusFaible } from '../lib/gamification'
+import { PuceXp } from '../components/ui'
+import { notions } from '../lib/contenu'
+import { planTryhard, type Plan } from '../lib/plan'
+import { XP, encouragement, maitrise } from '../lib/gamification'
 import { formatDans, jour } from '../lib/dates'
+import { carillon } from '../lib/son'
 import { useProgression } from '../state/progression'
-import { formatMinuteur, usePomodoro } from '../state/pomodoro'
 import { useTempsEtude } from '../state/useTempsEtude'
-import type { NotionId, Progression } from '../lib/types'
 
-type Etape = 'intro' | 'flashcards' | 'qcm' | 'exercice' | 'fin'
-
-const MAX_CARTES = 15
-const NB_QCM = 5
-
-/** Choisit l'exercice d'application le plus adapté à la notion travaillée. */
-function exercicePour(notion: NotionId) {
-  if (notion === 'taux-evolution') return { genre: 'calcul' as const, calcul: 'taux' as const }
-  if (notion === 'part-de-marche') return { genre: 'calcul' as const, calcul: 'pdm' as const }
-  const environnement = notion === 'micro-environnement' || notion === 'macro-environnement'
-  const classement = melanger(classements.filter((c) => (environnement ? c.id.startsWith('cl-env') : c.notion === notion)))[0]
-  if (classement) return { genre: 'classement' as const, classement }
-  const vf = vraiFaux.filter((v) => v.notion === notion)
-  if (vf.length) return { genre: 'vraifaux' as const, items: melanger(vf).slice(0, 3) }
-  return { genre: 'cas' as const, cas: casPratiques.find((c) => c.id === 'cas-cqlp')! }
+const DESCRIPTION: Record<string, { nom: string; contenu: string }> = {
+  '5': { nom: 'Petit pas', contenu: 'Tes flashcards du jour + 2 questions' },
+  '10': { nom: 'Séance express', contenu: 'Flashcards + 5 questions sur ta notion faible' },
+  '25': { nom: 'Séance complète', contenu: 'Flashcards + 5 questions + tes erreurs + 1 exercice' },
+  plus: { nom: 'Grosse session', contenu: 'Tes 2 notions faibles, 10 questions, tes erreurs, 2 exercices' },
 }
 
-/** Prépare le programme : cartes du jour, notion la plus faible, 5 questions, 1 exercice. */
-function preparer(cartesRevues: Progression['cartes'], tentatives: Progression['tentatives']) {
-  const { dues, nouvelles } = ordonner(flashcards, cartesRevues)
-  const cartes = [...dues, ...nouvelles].slice(0, MAX_CARTES)
-  const notion = notionLaPlusFaible(tentatives)
-  const seance = notions.find((n) => n.id === notion)!.seance
-  let questions = melanger(qcm.filter((q) => q.notion === notion)).slice(0, NB_QCM)
-  if (questions.length < NB_QCM) {
-    const complement = melanger(qcm.filter((q) => q.notion !== notion && q.seance === seance)).slice(0, NB_QCM - questions.length)
-    questions = [...questions, ...complement]
-  }
-  return { cartes, notion, questions, exercice: exercicePour(notion) }
-}
+const formatMinuteur = (sec: number) => `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`
 
+/** Bonus de fin de séance : proportionnel à la durée (20 XP pour 25 min). */
+const bonusPour = (duree: number) => Math.max(5, Math.round((XP.bonusSeanceGuidee * Math.min(duree, 40)) / 25))
+
+/**
+ * Le mode Tryhard : tu choisis ta durée, la séance s'adapte à tes points faibles.
+ * C'est le seul endroit où le minuteur apparaît (discret, et masquable).
+ */
 export default function Seance() {
   useTempsEtude()
   const { p, terminerSession } = useProgression()
-  const pomodoro = usePomodoro()
-  const [etape, setEtape] = useState<Etape>('intro')
+  const prefs = p.profil.preferences
+  const [duree, setDuree] = useState(prefs.dureeSeance)
+  const [minuteur, setMinuteur] = useState(prefs.minuteur)
+  const [plan, setPlan] = useState<Plan | null>(null)
+  const [fin, setFin] = useState<{ score: Score; xp: number; minutes: number } | null>(null)
   const depart = useRef<{ xp: number; heure: number; maitrise: Record<string, number> } | null>(null)
-  const [exerciceFait, setExerciceFait] = useState(false)
-
-  // Le programme est calculé en direct sur l'écran d'accueil, puis figé au démarrage.
-  const apercu = useMemo(() => preparer(p.cartes, p.tentatives), [p.cartes, p.tentatives])
-  const [fige, setFige] = useState<ReturnType<typeof preparer> | null>(null)
-  const plan = fige ?? apercu
+  const dureeLibre = !DUREES.includes(duree as (typeof DUREES)[number])
 
   const commencer = () => {
     depart.current = {
@@ -68,72 +47,52 @@ export default function Seance() {
       heure: Date.now(),
       maitrise: Object.fromEntries(notions.map((n) => [n.id, maitrise(p.tentatives, n.id).taux])),
     }
-    pomodoro.lancerTravail()
-    setExerciceFait(false)
-    setFige(apercu)
-    setEtape(apercu.cartes.length ? 'flashcards' : 'qcm')
+    setFin(null)
+    setPlan(planTryhard(duree, p))
     window.scrollTo(0, 0)
   }
 
-  const finir = () => {
+  const terminer = (score: Score) => {
     const minutes = Math.max(1, Math.round((Date.now() - (depart.current?.heure ?? Date.now())) / 60_000))
-    terminerSession('guidee', minutes, XP.bonusSeanceGuidee)
-    setEtape('fin')
+    const bonus = bonusPour(duree)
+    terminerSession('guidee', minutes, bonus)
+    setFin({ score, xp: bonus, minutes })
+    setPlan(null)
     window.scrollTo(0, 0)
   }
 
-  const allerA = (e: Etape) => {
-    if (e === 'intro') setFige(null)
-    setEtape(e)
-    window.scrollTo(0, 0)
-  }
-
-  const etapes: { id: Etape; label: string }[] = [
-    { id: 'flashcards', label: 'Flashcards' },
-    { id: 'qcm', label: 'QCM' },
-    { id: 'exercice', label: 'Exercice' },
-  ]
-  const indexEtape = etapes.findIndex((e) => e.id === etape)
-
-  if (etape === 'intro') {
-    return (
-      <Page titre="Séance guidée" sousTitre="25 minutes de concentration, puis 5 minutes de pause. On s'occupe du programme, tu t'occupes de réfléchir.">
-        <ol className="flex flex-col gap-3 mb-6">
-          <EtapeIntro n={1} titre="Tes flashcards du jour" texte={plan.cartes.length ? `${plan.cartes.length} carte${plan.cartes.length > 1 ? 's' : ''} à réviser (répétition espacée).` : 'Aucune carte due aujourd\'hui : on passe directement au QCM.'} />
-          <EtapeIntro n={2} titre={`5 questions sur ta notion la plus faible`} texte={`Aujourd'hui : « ${titreNotion(plan.notion)} ».`} />
-          <EtapeIntro n={3} titre="1 exercice d'application" texte="Pour passer de « je reconnais » à « je sais appliquer »." />
-        </ol>
-        <div className="carte p-4 mb-6 text-sm">
-          <p className="font-semibold flex items-center gap-2">
-            <Icone nom="astuces" taille={18} className="text-orange-700" /> Avant de commencer
-          </p>
-          <p className="text-muted mt-1">Mets ton téléphone en mode avion (ou dans une autre pièce si tu révises sur ordinateur). Tu gagnes un bonus de {XP.bonusSeanceGuidee} XP en allant au bout.</p>
-        </div>
-        <button type="button" className="btn btn-orange w-full !min-h-14 text-lg" onClick={commencer}>
-          <Icone nom="lecture" /> Commencer ma séance (25 min)
-        </button>
-      </Page>
-    )
-  }
-
-  if (etape === 'fin') {
+  // ---------- Écran de fin ----------
+  if (fin) {
     const gain = p.stats.xpTotal - (depart.current?.xp ?? p.stats.xpTotal)
     const progres = notions
       .map((n) => ({ n, avant: depart.current?.maitrise[n.id] ?? 0, apres: maitrise(p.tentatives, n.id).taux }))
       .filter((x) => x.apres > x.avant)
-    const aujourdhui = jour()
     const prochaines = Object.values(p.cartes)
       .map((c) => c.prochaine)
-      .filter((d) => d > aujourdhui)
+      .filter((d) => d > jour())
       .sort()
+    const pct = fin.score.total ? Math.round((fin.score.justes / fin.score.total) * 100) : 100
     return (
       <Page titre="Séance terminée !">
         <div className="carte p-6 text-center apparition">
-          <div aria-hidden className="text-5xl mb-2">🎉</div>
-          <p className="text-lg">{encouragement()}</p>
-          <p className="mt-3">
+          <div aria-hidden className="text-5xl mb-2">
+            🎉
+          </div>
+          <p className="text-xl font-titre font-bold">Bravo ! Fais une pause 🙂</p>
+          <p className="text-muted mt-1">{encouragement()}</p>
+          <div className="flex justify-center gap-2 mt-4">
             <PuceXp xp={gain} />
-          </p>
+          </div>
+          <div className="grid grid-cols-2 gap-3 mt-5">
+            <div className="rounded-2xl bg-surface-2 p-3">
+              <p className="font-titre font-bold text-2xl">{pct} %</p>
+              <p className="text-xs text-muted">de bonnes réponses</p>
+            </div>
+            <div className="rounded-2xl bg-surface-2 p-3">
+              <p className="font-titre font-bold text-2xl">{fin.minutes} min</p>
+              <p className="text-xs text-muted">de révision</p>
+            </div>
+          </div>
         </div>
         <div className="grid sm:grid-cols-2 gap-3 mt-4">
           <div className="carte p-5">
@@ -143,7 +102,7 @@ export default function Seance() {
                 {progres.map((x) => (
                   <li key={x.n.id} className="flex justify-between gap-2">
                     <span>{x.n.titre}</span>
-                    <span className="font-bold text-success-ink">
+                    <span className="font-bold text-success-ink whitespace-nowrap">
                       {x.avant} % → {x.apres} %
                     </span>
                   </li>
@@ -156,14 +115,13 @@ export default function Seance() {
           <div className="carte p-5">
             <h2 className="font-bold mb-2">Prochaine révision</h2>
             <p>{prochaines[0] ? `Tes prochaines flashcards reviennent ${formatDans(prochaines[0])}.` : 'Reviens demain pour une nouvelle séance.'}</p>
-            {pomodoro.phase !== 'travail' && <p className="mt-2 text-sm rounded-xl bg-success-bg p-2">C'est la pause : {pomodoro.suggestion}</p>}
           </div>
         </div>
         <div className="mt-6 flex flex-col sm:flex-row gap-3">
-          <Link to="/" className="btn btn-orange flex-1">
-            Retour à l'accueil
+          <Link to="/" className="btn btn-accent flex-1">
+            Retour au chemin
           </Link>
-          <button type="button" className="btn btn-contour flex-1" onClick={() => allerA('intro')}>
+          <button type="button" className="btn btn-contour flex-1" onClick={() => setFin(null)}>
             Nouvelle séance
           </button>
         </div>
@@ -171,72 +129,124 @@ export default function Seance() {
     )
   }
 
-  return (
-    <Page titre="Séance guidée">
-      {/* Avancement de la séance + minuteur */}
-      <div className="flex items-center gap-2 mb-4">
-        <ol className="flex-1 flex gap-1" aria-label="Étapes de la séance">
-          {etapes.map((e, i) => (
-            <li key={e.id} className="flex-1" aria-current={i === indexEtape ? 'step' : undefined}>
-              <div className={`h-2 rounded-full ${i < indexEtape ? 'bg-success' : i === indexEtape ? 'bg-orange-500' : 'bg-blue-100'}`} />
-              <span className={`block text-xs mt-1 ${i === indexEtape ? 'font-bold text-ink' : 'text-muted'}`}>
-                {i < indexEtape && <span className="sr-only">Terminé : </span>}
-                {e.label}
-              </span>
-            </li>
-          ))}
-        </ol>
-        <span className="flex items-center gap-1 text-sm font-titre font-bold tabular-nums text-blue-700" aria-label="Temps restant du Pomodoro">
-          <Icone nom="minuteur" taille={16} /> {formatMinuteur(pomodoro.resteSec)}
-        </span>
+  // ---------- Séance en cours ----------
+  if (plan) {
+    return (
+      <div className="apparition">
+        <DeroulementSeance
+          plan={plan}
+          onFin={terminer}
+          entete={
+            <>
+              <button
+                type="button"
+                onClick={() => setPlan(null)}
+                className="flex items-center justify-center w-11 h-11 -ml-2 text-muted rounded-full hover:bg-surface-2"
+                aria-label="Quitter la séance"
+              >
+                <Icone nom="non" />
+              </button>
+              {minuteur && <Minuteur duree={duree} debut={depart.current?.heure ?? Date.now()} son={prefs.son} onMasquer={() => setMinuteur(false)} />}
+            </>
+          }
+        />
       </div>
+    )
+  }
 
-      {etape === 'flashcards' && (
-        <>
-          <p className="mb-3 text-muted">Étape 1 · Tes flashcards du jour.</p>
-          <SessionFlashcards cartes={plan.cartes} onTermine={() => allerA('qcm')} />
-        </>
-      )}
-
-      {etape === 'qcm' && (
-        <>
-          <p className="mb-3 text-muted">
-            Étape 2 · Ta notion la plus faible : <Etiquette>{titreNotion(plan.notion)}</Etiquette>
-          </p>
-          <SerieQcm questions={plan.questions} mode="entrainement" onTermine={() => allerA('exercice')} />
-        </>
-      )}
-
-      {etape === 'exercice' && (
-        <>
-          <p className="mb-3 text-muted">Étape 3 · Applique : c'est ce qui fait la différence le jour de l'examen.</p>
-          {plan.exercice.genre === 'calcul' && <Calculs genreInitial={plan.exercice.calcul} onVerifie={() => setExerciceFait(true)} />}
-          {plan.exercice.genre === 'classement' && <Classement exo={plan.exercice.classement} onTermine={() => setExerciceFait(true)} />}
-          {plan.exercice.genre === 'vraifaux' && <VraiFauxEx items={plan.exercice.items} onTermine={() => setExerciceFait(true)} />}
-          {plan.exercice.genre === 'cas' && <CasEx cas={plan.exercice.cas} onTermine={() => setExerciceFait(true)} />}
-          {exerciceFait && (
-            <button type="button" className="btn btn-orange w-full mt-4 !min-h-14" onClick={finir}>
-              Terminer ma séance (+{XP.bonusSeanceGuidee} XP bonus) <Icone nom="suivant" />
-            </button>
-          )}
-        </>
-      )}
-
-      <Link to="/reviser" className="btn btn-discret w-full mt-4">
-        Quitter la séance
+  // ---------- Choix de la durée ----------
+  const cle = dureeLibre ? 'plus' : String(duree)
+  return (
+    <Page titre="Mode Tryhard" sousTitre="Tu as combien de temps ? La séance s'adapte et commence par tes points faibles.">
+      <Link to="/reviser" className="inline-flex items-center gap-1 min-h-11 text-blue-700 font-semibold mb-2 -ml-1">
+        <Icone nom="retour" taille={20} /> Tryhard
       </Link>
+      <div role="radiogroup" aria-label="Durée de la séance" className="flex flex-col gap-3">
+        {(['5', '10', '25', 'plus'] as const).map((k) => {
+          const actif = cle === k
+          const minutes = k === 'plus' ? (dureeLibre ? duree : 40) : Number(k)
+          return (
+            <button
+              key={k}
+              type="button"
+              role="radio"
+              aria-checked={actif}
+              onClick={() => setDuree(minutes)}
+              className={`text-left flex items-center gap-4 p-4 rounded-2xl border-2 transition-colors ${
+                actif ? 'border-accent-600 bg-accent-100' : 'border-line bg-surface hover:border-blue-500'
+              }`}
+              style={{ boxShadow: `0 4px 0 ${actif ? 'var(--accent-600)' : 'var(--line)'}` }}
+            >
+              <span
+                className={`w-14 h-14 shrink-0 rounded-2xl flex flex-col items-center justify-center font-titre font-bold text-xl leading-none ${
+                  actif ? 'bg-accent-500 text-[#1e2a3a]' : 'bg-blue-100 text-blue-700'
+                }`}
+              >
+                {k === 'plus' ? '30+' : k}
+                <span className="text-[11px] font-semibold">min</span>
+              </span>
+              <span>
+                <span className="block font-titre font-semibold text-lg">{DESCRIPTION[k].nom}</span>
+                <span className="block text-sm text-muted">{DESCRIPTION[k].contenu}</span>
+              </span>
+            </button>
+          )
+        })}
+      </div>
+      {dureeLibre && (
+        <label className="flex items-center gap-3 mt-4 text-sm font-semibold">
+          <span className="whitespace-nowrap w-16">{duree} min</span>
+          <input
+            type="range"
+            min={30}
+            max={60}
+            step={5}
+            value={duree}
+            onChange={(e) => setDuree(Number(e.target.value))}
+            className="flex-1 accent-[var(--accent-600)]"
+            aria-label="Durée de la séance en minutes"
+          />
+        </label>
+      )}
+      <div className="mt-4">
+        <Interrupteur label="Afficher le minuteur pendant la séance" coche={minuteur} onChange={setMinuteur} />
+      </div>
+      <p className="text-sm text-muted mt-1">Pas de pression : quand le temps est écoulé, tu finis tranquillement ta question.</p>
+      <button type="button" className="btn btn-accent w-full !min-h-14 text-lg mt-5" onClick={commencer}>
+        C'est parti ({duree} min)
+      </button>
     </Page>
   )
 }
 
-function EtapeIntro({ n, titre, texte }: { n: number; titre: string; texte: string }) {
+/** Petit minuteur discret, en haut de la séance. Quand le temps est écoulé : un message doux, pas de couperet. */
+function Minuteur({ duree, debut, son, onMasquer }: { duree: number; debut: number; son: boolean; onMasquer: () => void }) {
+  const [maintenant, setMaintenant] = useState(Date.now())
+  const sonne = useRef(false)
+  useEffect(() => {
+    const t = window.setInterval(() => setMaintenant(Date.now()), 1000)
+    return () => window.clearInterval(t)
+  }, [])
+  const reste = Math.max(0, Math.round(duree * 60 - (maintenant - debut) / 1000))
+  useEffect(() => {
+    if (reste === 0 && !sonne.current) {
+      sonne.current = true
+      if (son) carillon()
+    }
+  }, [reste, son])
+
   return (
-    <li className="carte p-4 flex gap-3">
-      <span className="flex items-center justify-center w-9 h-9 shrink-0 rounded-full bg-blue-100 text-blue-700 font-titre font-bold">{n}</span>
-      <span>
-        <span className="block font-titre font-semibold">{titre}</span>
-        <span className="block text-muted">{texte}</span>
-      </span>
-    </li>
+    <button
+      type="button"
+      onClick={onMasquer}
+      title="Masquer le minuteur"
+      aria-label={reste ? `Temps restant ${formatMinuteur(reste)}. Masquer le minuteur` : 'Temps écoulé, termine ta question puis fais une pause. Masquer le minuteur'}
+      className={`order-last shrink-0 inline-flex items-center gap-1 rounded-full border px-2.5 min-h-9 text-sm font-bold tabular-nums ${
+        reste ? 'bg-surface border-line text-muted' : 'bg-success-bg border-success text-success-ink'
+      }`}
+    >
+      <Icone nom="minuteur" taille={14} />
+      {reste ? formatMinuteur(reste) : 'Pause bientôt 🙂'}
+    </button>
   )
 }

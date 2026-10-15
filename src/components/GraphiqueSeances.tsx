@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { ajouterJours, lundi, versDate } from '../lib/dates'
-import { MINUTES_JOUR_ACTIF } from '../lib/gamification'
+import { compteCommeSeance, jourSession } from '../lib/gamification'
 import type { Progression } from '../lib/types'
 
 const fmt = new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'short' })
@@ -16,10 +16,7 @@ export default function GraphiqueSeances({ p }: { p: Progression }) {
   const semaines = Array.from({ length: 8 }, (_, i) => {
     const l = ajouterJours(debut, i * 7)
     const fin = ajouterJours(l, 7)
-    const n = p.sessions.filter((s) => {
-      const j = s.debut.slice(0, 10)
-      return j >= l && j < fin && (s.type !== 'libre' || s.dureeMinutes >= MINUTES_JOUR_ACTIF)
-    }).length
+    const n = p.sessions.filter((s) => jourSession(s) >= l && jourSession(s) < fin && compteCommeSeance(s)).length
     return { l, n, label: fmt.format(versDate(l)) }
   })
   const objectif = p.profil.objectifHebdo
@@ -31,8 +28,8 @@ export default function GraphiqueSeances({ p }: { p: Progression }) {
       <figcaption className="sr-only">Nombre de séances par semaine, sur les 8 dernières semaines (objectif : {objectif})</figcaption>
       <div className="relative" style={{ height: H + 28 }} aria-hidden>
         {/* Ligne de l'objectif */}
-        <div className="absolute inset-x-0 border-t-2 border-dashed border-orange-500" style={{ bottom: 28 + (objectif / max) * H }}>
-          <span className="absolute right-0 -top-6 text-xs font-bold text-orange-700 bg-surface px-1">objectif {objectif}</span>
+        <div className="absolute inset-x-0 border-t-2 border-dashed border-accent-500" style={{ bottom: 28 + (objectif / max) * H }}>
+          <span className="absolute right-0 -top-6 text-xs font-bold text-accent-700 bg-surface px-1">objectif {objectif}</span>
         </div>
         <div className="absolute inset-x-0 bottom-7 border-t border-line" />
         <div className="absolute inset-0 grid grid-cols-8 gap-[2px] items-end">

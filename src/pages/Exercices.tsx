@@ -128,7 +128,7 @@ function ListeExercices({
                     <Icone nom="ok" taille={14} /> Réussi
                   </Etiquette>
                 )}
-                {s === 'a-refaire' && <Etiquette ton="orange">À refaire</Etiquette>}
+                {s === 'a-refaire' && <Etiquette ton="accent">À refaire</Etiquette>}
                 <Icone nom="suivant" className="text-muted" />
               </button>
             </li>

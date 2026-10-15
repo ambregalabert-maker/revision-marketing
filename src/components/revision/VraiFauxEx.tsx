@@ -10,12 +10,13 @@ import Icone from '../Icone'
  * Le « Vrai / Faux du marketing » (les clichés de la séance 1).
  * Tu choisis, puis tu lis l'argument nuancé, construit à partir de la définition de l'AFM.
  */
-export default function VraiFauxEx({ items, onTermine }: { items?: VraiFaux[]; onTermine?: () => void } = {}) {
+export default function VraiFauxEx({ items, onTermine }: { items?: VraiFaux[]; onTermine?: (justes: number, total: number) => void } = {}) {
   const vraiFaux = items ?? tousLesVraiFaux
   const { repondre, p } = useProgression()
   const [index, setIndex] = useState(0)
   const [choix, setChoix] = useState<'vrai' | 'faux' | null>(null)
   const [xp, setXp] = useState(0)
+  const [justes, setJustes] = useState(0)
   const [gain, setGain] = useState(0)
   const [fini, setFini] = useState(false)
 
@@ -26,6 +27,7 @@ export default function VraiFauxEx({ items, onTermine }: { items?: VraiFaux[]; o
     if (choix) return
     setChoix(c)
     const juste = item.reponse === 'nuance' || item.reponse === c
+    if (juste) setJustes((j) => j + 1)
     const g = repondre({ itemId: item.id, type: 'exercice', notion: item.notion, seance: item.seance, correct: juste }, XP.exerciceReussi)
     setGain(g)
     setXp((x) => x + g)
@@ -33,7 +35,7 @@ export default function VraiFauxEx({ items, onTermine }: { items?: VraiFaux[]; o
 
   const suivant = () => {
     if (index + 1 >= vraiFaux.length) {
-      if (onTermine) return onTermine()
+      if (onTermine) return onTermine(justes, vraiFaux.length)
       return setFini(true)
     }
     setIndex(index + 1)
@@ -44,7 +46,7 @@ export default function VraiFauxEx({ items, onTermine }: { items?: VraiFaux[]; o
   if (fini) {
     return (
       <EcranFin titre="Clichés démontés !" message="Tu sais maintenant argumenter à partir de la définition du marketing. Utile en examen comme à l'oral." xp={xp}>
-        <button type="button" className="btn btn-orange" onClick={() => { setFini(false); setIndex(0); setChoix(null); setXp(0) }}>
+        <button type="button" className="btn btn-accent" onClick={() => { setFini(false); setIndex(0); setChoix(null); setXp(0) }}>
           Recommencer
         </button>
       </EcranFin>
@@ -95,7 +97,7 @@ export default function VraiFauxEx({ items, onTermine }: { items?: VraiFaux[]; o
         )}
       </div>
       {choix && (
-        <button type="button" className="btn btn-orange" onClick={suivant}>
+        <button type="button" className="btn btn-accent" onClick={suivant}>
           {index + 1 >= vraiFaux.length ? 'Terminer' : 'Cliché suivant'} <Icone nom="suivant" />
         </button>
       )}

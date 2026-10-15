@@ -35,3 +35,11 @@ export function useTheme() {
     choisirTheme(choix === 'systeme' ? 'clair' : choix === 'clair' ? 'sombre' : 'systeme')
   return { choix, setChoix: choisirTheme, suivant }
 }
+
+/** Les 4 couleurs proposées dans « Personnaliser » (Pêche par défaut). */
+export const COULEURS = [
+  { id: 'peche', nom: 'Pêche', fond: '#FFB59A', ombre: '#E8957A' },
+  { id: 'menthe', nom: 'Menthe', fond: '#86DCC3', ombre: '#5DBFA3' },
+  { id: 'lavande', nom: 'Lavande', fond: '#C4B8F8', ombre: '#A193E8' },
+  { id: 'rose', nom: 'Rose', fond: '#F7A8BE', ombre: '#E0849E' },
+] as const

@@ -133,7 +133,7 @@ export default function SerieQcm({
         <div className="flex flex-wrap gap-2 mb-3">
           <Etiquette>{titreNotion(q.notion)}</Etiquette>
           {q.multiple && (
-            <Etiquette ton="orange">
+            <Etiquette ton="accent">
               <Icone nom="info" taille={14} /> Plusieurs réponses possibles
             </Etiquette>
           )}
@@ -223,7 +223,7 @@ export default function SerieQcm({
           </button>
         )}
         {mode === 'entrainement' && valide && (
-          <button type="button" className="btn btn-orange flex-1" onClick={suivante}>
+          <button type="button" className="btn btn-accent flex-1" onClick={suivante}>
             {derniere ? 'Voir mon résultat' : 'Question suivante'} <Icone nom="suivant" />
           </button>
         )}
@@ -239,7 +239,7 @@ export default function SerieQcm({
                 Question suivante <Icone nom="suivant" />
               </button>
             ) : (
-              <button type="button" className="btn btn-orange flex-1" onClick={() => terminer()}>
+              <button type="button" className="btn btn-accent flex-1" onClick={() => terminer()}>
                 Rendre ma copie
               </button>
             )}

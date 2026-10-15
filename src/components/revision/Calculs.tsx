@@ -180,12 +180,12 @@ export default function Calculs({ onVerifie, genreInitial = 'tous' }: { onVerifi
         </div>
 
         {verdict && !onVerifie && (
-          <button type="button" className="btn btn-orange" onClick={suivant}>
+          <button type="button" className="btn btn-accent" onClick={suivant}>
             {source === 'cours' ? 'Question suivante' : 'Nouveau calcul'} <Icone nom="suivant" />
           </button>
         )}
         {suite >= 2 && (
-          <p className="text-sm text-center font-semibold text-orange-700">
+          <p className="text-sm text-center font-semibold text-accent-700">
             🔥 {suite} calculs justes d'affilée {suite < 10 ? `(badge « As du calcul » à 10)` : ''}
           </p>
         )}

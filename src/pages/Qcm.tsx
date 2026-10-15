@@ -73,7 +73,7 @@ export default function Qcm() {
             <p className="mt-3 text-sm">Tes erreurs sont ajoutées à ta liste « Mes erreurs à revoir » sur l'accueil.</p>
           )}
           <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-            <button type="button" className="btn btn-orange" onClick={() => commencer(mode)}>
+            <button type="button" className="btn btn-accent" onClick={() => commencer(mode)}>
               Nouvelle série
             </button>
             <button type="button" className="btn btn-contour" onClick={() => { setSerie(null); setResultat(null) }}>
@@ -132,7 +132,7 @@ export default function Qcm() {
             <Icone nom="qcm" className="text-blue-700" /> Entraînement
           </h2>
           <p className="text-muted flex-1">10 questions tirées au hasard. Correction et explication immédiates après chaque réponse.</p>
-          <button type="button" className="btn btn-orange" onClick={() => commencer('entrainement')} disabled={!disponibles.length}>
+          <button type="button" className="btn btn-accent" onClick={() => commencer('entrainement')} disabled={!disponibles.length}>
             Commencer
           </button>
         </div>

@@ -133,7 +133,8 @@ export interface RevisionCarte {
   nbEchecs: number
 }
 
-export type TypeSession = 'pomodoro' | 'guidee' | 'libre'
+/** guidee = séance Tryhard · daily = mini-séance du chemin · libre = temps de révision hors séance. */
+export type TypeSession = 'pomodoro' | 'guidee' | 'daily' | 'libre'
 
 export interface SessionEtude {
   id: string
@@ -143,12 +144,17 @@ export interface SessionEtude {
   xp: number
 }
 
+export type CouleurTheme = 'peche' | 'menthe' | 'lavande' | 'rose'
+
 export interface Preferences {
+  /** Petit son doux à la fin du minuteur (mode Tryhard). */
   son: boolean
-  notifications: boolean
-  travail: number
-  pause: number
-  pauseLongue: number
+  /** Couleur d'accent choisie dans « Personnaliser ». */
+  couleur: CouleurTheme
+  /** Durée proposée en premier pour une séance Tryhard (minutes). */
+  dureeSeance: number
+  /** Afficher le minuteur pendant une séance Tryhard. */
+  minuteur: boolean
 }
 
 export interface Profil {
@@ -187,4 +193,13 @@ export interface Progression {
   badges: Record<string, string>
   /** Minutes de révision par jour ("AAAA-MM-JJ" → minutes). */
   minutesParJour: Record<string, number>
+  /** Étoiles gagnées sur chaque étape du chemin (mode daily). */
+  chemin: Record<string, EtoilesEtape>
+}
+
+export interface EtoilesEtape {
+  /** 0 à 3 étoiles. */
+  etoiles: number
+  /** Jour "AAAA-MM-JJ" où la dernière étoile a été gagnée. */
+  le: string | null
 }

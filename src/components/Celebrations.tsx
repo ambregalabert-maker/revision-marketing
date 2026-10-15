@@ -61,7 +61,7 @@ export default function Celebrations() {
   if (!actuelle) return null
   return (
     <div className="fixed inset-x-0 bottom-20 md:bottom-6 z-50 flex justify-center px-4 pointer-events-none">
-      <div role="status" className="pointer-events-auto carte !border-orange-500 border-2 p-4 flex items-center gap-3 max-w-md w-full apparition">
+      <div role="status" className="pointer-events-auto carte !border-accent-500 border-2 p-4 flex items-center gap-3 max-w-md w-full apparition">
         <span aria-hidden className="text-3xl">{actuelle.icone}</span>
         <div className="flex-1">
           <p className="font-titre font-bold">{actuelle.titre}</p>

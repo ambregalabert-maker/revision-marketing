@@ -57,7 +57,7 @@ export default function Flashcards() {
           message={`${bilan.sues} carte${bilan.sues > 1 ? 's' : ''} sue${bilan.sues > 1 ? 's' : ''} sur ${bilan.vues} révisée${bilan.vues > 1 ? 's' : ''}. ${encouragement()}`}
           xp={bilan.xp}
         >
-          <button type="button" className="btn btn-orange" onClick={() => { setBilan(null); setSerie(null) }}>
+          <button type="button" className="btn btn-accent" onClick={() => { setBilan(null); setSerie(null) }}>
             Retour aux flashcards
           </button>
           <Link to="/reviser/qcm" className="btn btn-contour">Enchaîner avec un QCM</Link>
@@ -93,11 +93,11 @@ export default function Flashcards() {
         </label>
 
         {idsDemandes ? (
-          <button type="button" className="btn btn-orange" onClick={() => commencer(choisies)} disabled={!choisies.length}>
+          <button type="button" className="btn btn-accent" onClick={() => commencer(choisies)} disabled={!choisies.length}>
             <Icone nom="lecture" /> Revoir ces cartes
           </button>
         ) : duJour.length > 0 ? (
-          <button type="button" className="btn btn-orange" onClick={() => commencer(duJour)}>
+          <button type="button" className="btn btn-accent" onClick={() => commencer(duJour)}>
             <Icone nom="lecture" /> Réviser mes {duJour.length} carte{duJour.length > 1 ? 's' : ''} du jour
           </button>
         ) : (

@@ -2,7 +2,6 @@ import { NavLink, Outlet, useLocation } from 'react-router'
 import { Suspense, useEffect, useRef } from 'react'
 import Icone, { type NomIcone } from './Icone'
 import { useTheme } from '../state/theme'
-import PomodoroWidget from './PomodoroWidget'
 
 // Structure commune à toutes les pages :
 // - téléphone : barre du haut + barre de navigation en bas ;
@@ -10,7 +9,7 @@ import PomodoroWidget from './PomodoroWidget'
 
 const liens: { to: string; label: string; icone: NomIcone; mobile: boolean }[] = [
   { to: '/', label: 'Accueil', icone: 'accueil', mobile: true },
-  { to: '/reviser', label: 'Réviser', icone: 'reviser', mobile: true },
+  { to: '/reviser', label: 'Tryhard', icone: 'eclair', mobile: true },
   { to: '/astuces', label: 'Astuces', icone: 'astuces', mobile: true },
   { to: '/profil', label: 'Profil', icone: 'profil', mobile: true },
   { to: '/classement', label: 'Classement', icone: 'classement', mobile: false },
@@ -35,21 +34,30 @@ function BoutonTheme() {
 }
 
 export default function Layout() {
-  const { pathname } = useLocation()
+  const { pathname, hash } = useLocation()
   const principal = useRef<HTMLElement>(null)
 
   // À chaque changement de page : on remonte en haut et on place le focus sur le contenu
   // (utile pour les lecteurs d'écran et la navigation au clavier).
+  // Avec une ancre (ex. /reviser#erreurs), on descend jusqu'à la section visée.
   useEffect(() => {
     window.scrollTo(0, 0)
     principal.current?.focus({ preventScroll: true })
-  }, [pathname])
+    if (!hash) return
+    let essais = 0
+    const t = window.setInterval(() => {
+      const cible = document.getElementById(hash.slice(1))
+      if (cible || ++essais > 20) window.clearInterval(t)
+      cible?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 100)
+    return () => window.clearInterval(t)
+  }, [pathname, hash])
 
   return (
     <div className="min-h-dvh md:flex">
       <a
         href="#contenu"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 btn btn-orange"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 btn btn-accent"
       >
         Aller au contenu
       </a>
@@ -75,7 +83,6 @@ export default function Layout() {
           ))}
         </nav>
         <div className="mt-auto flex flex-col gap-3">
-          <PomodoroWidget variante="lateral" />
           <BoutonTheme />
         </div>
       </aside>
@@ -85,10 +92,7 @@ export default function Layout() {
         <header className="md:hidden sticky top-0 z-30 bg-bg/90 backdrop-blur border-b border-line">
           <div className="flex items-center justify-between gap-2 px-4 h-14">
             <Logo compact />
-            <div className="flex items-center gap-1">
-              <PomodoroWidget variante="compact" />
-              <BoutonTheme />
-            </div>
+            <BoutonTheme />
           </div>
         </header>
 
@@ -144,18 +148,25 @@ export default function Layout() {
   )
 }
 
+/** Logo Mark'Up : un « M » qui monte, avec une flèche dorée. */
+export function LogoMarque({ taille = 36 }: { taille?: number }) {
+  return (
+    <svg width={taille} height={taille} viewBox="0 0 40 40" aria-hidden="true" className="shrink-0">
+      <rect x="1" y="3" width="38" height="36" rx="11" fill="var(--accent-600)" />
+      <rect x="1" y="1" width="38" height="35" rx="11" fill="var(--accent-500)" />
+      <path d="M10 27V13l7 8 7-8v14" fill="none" stroke="#1e2a3a" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M29 22v-9m-3.5 3.5L29 13l3.5 3.5" fill="none" stroke="#1e2a3a" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 function Logo({ compact = false }: { compact?: boolean }) {
   return (
-    <NavLink to="/" className="flex items-center gap-2 font-titre font-bold text-ink no-underline">
-      <span
-        aria-hidden
-        className="flex items-center justify-center w-9 h-9 rounded-xl bg-blue-700 text-surface font-titre text-lg"
-      >
-        M
-      </span>
-      <span className={compact ? 'text-base' : 'text-lg leading-tight'}>
-        Révision Marketing
-        {!compact && <span className="block text-sm font-normal text-muted font-texte">Chapitre 1 · Le concept de marché</span>}
+    <NavLink to="/" className="flex items-center gap-2 font-titre font-bold text-ink no-underline" aria-label="Mark'Up, retour à l'accueil">
+      <LogoMarque taille={compact ? 32 : 38} />
+      <span className={compact ? 'text-lg' : 'text-xl leading-tight'}>
+        Mark<span className="text-accent-700">'</span>Up
+        {!compact && <span className="block text-sm font-normal text-muted font-texte">Marketing · Chapitre 1</span>}
       </span>
     </NavLink>
   )

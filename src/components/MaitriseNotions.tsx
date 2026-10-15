@@ -9,7 +9,7 @@ import { Barre } from './ui'
 const STYLE: Record<NiveauMaitrise, { couleur: 'erreur' | 'attention' | 'succes' | 'bleu'; icone: NomIcone; texte: string }> = {
   nouveau: { couleur: 'bleu', icone: 'plus', texte: 'text-muted' },
   'a-revoir': { couleur: 'erreur', icone: 'erreur', texte: 'text-error-ink' },
-  'en-cours': { couleur: 'attention', icone: 'recommencer', texte: 'text-orange-700' },
+  'en-cours': { couleur: 'attention', icone: 'recommencer', texte: 'text-accent-700' },
   maitrise: { couleur: 'succes', icone: 'ok', texte: 'text-success-ink' },
 }
 

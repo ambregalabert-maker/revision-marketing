@@ -125,7 +125,7 @@ export default function Classement({ exo, onTermine }: { exo: ExerciceClassement
           disabled={corrige && !dansZone}
           className={`flex items-center gap-2 text-left min-h-11 px-3 py-2 rounded-xl border-2 text-sm md:text-base select-none touch-none transition-colors ${
             selection === id
-              ? 'border-orange-500 bg-orange-100'
+              ? 'border-accent-500 bg-accent-100'
               : corrige
                 ? juste
                   ? 'border-success bg-success-bg'
@@ -175,7 +175,7 @@ export default function Classement({ exo, onTermine }: { exo: ExerciceClassement
                 data-zone={c.id}
                 aria-label={c.label}
                 className={`rounded-2xl border-2 border-dashed p-3 min-h-28 transition-colors ${
-                  selection ? 'border-orange-500 bg-orange-100/40' : 'border-line bg-surface-2'
+                  selection ? 'border-accent-500 bg-accent-100/40' : 'border-line bg-surface-2'
                 }`}
               >
                 <button
@@ -196,7 +196,7 @@ export default function Classement({ exo, onTermine }: { exo: ExerciceClassement
       )}
 
       {phase === 'tri' && (
-        <button type="button" className="btn btn-orange" disabled={restants.length > 0} onClick={verifierTri}>
+        <button type="button" className="btn btn-accent" disabled={restants.length > 0} onClick={verifierTri}>
           {restants.length > 0 ? `Encore ${restants.length} élément${restants.length > 1 ? 's' : ''} à placer` : 'Vérifier'}
         </button>
       )}
@@ -209,7 +209,7 @@ export default function Classement({ exo, onTermine }: { exo: ExerciceClassement
           >
             <ExplicationsErreurs elements={elements.filter((e) => place[e.id] !== e.categorie)} label={label} />
           </Correction>
-          <button type="button" className="btn btn-orange" onClick={() => setPhase('sous')}>
+          <button type="button" className="btn btn-accent" onClick={() => setPhase('sous')}>
             Étape 2 : trouver la composante <Icone nom="suivant" />
           </button>
         </div>
@@ -245,7 +245,7 @@ export default function Classement({ exo, onTermine }: { exo: ExerciceClassement
               </div>
             </fieldset>
           ))}
-          <button type="button" className="btn btn-orange" disabled={elements.some((e) => !sous[e.id])} onClick={conclure}>
+          <button type="button" className="btn btn-accent" disabled={elements.some((e) => !sous[e.id])} onClick={conclure}>
             {elements.some((e) => !sous[e.id]) ? `Encore ${elements.filter((e) => !sous[e.id]).length} à choisir` : 'Vérifier'}
           </button>
         </div>
@@ -287,7 +287,7 @@ export default function Classement({ exo, onTermine }: { exo: ExerciceClassement
       {fantome && (
         <div
           aria-hidden
-          className="fixed z-50 pointer-events-none px-3 py-2 rounded-xl border-2 border-orange-500 bg-surface shadow-carte text-sm max-w-64"
+          className="fixed z-50 pointer-events-none px-3 py-2 rounded-xl border-2 border-accent-500 bg-surface shadow-carte text-sm max-w-64"
           style={{ left: fantome.x, top: fantome.y, transform: 'translate(-50%, -120%)' }}
         >
           {elements.find((e) => e.id === fantome.id)?.texte}

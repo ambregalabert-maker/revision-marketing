@@ -14,7 +14,7 @@ export default function Page({
   actions?: ReactNode
 }) {
   useEffect(() => {
-    document.title = `${titre} · Révision Marketing`
+    document.title = `${titre} · Mark'Up`
   }, [titre])
   return (
     <div className="apparition">

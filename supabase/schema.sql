@@ -49,7 +49,7 @@ create table if not exists public.study_sessions (
   user_id uuid not null references auth.users (id) on delete cascade,
   debut timestamptz not null,
   duree_minutes integer not null default 0,
-  type text not null check (type in ('pomodoro', 'guidee', 'libre')),
+  type text not null check (type in ('pomodoro', 'guidee', 'daily', 'libre')),
   xp_gagnes integer not null default 0
 );
 create index if not exists sessions_user_idx on public.study_sessions (user_id, debut);
@@ -66,6 +66,7 @@ create table if not exists public.user_stats (
   xp_semaine integer not null default 0,
   semaine_cle date,                    -- lundi de la semaine de xp_semaine
   minutes_par_jour jsonb not null default '{}'::jsonb,
+  chemin jsonb not null default '{}'::jsonb,   -- étoiles du chemin (mode daily)
   maj_le timestamptz not null default now()
 );
 
@@ -76,6 +77,11 @@ create table if not exists public.badges (
   obtenu_le timestamptz not null default now(),
   primary key (user_id, badge_id)
 );
+
+-- ---------- Mises à jour (si tu avais déjà collé une ancienne version de ce fichier) ----------
+alter table public.user_stats add column if not exists chemin jsonb not null default '{}'::jsonb;
+alter table public.study_sessions drop constraint if exists study_sessions_type_check;
+alter table public.study_sessions add constraint study_sessions_type_check check (type in ('pomodoro', 'guidee', 'daily', 'libre'));
 
 -- =====================================================================
 -- Sécurité (Row Level Security) : chaque utilisateur ne lit et n'écrit

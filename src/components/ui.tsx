@@ -23,16 +23,17 @@ export function Barre({
   valeur: number
   max?: number
   label: string
-  couleur?: 'bleu' | 'orange' | 'succes' | 'erreur' | 'attention'
+  couleur?: 'bleu' | 'accent' | 'or' | 'succes' | 'erreur' | 'attention'
   hauteur?: string
 }) {
   const pct = max > 0 ? Math.max(0, Math.min(100, (valeur / max) * 100)) : 0
   const fond = {
     bleu: 'bg-blue-500',
-    orange: 'bg-orange-500',
+    accent: 'bg-accent-500',
+    or: 'bg-gold',
     succes: 'bg-success',
     erreur: 'bg-error',
-    attention: 'bg-orange-400',
+    attention: 'bg-gold',
   }[couleur]
   return (
     <div
@@ -52,7 +53,7 @@ export function Barre({
 export function PuceXp({ xp }: { xp: number }) {
   if (!xp) return null
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-orange-100 text-orange-700 font-bold text-sm px-2.5 py-0.5">
+    <span className="inline-flex items-center gap-1 rounded-full bg-accent-100 text-accent-700 font-bold text-sm px-2.5 py-0.5">
       <Icone nom="eclair" taille={14} plein />+{xp} XP
     </span>
   )
@@ -74,10 +75,11 @@ export function Correction({ juste, titre, children }: { juste: boolean; titre?:
   )
 }
 
-export function Etiquette({ children, ton = 'bleu' }: { children: ReactNode; ton?: 'bleu' | 'orange' | 'neutre' }) {
+export function Etiquette({ children, ton = 'bleu' }: { children: ReactNode; ton?: 'bleu' | 'accent' | 'or' | 'neutre' }) {
   const cls = {
     bleu: 'bg-blue-100 text-blue-700',
-    orange: 'bg-orange-100 text-orange-700',
+    accent: 'bg-accent-100 text-accent-700',
+    or: 'bg-gold-bg text-gold-ink',
     neutre: 'bg-surface-2 text-muted',
   }[ton]
   return <span className={`inline-flex items-center gap-1 shrink-0 whitespace-nowrap rounded-full px-2.5 py-0.5 text-sm font-bold ${cls}`}>{children}</span>

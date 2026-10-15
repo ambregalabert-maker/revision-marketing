@@ -26,7 +26,7 @@ export default function Connexion() {
           <p className="text-muted mt-2">
             Pas de souci : tout fonctionne en <strong>mode invité</strong>, et ta progression est sauvegardée dans ce navigateur. (Pour activer les comptes, voir la section « Supabase » du fichier README.)
           </p>
-          <Link to="/" className="btn btn-orange mt-4">
+          <Link to="/" className="btn btn-accent mt-4">
             Revenir à l'accueil
           </Link>
         </div>
@@ -47,7 +47,7 @@ export default function Connexion() {
       <Page titre="Nouveau mot de passe">
         <form onSubmit={valider} className="carte p-5 flex flex-col gap-4">
           <ChampMotDePasse valeur={mdp} onChange={setMdp} nouveau />
-          <button type="submit" className="btn btn-orange" disabled={envoi}>
+          <button type="submit" className="btn btn-accent" disabled={envoi}>
             Enregistrer mon nouveau mot de passe
           </button>
           <Message message={message} />
@@ -65,7 +65,7 @@ export default function Connexion() {
           </p>
           <p className="text-muted mt-1">Ta progression est sauvegardée en ligne : retrouve-la sur tous tes appareils.</p>
           <div className="flex flex-wrap gap-2 mt-4">
-            <button type="button" className="btn btn-orange" onClick={() => navigate('/')}>
+            <button type="button" className="btn btn-accent" onClick={() => navigate('/')}>
               Aller à l'accueil
             </button>
             <button type="button" className="btn btn-contour" onClick={() => compte.deconnecter()}>
@@ -136,7 +136,7 @@ export default function Connexion() {
           />
         </label>
         {(mode === 'connexion' || mode === 'inscription') && <ChampMotDePasse valeur={mdp} onChange={setMdp} nouveau={mode === 'inscription'} />}
-        <button type="submit" className="btn btn-orange" disabled={envoi}>
+        <button type="submit" className="btn btn-accent" disabled={envoi}>
           {envoi ? 'Un instant…' : titreBouton}
         </button>
         <Message message={message} />

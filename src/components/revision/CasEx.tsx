@@ -44,7 +44,7 @@ export default function CasEx({ cas, onTermine }: { cas: CasPratique; onTermine?
     <div className="flex flex-col gap-4">
       <div className="carte p-5">
         <div className="flex flex-wrap gap-2 mb-2">
-          {cas.type === '6-etapes' && <Etiquette ton="orange">Méthode des 6 étapes</Etiquette>}
+          {cas.type === '6-etapes' && <Etiquette ton="accent">Méthode des 6 étapes</Etiquette>}
           <Etiquette ton="neutre">
             <Icone nom="minuteur" taille={14} /> {cas.duree}
           </Etiquette>
@@ -114,7 +114,7 @@ export default function CasEx({ cas, onTermine }: { cas: CasPratique; onTermine?
               </button>
             )}
             {index < cas.questions.length - 1 && corrigeVu[index] && (
-              <button type="button" className="btn btn-orange flex-1" onClick={() => { setIndex(index + 1); setAideVue(false) }}>
+              <button type="button" className="btn btn-accent flex-1" onClick={() => { setIndex(index + 1); setAideVue(false) }}>
                 Question suivante <Icone nom="suivant" />
               </button>
             )}

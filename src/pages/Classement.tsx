@@ -96,7 +96,7 @@ export default function Classement() {
                 placeholder="ex. LaReineDuMarketing"
               />
             </label>
-            <button type="button" className="btn btn-orange sm:self-end" disabled={!pseudo.trim()} onClick={enregistrer}>
+            <button type="button" className="btn btn-accent sm:self-end" disabled={!pseudo.trim()} onClick={enregistrer}>
               Apparaître dans le classement
             </button>
           </div>
@@ -113,7 +113,7 @@ export default function Classement() {
             {lignes.map((l, i) => {
               const moi = participe && l.pseudo === p.profil.pseudo
               return (
-                <li key={`${l.pseudo}-${i}`} className={`flex items-center gap-3 rounded-xl px-3 min-h-11 ${moi ? 'bg-orange-100 font-bold' : i % 2 ? '' : 'bg-surface-2'}`}>
+                <li key={`${l.pseudo}-${i}`} className={`flex items-center gap-3 rounded-xl px-3 min-h-11 ${moi ? 'bg-accent-100 font-bold' : i % 2 ? '' : 'bg-surface-2'}`}>
                   <span className="w-8 font-titre font-bold text-blue-700">{i < 3 ? ['🥇', '🥈', '🥉'][i] : `${i + 1}.`}</span>
                   <span className="flex-1 truncate">
                     {l.pseudo}

@@ -4,19 +4,26 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="description" content="Révise le chapitre 1 de Marketing (Le concept de marché) : flashcards, QCM, exercices corrigés et séances de 25 minutes." />
-    <meta name="theme-color" content="#F4F9FD" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0E1A2B" media="(prefers-color-scheme: dark)" />
+    <meta name="description" content="Mark'Up : révise le chapitre 1 de Marketing (Le concept de marché) avec un chemin quotidien, des flashcards, des QCM et des exercices corrigés." />
+    <meta name="theme-color" content="#F5F9FD" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#101C2C" media="(prefers-color-scheme: dark)" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet" />
-    <title>Révision Marketing · Chapitre 1</title>
+    <title>Mark'Up · Révise le marketing</title>
     <script>
       // Applique le thème choisi avant l'affichage, pour éviter un flash de couleur.
       try {
         var t = JSON.parse(localStorage.getItem('rm-theme') || '"systeme"');
         if (t === 'clair' || t === 'sombre') document.documentElement.dataset.theme = t === 'sombre' ? 'dark' : 'light';
       } catch (e) {}
+      // Et la couleur choisie dans « Personnaliser » (Pêche par défaut).
+      try {
+        var p = JSON.parse(localStorage.getItem('rm-progression') || 'null');
+        document.documentElement.dataset.accent = (p && p.profil && p.profil.preferences && p.profil.preferences.couleur) || 'peche';
+      } catch (e) {
+        document.documentElement.dataset.accent = 'peche';
+      }
     </script>
   </head>
   <body>

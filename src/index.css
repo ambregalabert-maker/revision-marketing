@@ -1,95 +1,127 @@
 @import "tailwindcss";
 
 /*
- * Jetons de couleur du site.
- * Bleu = couleur dominante (calme, concentration).
- * Orange = accent réservé aux actions et aux récompenses.
- * Les variantes "-ink" sont les versions assez foncées pour du texte (contraste WCAG AA).
+ * Jetons de couleur de Mark'Up.
+ * - Base : bleu clair, calme et reposant (fond, menus, surfaces).
+ * - Accent : la couleur choisie dans « Personnaliser » (Pêche par défaut, Menthe, Lavande, Rose),
+ *   réservée aux actions (boutons, chemin).
+ * - Or : réservé aux récompenses (étoiles, XP).
+ * Les variantes « -ink » / « -700 » sont assez foncées pour du texte (contraste WCAG AA).
  */
 :root {
-  --bg: #f4f9fd;
+  --bg: #f5f9fd;
   --surface: #ffffff;
-  --surface-2: #eaf3fb;
-  --line: #cfe0ef;
-  --blue-100: #dceefb;
-  --blue-500: #3a8dde;
-  --blue-700: #1f5f99;
+  --surface-2: #eef5fb;
+  --line: #d6e4f0;
+  --blue-100: #e1effb;
+  --blue-500: #5ba3e6;
+  --blue-700: #2563a0;
   --ink: #1e2a3a;
   --muted: #56667a;
-  --orange-100: #fdebd9;
-  --orange-400: #f7a35c;
-  --orange-500: #f28c38;
-  --orange-700: #a8520e;
-  --on-orange: #1e2a3a;
+  --gold: #f5c451;
+  --gold-600: #d9a22a;
+  --gold-ink: #7a5600;
+  --gold-bg: #fff4d6;
   --success: #2e9e6b;
   --success-ink: #1d7a50;
   --success-bg: #e3f5ec;
   --error: #d9534f;
   --error-ink: #b3322e;
   --error-bg: #fbe7e6;
-  --warn-ink: #8a5a00;
-  --warn-bg: #fff3d6;
-  --shadow: 0 1px 2px rgb(30 42 58 / 0.06), 0 4px 16px rgb(30 42 58 / 0.06);
+  --on-accent: #1e2a3a;
+  --shadow: 0 1px 2px rgb(30 42 58 / 0.05), 0 4px 16px rgb(30 42 58 / 0.05);
   color-scheme: light;
+
+  /* Accent par défaut : Pêche */
+  --accent-100: #ffe8df;
+  --accent-400: #ffc7b2;
+  --accent-500: #ffb59a;
+  --accent-600: #e8957a;
+  --accent-700: #a8452f;
+  --accent-sombre-100: #3a2620;
+  --accent-sombre-700: #ffb59a;
 }
 
-/* Mode sombre : bleu nuit + accents orange. Suit le système, sauf choix manuel. */
+/* ---------- Les 4 ambiances ---------- */
+:root[data-accent="menthe"] {
+  --accent-100: #ddf5ee;
+  --accent-400: #a6e6d4;
+  --accent-500: #86dcc3;
+  --accent-600: #5dbfa3;
+  --accent-700: #1e7a62;
+  --accent-sombre-100: #173a30;
+  --accent-sombre-700: #86dcc3;
+}
+:root[data-accent="lavande"] {
+  --accent-100: #eeeafe;
+  --accent-400: #d6cefb;
+  --accent-500: #c4b8f8;
+  --accent-600: #a193e8;
+  --accent-700: #5b48c2;
+  --accent-sombre-100: #2a2547;
+  --accent-sombre-700: #c4b8f8;
+}
+:root[data-accent="rose"] {
+  --accent-100: #fde4eb;
+  --accent-400: #f9c3d2;
+  --accent-500: #f7a8be;
+  --accent-600: #e0849e;
+  --accent-700: #a63a5c;
+  --accent-sombre-100: #3d2029;
+  --accent-sombre-700: #f7a8be;
+}
+
+/* ---------- Mode sombre : bleu nuit doux. Suit le système, sauf choix manuel. ---------- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0e1a2b;
-    --surface: #16263b;
-    --surface-2: #1b2f49;
-    --line: #2a4262;
-    --blue-100: #1d3654;
-    --blue-500: #5aa6ee;
-    --blue-700: #9ccbf5;
+    --bg: #101c2c;
+    --surface: #17263a;
+    --surface-2: #1c2f47;
+    --line: #2b4362;
+    --blue-100: #1f3856;
+    --blue-500: #6aaeea;
+    --blue-700: #a6d0f5;
     --ink: #e8f0f8;
     --muted: #a7b6c8;
-    --orange-100: #3a2a1c;
-    --orange-400: #f7a35c;
-    --orange-500: #f28c38;
-    --orange-700: #f7a35c;
-    --on-orange: #1e2a3a;
+    --gold-ink: #f5c451;
+    --gold-bg: #3a3017;
     --success: #4cc38a;
     --success-ink: #6fd6a3;
     --success-bg: #173a2c;
     --error: #f07c78;
     --error-ink: #ff9a96;
     --error-bg: #42201f;
-    --warn-ink: #ffd27a;
-    --warn-bg: #3b2f14;
+    --accent-100: var(--accent-sombre-100);
+    --accent-700: var(--accent-sombre-700);
     --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0e1a2b;
-  --surface: #16263b;
-  --surface-2: #1b2f49;
-  --line: #2a4262;
-  --blue-100: #1d3654;
-  --blue-500: #5aa6ee;
-  --blue-700: #9ccbf5;
+  --bg: #101c2c;
+  --surface: #17263a;
+  --surface-2: #1c2f47;
+  --line: #2b4362;
+  --blue-100: #1f3856;
+  --blue-500: #6aaeea;
+  --blue-700: #a6d0f5;
   --ink: #e8f0f8;
   --muted: #a7b6c8;
-  --orange-100: #3a2a1c;
-  --orange-400: #f7a35c;
-  --orange-500: #f28c38;
-  --orange-700: #f7a35c;
-  --on-orange: #1e2a3a;
+  --gold-ink: #f5c451;
+  --gold-bg: #3a3017;
   --success: #4cc38a;
   --success-ink: #6fd6a3;
   --success-bg: #173a2c;
   --error: #f07c78;
   --error-ink: #ff9a96;
   --error-bg: #42201f;
-  --warn-ink: #ffd27a;
-  --warn-bg: #3b2f14;
+  --accent-100: var(--accent-sombre-100);
+  --accent-700: var(--accent-sombre-700);
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
   color-scheme: dark;
 }
 
-/* On expose les jetons à Tailwind (ex. : bg-surface, text-muted, bg-orange-500). */
+/* On expose les jetons à Tailwind (ex. : bg-surface, text-muted, bg-accent-500). */
 @theme inline {
   --color-bg: var(--bg);
   --color-surface: var(--surface);
@@ -100,19 +132,22 @@
   --color-blue-700: var(--blue-700);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
-  --color-orange-100: var(--orange-100);
-  --color-orange-400: var(--orange-400);
-  --color-orange-500: var(--orange-500);
-  --color-orange-700: var(--orange-700);
-  --color-on-orange: var(--on-orange);
+  --color-accent-100: var(--accent-100);
+  --color-accent-400: var(--accent-400);
+  --color-accent-500: var(--accent-500);
+  --color-accent-600: var(--accent-600);
+  --color-accent-700: var(--accent-700);
+  --color-on-accent: var(--on-accent);
+  --color-gold: var(--gold);
+  --color-gold-600: var(--gold-600);
+  --color-gold-ink: var(--gold-ink);
+  --color-gold-bg: var(--gold-bg);
   --color-success: var(--success);
   --color-success-ink: var(--success-ink);
   --color-success-bg: var(--success-bg);
   --color-error: var(--error);
   --color-error-ink: var(--error-ink);
   --color-error-bg: var(--error-bg);
-  --color-warn-ink: var(--warn-ink);
-  --color-warn-bg: var(--warn-bg);
   --font-titre: "Rubik", system-ui, sans-serif;
   --font-texte: "Nunito", system-ui, sans-serif;
   --shadow-carte: var(--shadow);
@@ -143,9 +178,13 @@ h4 {
 
 /* Focus toujours visible pour la navigation au clavier. */
 :focus-visible {
-  outline: 3px solid var(--orange-500);
+  outline: 3px solid var(--blue-500);
   outline-offset: 2px;
   border-radius: 8px;
+}
+/* Le contenu principal reçoit le focus à chaque changement de page : pas de contour. */
+[tabindex="-1"]:focus {
+  outline: none;
 }
 
 /* Masqué à l'écran mais lu par les lecteurs d'écran. */
@@ -176,39 +215,35 @@ h4 {
   line-height: 1.2;
   border: 2px solid transparent;
   cursor: pointer;
-  transition: background-color 0.15s, border-color 0.15s, transform 0.1s;
+  transition: background-color 0.15s, border-color 0.15s, transform 0.1s, box-shadow 0.1s;
   text-decoration: none;
   text-align: center;
-}
-.btn:active {
-  transform: scale(0.98);
 }
 .btn:disabled {
   opacity: 0.55;
   cursor: not-allowed;
 }
-/* Action principale : orange, texte foncé (le blanc sur orange ne passe pas le contraste). */
-.btn-orange {
-  background: var(--orange-500);
-  color: var(--on-orange);
+/* Action principale : couleur d'accent, effet « bouton 3D » façon jeu. Texte foncé (contraste). */
+.btn-accent {
+  background: var(--accent-500);
+  color: var(--on-accent);
+  box-shadow: 0 4px 0 var(--accent-600);
 }
-.btn-orange:hover {
-  background: var(--orange-400);
+.btn-accent:hover {
+  background: var(--accent-400);
 }
+.btn-accent:active:not(:disabled) {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--accent-600);
+}
+/* Action secondaire : bleu clair. */
 .btn-bleu {
-  background: var(--blue-700);
-  color: #fff;
-}
-:root[data-theme="dark"] .btn-bleu {
-  color: #0e1a2b;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .btn-bleu {
-    color: #0e1a2b;
-  }
+  background: var(--blue-100);
+  color: var(--blue-700);
+  border-color: var(--line);
 }
 .btn-bleu:hover {
-  filter: brightness(1.08);
+  border-color: var(--blue-500);
 }
 .btn-contour {
   background: var(--surface);
@@ -224,6 +259,9 @@ h4 {
 }
 .btn-discret:hover {
   background: var(--blue-100);
+}
+.btn:active:not(:disabled):not(.btn-accent) {
+  transform: scale(0.98);
 }
 
 .carte {
@@ -255,12 +293,8 @@ h4 {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-.flip-dos {
-  position: absolute;
-  inset: 0;
-  transform: rotateY(180deg);
-}
 
+/* ---------- Petites animations ---------- */
 @keyframes apparition {
   from {
     opacity: 0;
@@ -275,7 +309,70 @@ h4 {
   animation: apparition 0.25s ease-out;
 }
 
-/* Respecte le réglage "réduire les animations" du système. */
+/* Le rond du jour respire doucement. */
+@keyframes respire {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+.respire {
+  animation: respire 2.2s ease-in-out infinite;
+}
+
+/* Une étoile gagnée « pop » à l'écran. */
+@keyframes pop {
+  0% {
+    transform: scale(0) rotate(-30deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.3) rotate(8deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+.pop {
+  animation: pop 0.6s cubic-bezier(0.2, 0.9, 0.3, 1.3) both;
+}
+
+@keyframes rebond {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+.rebond {
+  animation: rebond 1.6s ease-in-out infinite;
+}
+
+/* Barres de progression des « stories » d'astuces. */
+@keyframes remplir {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Défilement horizontal sans barre visible. */
+.sans-barre {
+  scrollbar-width: none;
+}
+.sans-barre::-webkit-scrollbar {
+  display: none;
+}
+
+/* Respecte le réglage « réduire les animations » du système. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -285,9 +382,4 @@ h4 {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* Le contenu principal reçoit le focus à chaque changement de page : pas de contour. */
-[tabindex="-1"]:focus {
-  outline: none;
 }

@@ -1,8 +1,9 @@
 // Règles de motivation : XP, niveaux, série, maîtrise des notions, badges, encouragements.
 // Une mauvaise réponse ne fait JAMAIS perdre d'XP : on récompense l'effort.
 import { ajouterJours, ecartJours, jour, lundi } from './dates'
+import { ETAPES } from './chemin'
 import { classements, flashcards, notions, qcm, vraiFaux } from './contenu'
-import type { NotionId, Progression, Stats, Tentative } from './types'
+import type { NotionId, Progression, SessionEtude, Stats, Tentative } from './types'
 
 export const XP = {
   flashcard: 2,
@@ -11,6 +12,7 @@ export const XP = {
   casTermine: 25,
   pomodoro: 15,
   bonusSeanceGuidee: 20,
+  bonusDaily: 10,
 } as const
 
 // ---------- Niveaux ----------
@@ -139,13 +141,26 @@ export function erreursARevoir(tentatives: Tentative[]) {
 
 // ---------- Séances ----------
 
-/** Une séance compte si c'est un Pomodoro, une séance guidée, ou une révision libre d'au moins 10 min. */
+/** Une séance compte si c'est une séance Tryhard, une mini-séance du chemin, ou une révision libre d'au moins 10 min. */
+export const compteCommeSeance = (s: SessionEtude) => s.type !== 'libre' || s.dureeMinutes >= MINUTES_JOUR_ACTIF
+
+/** Jour local ("AAAA-MM-JJ") d'une séance. */
+export const jourSession = (s: SessionEtude) => jour(new Date(s.debut))
+
 export function seancesDeLaSemaine(p: Progression, aujourdhui = jour()) {
   const debut = lundi(aujourdhui)
   const fin = ajouterJours(debut, 7)
-  return p.sessions.filter(
-    (s) => s.debut.slice(0, 10) >= debut && s.debut.slice(0, 10) < fin && (s.type !== 'libre' || s.dureeMinutes >= MINUTES_JOUR_ACTIF),
-  ).length
+  return p.sessions.filter((s) => jourSession(s) >= debut && jourSession(s) < fin && compteCommeSeance(s)).length
+}
+
+/** Les 7 jours de la semaine en cours, avec « une séance faite ce jour-là ? ». */
+export function joursDeLaSemaine(p: Progression, aujourdhui = jour()) {
+  const debut = lundi(aujourdhui)
+  const faits = new Set(p.sessions.filter(compteCommeSeance).map(jourSession))
+  return ['L', 'M', 'M', 'J', 'V', 'S', 'D'].map((lettre, i) => {
+    const j = ajouterJours(debut, i)
+    return { lettre, jour: j, fait: faits.has(j), aujourdhui: j === aujourdhui, futur: j > aujourdhui }
+  })
 }
 
 // ---------- Badges ----------
@@ -196,7 +211,13 @@ export const BADGES: Badge[] = [
   { id: 'seance1-maitrisee', nom: 'Séance 1 en poche', description: 'Toutes les notions de la séance 1 maîtrisées.', icone: '📘', test: (p) => toutesMaitrisees(p, notionsSeance(1)) },
   { id: 'seance2-maitrisee', nom: 'Séance 2 en poche', description: 'Toutes les notions de la séance 2 maîtrisées.', icone: '📗', test: (p) => toutesMaitrisees(p, notionsSeance(2)) },
   { id: 'chapitre1-maitrise', nom: 'Chapitre 1 maîtrisé', description: 'Toutes les notions du chapitre 1 maîtrisées.', icone: '🎓', test: (p) => toutesMaitrisees(p, notions.map((n) => n.id)) },
-  { id: 'pomodoro-10', nom: 'Tomate experte', description: '10 Pomodoros terminés.', icone: '🍅', test: (p) => p.sessions.filter((s) => s.type === 'pomodoro').length >= 10 },
+  { id: 'tryhard-10', nom: 'Vrai·e tryhard', description: '10 séances Tryhard terminées.', icone: '💪', test: (p) => p.sessions.filter((s) => s.type === 'guidee' || s.type === 'pomodoro').length >= 10 },
+  { id: 'premiere-etoile', nom: 'Première étoile', description: 'Ta première étoile sur le chemin.', icone: '⭐', test: (p) => Object.values(p.chemin).some((e) => e.etoiles > 0) },
+  { id: 'chemin-complet', nom: 'Explorateur·rice', description: 'Une étoile sur chaque étape du chemin.', icone: '🗺️', test: (p) => ETAPES.every((e) => (p.chemin[e.id]?.etoiles ?? 0) >= 1) },
+  { id: 'chemin-dore', nom: 'Chemin doré', description: '3 étoiles sur toutes les étapes du chemin.', icone: '🌟', test: (p) => ETAPES.every((e) => (p.chemin[e.id]?.etoiles ?? 0) >= 3) },
+  { id: 'semaine-type', nom: 'Semaine parfaite', description: 'Toute la semaine type cochée dans les Astuces.', icone: '✅' },
+  { id: 'profil-reviseur', nom: 'Connais-toi toi-même', description: 'Le quiz « Quel·le réviseur·se es-tu ? » terminé.', icone: '🔮' },
+  { id: 'chasseur-erreurs', nom: "Chasseur·se d'erreurs", description: 'Toutes les erreurs du mini-jeu repérées.', icone: '🕵️' },
   { id: 'as-du-calcul', nom: 'As du calcul', description: '10 calculs justes d\'affilée.', icone: '🧮', test: (p) => meilleureSuiteCalculs(p.tentatives) >= 10 },
   { id: 'revanche', nom: 'Revanche', description: 'Tu as réussi une question que tu avais ratée.', icone: '💪', test: (p) => aFaitUneRevanche(p.tentatives) },
   { id: 'oiseau-de-nuit', nom: 'Oiseau de nuit', description: 'Une révision après 22 h.', icone: '🦉', test: (p) => p.tentatives.some((t) => heure(t) >= 22 || heure(t) < 4) },
@@ -229,7 +250,7 @@ export function nouveauxBadges(p: Progression): string[] {
 const ENCOURAGEMENTS = [
   'Bien joué ! Chaque séance compte.',
   "Ton cerveau te dit merci : tu viens de t'entraîner, pas juste de relire.",
-  'Une séance de plus dans la boîte. Léa serait fière de toi !',
+  'Une séance de plus dans la boîte. Tu peux être fier·ère de toi !',
   'Petit à petit, les notions passent au vert.',
   "Tu as fait le plus dur : t'y mettre. Bravo !",
   'Les erreurs d\'aujourd\'hui sont les points gagnés de demain.',
