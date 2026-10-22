@@ -90,7 +90,7 @@ export default function Profil() {
         <span className="rounded-full bg-gold-bg text-gold-ink font-extrabold px-3 py-1">🪙 {marksDisponibles(p)}</span>
       </Link>
 
-      <Repliable titre="Personnaliser" icone="🎨" resume="Couleur, clair ou sombre, durée, objectif">
+      <Repliable titre="Personnaliser" icone="🎨" resume="Couleur, monde, clair ou sombre, durée, objectif">
         <Personnaliser integre />
       </Repliable>
 

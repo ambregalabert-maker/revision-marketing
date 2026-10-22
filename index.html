@@ -21,6 +21,7 @@
       try {
         var p = JSON.parse(localStorage.getItem('rm-progression') || 'null');
         document.documentElement.dataset.accent = (p && p.profil && p.profil.preferences && p.profil.preferences.couleur) || 'peche';
+        document.documentElement.dataset.fond = (p && p.profil && p.profil.preferences && p.profil.preferences.fond) || 'normal';
       } catch (e) {
         document.documentElement.dataset.accent = 'peche';
       }

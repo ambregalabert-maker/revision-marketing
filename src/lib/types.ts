@@ -168,8 +168,10 @@ export interface SessionEtude {
 
 export type CouleurTheme = 'peche' | 'menthe' | 'lavande' | 'rose'
 
-/** Le monde (décor) du chemin, choisi gratuitement dans « Personnaliser ». */
+/** Ancien réglage (plus utilisé, gardé pour les progressions déjà enregistrées). */
 export type Monde = 'arc' | 'jardin' | 'galaxie' | 'hiver'
+/** Le fond du site : « normal » (l'aurore) ou un monde, choisi gratuitement dans « Personnaliser ». */
+export type Fond = 'normal' | 'arc' | 'jardin' | 'nuit' | 'hiver'
 
 export interface Preferences {
   /** Petit son doux à la fin du minuteur (mode Tryhard). */
@@ -182,6 +184,8 @@ export interface Preferences {
   minuteur: boolean
   /** Le décor du chemin. */
   monde: Monde
+  /** Le fond du site (monde). */
+  fond: Fond
 }
 
 export interface Profil {

@@ -3,6 +3,7 @@ import { Suspense, useEffect, useRef, useState } from 'react'
 import Icone, { type NomIcone } from './Icone'
 import { useTheme } from '../state/theme'
 import { useProgression } from '../state/progression'
+import FondMonde from './FondMonde'
 import { marksDisponibles } from '../lib/boutique'
 import { Etoile } from './Chemin'
 import { niveauPour, serieAffichee } from '../lib/gamification'
@@ -83,6 +84,7 @@ export default function Layout() {
 
   return (
     <div className="min-h-dvh md:flex">
+      <FondMonde />
       <a href="#contenu" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 btn btn-contour">
         Aller au contenu
       </a>

@@ -30,7 +30,7 @@ export function progressionVide(): Progression {
       objectifHebdo: 5,
       dateQcm: null,
       apparaitClassement: false,
-      preferences: { son: true, couleur: 'peche', dureeSeance: 10, minuteur: true, monde: 'arc' },
+      preferences: { son: true, couleur: 'peche', dureeSeance: 10, minuteur: true, monde: 'arc', fond: 'normal' },
     },
     cartes: {},
     tentatives: [],
@@ -128,6 +128,12 @@ export function ProgressionProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     document.documentElement.dataset.accent = couleur
   }, [couleur])
+
+  // Applique le monde choisi (le fond de tout le site). « nuit » passe aussi le site en couleurs sombres.
+  const fond = p.profil.preferences.fond ?? 'normal'
+  useEffect(() => {
+    document.documentElement.dataset.fond = fond
+  }, [fond])
 
   /**
    * Applique une modification, puis :

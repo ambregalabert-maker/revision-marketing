@@ -3,10 +3,11 @@ import Icone, { type NomIcone } from './Icone'
 import { COULEURS, useTheme, type ChoixTheme } from '../state/theme'
 import { useProgression } from '../state/progression'
 import type { CouleurTheme } from '../lib/types'
+import { FONDS } from './FondMonde'
 
 export const DUREES = [5, 10, 25] as const
 
-/** Le menu « Personnaliser » : couleur, thème, durée de séance, minuteur, son, objectif. */
+/** Le menu « Personnaliser » : couleur, monde (fond), thème, durée de séance, minuteur, son, objectif. */
 export default function Personnaliser({ integre = false }: { integre?: boolean } = {}) {
   const { p, majProfil } = useProgression()
   const { choix, setChoix } = useTheme()
@@ -41,6 +42,31 @@ export default function Personnaliser({ integre = false }: { integre?: boolean }
                   {actif && <Icone nom="ok" className="text-[#1e2a3a]" />}
                 </span>
                 <span className={`text-sm ${actif ? 'font-bold' : 'text-muted'}`}>{c.nom}</span>
+              </label>
+            )
+          })}
+        </div>
+      </fieldset>
+
+      <fieldset className="mt-5">
+        <legend className="font-semibold">Ton monde</legend>
+        <p className="text-sm text-muted mb-2">Le décor de fond de tout le site. « Normal » = le fond de départ. Tous les mondes sont gratuits !</p>
+        <div className="grid grid-cols-5 gap-2">
+          {FONDS.map((m) => {
+            const actif = (prefs.fond ?? 'normal') === m.id
+            return (
+              <label key={m.id} className="flex flex-col items-center gap-1.5 cursor-pointer">
+                <input type="radio" name="fond" className="sr-only peer" checked={actif} onChange={() => majProfil({ preferences: { fond: m.id } })} />
+                <span
+                  className={`w-14 h-14 rounded-2xl flex items-center justify-center text-2xl border-2 transition-transform peer-focus-visible:outline-3 peer-focus-visible:outline-blue-500 ${
+                    actif ? 'scale-110 border-ink' : 'border-line'
+                  }`}
+                  style={{ background: m.vignette }}
+                  aria-hidden
+                >
+                  {m.emoji}
+                </span>
+                <span className={`text-xs text-center leading-tight ${actif ? 'font-bold' : 'text-muted'}`}>{m.nom}</span>
               </label>
             )
           })}

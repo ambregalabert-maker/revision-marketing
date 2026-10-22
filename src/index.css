@@ -115,7 +115,8 @@
     color-scheme: dark;
   }
 }
-:root[data-theme="dark"] {
+:root[data-theme="dark"],
+:root[data-fond="nuit"] {
   --bg: #15111f;
   --surface: #1f1a2e;
   --surface-2: #2a2440;
@@ -1039,10 +1040,78 @@ body::before {
   :root:not([data-theme="light"]) .chap-3 { --accent-100: #173a30; --accent-700: #86dcc3; }
   :root:not([data-theme="light"]) .chap-4 { --accent-100: #1b2f47; --accent-700: #9ccbf5; }
 }
-:root[data-theme="dark"] .chap-1 { --accent-100: #3a2620; --accent-700: #ffb59a; }
-:root[data-theme="dark"] .chap-2 { --accent-100: #2a2547; --accent-700: #c4b8f8; }
-:root[data-theme="dark"] .chap-3 { --accent-100: #173a30; --accent-700: #86dcc3; }
-:root[data-theme="dark"] .chap-4 { --accent-100: #1b2f47; --accent-700: #9ccbf5; }
+:root[data-theme="dark"] .chap-1,
+:root[data-fond="nuit"] .chap-1 { --accent-100: #3a2620; --accent-700: #ffb59a; }
+:root[data-theme="dark"] .chap-2,
+:root[data-fond="nuit"] .chap-2 { --accent-100: #2a2547; --accent-700: #c4b8f8; }
+:root[data-theme="dark"] .chap-3,
+:root[data-fond="nuit"] .chap-3 { --accent-100: #173a30; --accent-700: #86dcc3; }
+:root[data-theme="dark"] .chap-4,
+:root[data-fond="nuit"] .chap-4 { --accent-100: #1b2f47; --accent-700: #9ccbf5; }
+
+/* ---------- Les mondes : un décor qui remplit tout le fond du site ---------- */
+:root:not([data-fond="normal"])[data-fond] body::before {
+  display: none;
+}
+.fond-monde {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+/* Sur ordinateur : le décor commence après le menu (sinon il serait caché dessous) et il est plus grand. */
+@media (min-width: 768px) {
+  body:has(aside) .fond-monde {
+    left: 15rem;
+  }
+}
+@media (min-width: 1024px) {
+  body:has(aside) .fond-monde {
+    left: 16rem;
+  }
+  .fond-monde .el > * {
+    zoom: 1.5;
+  }
+}
+.fond-arc {
+  background: linear-gradient(180deg, #dceeff 0%, #f3ecff 55%, #ffe8f0 100%);
+}
+.fond-jardin {
+  background: linear-gradient(180deg, #e3f6e9 0%, #f6f9ec 60%, #fbf3df 100%);
+}
+.fond-nuit {
+  background: radial-gradient(60% 50% at 75% 10%, #3a3580 0%, transparent 70%), linear-gradient(180deg, #12172e 0%, #1c1844 60%, #2a1f5c 100%);
+}
+.fond-hiver {
+  background: linear-gradient(180deg, #dfeaf8 0%, #eef5fd 55%, #ffffff 100%);
+}
+/* En mode sombre, les mondes clairs passent « de nuit ». */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .fond-monde:not(.fond-nuit) {
+    filter: brightness(0.32) saturate(0.9);
+  }
+}
+:root[data-theme="dark"] .fond-monde:not(.fond-nuit) {
+  filter: brightness(0.32) saturate(0.9);
+}
+@keyframes tombe-ecran {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 0;
+  }
+  8%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(108vh) rotate(260deg);
+    opacity: 0;
+  }
+}
+.anim-tombe-ecran {
+  animation: tombe-ecran 14s linear infinite;
+}
 
 /* Défilement horizontal sans barre visible. */
 .sans-barre {
