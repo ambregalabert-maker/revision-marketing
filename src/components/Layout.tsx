@@ -140,7 +140,7 @@ export default function Layout() {
       <div className="flex-1 min-w-0 flex flex-col">
         {/* Barre du haut (téléphone) */}
         {/* Barre du haut : tes compteurs (série, étoiles, XP, Marks), comme sur Pépin */}
-        <header className="sticky top-0 z-30 bg-bg/95 backdrop-blur border-b-2 border-line">
+        <header className="sticky top-0 z-30 bg-bg/70 backdrop-blur-md border-b-2 border-line">
           <div className="flex items-center justify-between gap-2 px-4 md:px-8 h-14 md:h-16">
             <BarreStats />
           </div>

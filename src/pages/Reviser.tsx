@@ -21,17 +21,18 @@ export default function Reviser() {
     <Page titre="Mode Tryhard ⚡" sousTitre="Pour aller plus loin que le daily : tu choisis ta durée, tu vises tes points faibles.">
       <Link
         to="/reviser/seance"
-        className="carte !border-blue-500/40 flex items-center gap-4 p-4 md:p-5 mb-5 no-underline hover:!border-blue-500"
+        className="tuile-vivante relative block overflow-hidden rounded-[2rem] p-6 md:p-8 mb-5 no-underline"
+        style={{ background: 'radial-gradient(120% 140% at 100% 0%, var(--accent-500), transparent 55%), radial-gradient(90% 120% at 0% 100%, #8b6cff, transparent 60%), #121a2b', color: '#f6f7fb', boxShadow: '0 24px 60px -24px #8b6cff' }}
       >
-        <span className="flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-100 text-3xl shrink-0" aria-hidden>
+        <span className="absolute -right-4 -top-10 text-[9rem] md:text-[12rem] leading-none opacity-20 rotate-12 select-none" aria-hidden>
           ⚡
         </span>
-        <span className="flex-1 min-w-0">
-          <span className="block font-black text-lg text-ink">Lance ta séance Tryhard</span>
-          <span className="block text-sm text-muted">5, 10, 25 min ou plus : la séance s'adapte à ton temps et à tes erreurs.</span>
+        <span className="relative flex items-center gap-2 font-[family-name:var(--font-affiche)] font-extrabold text-3xl md:text-5xl tracking-tight">
+          <Icone nom="eclair" plein /> Lance ta séance Tryhard
         </span>
-        <span className="hidden sm:inline-flex items-center gap-1 rounded-xl bg-ink text-bg px-3 py-2 text-sm font-extrabold uppercase tracking-wider shrink-0">
-          💪 Tryhard
+        <span className="relative block mt-2 max-w-xl text-[#d5dbe8]">5 min, 10 min, 25 min ou plus : la séance s'adapte à ton temps et à tes erreurs.</span>
+        <span className="relative inline-flex items-center gap-1 mt-5 rounded-full bg-[#f6f7fb] text-[#121a2b] px-4 py-2 font-bold">
+          Choisir ma durée <Icone nom="suivant" />
         </span>
       </Link>
 
