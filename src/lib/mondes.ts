@@ -1,4 +1,4 @@
-// Les 4 mondes du chemin : un décor animé, purement visuel. Tous gratuits.
+// Les 4 mondes du chemin : un fond sobre et un décor discret, purement visuel. Tous gratuits.
 import type { Monde } from './types'
 
 export interface InfoMonde {
@@ -10,14 +10,17 @@ export interface InfoMonde {
   ombre: string
 }
 
+// Les identifiants restent les mêmes (préférences déjà enregistrées), seuls les décors ont changé.
 export const MONDES: InfoMonde[] = [
-  { id: 'arc', nom: 'Arc-en-ciel', emoji: '🌈', fond: '#dcecfb', ombre: '#b9d3ee' },
-  { id: 'jardin', nom: 'Jardin', emoji: '🌸', fond: '#d9f0df', ombre: '#b2dcbd' },
-  { id: 'galaxie', nom: 'Galaxie', emoji: '🌌', fond: '#262f66', ombre: '#141a3b' },
-  { id: 'hiver', nom: 'Hiver', emoji: '❄️', fond: '#eef4fb', ombre: '#c9d9ea' },
+  { id: 'arc', nom: 'Nuage', emoji: '☁️', fond: '#eef0fb', ombre: '#cfd5ee' },
+  { id: 'jardin', nom: 'Papier', emoji: '✏️', fond: '#f6f1e6', ombre: '#ddd3bf' },
+  { id: 'galaxie', nom: 'Nuit', emoji: '🌙', fond: '#1f2647', ombre: '#12172e' },
+  { id: 'hiver', nom: 'Givre', emoji: '❄️', fond: '#e8f1fa', ombre: '#c6d8ea' },
 ]
 
 export type TypeDecor =
+  | 'halo'
+  | 'point'
   | 'nuage'
   | 'etoile'
   | 'fleur'
@@ -61,62 +64,24 @@ const el = (type: TypeDecor, x: number, y: number, t: number, extra: Partial<Ele
   ...extra,
 })
 
+// Très peu d'éléments, petits ou flous : le décor doit rester en arrière-plan.
 const MOTIFS: Record<Monde, ElementDecor[]> = {
+  // Nuage : trois grands halos de couleur, flous, qui dérivent lentement.
   arc: [
-    el('arc', 270, 90, 110, { h: 55 }),
-    el('nuage', 10, 120, 80, { h: 40, anim: 'flotte', duree: 8 }),
-    el('nuage', 290, 260, 90, { h: 45, anim: 'flotte', delai: -3, duree: 9 }),
-    el('nuage', 250, 560, 70, { h: 35, anim: 'flotte', delai: -5, duree: 7 }),
-    el('nuage', 12, 760, 86, { h: 43, anim: 'flotte', delai: -2, duree: 10 }),
-    el('arc', 10, 420, 120, { h: 60 }),
-    el('arc', 250, 840, 140, { h: 70 }),
-    el('etoile', 40, 230, 18, { couleur: '#ffd966', anim: 'scintille' }),
-    el('etoile', 345, 410, 14, { couleur: '#ffb3c7', anim: 'scintille', delai: -1 }),
-    el('etoile', 30, 520, 16, { couleur: '#c4b8f8', anim: 'scintille', delai: -1.8 }),
-    el('etoile', 345, 700, 18, { couleur: '#ffd966', anim: 'scintille', delai: -0.6 }),
-    el('etoile', 40, 900, 14, { couleur: '#9fe3c9', anim: 'scintille', delai: -2.2 }),
+    el('halo', -40, 80, 260, { couleur: '#ffc7b2', anim: 'flotte', duree: 18 }),
+    el('halo', 230, 420, 280, { couleur: '#d6cefb', anim: 'flotte', delai: -6, duree: 22 }),
+    el('halo', -20, 760, 240, { couleur: '#bfe0fa', anim: 'flotte', delai: -11, duree: 20 }),
   ],
-  jardin: [
-    el('fleur', 16, 120, 34, { couleur: '#ffb3c7' }),
-    el('fleur', 340, 200, 30, { couleur: '#c4b8f8' }),
-    el('fleur', 20, 420, 28, { couleur: '#ffe08a' }),
-    el('fleur', 340, 520, 34, { couleur: '#ffb3c7' }),
-    el('fleur', 336, 780, 28, { couleur: '#9ccbf5' }),
-    el('fleur', 22, 880, 32, { couleur: '#c4b8f8' }),
-    el('herbe', 40, 150, 40, { h: 20 }),
-    el('herbe', 330, 560, 40, { h: 20 }),
-    el('herbe', 50, 910, 40, { h: 20 }),
-    el('petale', 80, 60, 14, { couleur: '#ffb3c7', anim: 'tombe', duree: 9 }),
-    el('petale', 300, 160, 12, { couleur: '#ffc9d6', anim: 'tombe', delai: -3, duree: 10 }),
-    el('petale', 30, 420, 14, { couleur: '#ffb3c7', anim: 'tombe', delai: -6, duree: 9 }),
-    el('petale', 350, 620, 12, { couleur: '#ffc9d6', anim: 'tombe', delai: -2, duree: 11 }),
-    el('papillon', 300, 360, 34, { couleur: '#c4b8f8', anim: 'papillon' }),
-    el('papillon', 30, 650, 30, { couleur: '#ffb3c7', anim: 'papillon', delai: -4 }),
-  ],
+  // Papier : le motif à points suffit.
+  jardin: [],
+  // Nuit : quelques petites étoiles qui scintillent.
   galaxie: [
-    el('planete', 300, 110, 80),
-    el('lune', 14, 600, 56),
-    el('filante', 320, 300, 90, { h: 40, anim: 'filante', duree: 6 }),
-    el('filante', 340, 720, 90, { h: 40, anim: 'filante', delai: -3, duree: 7 }),
-    ...[
-      [30, 100], [120, 80], [350, 250], [60, 330], [300, 450], [20, 470], [340, 590],
-      [150, 700], [40, 800], [330, 860], [200, 930], [90, 220], [260, 820], [360, 380],
-    ].map(([x, y], i) =>
-      el('etoile', x, y, 8 + (i % 3) * 5, { couleur: i % 3 === 0 ? '#ffd966' : '#ffffff', anim: 'scintille', delai: -i * 0.4 }),
-    ),
-  ],
+    [40, 90], [330, 180], [90, 360], [350, 520], [30, 640], [300, 780], [150, 900], [210, 260],
+  ].map(([x, y], i) => el('point', x, y, i % 3 === 0 ? 5 : 3, { couleur: '#ffffff', anim: 'scintille', delai: -i * 0.7, duree: 3.4 })),
+  // Givre : quelques petits flocons qui tombent doucement.
   hiver: [
-    el('sapin', 10, 150, 44, { h: 62 }),
-    el('sapin', 336, 330, 40, { h: 56 }),
-    el('sapin', 14, 600, 48, { h: 68 }),
-    el('sapin', 334, 820, 44, { h: 62 }),
-    el('butte', 0, 930, 140, { h: 46 }),
-    el('butte', 260, 920, 140, { h: 50 }),
-    ...[
-      [40, 20], [120, 60], [220, 10], [310, 80], [360, 30], [80, 200],
-      [280, 240], [180, 300], [30, 420], [340, 480], [150, 560], [260, 640],
-    ].map(([x, y], i) => el('flocon', x, y, 10 + (i % 3) * 4, { couleur: '#9ccbf5', anim: 'tombe', delai: -i * 0.7, duree: 7 + (i % 3) })),
-  ],
+    [50, 20], [200, 160], [340, 60], [110, 420], [300, 520], [60, 700],
+  ].map(([x, y], i) => el('point', x, y, 6, { couleur: '#b9d3ee', anim: 'tombe', delai: -i * 2, duree: 14 })),
 }
 
 /** Le décor d'un monde, répété sur toute la hauteur du chemin. */

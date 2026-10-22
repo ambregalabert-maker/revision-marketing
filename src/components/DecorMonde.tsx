@@ -4,6 +4,10 @@ import type { ElementDecor } from '../lib/mondes'
 function Dessin({ e, t, h }: { e: ElementDecor; t: number; h: number }) {
   const c = e.couleur
   switch (e.type) {
+    case 'halo':
+      return <div style={{ width: t, height: t, borderRadius: '50%', background: `radial-gradient(circle, ${c}, transparent 68%)`, opacity: 0.55 }} />
+    case 'point':
+      return <div style={{ width: t, height: t, borderRadius: '50%', background: c, boxShadow: `0 0 ${t * 2}px ${c}` }} />
     case 'nuage':
       return (
         <svg width={t} height={h} viewBox="0 0 100 50">

@@ -15,8 +15,8 @@ export function Etoile({ pleine, taille = 16 }: { pleine: boolean; taille?: numb
     <svg width={taille} height={taille} viewBox="0 0 24 24" aria-hidden="true">
       <path
         d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2L12 17l-5.6 3 1.1-6.2L2.9 9.4l6.3-.9z"
-        fill={pleine ? 'var(--gold)' : 'var(--line)'}
-        stroke={pleine ? 'var(--gold-600)' : 'var(--line)'}
+        fill={pleine ? 'var(--gold)' : 'var(--m-ligne, var(--line))'}
+        stroke={pleine ? 'var(--gold-600)' : 'var(--m-ligne, var(--line))'}
         strokeWidth="1.4"
         strokeLinejoin="round"
       />
@@ -165,7 +165,7 @@ export default function Chemin() {
                   top: z.haut,
                   height: z.bas - z.haut,
                   background:
-                    'linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent-500) 22%, transparent) 90px, color-mix(in srgb, var(--accent-500) 22%, transparent) calc(100% - 90px), transparent)',
+                    'linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent-500) 14%, transparent) 90px, color-mix(in srgb, var(--accent-500) 14%, transparent) calc(100% - 90px), transparent)',
                 }}
                 aria-hidden
               />
@@ -296,7 +296,7 @@ function Rond({ point, ici, taille, galaxie, bulle }: { point: Point; ici: boole
           <path d={icone} />
         </svg>
         {dispo && !ici && (
-          <span className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-gold border-2 border-surface" aria-hidden title="Une étoile à gagner aujourd'hui" />
+          <span className="absolute top-0 right-0 w-4 h-4 rounded-full bg-gold border-2 border-surface" aria-hidden title="Une étoile à gagner aujourd'hui" />
         )}
       </Link>
       <span

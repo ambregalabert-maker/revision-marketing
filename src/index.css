@@ -454,80 +454,72 @@ h2 {
   }
 }
 
-/* ---------- Les mondes du chemin (gratuits, choisis dans « Personnaliser ») ---------- */
+/* ---------- Les mondes du chemin (gratuits, choisis dans « Personnaliser ») ----------
+   Volontairement sobres : un fond calme et très peu d'éléments, pour laisser la place au chemin. */
 .monde {
-  --m-bg: #eef6ff;
-  --m-route: #dfeaf6;
+  /* Nuage (par défaut) : un fond neutre, quelques halos de couleur flous. */
+  --m-bg: #f7f8fc;
+  --m-route: #e7ebf3;
   --m-trait: #ffffff;
   --m-bande: var(--blue-100);
   --m-bande-ink: var(--blue-700);
   --m-ink: var(--ink);
   --m-carte: var(--surface);
   --m-ligne: var(--line);
-  background: var(--m-bg);
+  --m-motif: none;
+  background: var(--m-motif), var(--m-bg);
+  background-size: 22px 22px, auto;
   color: var(--m-ink);
 }
+/* Papier : un papier crème à petits points, comme un carnet. */
 .monde[data-monde="jardin"] {
-  --m-bg: #eef8ef;
-  --m-route: #d9eed6;
-  --m-bande: #d9f0df;
-  --m-bande-ink: #2e7a4f;
+  --m-bg: #fbf9f4;
+  --m-route: #ede8dd;
+  --m-motif: radial-gradient(rgb(18 26 43 / 0.09) 1.1px, transparent 1.3px);
 }
+/* Givre : un bleu glacé très léger. */
 .monde[data-monde="hiver"] {
   --m-bg: #f2f7fc;
-  --m-route: #ffffff;
-  --m-trait: #d3e2f0;
+  --m-route: #e1eaf4;
 }
-/* La galaxie est toujours de nuit. */
+/* Nuit : toujours sombre, quelques petites étoiles. */
 .monde[data-monde="galaxie"] {
-  --m-bg: #141a3b;
-  --m-route: #232b5e;
-  --m-trait: #3a4488;
-  --m-bande: #262f66;
+  --m-bg: #12172e;
+  --m-route: #1f2647;
+  --m-trait: #343d6b;
+  --m-bande: #1f2647;
   --m-bande-ink: #c4b8f8;
   --m-ink: #eef0ff;
-  --m-carte: #1f2756;
-  --m-ligne: #3a4488;
+  --m-carte: #1a2040;
+  --m-ligne: #343d6b;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .monde:not([data-monde="galaxie"]) {
-    --m-bg: #13243a;
-    --m-route: #1f3550;
-    --m-trait: #2f4d70;
+    --m-bg: #111a2a;
+    --m-route: #1c2a40;
+    --m-trait: #2c3d58;
   }
   :root:not([data-theme="light"]) .monde[data-monde="jardin"] {
-    --m-bg: #12261f;
-    --m-route: #1d3a2e;
-    --m-bande: #1d3a2e;
-    --m-bande-ink: #8fd6ad;
-  }
-  :root:not([data-theme="light"]) .monde:not([data-monde="galaxie"]) .decor {
-    opacity: 0.5;
+    --m-motif: radial-gradient(rgb(255 255 255 / 0.07) 1.1px, transparent 1.3px);
   }
 }
 :root[data-theme="dark"] .monde:not([data-monde="galaxie"]) {
-  --m-bg: #13243a;
-  --m-route: #1f3550;
-  --m-trait: #2f4d70;
+  --m-bg: #111a2a;
+  --m-route: #1c2a40;
+  --m-trait: #2c3d58;
 }
 :root[data-theme="dark"] .monde[data-monde="jardin"] {
-  --m-bg: #12261f;
-  --m-route: #1d3a2e;
-  --m-bande: #1d3a2e;
-  --m-bande-ink: #8fd6ad;
-}
-:root[data-theme="dark"] .monde:not([data-monde="galaxie"]) .decor {
-  opacity: 0.5;
+  --m-motif: radial-gradient(rgb(255 255 255 / 0.07) 1.1px, transparent 1.3px);
 }
 
 /* Le décor bouge tout doucement. */
 @keyframes flotte {
   0%,
   100% {
-    transform: translateX(-12px);
+    transform: translate(-14px, 0);
   }
   50% {
-    transform: translateX(12px);
+    transform: translate(14px, -10px);
   }
 }
 @keyframes scintille {
