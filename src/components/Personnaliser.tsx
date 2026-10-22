@@ -8,18 +8,18 @@ import { MONDES } from '../lib/mondes'
 export const DUREES = [5, 10, 25] as const
 
 /** Le menu « Personnaliser » : couleur, monde du chemin, thème, durée de séance, minuteur, son, objectif. */
-export default function Personnaliser() {
+export default function Personnaliser({ integre = false }: { integre?: boolean } = {}) {
   const { p, majProfil } = useProgression()
   const { choix, setChoix } = useTheme()
   const prefs = p.profil.preferences
   const dureeLibre = !DUREES.includes(prefs.dureeSeance as (typeof DUREES)[number])
 
   return (
-    <section className="carte p-5 mb-4" aria-labelledby="t-perso">
-      <h2 id="t-perso" className="text-lg font-bold flex items-center gap-2">
+    <section className={integre ? '' : 'carte p-5 mb-4'} aria-labelledby={integre ? undefined : 't-perso'} aria-label={integre ? 'Personnaliser' : undefined}>
+      <h2 id="t-perso" className={`text-lg font-bold flex items-center gap-2 ${integre ? 'sr-only' : ''}`}>
         <Icone nom="reglages" className="text-accent-700" /> Personnaliser
       </h2>
-      <p className="text-sm text-muted mt-1">Fais de Mark'Up ton espace : tout est modifiable à tout moment.</p>
+      {!integre && <p className="text-sm text-muted mt-1">Fais de Mark'Up ton espace : tout est modifiable à tout moment.</p>}
 
       <fieldset className="mt-5">
         <legend className="font-semibold mb-2">Ta couleur</legend>

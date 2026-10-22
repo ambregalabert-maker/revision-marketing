@@ -42,10 +42,10 @@ export default function Reviser() {
           Tout voir
         </Link>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
-        <CarteJeu id="pari" compacte />
-        <CarteJeu id="boss" compacte />
-        <CarteJeu id="explique" compacte />
+      <div className="flex sm:grid sm:grid-cols-3 gap-3 mb-6 overflow-x-auto snap-x snap-mandatory sans-barre -mx-4 px-4 pb-2 sm:mx-0 sm:px-0">
+        <CarteJeu id="pari" compacte className="shrink-0 w-[78%] sm:w-auto snap-start" />
+        <CarteJeu id="boss" compacte className="shrink-0 w-[78%] sm:w-auto snap-start" />
+        <CarteJeu id="explique" compacte className="shrink-0 w-[78%] sm:w-auto snap-start" />
       </div>
 
       <div className="mb-5">

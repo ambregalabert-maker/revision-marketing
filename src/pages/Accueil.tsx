@@ -67,6 +67,19 @@ export default function Accueil() {
             <p className="text-muted mt-2 max-w-md">
               Ta séance du jour : <strong className="text-ink">{etape.titre}</strong>, environ 3 minutes.
             </p>
+            <div className="lg:hidden flex items-center gap-2 mt-3" aria-label={`Cette semaine : ${Math.min(seances, objectif)} séances sur ${objectif}`}>
+              <span className="flex gap-1" aria-hidden>
+                {semaine.map((j) => (
+                  <span
+                    key={j.jour}
+                    className={`w-2.5 h-2.5 rounded-full ${j.fait ? 'bg-accent-600' : j.aujourdhui ? 'border-2 border-accent-600' : 'bg-line'}`}
+                  />
+                ))}
+              </span>
+              <span className="text-xs font-semibold text-muted">
+                {Math.min(seances, objectif)} / {objectif} séances cette semaine
+              </span>
+            </div>
           </div>
           {p.boutique.compagnon ? (
             <div className="halo flotte-doux shrink-0 -my-4 hidden min-[380px]:block">
@@ -96,8 +109,6 @@ export default function Accueil() {
         </div>
       </section>
 
-      <BandeauDefile />
-
       {/* La colonne de droite (en dessous sur téléphone) : tes stats, ton niveau, ta semaine */}
       <aside aria-label="Tes statistiques" className="min-w-0 flex flex-col gap-4 lg:col-start-2 lg:row-start-1 lg:row-span-3 lg:sticky lg:top-8">
         <div className="grid grid-cols-4 lg:grid-cols-2 gap-2 lg:gap-3">
@@ -116,7 +127,7 @@ export default function Accueil() {
           <p className="text-xs text-muted mt-2">{niveau.suivant ? `Encore ${niveau.resteXp} XP avant « ${niveau.suivant.nom} »` : 'Niveau maximum atteint !'}</p>
         </Link>
 
-        <section className="carte p-4" aria-labelledby="t-semaine">
+        <section className="carte p-4 hidden lg:block" aria-labelledby="t-semaine">
           <div className="flex justify-between items-baseline">
             <h2 id="t-semaine" className="font-bold text-base">
               Ta semaine
@@ -179,28 +190,6 @@ export default function Accueil() {
   )
 }
 
-/** Le bandeau qui défile, façon affiche de festival. */
-function BandeauDefile() {
-  const mots = ['Le concept de marché', 'Parcours d’achat', 'Segmentation', 'Positionnement', 'Marketing mix', '3 minutes par jour', 'Tu gères']
-  const ligne = (
-    <div className="flex shrink-0 items-center">
-      {mots.map((m) => (
-        <span key={m} className="flex items-center gap-5 px-5 py-2.5 font-[family-name:var(--font-affiche)] font-extrabold uppercase tracking-tight text-lg md:text-xl whitespace-nowrap">
-          {m} <span className="text-accent-500" aria-hidden>✦</span>
-        </span>
-      ))}
-    </div>
-  )
-  return (
-    <div className="bandeau-defile -mx-4 md:mx-0 md:rounded-2xl lg:col-start-1" aria-hidden>
-      <div className="piste">
-        {ligne}
-        {ligne}
-      </div>
-    </div>
-  )
-}
-
 /** Fait défiler un nombre de 0 jusqu'à sa valeur (une seule fois, à l'arrivée sur la page). */
 function useCompteur(cible: number) {
   const [valeur, setValeur] = useState(() => (sansAnimation() ? cible : 0))
@@ -241,13 +230,13 @@ function Stat({ to, id, valeur, libelle, icone, couleur }: { to?: string; id?: s
   const affiche = useCompteur(valeur)
   const contenu = (
     <>
-      <span className={`flex items-center gap-1 font-extrabold text-lg lg:text-3xl leading-none tabular-nums font-[family-name:var(--font-affiche)] ${couleur}`}>
+      <span className={`flex items-center gap-1 font-extrabold text-base lg:text-3xl leading-none tabular-nums font-[family-name:var(--font-affiche)] ${couleur}`}>
         {icone} {affiche}
       </span>
-      <span className="text-[0.7rem] lg:text-xs text-muted font-semibold leading-tight mt-1 text-center lg:text-left">{libelle}</span>
+      <span className="hidden lg:block text-xs text-muted font-semibold leading-tight mt-1">{libelle}</span>
     </>
   )
-  const classe = 'carte tuile-vivante !rounded-2xl flex flex-col items-center lg:items-start px-2 py-2.5 lg:p-4 no-underline'
+  const classe = 'carte tuile-vivante !rounded-2xl flex flex-col items-center lg:items-start px-2 py-2 lg:p-4 no-underline'
   return to ? (
     <Link to={to} id={id} className={`${classe} hover:border-blue-500`} aria-label={`${valeur} ${libelle}`}>
       {contenu}

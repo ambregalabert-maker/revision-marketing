@@ -6,7 +6,7 @@ import GraphiqueSeances from '../components/GraphiqueSeances'
 import MaitriseNotions from '../components/MaitriseNotions'
 import Compte from '../components/Compte'
 import Personnaliser from '../components/Personnaliser'
-import { Barre, Etiquette } from '../components/ui'
+import { Barre, Etiquette, Repliable } from '../components/ui'
 import { BADGES, NIVEAUX, niveauPour, serieAffichee } from '../lib/gamification'
 import { ETAPES, totalEtoiles } from '../lib/chemin'
 import { ecartJours, formatDuree, formatJour, jour } from '../lib/dates'
@@ -90,12 +90,13 @@ export default function Profil() {
         <span className="rounded-full bg-gold-bg text-gold-ink font-extrabold px-3 py-1">🪙 {marksDisponibles(p)}</span>
       </Link>
 
-      <Personnaliser />
+      <Repliable titre="Personnaliser" icone="🎨" resume="Couleur, monde, clair ou sombre, durée, objectif">
+        <Personnaliser integre />
+      </Repliable>
 
       {/* Mes infos + évaluation */}
-      <section className="carte p-5 mb-4" aria-labelledby="t-infos">
-        <h2 id="t-infos" className="text-lg font-bold">Mes infos</h2>
-        <div className="grid sm:grid-cols-2 gap-4 mt-3">
+      <Repliable titre="Mes infos" icone="🗓️" resume={p.profil.dateQcm ? `QCM le ${formatJour(p.profil.dateQcm)}` : 'Prénom, date de ton QCM, évaluation'}>
+        <div className="grid sm:grid-cols-2 gap-4">
           <label className="flex flex-col gap-1 font-semibold text-sm">
             Prénom
             <input className={champ} value={p.profil.prenom} maxLength={30} autoComplete="given-name" onChange={(e) => majProfil({ prenom: e.target.value })} />
@@ -124,11 +125,10 @@ export default function Profil() {
             </span>
           </li>
         </ul>
-      </section>
+      </Repliable>
 
       {/* Statistiques */}
-      <section className="carte p-5 mb-4" aria-labelledby="t-stats">
-        <h2 id="t-stats" className="text-lg font-bold mb-3">Mes statistiques</h2>
+      <Repliable titre="Mes statistiques" icone="📈" resume={`${formatDuree(minutesTotal)} de révision${taux === null ? '' : ` · ${taux} % de réussite`}`}>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-5">
           <Pastille valeur={formatDuree(minutesTotal)} label="de révision" />
           <Pastille valeur={String(p.stats.meilleureSerie)} label="meilleure série (jours)" />
@@ -139,14 +139,11 @@ export default function Profil() {
         <GraphiqueSeances p={p} />
         <h3 className="font-semibold mt-6 mb-3">Réussite par notion</h3>
         <MaitriseNotions />
-      </section>
+      </Repliable>
 
       {/* Badges */}
-      <section className="carte p-5 mb-4" aria-labelledby="t-badges">
-        <h2 id="t-badges" className="text-lg font-bold">
-          Mes badges <span className="text-muted font-normal text-base">({Object.keys(p.badges).length} / {BADGES.length})</span>
-        </h2>
-        <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-3">
+      <Repliable titre="Mes badges" icone="🏅" resume={`${Object.keys(p.badges).length} sur ${BADGES.length} obtenus`}>
+        <ul className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {BADGES.map((b) => {
             const obtenu = !!p.badges[b.id]
             return (
@@ -168,7 +165,7 @@ export default function Profil() {
             )
           })}
         </ul>
-      </section>
+      </Repliable>
 
       <Link to="/classement" className="carte p-4 mb-4 flex items-center gap-3 hover:border-blue-500">
         <Icone nom="classement" className="text-blue-700" />
@@ -180,9 +177,8 @@ export default function Profil() {
       </Link>
 
       {/* Zone sensible */}
-      <section className="carte p-5" aria-labelledby="t-reset">
-        <h2 id="t-reset" className="text-lg font-bold">Recommencer à zéro</h2>
-        <p className="text-sm text-muted mt-1">Efface tes XP, ta série, tes étoiles, tes badges et ta répétition espacée. Ton prénom et tes réglages sont gardés.</p>
+      <Repliable titre="Recommencer à zéro" icone="♻️" resume="Effacer ta progression">
+        <p className="text-sm text-muted">Efface tes XP, ta série, tes étoiles, tes badges et ta répétition espacée. Ton prénom et tes réglages sont gardés.</p>
         {!confirmer ? (
           <button type="button" className="btn btn-contour mt-3 !border-error text-error-ink" onClick={() => setConfirmer(true)}>
             Réinitialiser ma progression
@@ -207,7 +203,7 @@ export default function Profil() {
             </div>
           </div>
         )}
-      </section>
+      </Repliable>
     </Page>
   )
 }

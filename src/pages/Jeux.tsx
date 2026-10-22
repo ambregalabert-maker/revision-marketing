@@ -66,12 +66,12 @@ export default function Jeux() {
 }
 
 /** Une grande carte façon affiche pour lancer un jeu. */
-export function CarteJeu({ id, compacte = false }: { id: IdJeu; compacte?: boolean }) {
+export function CarteJeu({ id, compacte = false, className = '' }: { id: IdJeu; compacte?: boolean; className?: string }) {
   const j = JEUX.find((x) => x.id === id)!
   return (
     <Link
       to={`/jeux/${j.id}`}
-      className={`tuile-vivante relative flex flex-col overflow-hidden rounded-[1.75rem] no-underline ${compacte ? 'p-5 min-h-44' : 'p-6 min-h-72'}`}
+      className={`tuile-vivante relative flex flex-col overflow-hidden rounded-[1.75rem] no-underline ${compacte ? 'p-5 min-h-44' : 'p-6 min-h-72'} ${className}`}
       style={{ background: j.fond, color: '#f6f7fb', boxShadow: '0 22px 50px -26px rgb(18 26 43 / 0.7)' }}
     >
       <span className="absolute -right-3 -top-6 text-[7rem] leading-none opacity-25 rotate-12 select-none" aria-hidden>

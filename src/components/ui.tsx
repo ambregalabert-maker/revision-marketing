@@ -143,3 +143,36 @@ export function EcranFin({
     </div>
   )
 }
+
+/** Une carte qui se replie : seul le titre (et un petit résumé) est visible tant qu'on ne l'ouvre pas. */
+export function Repliable({
+  titre,
+  resume,
+  icone,
+  ouvert = false,
+  children,
+}: {
+  titre: string
+  resume?: ReactNode
+  icone?: ReactNode
+  ouvert?: boolean
+  children: ReactNode
+}) {
+  return (
+    <details className="carte mb-3 group" open={ouvert}>
+      <summary className="flex items-center gap-3 p-4 md:p-5 cursor-pointer list-none rounded-[20px] hover:bg-surface-2/50 [&::-webkit-details-marker]:hidden">
+        {icone && (
+          <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-surface-2 text-xl shrink-0" aria-hidden>
+            {icone}
+          </span>
+        )}
+        <span className="flex-1 min-w-0">
+          <h2 className="text-lg font-bold font-[family-name:var(--font-titre)] tracking-tight">{titre}</h2>
+          {resume && <span className="block text-sm text-muted truncate">{resume}</span>}
+        </span>
+        <Icone nom="bas" className="text-muted transition-transform group-open:rotate-180" />
+      </summary>
+      <div className="px-4 md:px-5 pb-5">{children}</div>
+    </details>
+  )
+}
