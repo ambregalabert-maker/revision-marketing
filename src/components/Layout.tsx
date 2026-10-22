@@ -79,7 +79,7 @@ export default function Layout() {
 
   return (
     <div className="min-h-dvh md:flex">
-      <a href="#contenu" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 btn btn-accent">
+      <a href="#contenu" className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 btn btn-contour">
         Aller au contenu
       </a>
 
@@ -95,7 +95,7 @@ export default function Layout() {
           <Icone nom="panneau" />
         </button>
       ) : (
-        <aside className="hidden md:flex md:flex-col md:w-60 lg:w-64 shrink-0 border-r border-line bg-surface sticky top-0 h-dvh p-4 gap-2">
+        <aside className="hidden md:flex md:flex-col md:w-60 lg:w-64 shrink-0 border-r border-line verre sticky top-0 h-dvh p-4 gap-2">
           <div className="flex items-start justify-between gap-2">
             <Logo />
             <button
@@ -140,7 +140,7 @@ export default function Layout() {
 
       <div className="flex-1 min-w-0 flex flex-col">
         {/* Barre du haut (téléphone) */}
-        <header className="md:hidden sticky top-0 z-30 bg-bg/90 backdrop-blur border-b border-line">
+        <header className="md:hidden sticky top-0 z-30 verre border-b border-line">
           <div className="flex items-center justify-between gap-2 px-4 h-14">
             <Logo compact />
             <BoutonTheme />
@@ -151,7 +151,7 @@ export default function Layout() {
           id="contenu"
           ref={principal}
           tabIndex={-1}
-          className={`flex-1 w-full mx-auto px-4 md:px-8 pt-5 md:pt-10 pb-28 md:pb-12 outline-none ${
+          className={`flex-1 w-full mx-auto overflow-x-clip px-4 md:px-8 pt-5 md:pt-10 pb-28 md:pb-12 outline-none ${
             pathname === '/' ? (masquee ? 'max-w-3xl lg:max-w-7xl md:pl-20' : 'max-w-3xl lg:max-w-6xl') : masquee ? 'max-w-3xl lg:max-w-5xl md:pl-20' : 'max-w-3xl lg:max-w-4xl'
           }`}
         >
@@ -170,7 +170,7 @@ export default function Layout() {
       {/* Barre de navigation du bas (téléphone) */}
       <nav
         aria-label="Navigation principale"
-        className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-surface border-t border-line pb-[env(safe-area-inset-bottom)]"
+        className="md:hidden fixed bottom-0 inset-x-0 z-30 verre border-t border-line pb-[env(safe-area-inset-bottom)]"
       >
         <ul className="grid grid-cols-4">
           {liens

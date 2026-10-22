@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router'
 import MonCompagnon from '../components/MonCompagnon'
 import { Barre } from '../components/ui'
@@ -45,22 +45,37 @@ export default function Accueil() {
       {/* La carte d'accueil : bonjour, l'étape du jour, le bouton */}
       <section
         aria-labelledby="t-bonjour"
-        className="relative overflow-hidden rounded-3xl border border-line p-5 md:p-7 shadow-carte"
-        style={{ background: 'linear-gradient(135deg, var(--accent-100), var(--surface) 62%)' }}
+        className="bordure-vivante projecteur relative overflow-hidden rounded-[2rem] p-5 md:p-8 shadow-carte"
+        onPointerMove={(e) => {
+          const r = e.currentTarget.getBoundingClientRect()
+          e.currentTarget.style.setProperty('--mx', `${e.clientX - r.left}px`)
+          e.currentTarget.style.setProperty('--my', `${e.clientY - r.top}px`)
+        }}
       >
         <div className="flex items-center gap-4 md:gap-6">
           <div className="flex-1 min-w-0">
             <p className="surtitre capitalize">{formatJour(jour())}</p>
-            <h1 id="t-bonjour" className="text-3xl md:text-4xl mt-1">
-              {prenom ? `Salut ${prenom}` : 'Salut'} <span aria-hidden>👋</span>
+            <h1 id="t-bonjour" className="text-4xl md:text-6xl xl:text-7xl mt-1 leading-[0.95]">
+              Salut{' '}
+              <span className="whitespace-nowrap">
+                {prenom && <span className="texte-degrade">{prenom}</span>}{' '}
+                <span aria-hidden className="inline-block text-[0.8em] animate-[coucou-main_2.4s_ease-in-out_infinite] origin-[70%_80%]">
+                  👋
+                </span>
+              </span>
             </h1>
             <p className="text-muted mt-2 max-w-md">
               Ta séance du jour : <strong className="text-ink">{etape.titre}</strong>, environ 3 minutes.
             </p>
           </div>
           {p.boutique.compagnon ? (
-            <div className="shrink-0 -my-2 hidden min-[380px]:block">
-              <MonCompagnon taille={104} anime humeur="coucou" />
+            <div className="halo flotte-doux shrink-0 -my-4 hidden min-[380px]:block">
+              <span className="md:hidden">
+                <MonCompagnon taille={104} anime humeur="coucou" />
+              </span>
+              <span className="hidden md:block">
+                <MonCompagnon taille={170} anime humeur="coucou" />
+              </span>
             </div>
           ) : (
             <Link to="/boutique" className="shrink-0 hidden min-[380px]:flex flex-col items-center gap-1 rounded-2xl border border-dashed border-accent-600 px-3 py-3 text-sm font-bold text-accent-700 hover:bg-surface">
@@ -81,8 +96,10 @@ export default function Accueil() {
         </div>
       </section>
 
+      <BandeauDefile />
+
       {/* La colonne de droite (en dessous sur téléphone) : tes stats, ton niveau, ta semaine */}
-      <aside aria-label="Tes statistiques" className="min-w-0 flex flex-col gap-4 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-8">
+      <aside aria-label="Tes statistiques" className="min-w-0 flex flex-col gap-4 lg:col-start-2 lg:row-start-1 lg:row-span-3 lg:sticky lg:top-8">
         <div className="grid grid-cols-4 lg:grid-cols-2 gap-2 lg:gap-3">
           <Stat to="/profil" valeur={serie.serie} libelle={`jour${serie.serie > 1 ? 's' : ''} de série`} icone={<Icone nom="flamme" taille={18} />} couleur="text-accent-700" />
           <Stat id="compteur-etoiles" valeur={etoiles} libelle={`étoiles sur ${etoilesMax}`} icone={<Etoile pleine taille={18} />} couleur="text-gold-ink" />
@@ -159,6 +176,55 @@ export default function Accueil() {
   )
 }
 
+/** Le bandeau qui défile, façon affiche de festival. */
+function BandeauDefile() {
+  const mots = ['Le concept de marché', '3 minutes par jour', 'Objectif QCM', 'Mark’Up', 'Offre & demande', 'Tu gères']
+  const ligne = (
+    <div className="flex shrink-0 items-center">
+      {mots.map((m) => (
+        <span key={m} className="flex items-center gap-5 px-5 py-2.5 font-[family-name:var(--font-affiche)] font-extrabold uppercase tracking-tight text-lg md:text-xl whitespace-nowrap">
+          {m} <span className="text-accent-500" aria-hidden>✦</span>
+        </span>
+      ))}
+    </div>
+  )
+  return (
+    <div className="bandeau-defile -mx-4 md:mx-0 md:rounded-2xl lg:col-start-1" aria-hidden>
+      <div className="piste">
+        {ligne}
+        {ligne}
+      </div>
+    </div>
+  )
+}
+
+/** Fait défiler un nombre de 0 jusqu'à sa valeur (une seule fois, à l'arrivée sur la page). */
+function useCompteur(cible: number) {
+  const [valeur, setValeur] = useState(() => (sansAnimation() ? cible : 0))
+  const depart = useRef<number | null>(null)
+  useEffect(() => {
+    if (sansAnimation()) {
+      setValeur(cible)
+      return
+    }
+    let frame = 0
+    const debut = performance.now()
+    const de = depart.current ?? 0
+    const pas = (t: number) => {
+      const k = Math.min(1, (t - debut) / 900)
+      const doux = 1 - Math.pow(1 - k, 3)
+      setValeur(Math.round(de + (cible - de) * doux))
+      if (k < 1) frame = requestAnimationFrame(pas)
+      else depart.current = cible
+    }
+    frame = requestAnimationFrame(pas)
+    return () => cancelAnimationFrame(frame)
+  }, [cible])
+  return valeur
+}
+
+const sansAnimation = () => typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+
 /** Met le titre de l'onglet du navigateur. */
 function Titre({ texte }: { texte: string }) {
   useEffect(() => {
@@ -169,15 +235,16 @@ function Titre({ texte }: { texte: string }) {
 
 /** Une tuile de statistique (lien ou simple affichage). */
 function Stat({ to, id, valeur, libelle, icone, couleur }: { to?: string; id?: string; valeur: number; libelle: string; icone: ReactNode; couleur: string }) {
+  const affiche = useCompteur(valeur)
   const contenu = (
     <>
-      <span className={`flex items-center gap-1 font-extrabold text-lg lg:text-2xl leading-none tabular-nums ${couleur}`}>
-        {icone} {valeur}
+      <span className={`flex items-center gap-1 font-extrabold text-lg lg:text-3xl leading-none tabular-nums font-[family-name:var(--font-affiche)] ${couleur}`}>
+        {icone} {affiche}
       </span>
       <span className="text-[0.7rem] lg:text-xs text-muted font-semibold leading-tight mt-1 text-center lg:text-left">{libelle}</span>
     </>
   )
-  const classe = 'carte !rounded-2xl flex flex-col items-center lg:items-start px-2 py-2.5 lg:p-4 no-underline'
+  const classe = 'carte tuile-vivante !rounded-2xl flex flex-col items-center lg:items-start px-2 py-2.5 lg:p-4 no-underline'
   return to ? (
     <Link to={to} id={id} className={`${classe} hover:border-blue-500`} aria-label={`${valeur} ${libelle}`}>
       {contenu}

@@ -20,7 +20,7 @@ export default function Page({
     <div className="apparition">
       <div className="flex flex-wrap items-end justify-between gap-3 mb-6">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold">{titre}</h1>
+          <h1 className="text-3xl md:text-5xl leading-[1.05]">{titre}</h1>
           {sousTitre && <p className="text-muted mt-1">{sousTitre}</p>}
         </div>
         {actions}

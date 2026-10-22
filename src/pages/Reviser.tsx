@@ -20,14 +20,17 @@ export default function Reviser() {
     <Page titre="Mode Tryhard ⚡" sousTitre="Pour aller plus loin que le daily : tu choisis ta durée, tu vises tes points faibles.">
       <Link
         to="/reviser/seance"
-        className="block rounded-3xl p-5 md:p-6 mb-5 bg-accent-500 text-on-accent transition-transform active:translate-y-1"
-        style={{ boxShadow: '0 6px 0 var(--accent-600)' }}
+        className="tuile-vivante relative block overflow-hidden rounded-[2rem] p-6 md:p-8 mb-5 no-underline"
+        style={{ background: 'radial-gradient(120% 140% at 100% 0%, var(--accent-500), transparent 55%), radial-gradient(90% 120% at 0% 100%, #8b6cff, transparent 60%), #121a2b', color: '#f6f7fb', boxShadow: '0 24px 60px -24px #8b6cff' }}
       >
-        <span className="flex items-center gap-2 font-titre font-bold text-xl">
-          <Icone nom="eclair" plein /> Commencer une séance Tryhard
+        <span className="absolute -right-4 -top-10 text-[9rem] md:text-[12rem] leading-none opacity-20 rotate-12 select-none" aria-hidden>
+          ⚡
         </span>
-        <span className="block mt-1">5 min, 10 min, 25 min ou plus : la séance s'adapte à ton temps et à tes erreurs.</span>
-        <span className="inline-flex items-center gap-1 mt-3 font-bold">
+        <span className="relative flex items-center gap-2 font-[family-name:var(--font-affiche)] font-extrabold text-3xl md:text-5xl tracking-tight">
+          <Icone nom="eclair" plein /> Lance ta séance Tryhard
+        </span>
+        <span className="relative block mt-2 max-w-xl text-[#d5dbe8]">5 min, 10 min, 25 min ou plus : la séance s'adapte à ton temps et à tes erreurs.</span>
+        <span className="relative inline-flex items-center gap-1 mt-5 rounded-full bg-[#f6f7fb] text-[#121a2b] px-4 py-2 font-bold">
           Choisir ma durée <Icone nom="suivant" />
         </span>
       </Link>

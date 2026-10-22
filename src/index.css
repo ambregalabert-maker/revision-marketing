@@ -36,6 +36,11 @@
   --q-bleu: #3d86d1;
   --q-rose: #d45a8a;
   --shadow: 0 1px 2px rgb(18 26 43 / 0.04), 0 10px 28px -14px rgb(18 26 43 / 0.14);
+  --verre: rgb(255 255 255 / 0.66);
+  --verre-plein: rgb(255 255 255 / 0.82);
+  --verre-bord: rgb(255 255 255 / 0.85);
+  --lueur: rgb(124 92 255 / 0.18);
+  --degrade-2: #8b6cff;
   color-scheme: light;
 
   /* Accent par défaut : Pêche */
@@ -102,6 +107,11 @@
     --rose-bg: #3d2029;
     --q-jaune: #c98c0a;
     --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
+    --verre: rgb(22 30 48 / 0.6);
+    --verre-plein: rgb(22 30 48 / 0.8);
+    --verre-bord: rgb(255 255 255 / 0.09);
+    --lueur: rgb(139 108 255 / 0.3);
+    --degrade-2: #a993ff;
     color-scheme: dark;
   }
 }
@@ -128,6 +138,11 @@
   --rose-bg: #3d2029;
   --q-jaune: #c98c0a;
   --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
+  --verre: rgb(22 30 48 / 0.6);
+  --verre-plein: rgb(22 30 48 / 0.8);
+  --verre-bord: rgb(255 255 255 / 0.09);
+  --lueur: rgb(139 108 255 / 0.3);
+  --degrade-2: #a993ff;
   color-scheme: dark;
 }
 
@@ -160,6 +175,7 @@
   --color-error-ink: var(--error-ink);
   --color-error-bg: var(--error-bg);
   --font-titre: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-affiche: "Bricolage Grotesque", "Plus Jakarta Sans", system-ui, sans-serif;
   --font-texte: "Plus Jakarta Sans", system-ui, sans-serif;
   --shadow-carte: var(--shadow);
 }
@@ -189,9 +205,11 @@ h4 {
   font-weight: 700;
   margin: 0;
 }
-h1 {
+h1,
+h2 {
+  font-family: var(--font-affiche);
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
 }
 
 /* Focus toujours visible pour la navigation au clavier. */
@@ -244,13 +262,32 @@ h1 {
 }
 /* Action principale : couleur d'accent, relief discret. Texte foncé (contraste). */
 .btn-accent {
-  background: linear-gradient(180deg, var(--accent-400), var(--accent-500));
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: linear-gradient(110deg, var(--accent-400), var(--accent-500) 35%, #d9cffb 65%, var(--accent-400));
+  background-size: 250% 100%;
+  animation: degrade 7s linear infinite;
   color: var(--on-accent);
-  border-color: var(--accent-600);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.45), 0 1px 2px rgb(18 26 43 / 0.08), 0 8px 18px -10px var(--accent-600);
+  border-color: color-mix(in srgb, var(--accent-600) 70%, transparent);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 12px 32px -12px var(--accent-600), 0 0 0 0 var(--lueur);
+  transition: box-shadow 0.25s, transform 0.15s;
+}
+/* Un reflet passe sur le bouton au survol. */
+.btn-accent::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, transparent 30%, rgb(255 255 255 / 0.6) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+.btn-accent:hover::after {
+  transform: translateX(120%);
 }
 .btn-accent:hover {
-  background: var(--accent-400);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 16px 40px -12px var(--accent-600), 0 0 0 6px var(--lueur);
 }
 .btn-accent:active:not(:disabled) {
   transform: translateY(1px);
@@ -266,7 +303,9 @@ h1 {
   border-color: var(--blue-500);
 }
 .btn-contour {
-  background: var(--surface);
+  background: var(--verre-plein);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   color: var(--ink);
   border-color: var(--line);
   box-shadow: 0 1px 2px rgb(18 26 43 / 0.05);
@@ -286,10 +325,18 @@ h1 {
 }
 
 .carte {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
+  background: var(--verre);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  backdrop-filter: blur(18px) saturate(1.5);
+  border: 1px solid var(--verre-bord);
+  border-radius: 20px;
+  box-shadow: var(--shadow), inset 0 1px 0 rgb(255 255 255 / 0.25);
+}
+/* Verre dépoli pour les barres et menus. */
+.verre {
+  background: var(--verre-plein);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  backdrop-filter: blur(20px) saturate(1.6);
 }
 
 /* Petit sur-titre en capitales, comme dans les tableaux de bord pro. */
@@ -340,7 +387,8 @@ h1 {
 @keyframes apparition {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(14px) scale(0.99);
+    filter: blur(6px);
   }
   to {
     opacity: 1;
@@ -348,7 +396,7 @@ h1 {
   }
 }
 .apparition {
-  animation: apparition 0.25s ease-out;
+  animation: apparition 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 /* Le rond du jour respire doucement. */
@@ -820,6 +868,147 @@ h1 {
   100% {
     opacity: 0;
     transform: translateY(-10px);
+  }
+}
+
+/* ---------- L'aurore : le fond de couleurs vivantes, derrière tout le site ---------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -25vmax;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(38vmax 38vmax at 18% 22%, color-mix(in srgb, var(--accent-500) 80%, transparent), transparent 70%),
+    radial-gradient(34vmax 34vmax at 82% 18%, color-mix(in srgb, #b9a8ff 75%, transparent), transparent 70%),
+    radial-gradient(40vmax 40vmax at 72% 82%, color-mix(in srgb, #7cc8ff 65%, transparent), transparent 70%),
+    radial-gradient(30vmax 30vmax at 22% 86%, color-mix(in srgb, #f5c451 55%, transparent), transparent 70%);
+  filter: blur(30px) saturate(1.2);
+  animation: aurore 28s ease-in-out infinite alternate;
+}
+@keyframes aurore {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(4vmax, -3vmax) rotate(12deg) scale(1.08);
+  }
+  100% {
+    transform: translate(-3vmax, 3vmax) rotate(-10deg) scale(1.04);
+  }
+}
+@keyframes degrade {
+  to {
+    background-position: -250% 0;
+  }
+}
+
+/* Texte en dégradé animé (les grands titres). */
+.texte-degrade {
+  background: linear-gradient(90deg, var(--ink), var(--accent-700) 30%, var(--degrade-2) 60%, var(--ink));
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: degrade 9s linear infinite;
+}
+
+/* Bordure arc-en-ciel qui tourne autour de la carte du jour. */
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+.bordure-vivante {
+  border: 2px solid transparent;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-100) 85%, transparent), var(--verre-plein) 60%) padding-box,
+    conic-gradient(from var(--angle), var(--accent-500), #c4b8f8, #8fd3ff, #f5c451, var(--accent-500)) border-box;
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  backdrop-filter: blur(20px) saturate(1.5);
+  animation: tourne 8s linear infinite;
+}
+@keyframes tourne {
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* Un projecteur suit la souris sur la carte du jour. */
+.projecteur::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(420px circle at var(--mx, 70%) var(--my, 20%), rgb(255 255 255 / 0.5), transparent 60%);
+  opacity: 0.7;
+  mix-blend-mode: soft-light;
+}
+
+/* Halo lumineux derrière le compagnon, qui flotte. */
+.halo {
+  position: relative;
+}
+.halo::before {
+  content: "";
+  position: absolute;
+  inset: 10%;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent-500) 70%, transparent), transparent 70%);
+  filter: blur(18px);
+  animation: respire 3s ease-in-out infinite;
+}
+.flotte-doux {
+  animation: flotte-doux 4s ease-in-out infinite;
+}
+@keyframes flotte-doux {
+  50% {
+    transform: translateY(-10px) rotate(-2deg);
+  }
+}
+
+/* Les tuiles bougent quand on les survole. */
+.tuile-vivante {
+  transition: transform 0.25s cubic-bezier(0.3, 1.4, 0.5, 1), box-shadow 0.25s;
+}
+.tuile-vivante:hover {
+  transform: translateY(-4px) rotate(-1.2deg) scale(1.03);
+  box-shadow: var(--shadow), 0 18px 40px -18px var(--accent-600);
+}
+
+@keyframes coucou-main {
+  0%,
+  60%,
+  100% {
+    transform: rotate(0);
+  }
+  10%,
+  30% {
+    transform: rotate(16deg);
+  }
+  20%,
+  40% {
+    transform: rotate(-10deg);
+  }
+}
+
+/* Le bandeau qui défile. */
+.bandeau-defile {
+  transform: rotate(-1.6deg);
+  background: var(--ink);
+  color: var(--bg);
+  overflow: hidden;
+  box-shadow: 0 14px 30px -14px rgb(18 26 43 / 0.5);
+}
+.bandeau-defile .piste {
+  display: flex;
+  width: max-content;
+  animation: defile 28s linear infinite;
+}
+@keyframes defile {
+  to {
+    transform: translateX(-50%);
   }
 }
 
