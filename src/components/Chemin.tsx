@@ -317,12 +317,12 @@ function CompagnonDuChemin({ ici, points, t, largeur }: { ici: string; points: P
 
   const pt = points.find((x) => x.etape.id === pos) ?? points[0]
   const c = t.compagnon
-  const { gauche, haut } = placeLibre(pt, points, t, largeur)
+  const { gauche, haut, cote } = placeLibre(pt, points, t, largeur)
   const phrase = endormi ? 'Zzz… on révise ?' : ['C’est ici ! On y va ? ✨', 'C’est ici ! 3 minutes ?', 'C’est ici, je t’attends !'][new Date().getDate() % 3]
 
   return (
     <div
-      className="absolute z-[1] flex flex-col items-center pointer-events-none"
+      className={`absolute z-[1] flex flex-col pointer-events-none ${cote < 0 ? 'items-end' : 'items-start'}`}
       style={{ left: gauche, top: haut, width: c, transition: 'left 1.1s ease-in-out, top 1.1s ease-in-out' }}
       aria-hidden
     >
@@ -348,7 +348,7 @@ function placeLibre(pt: Point, points: Point[], t: Tailles, largeur: number) {
   const bulle = t.grand ? 230 : 180
   const largeurBoite = Math.max(c, bulle)
   const hauteurBoite = c + (t.grand ? 30 : 26)
-  const lettre = t.grand ? 8.6 : 7.6
+  const lettre = t.grand ? 10 : 8.4
   const ligne = t.grand ? 21 : 18
   // Ce qu'il ne faut pas cacher : les ronds, leur nom, leurs étoiles et la bulle « C'est ici ! ».
   const obstacles: Boite[] = []
@@ -361,15 +361,22 @@ function placeLibre(pt: Point, points: Point[], t: Tailles, largeur: number) {
     const l = Math.min(t.colonne, texte + 16)
     obstacles.push({ g: q.x - l / 2, d: q.x + l / 2, h: q.y + r + 8, b: q.y + r + 14 + lignes * ligne + (t.grand ? 26 : 22) })
   }
-  let meilleur = { gauche: 0, haut: 0, score: Infinity }
-  for (const cote of [pt.x > largeur / 2 ? -1 : 1, pt.x > largeur / 2 ? 1 : -1]) {
-    for (const dy of [0, 20, -20, 40, -40, 60, 80, -60]) {
-      const centre = cote < 0 ? pt.x - t.rond / 2 - 12 - c / 2 : pt.x + t.rond / 2 + 12 + c / 2
-      const gB = Math.max(2, Math.min(largeur - largeurBoite - 2, centre - largeurBoite / 2))
-      const haut = pt.y - c / 2 - 18 + dy
-      const boite = { g: gB, d: gB + largeurBoite, h: haut, b: haut + hauteurBoite }
-      const score = obstacles.reduce((s, o) => s + chevauchement(boite, o), 0) + Math.abs(dy) * 2 + (cote === (pt.x > largeur / 2 ? -1 : 1) ? 0 : 30)
-      if (score < meilleur.score) meilleur = { gauche: gB + (largeurBoite - c) / 2, haut, score }
+  // La bulle part vers l'extérieur (loin du rond) : à gauche du rond, elle déborde à gauche du compagnon.
+  let meilleur = { gauche: 0, haut: 0, score: Infinity, cote: 1 }
+  const prefere = pt.x > largeur / 2 ? -1 : 1
+  for (const cote of [prefere, -prefere]) {
+    for (const ecart of [0, 30, 60]) {
+      for (const dy of [0, 20, -20, 40, -40, 60, 80, -60, 100, 120]) {
+        // Position du compagnon lui-même, collé au rond (plus ou moins écarté).
+        let gC = cote < 0 ? pt.x - t.rond / 2 - 12 - ecart - c : pt.x + t.rond / 2 + 12 + ecart
+        gC = Math.max(2 + (cote < 0 ? largeurBoite - c : 0), Math.min(largeur - 2 - (cote < 0 ? c : largeurBoite), gC))
+        const gB = cote < 0 ? gC + c - largeurBoite : gC
+        const haut = pt.y - c / 2 - 18 + dy
+        const boite = { g: gB, d: gB + largeurBoite, h: haut, b: haut + hauteurBoite }
+        const score =
+          obstacles.reduce((s, o) => s + chevauchement(boite, o), 0) * 4 + Math.abs(dy) * 2 + ecart * 2 + (cote === prefere ? 0 : 30)
+        if (score < meilleur.score) meilleur = { gauche: gC, haut, score, cote }
+      }
     }
   }
   return meilleur

@@ -151,7 +151,9 @@ export default function Layout() {
           id="contenu"
           ref={principal}
           tabIndex={-1}
-          className={`flex-1 w-full mx-auto px-4 md:px-8 pt-5 md:pt-10 pb-28 md:pb-12 outline-none ${masquee ? 'max-w-3xl lg:max-w-5xl md:pl-20' : 'max-w-3xl lg:max-w-4xl'}`}
+          className={`flex-1 w-full mx-auto px-4 md:px-8 pt-5 md:pt-10 pb-28 md:pb-12 outline-none ${
+            pathname === '/' ? (masquee ? 'max-w-3xl lg:max-w-7xl md:pl-20' : 'max-w-3xl lg:max-w-6xl') : masquee ? 'max-w-3xl lg:max-w-5xl md:pl-20' : 'max-w-3xl lg:max-w-4xl'
+          }`}
         >
           <Suspense
             fallback={

@@ -1,17 +1,18 @@
-import type { ReactNode } from 'react'
+import { useEffect, type ReactNode } from 'react'
 import { Link } from 'react-router'
-import Page from '../components/Page'
+import MonCompagnon from '../components/MonCompagnon'
+import { Barre } from '../components/ui'
 import Onboarding from '../components/Onboarding'
 import Chemin, { Etoile } from '../components/Chemin'
 import Icone from '../components/Icone'
-import { erreursARevoir, joursDeLaSemaine, seancesDeLaSemaine, serieAffichee } from '../lib/gamification'
-import { etapeDuJour, totalEtoiles } from '../lib/chemin'
-import { ecartJours, jour } from '../lib/dates'
+import { erreursARevoir, joursDeLaSemaine, niveauPour, seancesDeLaSemaine, serieAffichee } from '../lib/gamification'
+import { ETAPES, etapeDuJour, totalEtoiles } from '../lib/chemin'
+import { ecartJours, formatJour, jour } from '../lib/dates'
 import { useProgression } from '../state/progression'
 import { marksDisponibles } from '../lib/boutique'
 
 /**
- * L'accueil = le mode « daily » : tes pastilles, ta semaine, un bouton, et le chemin.
+ * L'accueil = le mode « daily », en tableau de bord : la carte du jour, tes stats, ta semaine, et le chemin.
  * Pas de minuteur ici.
  */
 export default function Accueil() {
@@ -33,116 +34,158 @@ export default function Accueil() {
   const erreurs = erreursARevoir(p.tentatives).length
   const joursAvantQcm = p.profil.dateQcm ? ecartJours(jour(), p.profil.dateQcm) : null
   const etape = etapeDuJour(p)
+  const niveau = niveauPour(p.stats.xpTotal)
+  const etoiles = totalEtoiles(p)
+  const etoilesMax = ETAPES.length * 3
 
   return (
-    <Page
-      titre={prenom ? `Salut ${prenom} 👋` : 'Salut 👋'}
-      actions={
-        <div className="flex flex-wrap gap-2">
-          <Link
-            to="/profil"
-            className="inline-flex items-center gap-1 rounded-full bg-surface border border-line px-3 min-h-10 font-extrabold text-accent-700"
-            aria-label={`Série : ${serie.serie} jour${serie.serie > 1 ? 's' : ''}`}
-          >
-            <Icone nom="flamme" taille={18} /> {serie.serie}
-          </Link>
-          <span
-            id="compteur-etoiles"
-            className="inline-flex items-center gap-1 rounded-full bg-surface border border-line px-3 min-h-10 font-extrabold text-gold-ink"
-            aria-label={`${totalEtoiles(p)} étoiles gagnées sur le chemin`}
-          >
-            <Etoile pleine taille={18} /> {totalEtoiles(p)}
-          </span>
-          <Link
-            to="/profil"
-            className="inline-flex items-center gap-1 rounded-full bg-surface border border-line px-3 min-h-10 font-extrabold text-gold-ink"
-            aria-label={`${p.stats.xpTotal} XP`}
-          >
-            <Icone nom="eclair" taille={18} plein /> {p.stats.xpTotal}
-          </Link>
-          <Link
-            to="/boutique"
-            className="inline-flex items-center gap-1 rounded-full bg-surface border border-line px-3 min-h-10 font-extrabold text-gold-ink"
-            aria-label={`${marksDisponibles(p)} Marks : ouvrir la boutique`}
-          >
-            🪙 {marksDisponibles(p)}
-          </Link>
-        </div>
-      }
-    >
-      {/* Petites bulles d'info, discrètes */}
-      <div className="flex gap-2 overflow-x-auto sans-barre -mx-4 px-4 mb-4">
-        {joursAvantQcm !== null && joursAvantQcm >= 0 ? (
-          <Bulle to="/profil" icone="calendrier">
-            QCM dans <strong>{joursAvantQcm} jour{joursAvantQcm > 1 ? 's' : ''}</strong>
-          </Bulle>
-        ) : (
-          <Bulle to="/profil" icone="calendrier">
-            Ajoute la date de ton QCM
-          </Bulle>
-        )}
-        {!p.boutique.compagnon && (
-          <Bulle to="/boutique" icone="astuces">
-            🐾 <strong>Adopte ton compagnon</strong>
-          </Bulle>
-        )}
-        {erreurs > 0 && (
-          <Bulle to="/reviser#erreurs" icone="recommencer">
-            <strong>{erreurs}</strong> erreur{erreurs > 1 ? 's' : ''} à rattraper
-          </Bulle>
-        )}
-        <Bulle to="/astuces" icone="astuces">
-          Quel·le réviseur·se es-tu ?
-        </Bulle>
-      </div>
+    <div className="apparition grid grid-cols-[minmax(0,1fr)] gap-5 lg:gap-8 lg:grid-cols-[minmax(0,1fr)_300px] xl:grid-cols-[minmax(0,1fr)_320px] items-start">
+      <Titre texte={prenom ? `Salut ${prenom}` : 'Accueil'} />
 
-      {/* Ta semaine */}
-      <section className="carte p-4 mb-4" aria-labelledby="t-semaine">
-        <div className="flex justify-between items-baseline">
-          <h2 id="t-semaine" className="font-bold">
-            Ta semaine
-          </h2>
-          <span className="text-sm text-muted font-semibold">
-            {Math.min(seances, objectif)} / {objectif} séances {seances >= objectif ? '🎯' : ''}
-          </span>
+      {/* La carte d'accueil : bonjour, l'étape du jour, le bouton */}
+      <section
+        aria-labelledby="t-bonjour"
+        className="relative overflow-hidden rounded-3xl border border-line p-5 md:p-7 shadow-carte"
+        style={{ background: 'linear-gradient(135deg, var(--accent-100), var(--surface) 62%)' }}
+      >
+        <div className="flex items-center gap-4 md:gap-6">
+          <div className="flex-1 min-w-0">
+            <p className="surtitre capitalize">{formatJour(jour())}</p>
+            <h1 id="t-bonjour" className="text-3xl md:text-4xl mt-1">
+              {prenom ? `Salut ${prenom}` : 'Salut'} <span aria-hidden>👋</span>
+            </h1>
+            <p className="text-muted mt-2 max-w-md">
+              Ta séance du jour : <strong className="text-ink">{etape.titre}</strong>, environ 3 minutes.
+            </p>
+          </div>
+          {p.boutique.compagnon ? (
+            <div className="shrink-0 -my-2 hidden min-[380px]:block">
+              <MonCompagnon taille={104} anime humeur="coucou" />
+            </div>
+          ) : (
+            <Link to="/boutique" className="shrink-0 hidden min-[380px]:flex flex-col items-center gap-1 rounded-2xl border border-dashed border-accent-600 px-3 py-3 text-sm font-bold text-accent-700 hover:bg-surface">
+              <span className="text-3xl" aria-hidden>🐾</span>
+              Adopte ton
+              <br />
+              compagnon
+            </Link>
+          )}
         </div>
-        <ol className="flex justify-between mt-3">
-          {semaine.map((j) => (
-            <li key={j.jour} className="flex flex-col items-center gap-1 text-xs font-bold text-muted">
-              <span
-                className={`w-9 h-9 rounded-full flex items-center justify-center ${
-                  j.fait ? 'bg-accent-500 text-[#1e2a3a]' : j.aujourdhui ? 'border-2 border-dashed border-accent-600' : 'border-2 border-line'
-                }`}
-              >
-                {j.fait && <Icone nom="ok" taille={16} />}
-                <span className="sr-only">
-                  {j.lettre} {j.fait ? ': séance faite' : j.aujourdhui ? ": aujourd'hui" : ''}
-                </span>
-              </span>
-              <span aria-hidden className={j.aujourdhui ? 'text-ink' : ''}>
-                {j.lettre}
-              </span>
-            </li>
-          ))}
-        </ol>
-        {serie.enDanger && <p className="text-sm text-center mt-3 text-accent-700 font-semibold">Une petite étape aujourd'hui et ta série continue 🔥</p>}
+        <div className="flex flex-col sm:flex-row gap-2 mt-5">
+          <Link to={`/chemin/${etape.id}`} className="btn btn-accent !min-h-13 text-base sm:flex-1">
+            <Icone nom="lecture" /> Commencer ma séance
+          </Link>
+          <Link to="/reviser" className="btn btn-contour !min-h-13">
+            <Icone nom="eclair" /> Mode Tryhard
+          </Link>
+        </div>
       </section>
 
-      {/* Le bouton : lance l'étape du jour */}
-      <Link to={`/chemin/${etape.id}`} className="btn btn-accent w-full !min-h-14 text-lg">
-        <Icone nom="lecture" /> Commencer ma séance
-      </Link>
-      <p className="text-center text-sm text-muted mt-2">
-        {etape.titre} · environ 3 min ·{' '}
-        <Link to="/reviser" className="lien">
-          envie de plus ? Mode Tryhard
-        </Link>
-      </p>
+      {/* La colonne de droite (en dessous sur téléphone) : tes stats, ton niveau, ta semaine */}
+      <aside aria-label="Tes statistiques" className="min-w-0 flex flex-col gap-4 lg:col-start-2 lg:row-start-1 lg:row-span-2 lg:sticky lg:top-8">
+        <div className="grid grid-cols-4 lg:grid-cols-2 gap-2 lg:gap-3">
+          <Stat to="/profil" valeur={serie.serie} libelle={`jour${serie.serie > 1 ? 's' : ''} de série`} icone={<Icone nom="flamme" taille={18} />} couleur="text-accent-700" />
+          <Stat id="compteur-etoiles" valeur={etoiles} libelle={`étoiles sur ${etoilesMax}`} icone={<Etoile pleine taille={18} />} couleur="text-gold-ink" />
+          <Stat to="/profil" valeur={p.stats.xpTotal} libelle="XP" icone={<Icone nom="eclair" taille={18} plein />} couleur="text-gold-ink" />
+          <Stat to="/boutique" valeur={marksDisponibles(p)} libelle="Marks" icone={<span aria-hidden>🪙</span>} couleur="text-gold-ink" />
+        </div>
 
-      <div className="mt-6">
+        <Link to="/profil" className="carte p-4 hidden lg:block hover:border-blue-500 no-underline">
+          <p className="surtitre">Niveau {niveau.numero}</p>
+          <p className="font-bold text-ink leading-tight mt-0.5">{niveau.nom}</p>
+          <div className="mt-3">
+            <Barre valeur={niveau.progression * 100} label="Progression vers le niveau suivant" couleur="or" />
+          </div>
+          <p className="text-xs text-muted mt-2">{niveau.suivant ? `Encore ${niveau.resteXp} XP avant « ${niveau.suivant.nom} »` : 'Niveau maximum atteint !'}</p>
+        </Link>
+
+        <section className="carte p-4" aria-labelledby="t-semaine">
+          <div className="flex justify-between items-baseline">
+            <h2 id="t-semaine" className="font-bold text-base">
+              Ta semaine
+            </h2>
+            <span className="text-sm text-muted font-semibold">
+              {Math.min(seances, objectif)} / {objectif} séances {seances >= objectif ? '🎯' : ''}
+            </span>
+          </div>
+          <ol className="flex justify-between mt-3">
+            {semaine.map((j) => (
+              <li key={j.jour} className="flex flex-col items-center gap-1 text-xs font-bold text-muted">
+                <span
+                  className={`w-9 h-9 lg:w-8 lg:h-8 rounded-full flex items-center justify-center ${
+                    j.fait ? 'bg-accent-500 text-[#1e2a3a]' : j.aujourdhui ? 'border-2 border-dashed border-accent-600' : 'border-2 border-line'
+                  }`}
+                >
+                  {j.fait && <Icone nom="ok" taille={16} />}
+                  <span className="sr-only">
+                    {j.lettre} {j.fait ? ': séance faite' : j.aujourdhui ? ": aujourd'hui" : ''}
+                  </span>
+                </span>
+                <span aria-hidden className={j.aujourdhui ? 'text-ink' : ''}>
+                  {j.lettre}
+                </span>
+              </li>
+            ))}
+          </ol>
+          {serie.enDanger && <p className="text-sm text-center mt-3 text-accent-700 font-semibold">Une petite étape aujourd'hui et ta série continue 🔥</p>}
+        </section>
+
+        {/* Raccourcis */}
+        <nav aria-label="Raccourcis" className="flex lg:flex-col gap-2 overflow-x-auto sans-barre -mx-4 px-4 lg:mx-0 lg:px-0">
+          {joursAvantQcm !== null && joursAvantQcm >= 0 ? (
+            <Bulle to="/profil" icone="calendrier">
+              QCM dans <strong>{joursAvantQcm} jour{joursAvantQcm > 1 ? 's' : ''}</strong>
+            </Bulle>
+          ) : (
+            <Bulle to="/profil" icone="calendrier">
+              Ajoute la date de ton QCM
+            </Bulle>
+          )}
+          {erreurs > 0 && (
+            <Bulle to="/reviser#erreurs" icone="recommencer">
+              <strong>{erreurs}</strong> erreur{erreurs > 1 ? 's' : ''} à rattraper
+            </Bulle>
+          )}
+          <Bulle to="/astuces" icone="astuces">
+            Quel·le réviseur·se es-tu ?
+          </Bulle>
+        </nav>
+      </aside>
+
+      <div className="lg:col-start-1">
         <Chemin />
       </div>
-    </Page>
+    </div>
+  )
+}
+
+/** Met le titre de l'onglet du navigateur. */
+function Titre({ texte }: { texte: string }) {
+  useEffect(() => {
+    document.title = `${texte} · Mark'Up`
+  }, [texte])
+  return null
+}
+
+/** Une tuile de statistique (lien ou simple affichage). */
+function Stat({ to, id, valeur, libelle, icone, couleur }: { to?: string; id?: string; valeur: number; libelle: string; icone: ReactNode; couleur: string }) {
+  const contenu = (
+    <>
+      <span className={`flex items-center gap-1 font-extrabold text-lg lg:text-2xl leading-none tabular-nums ${couleur}`}>
+        {icone} {valeur}
+      </span>
+      <span className="text-[0.7rem] lg:text-xs text-muted font-semibold leading-tight mt-1 text-center lg:text-left">{libelle}</span>
+    </>
+  )
+  const classe = 'carte !rounded-2xl flex flex-col items-center lg:items-start px-2 py-2.5 lg:p-4 no-underline'
+  return to ? (
+    <Link to={to} id={id} className={`${classe} hover:border-blue-500`} aria-label={`${valeur} ${libelle}`}>
+      {contenu}
+    </Link>
+  ) : (
+    <div id={id} className={classe} aria-label={`${valeur} ${libelle}`}>
+      {contenu}
+    </div>
   )
 }
 
@@ -150,7 +193,7 @@ function Bulle({ to, icone, children }: { to: string; icone: 'calendrier' | 'rec
   return (
     <Link
       to={to}
-      className="shrink-0 inline-flex items-center gap-2 rounded-full bg-surface border border-line px-3 min-h-10 text-sm whitespace-nowrap hover:border-blue-500"
+      className="shrink-0 inline-flex items-center gap-2 rounded-full lg:rounded-xl bg-surface border border-line px-3 min-h-10 lg:min-h-11 text-sm whitespace-nowrap hover:border-blue-500"
     >
       <Icone nom={icone} taille={16} className="text-blue-700" />
       <span>{children}</span>
