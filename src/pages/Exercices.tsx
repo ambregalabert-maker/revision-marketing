@@ -7,7 +7,7 @@ import VraiFauxEx from '../components/revision/VraiFauxEx'
 import CasEx from '../components/revision/CasEx'
 import { Etiquette, Onglets, Retour } from '../components/ui'
 import Icone from '../components/Icone'
-import { casPratiques, classements, filtrer, titreNotion } from '../lib/contenu'
+import { casPratiques, classements, filtrer, titreNotion, vraiFaux } from '../lib/contenu'
 import { useFiltres } from '../state/filtres'
 import { useProgression } from '../state/progression'
 import { useTempsEtude } from '../state/useTempsEtude'
@@ -55,7 +55,13 @@ export default function Exercices() {
 
       {onglet === 'calculs' && <Calculs />}
 
-      {onglet === 'vraifaux' && <VraiFauxEx />}
+      {onglet === 'vraifaux' &&
+        (() => {
+          const tous = filtres.chapitre === 'tous' && filtres.notion === 'toutes'
+          const liste = filtrer(vraiFaux, filtres.chapitre, filtres.notion)
+          if (!liste.length) return <p className="carte p-5 text-muted">Pas de vrai/faux pour ce filtre : essaie un autre chapitre ou une autre notion.</p>
+          return <VraiFauxEx key={`${filtres.chapitre}-${filtres.notion}`} items={tous ? undefined : liste} />
+        })()}
 
       {onglet === 'classement' &&
         (classementChoisi ? (
@@ -67,7 +73,7 @@ export default function Exercices() {
           </>
         ) : (
           <ListeExercices
-            items={filtrer(classements, filtres.seance, filtres.notion).map((c) => ({
+            items={filtrer(classements, filtres.chapitre, filtres.notion).map((c) => ({
               id: c.id,
               titre: c.titre,
               sousTitre: `${titreNotion(c.notion)} · séance ${c.seance} · ${c.elements.length} éléments`,
@@ -87,7 +93,7 @@ export default function Exercices() {
           </>
         ) : (
           <ListeExercices
-            items={filtrer(casPratiques, filtres.seance, filtres.notion).map((c) => ({
+            items={filtrer(casPratiques, filtres.chapitre, filtres.notion).map((c) => ({
               id: c.id,
               titre: c.titre,
               sousTitre: `${c.type === '6-etapes' ? 'Méthode des 6 étapes · ' : ''}${c.duree} · séance ${c.seance}`,

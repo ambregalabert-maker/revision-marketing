@@ -25,8 +25,8 @@ export default function Flashcards() {
   const [bilan, setBilan] = useState<BilanFlashcards | null>(null)
 
   const choisies = useMemo(
-    () => (idsDemandes ? flashcards.filter((c) => idsDemandes.includes(c.id)) : filtrer(flashcards, filtres.seance, filtres.notion)),
-    [filtres.seance, filtres.notion, params],
+    () => (idsDemandes ? flashcards.filter((c) => idsDemandes.includes(c.id)) : filtrer(flashcards, filtres.chapitre, filtres.notion)),
+    [filtres.chapitre, filtres.notion, params],
   )
   // La série en cours garde sa propre copie des cartes : la liste ne bouge pas pendant qu'on révise.
   const { dues, nouvelles, plusTard } = ordonner(choisies, p.cartes)

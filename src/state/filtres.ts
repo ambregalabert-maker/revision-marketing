@@ -1,16 +1,16 @@
 import { useSyncExternalStore } from 'react'
 import { ecrire, lire } from '../lib/stockage'
-import type { FiltreSeance, NotionId } from '../lib/types'
+import type { FiltreChapitre, NotionId } from '../lib/types'
 
-// Filtres « Séance 1 / Séance 2 / Tout le chapitre » et « par notion »,
+// Filtres « Chapitre 1 à 4 / Tous » et « par notion »,
 // partagés par toutes les pages de révision et mémorisés dans le navigateur.
 export interface Filtres {
-  seance: FiltreSeance
+  chapitre: FiltreChapitre
   notion: NotionId | 'toutes'
 }
 
-const CLE = 'rm-filtres'
-let actuels: Filtres = lire<Filtres>(CLE, { seance: 'toutes', notion: 'toutes' })
+const CLE = 'rm-filtres-chapitres'
+let actuels: Filtres = lire<Filtres>(CLE, { chapitre: 'tous', notion: 'toutes' })
 const abonnes = new Set<() => void>()
 
 export function changerFiltres(f: Partial<Filtres>) {

@@ -97,5 +97,95 @@
     "reponse": "nuance",
     "verdict": "Plutôt vrai, si on parle des pratiques",
     "argument": "Le marketing est « une conception des échanges et un ensemble de pratiques » : des pratiques comme vendre sur un marché, mettre en avant sa marchandise ou attirer les clients existent depuis l'Antiquité. En revanche, le mot « marketing » et la discipline organisée telle qu'on l'étudie sont beaucoup plus récents."
+  },
+  {
+    "id": "vf-pa-01",
+    "seance": 3,
+    "notion": "etapes-parcours",
+    "affirmation": "Le parcours d'achat s'arrête au moment où le client paie.",
+    "reponse": "faux",
+    "verdict": "Faux",
+    "argument": "Il y a une 5e étape : l'expérience post-achat. Le client est satisfait (source de fidélité) ou insatisfait (source de dissonance cognitive)."
+  },
+  {
+    "id": "vf-fi-01",
+    "seance": 4,
+    "notion": "facteurs-influence",
+    "affirmation": "Les facteurs d'influence ne jouent qu'au moment de l'achat.",
+    "reponse": "faux",
+    "verdict": "Faux",
+    "argument": "Les facteurs d'influence jouent un rôle tout au long du processus d'achat, et ils concernent l'individu directement."
+  },
+  {
+    "id": "vf-ps-01",
+    "seance": 4,
+    "notion": "facteurs-psychologiques",
+    "affirmation": "Perceptions, croyances et motivations sont des facteurs psychologiques.",
+    "reponse": "vrai",
+    "verdict": "Vrai",
+    "argument": "Ce sont les trois facteurs psychologiques vus en séance 4."
+  },
+  {
+    "id": "vf-ps-02",
+    "seance": 4,
+    "notion": "facteurs-psychologiques",
+    "affirmation": "Un emballage élégant et un prix élevé peuvent faire percevoir une marque comme de haute qualité.",
+    "reponse": "vrai",
+    "verdict": "Vrai",
+    "argument": "C'est l'exemple du cours pour les perceptions : la manière dont on interprète le monde."
+  },
+  {
+    "id": "vf-sg-01",
+    "seance": 5,
+    "notion": "segmentation",
+    "affirmation": "Une offre conçue pour plaire à tout le monde satisfait tout le monde.",
+    "reponse": "faux",
+    "verdict": "Faux",
+    "argument": "Sans segmentation, on risque une offre qui satisfait tout le monde à 10 % et personne à 80 %."
+  },
+  {
+    "id": "vf-po-01",
+    "seance": 6,
+    "notion": "positionnement",
+    "affirmation": "Une marque peut se passer de Points de Parité si ses Points de Différenciation sont forts.",
+    "reponse": "faux",
+    "verdict": "Faux",
+    "argument": "Les PoP sont nécessaires pour être reconnue comme légitime (crédible) dans la catégorie. Même un acteur de niche est « bon sur les PoP »."
+  },
+  {
+    "id": "vf-pg-01",
+    "seance": 8,
+    "notion": "produit-gamme",
+    "affirmation": "En marketing, un service, un lieu ou une idée peuvent être des « produits ».",
+    "reponse": "vrai",
+    "verdict": "Vrai",
+    "argument": "La facette produit désigne toutes les offres, tangibles ou non : bien, service, expérience, évènement, personne, lieu, ONG, idée."
+  },
+  {
+    "id": "vf-pg-02",
+    "seance": 8,
+    "notion": "produit-gamme",
+    "affirmation": "Plus une gamme est large, longue et profonde, plus elle est simple à gérer.",
+    "reponse": "faux",
+    "verdict": "Faux",
+    "argument": "C'est l'inverse : elle devient plus complexe et coûteuse à gérer, même si elle couvre davantage de segments."
+  },
+  {
+    "id": "vf-px-01",
+    "seance": 8,
+    "notion": "prix",
+    "affirmation": "Pour fixer un prix, il faut choisir une seule méthode.",
+    "reponse": "faux",
+    "verdict": "Faux",
+    "argument": "Les méthodes (coûts, consentement à payer, concurrents) prennent un point de départ différent et peuvent être combinées."
+  },
+  {
+    "id": "vf-cm-01",
+    "seance": 8,
+    "notion": "coherence-mix",
+    "affirmation": "Le marketing mix doit découler du positionnement.",
+    "reponse": "vrai",
+    "verdict": "Vrai",
+    "argument": "C'est la stratégie, et plus particulièrement le positionnement, qui donne la direction du mix."
   }
 ]

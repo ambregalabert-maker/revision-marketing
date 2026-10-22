@@ -45,9 +45,11 @@ function choisirCartes(liste: Flashcard[], p: Progression, n: number) {
 function choisirQuestions(notionsCibles: NotionId[], n: number, exclure: string[] = []) {
   const cibles = melanger(qcm.filter((q) => notionsCibles.includes(q.notion) && !exclure.includes(q.id)))
   if (cibles.length >= n) return cibles.slice(0, n)
-  // Pas assez de questions sur ces notions : on complète avec la même séance.
-  const seances = new Set(notionsCibles.map((id) => notions.find((x) => x.id === id)!.seance))
-  const complement = melanger(qcm.filter((q) => !cibles.includes(q) && seances.has(q.seance) && !exclure.includes(q.id)))
+  // Pas assez de questions sur ces notions : on complète avec le même chapitre.
+  const chapitres = new Set(notionsCibles.map((id) => notions.find((x) => x.id === id)!.chapitre))
+  const complement = melanger(
+    qcm.filter((q) => !cibles.includes(q) && chapitres.has(notions.find((x) => x.id === q.notion)?.chapitre ?? 1) && !exclure.includes(q.id)),
+  )
   return [...cibles, ...complement].slice(0, n)
 }
 
@@ -65,7 +67,7 @@ export function planDaily(etape: Etape, p: Progression): Plan {
   if (etape.genre === 'final') {
     return {
       cartes: [],
-      questions: melanger(qcm).slice(0, 7),
+      questions: melanger(qcm).slice(0, 8),
       revanche: [],
       exercices: [{ genre: 'calcul', calcul: 'tous' }],
       notionsVisees: etape.notions,
@@ -74,7 +76,12 @@ export function planDaily(etape: Etape, p: Progression): Plan {
   const bilan = etape.genre === 'bilan'
   const cartes = choisirCartes(flashcards.filter((c) => etape.notions.includes(c.notion)), p, bilan ? 4 : 3)
   const questions = choisirQuestions(etape.notions, bilan ? 5 : 3)
-  const exo = bilan ? ({ genre: 'calcul', calcul: 'tous' } as Exercice) : exercicePour(etape.notions[0], true)
+  // Bilan : les calculs pour le chapitre 1, sinon un exercice d'une notion du chapitre prise au hasard.
+  const exo = bilan
+    ? etape.chapitre === 1
+      ? ({ genre: 'calcul', calcul: 'tous' } as Exercice)
+      : (melanger(etape.notions).map((n) => exercicePour(n, true)).find(Boolean) ?? null)
+    : exercicePour(etape.notions[0], true)
   return { cartes, questions, revanche: [], exercices: exo ? [exo] : [], notionsVisees: etape.notions }
 }
 

@@ -37,7 +37,7 @@ create table if not exists public.attempts (
   item_id text not null,
   type text not null check (type in ('flashcard', 'qcm', 'exercice', 'cas')),
   notion text not null,
-  seance smallint not null check (seance in (1, 2)),
+  seance smallint not null check (seance between 1 and 9),
   correct boolean not null,
   created_at timestamptz not null default now(),
   unique (user_id, item_id, created_at)
@@ -176,3 +176,7 @@ $$;
 
 revoke all on function public.supprimer_mon_compte() from public, anon;
 grant execute on function public.supprimer_mon_compte() to authenticated;
+
+-- Mise à jour (chapitres 2 à 4) : les séances vont maintenant de 1 à 9.
+alter table public.attempts drop constraint if exists attempts_seance_check;
+alter table public.attempts add constraint attempts_seance_check check (seance between 1 and 9);

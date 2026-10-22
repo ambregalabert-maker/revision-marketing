@@ -29,7 +29,7 @@ export default function Onboarding() {
       {ecran === 0 && (
         <div className="flex flex-col gap-4">
           <h1 id="titre-onboarding" className="text-2xl font-bold">Bienvenue sur Mark'Up !</h1>
-          <p>Ici, tu révises le chapitre 1 de Marketing, « Le concept de marché », de deux façons :</p>
+          <p>Ici, tu révises le module de Marketing : 4 chapitres (le concept de marché, le parcours d’achat, la stratégie marketing et le marketing mix), de deux façons :</p>
           <ul className="flex flex-col gap-3">
             <li className="flex gap-3">
               <span className="text-2xl" aria-hidden>🗺️</span>

@@ -241,7 +241,7 @@ function Logo({ compact = false }: { compact?: boolean }) {
       <LogoMarque taille={compact ? 32 : 38} />
       <span className={compact ? 'text-lg' : 'text-xl leading-tight'}>
         Mark<span className="text-accent-700">'</span>Up
-        {!compact && <span className="block text-xs font-medium tracking-normal text-muted font-texte whitespace-nowrap">Marketing · Chapitre 1</span>}
+        {!compact && <span className="block text-xs font-medium tracking-normal text-muted font-texte whitespace-nowrap">Marketing · 4 chapitres</span>}
       </span>
     </NavLink>
   )

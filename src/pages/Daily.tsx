@@ -71,7 +71,7 @@ export default function Daily() {
     else message = `Bien joué ! La prochaine étoile sera disponible ${prochaine ? formatDans(prochaine) : 'bientôt'}.`
 
     return (
-      <div className="flex flex-col items-center text-center gap-5 apparition pt-4">
+      <div className={`chap-${etape.chapitre} flex flex-col items-center text-center gap-5 apparition pt-4`}>
         <p className="text-sm font-bold text-muted">{etape.titre}</p>
         {resultat.coffre ? (
           <Coffre />
@@ -121,7 +121,7 @@ export default function Daily() {
   }
 
   return (
-    <div className="apparition">
+    <div className={`chap-${etape.chapitre} apparition`}>
       <DeroulementSeance
         plan={plan}
         onFin={fin}

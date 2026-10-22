@@ -4,7 +4,7 @@ import { CarteJeu } from './Jeux'
 import FiltresContenu from '../components/FiltresContenu'
 import ErreursARevoir from '../components/ErreursARevoir'
 import Icone, { type NomIcone } from '../components/Icone'
-import { filtrer, flashcards, qcm } from '../lib/contenu'
+import { filtrer, flashcards, qcm, vraiFaux } from '../lib/contenu'
 import { nombreDuJour } from '../lib/leitner'
 import { useFiltres } from '../state/filtres'
 import { useProgression } from '../state/progression'
@@ -13,9 +13,9 @@ import { useProgression } from '../state/progression'
 export default function Reviser() {
   const { p } = useProgression()
   const { filtres } = useFiltres()
-  const cartes = filtrer(flashcards, filtres.seance, filtres.notion)
+  const cartes = filtrer(flashcards, filtres.chapitre, filtres.notion)
   const aRevoir = nombreDuJour(cartes, p.cartes)
-  const questions = filtrer(qcm, filtres.seance, filtres.notion).length
+  const questions = filtrer(qcm, filtres.chapitre, filtres.notion).length
 
   return (
     <Page titre="Mode Tryhard ⚡" sousTitre="Pour aller plus loin que le daily : tu choisis ta durée, tu vises tes points faibles.">
@@ -67,8 +67,8 @@ export default function Reviser() {
         />
         <Mode to="/reviser/qcm" icone="qcm" titre="QCM" texte="Séries de 10 questions, en entraînement ou en mode examen noté sur 10." info={`${questions} questions`} />
         <Mode to="/reviser/exercices?onglet=calculs" icone="calcul" titre="Calculs" texte="Taux d'évolution et part de marché, avec correction pas à pas." info="Calculs illimités" />
-        <Mode to="/reviser/exercices?onglet=classement" icone="main" titre="Classements" texte="Range les marchés, le micro et le macro-environnement." info="Glisser-déposer" />
-        <Mode to="/reviser/exercices?onglet=vraifaux" icone="info" titre="Vrai / Faux" texte="Les 11 clichés du marketing, avec un argument nuancé." info="11 affirmations" />
+        <Mode to="/reviser/exercices?onglet=classement" icone="main" titre="Classements" texte="Range les notions du cours : marchés, étapes, critères, stratégies…" info="Glisser-déposer" />
+        <Mode to="/reviser/exercices?onglet=vraifaux" icone="info" titre="Vrai / Faux" texte="Les clichés du marketing, avec un argument nuancé." info={`${filtrer(vraiFaux, filtres.chapitre, filtres.notion).length} affirmations`} />
         <Mode to="/reviser/exercices?onglet=cas" icone="cible" titre="Cas pratiques" texte="Des marques et des marketplaces, avec un corrigé type." info="Dont la méthode des 6 étapes" />
       </div>
     </Page>

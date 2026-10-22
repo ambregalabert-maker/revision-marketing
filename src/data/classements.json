@@ -901,5 +901,810 @@
         "explication": "Une évolution des préférences et des comportements de la société : culturel."
       }
     ]
+  },
+  {
+    "id": "cl-parcours-etapes",
+    "seance": 3,
+    "notion": "etapes-parcours",
+    "titre": "Les 5 étapes du parcours d'achat",
+    "consigne": "Range chaque situation dans la bonne étape du parcours d'achat.",
+    "categories": [
+      {
+        "id": "besoin",
+        "label": "Reconnaissance du besoin",
+        "aide": "On prend conscience d'un besoin"
+      },
+      {
+        "id": "recherche",
+        "label": "Recherche d'informations",
+        "aide": "Infos internes et externes"
+      },
+      {
+        "id": "evaluation",
+        "label": "Évaluation des options",
+        "aide": "On compare les produits retenus"
+      },
+      {
+        "id": "achat",
+        "label": "Achat",
+        "aide": "Le moment de l'achat"
+      },
+      {
+        "id": "post",
+        "label": "Expérience post-achat",
+        "aide": "Satisfait ou insatisfait"
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Une publicité donne envie d'une boisson fraîche",
+        "categorie": "besoin",
+        "explication": "Un stimulus externe (une publicité) fait prendre conscience d'un besoin."
+      },
+      {
+        "id": "e2",
+        "texte": "Lire des avis sur Internet",
+        "categorie": "recherche",
+        "explication": "Internet est une source d'informations externes."
+      },
+      {
+        "id": "e3",
+        "texte": "Demander conseil à ses proches",
+        "categorie": "recherche",
+        "explication": "Les proches sont une source d'informations externes."
+      },
+      {
+        "id": "e4",
+        "texte": "Comparer les 3 produits retenus",
+        "categorie": "evaluation",
+        "explication": "On compare les produits de son ensemble de considération."
+      },
+      {
+        "id": "e5",
+        "texte": "Profiter d'une promotion imprévue en magasin",
+        "categorie": "achat",
+        "explication": "Un facteur situationnel imprévu au moment de l'achat."
+      },
+      {
+        "id": "e6",
+        "texte": "Changer de produit à cause d'une rupture de stock",
+        "categorie": "achat",
+        "explication": "La rupture de stock est un facteur situationnel de l'achat."
+      },
+      {
+        "id": "e7",
+        "texte": "Être satisfait et racheter la même marque",
+        "categorie": "post",
+        "explication": "La satisfaction est source de fidélité."
+      },
+      {
+        "id": "e8",
+        "texte": "Regretter son achat",
+        "categorie": "post",
+        "explication": "L'insatisfaction est source de dissonance cognitive."
+      }
+    ]
+  },
+  {
+    "id": "cl-facteurs-influence",
+    "seance": 4,
+    "notion": "facteurs-influence",
+    "titre": "Les 4 familles de facteurs d'influence",
+    "consigne": "Range chaque facteur dans sa famille.",
+    "categories": [
+      {
+        "id": "culturels",
+        "label": "Facteurs culturels",
+        "aide": ""
+      },
+      {
+        "id": "sociaux",
+        "label": "Facteurs sociaux",
+        "aide": ""
+      },
+      {
+        "id": "personnels",
+        "label": "Facteurs personnels",
+        "aide": ""
+      },
+      {
+        "id": "psychologiques",
+        "label": "Facteurs psychologiques",
+        "aide": ""
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Culture",
+        "categorie": "culturels",
+        "explication": "Facteurs culturels : culture, sous-culture, classe sociale."
+      },
+      {
+        "id": "e2",
+        "texte": "Classe sociale",
+        "categorie": "culturels",
+        "explication": "La classe sociale (catégorie socio-professionnelle) est un facteur culturel."
+      },
+      {
+        "id": "e3",
+        "texte": "Famille",
+        "categorie": "sociaux",
+        "explication": "Facteurs sociaux : groupes, famille, rôle et statut."
+      },
+      {
+        "id": "e4",
+        "texte": "Groupe de référence",
+        "categorie": "sociaux",
+        "explication": "Les groupes de référence sont des facteurs sociaux."
+      },
+      {
+        "id": "e5",
+        "texte": "Rôle et statut",
+        "categorie": "sociaux",
+        "explication": "Le rôle et le statut sont des facteurs sociaux."
+      },
+      {
+        "id": "e6",
+        "texte": "Âge",
+        "categorie": "personnels",
+        "explication": "Facteurs personnels : âge, profession, revenus, style de vie, personnalité."
+      },
+      {
+        "id": "e7",
+        "texte": "Style de vie",
+        "categorie": "personnels",
+        "explication": "Le style de vie est un facteur personnel."
+      },
+      {
+        "id": "e8",
+        "texte": "Revenus",
+        "categorie": "personnels",
+        "explication": "Les revenus sont un facteur personnel."
+      },
+      {
+        "id": "e9",
+        "texte": "Perceptions",
+        "categorie": "psychologiques",
+        "explication": "Facteurs psychologiques : perceptions, croyances, motivations."
+      },
+      {
+        "id": "e10",
+        "texte": "Croyances",
+        "categorie": "psychologiques",
+        "explication": "Les croyances sont un facteur psychologique."
+      }
+    ]
+  },
+  {
+    "id": "cl-motivations",
+    "seance": 4,
+    "notion": "motivations-freins",
+    "titre": "Les 6 motivations d'achat",
+    "consigne": "Range chaque situation dans le bon type de motivation.",
+    "categories": [
+      {
+        "id": "hedoniste",
+        "label": "Hédoniste",
+        "aide": "Plaisir personnel"
+      },
+      {
+        "id": "oblative",
+        "label": "Oblative",
+        "aide": "Faire plaisir à autrui"
+      },
+      {
+        "id": "affective",
+        "label": "Affective",
+        "aide": "Réponse à un élan"
+      },
+      {
+        "id": "rationnelle",
+        "label": "Rationnelle",
+        "aide": "Maximiser l'utilité"
+      },
+      {
+        "id": "expression",
+        "label": "Auto-expression",
+        "aide": "S'exprimer, s'affirmer"
+      },
+      {
+        "id": "ethique",
+        "label": "Éthique",
+        "aide": "Devoir moral"
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "S'offrir un dessert pour se faire plaisir",
+        "categorie": "hedoniste",
+        "explication": "Hédoniste = recherche du plaisir personnel."
+      },
+      {
+        "id": "e2",
+        "texte": "Acheter un cadeau pour faire plaisir à sa sœur",
+        "categorie": "oblative",
+        "explication": "Oblative = faire plaisir à autrui."
+      },
+      {
+        "id": "e3",
+        "texte": "Craquer sur un coup de cœur",
+        "categorie": "affective",
+        "explication": "Affective = réponse à un élan."
+      },
+      {
+        "id": "e4",
+        "texte": "Choisir le produit le plus utile pour son prix",
+        "categorie": "rationnelle",
+        "explication": "Rationnelle = maximiser l'utilité."
+      },
+      {
+        "id": "e5",
+        "texte": "Porter une marque qui affirme sa personnalité",
+        "categorie": "expression",
+        "explication": "Auto-expression = désir de s'exprimer, de s'affirmer."
+      },
+      {
+        "id": "e6",
+        "texte": "Acheter un produit par sentiment de devoir moral",
+        "categorie": "ethique",
+        "explication": "Éthique = sentiment de devoir moral."
+      }
+    ]
+  },
+  {
+    "id": "cl-criteres",
+    "seance": 5,
+    "notion": "criteres-segmentation",
+    "titre": "Les 4 familles de critères de segmentation",
+    "consigne": "Range chaque critère dans sa famille.",
+    "categories": [
+      {
+        "id": "socio",
+        "label": "Sociodémographiques",
+        "aide": ""
+      },
+      {
+        "id": "benefice",
+        "label": "Bénéfice recherché",
+        "aide": ""
+      },
+      {
+        "id": "psycho",
+        "label": "Psychologiques",
+        "aide": ""
+      },
+      {
+        "id": "comportement",
+        "label": "Comportementaux",
+        "aide": ""
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Âge",
+        "categorie": "socio",
+        "explication": "Critère sociodémographique."
+      },
+      {
+        "id": "e2",
+        "texte": "Genre",
+        "categorie": "socio",
+        "explication": "Critère sociodémographique."
+      },
+      {
+        "id": "e3",
+        "texte": "Revenu disponible",
+        "categorie": "socio",
+        "explication": "Critère sociodémographique."
+      },
+      {
+        "id": "e4",
+        "texte": "Performance du produit",
+        "categorie": "benefice",
+        "explication": "Ce que le client attend du produit : un bénéfice recherché."
+      },
+      {
+        "id": "e5",
+        "texte": "Lieu de production",
+        "categorie": "benefice",
+        "explication": "Le lieu de production fait partie du bénéfice recherché."
+      },
+      {
+        "id": "e6",
+        "texte": "Image de marque",
+        "categorie": "benefice",
+        "explication": "L'image de marque est un bénéfice recherché."
+      },
+      {
+        "id": "e7",
+        "texte": "Personnalité",
+        "categorie": "psycho",
+        "explication": "Critère psychologique."
+      },
+      {
+        "id": "e8",
+        "texte": "Motivations",
+        "categorie": "psycho",
+        "explication": "Critère psychologique."
+      },
+      {
+        "id": "e9",
+        "texte": "Fréquence d'achat",
+        "categorie": "comportement",
+        "explication": "Critère comportemental."
+      },
+      {
+        "id": "e10",
+        "texte": "Lieu d'achat",
+        "categorie": "comportement",
+        "explication": "Critère comportemental."
+      }
+    ]
+  },
+  {
+    "id": "cl-ciblage",
+    "seance": 5,
+    "notion": "ciblage",
+    "titre": "Les 4 stratégies de ciblage",
+    "consigne": "Range chaque description dans la bonne stratégie de ciblage.",
+    "categories": [
+      {
+        "id": "indiff",
+        "label": "Indifférenciée (de masse)",
+        "aide": ""
+      },
+      {
+        "id": "diff",
+        "label": "Différenciée (segmentée)",
+        "aide": ""
+      },
+      {
+        "id": "concentre",
+        "label": "Concentrée (niche)",
+        "aide": ""
+      },
+      {
+        "id": "one",
+        "label": "Personnalisée (one-to-one)",
+        "aide": ""
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Un seul marketing pour tout le marché",
+        "categorie": "indiff",
+        "explication": "Indifférenciée : cibler l'ensemble du marché sans distinction."
+      },
+      {
+        "id": "e2",
+        "texte": "Ignorer les différences entre segments",
+        "categorie": "indiff",
+        "explication": "C'est le principe du marketing de masse."
+      },
+      {
+        "id": "e3",
+        "texte": "Une offre différente pour chaque segment visé",
+        "categorie": "diff",
+        "explication": "Différenciée : plusieurs segments, offre adaptée à chacun."
+      },
+      {
+        "id": "e4",
+        "texte": "Se concentrer sur un seul segment",
+        "categorie": "concentre",
+        "explication": "Concentrée / niche : un seul segment."
+      },
+      {
+        "id": "e5",
+        "texte": "Une offre pour chaque client individuel",
+        "categorie": "one",
+        "explication": "One-to-one : cibler les consommateurs individuellement."
+      }
+    ]
+  },
+  {
+    "id": "cl-pop-pod",
+    "seance": 6,
+    "notion": "positionnement",
+    "titre": "PoP, PoD ou RTB ?",
+    "consigne": "Range chaque élément du modèle bulleye.",
+    "categories": [
+      {
+        "id": "pop",
+        "label": "Point de Parité (PoP)",
+        "aide": "Partagé avec les concurrents"
+      },
+      {
+        "id": "pod",
+        "label": "Point de Différenciation (PoD)",
+        "aide": "Distingue la marque"
+      },
+      {
+        "id": "rtb",
+        "label": "Reason To Believe (RTB)",
+        "aide": "Preuve objective"
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Caractéristique partagée avec les concurrents",
+        "categorie": "pop",
+        "explication": "Les PoP sont partagés pour être crédible dans la catégorie."
+      },
+      {
+        "id": "e2",
+        "texte": "Assure la légitimité de la marque dans la catégorie",
+        "categorie": "pop",
+        "explication": "Les PoP limitent la différenciation mais assurent la crédibilité."
+      },
+      {
+        "id": "e3",
+        "texte": "Caractéristique qui distingue la marque",
+        "categorie": "pod",
+        "explication": "Les PoD distinguent la marque des concurrents."
+      },
+      {
+        "id": "e4",
+        "texte": "Doit être pertinent, unique et cohérent avec les ressources",
+        "categorie": "pod",
+        "explication": "Ce sont les conditions d'une bonne différenciation."
+      },
+      {
+        "id": "e5",
+        "texte": "Élément objectif qui prouve un PoP ou un PoD",
+        "categorie": "rtb",
+        "explication": "C'est la définition des RTB."
+      },
+      {
+        "id": "e6",
+        "texte": "Budget R&D deux fois supérieur à celui des concurrents",
+        "categorie": "rtb",
+        "explication": "C'est l'exemple du cours : il prouve le PoD « innovant »."
+      }
+    ]
+  },
+  {
+    "id": "cl-acteurs",
+    "seance": 6,
+    "notion": "leader-challenger-niche",
+    "titre": "Leader, challenger ou niche ?",
+    "consigne": "Range chaque stratégie dans le bon type d'acteur.",
+    "categories": [
+      {
+        "id": "leader",
+        "label": "Leader",
+        "aide": ""
+      },
+      {
+        "id": "challenger",
+        "label": "Challenger",
+        "aide": ""
+      },
+      {
+        "id": "niche",
+        "label": "Niche",
+        "aide": ""
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Préserver la plus grande part de marché",
+        "categorie": "leader",
+        "explication": "C'est l'objectif du leader."
+      },
+      {
+        "id": "e2",
+        "texte": "Stratégies défensives",
+        "categorie": "leader",
+        "explication": "Le leader défend sa position."
+      },
+      {
+        "id": "e3",
+        "texte": "PoD consensuels pour plaire au plus grand nombre",
+        "categorie": "leader",
+        "explication": "Le leader prend peu de risques."
+      },
+      {
+        "id": "e4",
+        "texte": "Attaque frontale, encerclement, contournement",
+        "categorie": "challenger",
+        "explication": "Ce sont les stratégies d'attaque des challengers."
+      },
+      {
+        "id": "e5",
+        "texte": "Imiter le leader avec une touche d'originalité",
+        "categorie": "challenger",
+        "explication": "Le challenger s'inspire parfois du leader."
+      },
+      {
+        "id": "e6",
+        "texte": "Privilégier la rentabilité à la part de marché",
+        "categorie": "niche",
+        "explication": "C'est le choix de l'acteur de niche."
+      },
+      {
+        "id": "e7",
+        "texte": "Ciblage concentré et PoD créatifs",
+        "categorie": "niche",
+        "explication": "L'acteur de niche cible un segment avec des PoD forts."
+      },
+      {
+        "id": "e8",
+        "texte": "Débordement (flanking) ou guérilla",
+        "categorie": "niche",
+        "explication": "Ce sont les stratégies d'attaque des acteurs de niche."
+      }
+    ]
+  },
+  {
+    "id": "cl-prix",
+    "seance": 8,
+    "notion": "prix",
+    "titre": "Pénétration, écrémage ou alignement ?",
+    "consigne": "Range chaque situation dans la stratégie de prix recommandée.",
+    "categories": [
+      {
+        "id": "penetration",
+        "label": "Pénétration",
+        "aide": "Prix bas, gros volumes"
+      },
+      {
+        "id": "ecremage",
+        "label": "Écrémage",
+        "aide": "Prix élevés, petits volumes"
+      },
+      {
+        "id": "alignement",
+        "label": "Alignement",
+        "aide": "Comme les concurrents"
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Segments de marché sensibles au prix",
+        "categorie": "penetration",
+        "explication": "La pénétration vise les segments sensibles au prix."
+      },
+      {
+        "id": "e2",
+        "texte": "On peut faire des économies d'échelle",
+        "categorie": "penetration",
+        "explication": "Les gros volumes permettent des économies d'échelle."
+      },
+      {
+        "id": "e3",
+        "texte": "Maximiser la part de marché",
+        "categorie": "penetration",
+        "explication": "C'est l'objectif de la pénétration."
+      },
+      {
+        "id": "e4",
+        "texte": "Segments peu sensibles au prix",
+        "categorie": "ecremage",
+        "explication": "L'écrémage vise des clients peu sensibles au prix."
+      },
+      {
+        "id": "e5",
+        "texte": "Construire une image de marque",
+        "categorie": "ecremage",
+        "explication": "Objectif d'image avec des prix élevés."
+      },
+      {
+        "id": "e6",
+        "texte": "Éviter une guerre des prix",
+        "categorie": "alignement",
+        "explication": "C'est l'objectif de l'alignement."
+      },
+      {
+        "id": "e7",
+        "texte": "Structure de coûts similaire aux concurrents",
+        "categorie": "alignement",
+        "explication": "Une situation où l'alignement est recommandé."
+      }
+    ]
+  },
+  {
+    "id": "cl-distribution",
+    "seance": 8,
+    "notion": "distribution",
+    "titre": "Les 3 stratégies de distribution",
+    "consigne": "Range chaque élément dans la bonne stratégie de distribution.",
+    "categories": [
+      {
+        "id": "intensive",
+        "label": "Intensive",
+        "aide": ""
+      },
+      {
+        "id": "selective",
+        "label": "Sélective",
+        "aide": ""
+      },
+      {
+        "id": "exclusive",
+        "label": "Exclusive",
+        "aide": ""
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Gel douche vendu en supermarchés",
+        "categorie": "intensive",
+        "explication": "L'exemple du cours pour la distribution intensive."
+      },
+      {
+        "id": "e2",
+        "texte": "Maximiser le nombre de points de vente",
+        "categorie": "intensive",
+        "explication": "Pour une plus grande pénétration."
+      },
+      {
+        "id": "e3",
+        "texte": "Plus d'achats impulsifs",
+        "categorie": "intensive",
+        "explication": "Un avantage de la distribution intensive."
+      },
+      {
+        "id": "e4",
+        "texte": "Gel douche vendu uniquement en pharmacie",
+        "categorie": "selective",
+        "explication": "L'exemple du cours pour la distribution sélective."
+      },
+      {
+        "id": "e5",
+        "texte": "Points de vente choisis pour leur image",
+        "categorie": "selective",
+        "explication": "Couverture + protection de l'image de marque."
+      },
+      {
+        "id": "e6",
+        "texte": "Gel douche vendu par Rituals",
+        "categorie": "exclusive",
+        "explication": "L'exemple du cours pour la distribution exclusive."
+      },
+      {
+        "id": "e7",
+        "texte": "Succursales, franchises ou distributeurs agréés",
+        "categorie": "exclusive",
+        "explication": "Des droits exclusifs accordés à certains points de vente."
+      }
+    ]
+  },
+  {
+    "id": "cl-promotion",
+    "seance": 8,
+    "notion": "promotion",
+    "titre": "Les 4 outils de promotion",
+    "consigne": "Range chaque description dans le bon outil.",
+    "categories": [
+      {
+        "id": "pub",
+        "label": "Publicité",
+        "aide": "Payer pour plus de contrôle"
+      },
+      {
+        "id": "rp",
+        "label": "Relations publiques",
+        "aide": "Convaincre pour la crédibilité"
+      },
+      {
+        "id": "sponsoring",
+        "label": "Sponsoring",
+        "aide": "S'associer"
+      },
+      {
+        "id": "promo",
+        "label": "Promotion des ventes",
+        "aide": "Agir à court terme"
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Acheter un espace pour diffuser son message",
+        "categorie": "pub",
+        "explication": "La publicité est un achat d'espace avec beaucoup de liberté sur le message."
+      },
+      {
+        "id": "e2",
+        "texte": "Entretenir de bonnes relations avec ses publics",
+        "categorie": "rp",
+        "explication": "C'est la définition des relations publiques."
+      },
+      {
+        "id": "e3",
+        "texte": "Moins de contrôle, mais plus de crédibilité",
+        "categorie": "rp",
+        "explication": "Les RP sont un travail de conviction."
+      },
+      {
+        "id": "e4",
+        "texte": "Soutenir un évènement en échange de visibilité",
+        "categorie": "sponsoring",
+        "explication": "Le sponsoring apporte visibilité et caution."
+      },
+      {
+        "id": "e5",
+        "texte": "Une réduction pour déclencher un achat immédiat",
+        "categorie": "promo",
+        "explication": "Une incitation à court terme."
+      }
+    ]
+  },
+  {
+    "id": "cl-mix",
+    "seance": 8,
+    "notion": "coherence-mix",
+    "titre": "Mix de masse, de niche ou de luxe ?",
+    "consigne": "Range chaque décision dans le mix qui lui correspond.",
+    "categories": [
+      {
+        "id": "masse",
+        "label": "Mix de masse",
+        "aide": ""
+      },
+      {
+        "id": "niche",
+        "label": "Mix de niche",
+        "aide": ""
+      },
+      {
+        "id": "luxe",
+        "label": "Mix de luxe",
+        "aide": ""
+      }
+    ],
+    "elements": [
+      {
+        "id": "e1",
+        "texte": "Gamme longue pour couvrir de nombreux segments",
+        "categorie": "masse",
+        "explication": "Le mass market couvre beaucoup de segments."
+      },
+      {
+        "id": "e2",
+        "texte": "Distribution intensive",
+        "categorie": "masse",
+        "explication": "La marque doit être disponible partout."
+      },
+      {
+        "id": "e3",
+        "texte": "Publicité dans les médias de masse, ton consensuel",
+        "categorie": "masse",
+        "explication": "La marque doit être visible de tous."
+      },
+      {
+        "id": "e4",
+        "texte": "Gamme courte, centrée sur les produits les plus rentables",
+        "categorie": "niche",
+        "explication": "La niche concentre ses efforts."
+      },
+      {
+        "id": "e5",
+        "texte": "Publicité ciblée et ton plus décalé",
+        "categorie": "niche",
+        "explication": "Réseaux sociaux, street marketing, ton original."
+      },
+      {
+        "id": "e6",
+        "texte": "Produit « iconique » et directeur artistique",
+        "categorie": "luxe",
+        "explication": "Typique du luxe."
+      },
+      {
+        "id": "e7",
+        "texte": "Ambassadeurs et ton élégant",
+        "categorie": "luxe",
+        "explication": "La promotion du luxe est prestigieuse."
+      }
+    ]
   }
 ]

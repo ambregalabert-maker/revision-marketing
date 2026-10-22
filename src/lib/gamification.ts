@@ -174,7 +174,7 @@ export interface Badge {
   test?: (p: Progression) => boolean
 }
 
-const notionsSeance = (s: 1 | 2) => notions.filter((n) => n.seance === s).map((n) => n.id)
+const notionsSeance = (s: 1 | 2) => notions.filter((n) => n.chapitre === 1 && n.seance === s).map((n) => n.id)
 const toutesMaitrisees = (p: Progression, ids: NotionId[]) => ids.every((id) => maitrise(p.tentatives, id).niveau === 'maitrise')
 
 function meilleureSuiteCalculs(tentatives: Tentative[]) {
@@ -210,7 +210,7 @@ export const BADGES: Badge[] = [
   { id: 'examen-blanc', nom: 'Examen blanc', description: 'Tu as terminé un QCM en mode examen.', icone: '⏱️' },
   { id: 'seance1-maitrisee', nom: 'Séance 1 en poche', description: 'Toutes les notions de la séance 1 maîtrisées.', icone: '📘', test: (p) => toutesMaitrisees(p, notionsSeance(1)) },
   { id: 'seance2-maitrisee', nom: 'Séance 2 en poche', description: 'Toutes les notions de la séance 2 maîtrisées.', icone: '📗', test: (p) => toutesMaitrisees(p, notionsSeance(2)) },
-  { id: 'chapitre1-maitrise', nom: 'Chapitre 1 maîtrisé', description: 'Toutes les notions du chapitre 1 maîtrisées.', icone: '🎓', test: (p) => toutesMaitrisees(p, notions.map((n) => n.id)) },
+  { id: 'chapitre1-maitrise', nom: 'Chapitre 1 maîtrisé', description: 'Toutes les notions du chapitre 1 maîtrisées.', icone: '🎓', test: (p) => toutesMaitrisees(p, notions.filter((n) => n.chapitre === 1).map((n) => n.id)) },
   { id: 'tryhard-10', nom: 'Vrai·e tryhard', description: '10 séances Tryhard terminées.', icone: '💪', test: (p) => p.sessions.filter((s) => s.type === 'guidee' || s.type === 'pomodoro').length >= 10 },
   { id: 'premiere-etoile', nom: 'Première étoile', description: 'Ta première étoile sur le chemin.', icone: '⭐', test: (p) => Object.values(p.chemin).some((e) => e.etoiles > 0) },
   { id: 'chemin-complet', nom: 'Explorateur·rice', description: 'Une étoile sur chaque étape du chemin.', icone: '🗺️', test: (p) => ETAPES.every((e) => (p.chemin[e.id]?.etoiles ?? 0) >= 1) },
@@ -227,7 +227,7 @@ export const BADGES: Badge[] = [
   {
     id: 'vrai-faux',
     nom: 'Démineur de clichés',
-    description: 'Les 11 vrai/faux du marketing faits.',
+    description: 'Tous les vrai/faux du marketing faits.',
     icone: '🧨',
     test: (p) => vraiFaux.every((v) => p.tentatives.some((t) => t.itemId === v.id)),
   },

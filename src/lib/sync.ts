@@ -4,7 +4,7 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { niveauPour } from './gamification'
 import { normaliser, progressionVide } from '../state/progression'
-import type { Progression, RevisionCarte, Tentative } from './types'
+import type { Progression, RevisionCarte, Seance, Tentative } from './types'
 
 type Ligne = Record<string, unknown>
 
@@ -63,7 +63,7 @@ export async function chargerDistant(client: SupabaseClient, userId: string): Pr
       itemId: t.item_id as string,
       type: t.type as Tentative['type'],
       notion: t.notion as Tentative['notion'],
-      seance: t.seance as 1 | 2,
+      seance: t.seance as Seance,
       correct: t.correct as boolean,
       le: new Date(t.created_at as string).toISOString(),
     })),

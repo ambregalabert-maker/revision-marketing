@@ -10,7 +10,8 @@ import donneesCoursJson from '../data/donnees-cours.json'
 import type {
   CasPratique,
   ExerciceClassement,
-  FiltreSeance,
+  Chapitre,
+  FiltreChapitre,
   Flashcard,
   Notion,
   NotionId,
@@ -30,15 +31,17 @@ export const donneesCours = donneesCoursJson as QuestionDonneesCours[]
 const titres = new Map(notions.map((n) => [n.id, n.titre]))
 export const titreNotion = (id: NotionId) => titres.get(id) ?? id
 export const seanceNotion = (id: NotionId) => notions.find((n) => n.id === id)?.seance ?? 1
+export const chapitreNotion = (id: NotionId): Chapitre => notions.find((n) => n.id === id)?.chapitre ?? 1
 
-/** Filtre une liste de contenu selon la séance et la notion choisies. */
-export function filtrer<T extends { seance: 1 | 2; notion?: NotionId; notions?: NotionId[] }>(
+/** Filtre une liste de contenu selon le chapitre et la notion choisis. */
+export function filtrer<T extends { notion?: NotionId; notions?: NotionId[] }>(
   liste: T[],
-  seance: FiltreSeance,
+  chapitre: FiltreChapitre,
   notion: NotionId | 'toutes' = 'toutes',
 ): T[] {
   return liste.filter((x) => {
-    if (seance !== 'toutes' && String(x.seance) !== seance) return false
+    const n = x.notion ?? x.notions?.[0]
+    if (chapitre !== 'tous' && n && String(chapitreNotion(n)) !== chapitre) return false
     if (notion === 'toutes') return true
     return x.notion === notion || (x.notions?.includes(notion) ?? false)
   })

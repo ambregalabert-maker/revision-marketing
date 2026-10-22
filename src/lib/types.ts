@@ -1,7 +1,11 @@
 // Types partagés par tout le site.
 
-export type Seance = 1 | 2
-export type FiltreSeance = 'toutes' | '1' | '2'
+/** Les séances du module (la séance 7 = présentations, la 9 = oral : pas de contenu). */
+export type Seance = 1 | 2 | 3 | 4 | 5 | 6 | 8
+/** Les 4 chapitres : 1 Le concept de marché, 2 Le parcours d'achat, 3 Stratégie marketing, 4 Marketing mix. */
+export type Chapitre = 1 | 2 | 3 | 4
+/** Filtre des pages de révision : un chapitre ou tous. */
+export type FiltreChapitre = 'tous' | '1' | '2' | '3' | '4'
 
 export type NotionId =
   | 'definition-marketing'
@@ -14,11 +18,29 @@ export type NotionId =
   | 'part-de-marche'
   | 'micro-environnement'
   | 'macro-environnement'
+  // Chapitre 2 : le parcours d'achat
+  | 'etapes-parcours'
+  | 'facteurs-influence'
+  | 'facteurs-psychologiques'
+  | 'motivations-freins'
+  // Chapitre 3 : segmentation, ciblage, positionnement
+  | 'segmentation'
+  | 'criteres-segmentation'
+  | 'ciblage'
+  | 'positionnement'
+  | 'leader-challenger-niche'
+  // Chapitre 4 : le marketing mix
+  | 'produit-gamme'
+  | 'prix'
+  | 'distribution'
+  | 'promotion'
+  | 'coherence-mix'
 
 export interface Notion {
   id: NotionId
   titre: string
   seance: Seance
+  chapitre: Chapitre
 }
 
 // ---------- Contenu pédagogique (fichiers JSON de src/data) ----------

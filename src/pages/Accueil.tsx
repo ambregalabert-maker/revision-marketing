@@ -181,7 +181,7 @@ export default function Accueil() {
 
 /** Le bandeau qui défile, façon affiche de festival. */
 function BandeauDefile() {
-  const mots = ['Le concept de marché', '3 minutes par jour', 'Objectif QCM', 'Mark’Up', 'Offre & demande', 'Tu gères']
+  const mots = ['Le concept de marché', 'Parcours d’achat', 'Segmentation', 'Positionnement', 'Marketing mix', '3 minutes par jour', 'Tu gères']
   const ligne = (
     <div className="flex shrink-0 items-center">
       {mots.map((m) => (

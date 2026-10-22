@@ -24,7 +24,7 @@ export default function Qcm() {
   const [serie, setSerie] = useState<QuestionQcm[] | null>(null)
   const [resultat, setResultat] = useState<ResultatQcm | null>(null)
 
-  const disponibles = idsDemandes ? qcm.filter((q) => idsDemandes.includes(q.id)) : filtrer(qcm, filtres.seance, filtres.notion)
+  const disponibles = idsDemandes ? qcm.filter((q) => idsDemandes.includes(q.id)) : filtrer(qcm, filtres.chapitre, filtres.notion)
 
   const commencer = (m: 'entrainement' | 'examen') => {
     // Le mode examen pioche toujours dans tout le chapitre… sauf si un filtre est choisi.

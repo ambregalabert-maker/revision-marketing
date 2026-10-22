@@ -1031,6 +1031,46 @@ body::before {
   }
 }
 
+/* ---------- Une couleur par chapitre (sur le chemin) ---------- */
+.chap-1 {
+  --accent-100: #ffe8df;
+  --accent-400: #ffc7b2;
+  --accent-500: #ffb59a;
+  --accent-600: #e8957a;
+  --accent-700: #a8452f;
+}
+.chap-2 {
+  --accent-100: #eeeafe;
+  --accent-400: #d6cefb;
+  --accent-500: #c4b8f8;
+  --accent-600: #a193e8;
+  --accent-700: #5b48c2;
+}
+.chap-3 {
+  --accent-100: #ddf5ee;
+  --accent-400: #a6e6d4;
+  --accent-500: #86dcc3;
+  --accent-600: #5dbfa3;
+  --accent-700: #1e7a62;
+}
+.chap-4 {
+  --accent-100: #e1effb;
+  --accent-400: #bfe0fa;
+  --accent-500: #9ccbf5;
+  --accent-600: #6aa7de;
+  --accent-700: #1e5f9e;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .chap-1 { --accent-100: #3a2620; --accent-700: #ffb59a; }
+  :root:not([data-theme="light"]) .chap-2 { --accent-100: #2a2547; --accent-700: #c4b8f8; }
+  :root:not([data-theme="light"]) .chap-3 { --accent-100: #173a30; --accent-700: #86dcc3; }
+  :root:not([data-theme="light"]) .chap-4 { --accent-100: #1b2f47; --accent-700: #9ccbf5; }
+}
+:root[data-theme="dark"] .chap-1 { --accent-100: #3a2620; --accent-700: #ffb59a; }
+:root[data-theme="dark"] .chap-2 { --accent-100: #2a2547; --accent-700: #c4b8f8; }
+:root[data-theme="dark"] .chap-3 { --accent-100: #173a30; --accent-700: #86dcc3; }
+:root[data-theme="dark"] .chap-4 { --accent-100: #1b2f47; --accent-700: #9ccbf5; }
+
 /* Défilement horizontal sans barre visible. */
 .sans-barre {
   scrollbar-width: none;

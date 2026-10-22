@@ -414,5 +414,469 @@
     "recto": "Une hausse du chômage relève de quel environnement ?",
     "verso": "Du macro-environnement, composante économique : elle affecte le pouvoir d'achat des consommateurs.",
     "exemple": "Elle touche toutes les entreprises, pas une seule : c'est bien du macro."
+  },
+  {
+    "id": "fc-pa-01",
+    "seance": 3,
+    "notion": "etapes-parcours",
+    "recto": "Les 5 étapes du parcours d'achat",
+    "verso": "1. Reconnaissance du problème / besoin · 2. Recherche d'informations · 3. Évaluation des options · 4. Achat · 5. Expérience post-achat.",
+    "exemple": "Astuce : on va du besoin (avant) jusqu'à l'après-achat (satisfaction ou insatisfaction)."
+  },
+  {
+    "id": "fc-pa-02",
+    "seance": 3,
+    "notion": "etapes-parcours",
+    "recto": "Étape 1 : reconnaissance du problème / besoin",
+    "verso": "L'individu prend conscience de son besoin. Il peut être influencé par des stimuli externes (ex. : une publicité) ou internes.",
+    "exemple": "Ex. : voir une publicité pour une boisson fraîche (stimulus externe) ou avoir soif (stimulus interne)."
+  },
+  {
+    "id": "fc-pa-03",
+    "seance": 3,
+    "notion": "etapes-parcours",
+    "recto": "Étape 2 : recherche d'informations",
+    "verso": "L'individu mobilise des informations internes (ce qu'il sait déjà) et externes (renseignements en magasin, sur Internet, auprès de proches) à propos des produits. Grâce à ces informations, il forme un ensemble de considération.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-pa-04",
+    "seance": 3,
+    "notion": "etapes-parcours",
+    "recto": "L'ensemble de considération",
+    "verso": "Les produits que l'individu retient grâce à sa recherche d'informations (étape 2). À l'étape 3, il les compare pour faire son choix final.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-pa-05",
+    "seance": 3,
+    "notion": "etapes-parcours",
+    "recto": "Étape 4 : l'achat",
+    "verso": "Lors de l'achat, des facteurs situationnels imprévus peuvent influencer l'individu (promotion, rupture de stock). Il peut aussi être influencé par les autres personnes présentes en magasin.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-pa-06",
+    "seance": 3,
+    "notion": "etapes-parcours",
+    "recto": "Étape 5 : l'expérience post-achat",
+    "verso": "Après l'achat, le client est satisfait ou insatisfait. La satisfaction est source de fidélité ; l'insatisfaction est source de dissonance cognitive.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-fi-01",
+    "seance": 4,
+    "notion": "facteurs-influence",
+    "recto": "Les 4 familles de facteurs d'influence",
+    "verso": "Facteurs culturels · facteurs sociaux · facteurs personnels · facteurs psychologiques. Ils jouent un rôle tout au long du processus d'achat et concernent l'individu directement.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-fi-02",
+    "seance": 4,
+    "notion": "facteurs-influence",
+    "recto": "Facteurs culturels",
+    "verso": "Culture · sous-culture · classe sociale (catégorie socio-professionnelle).",
+    "exemple": ""
+  },
+  {
+    "id": "fc-fi-03",
+    "seance": 4,
+    "notion": "facteurs-influence",
+    "recto": "Facteurs sociaux",
+    "verso": "Groupe(s) d'appartenance · groupe(s) de référence · famille · rôle et statut.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-fi-04",
+    "seance": 4,
+    "notion": "facteurs-influence",
+    "recto": "Facteurs personnels",
+    "verso": "Âge · profession · revenus · style de vie · personnalité.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-ps-01",
+    "seance": 4,
+    "notion": "facteurs-psychologiques",
+    "recto": "Facteurs psychologiques",
+    "verso": "Perceptions · croyances (et attitudes) · motivations.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-ps-02",
+    "seance": 4,
+    "notion": "facteurs-psychologiques",
+    "recto": "Les perceptions",
+    "verso": "La manière dont les individus comprennent le monde et l'interprètent.",
+    "exemple": "Ex. : percevoir une marque de vêtements comme de haute qualité en raison de son emballage élégant et de son prix élevé."
+  },
+  {
+    "id": "fc-ps-03",
+    "seance": 4,
+    "notion": "facteurs-psychologiques",
+    "recto": "Les croyances",
+    "verso": "Les convictions de l'individu à propos de quelque chose.",
+    "exemple": "Ex. : être convaincu que les produits bio sont meilleurs pour la santé que les produits issus de l'agriculture conventionnelle."
+  },
+  {
+    "id": "fc-ps-04",
+    "seance": 4,
+    "notion": "facteurs-psychologiques",
+    "recto": "Les motivations (facteur psychologique)",
+    "verso": "Les raisons qui poussent l'individu à agir d'une certaine façon plutôt que d'une autre.",
+    "exemple": "Ex. : un consommateur inquiet de sa santé va acheter des produits bio plutôt que des produits qui ne le sont pas."
+  },
+  {
+    "id": "fc-mf-01",
+    "seance": 4,
+    "notion": "motivations-freins",
+    "recto": "Motivations et freins",
+    "verso": "Les motivations poussent le consommateur à agir : elles peuvent être positives (encourager l'achat) ou négatives (freiner l'achat). Les freins : inhibitions et risque perçu.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-mf-02",
+    "seance": 4,
+    "notion": "motivations-freins",
+    "recto": "Les 6 motivations",
+    "verso": "Hédoniste (plaisir personnel) · oblative (faire plaisir à autrui) · affective (réponse à un élan) · rationnelle (maximiser l'utilité) · auto-expression (s'exprimer, s'affirmer) · éthique (sentiment de devoir moral).",
+    "exemple": ""
+  },
+  {
+    "id": "fc-mf-03",
+    "seance": 4,
+    "notion": "motivations-freins",
+    "recto": "Motivation hédoniste vs oblative",
+    "verso": "Hédoniste : recherche du plaisir personnel. Oblative : faire plaisir à autrui.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-mf-04",
+    "seance": 4,
+    "notion": "motivations-freins",
+    "recto": "Frein : les inhibitions",
+    "verso": "Manque de confiance en son propre jugement, sentiment de culpabilité, auto-censure (culturelle, religieuse, sociale).",
+    "exemple": ""
+  },
+  {
+    "id": "fc-mf-05",
+    "seance": 4,
+    "notion": "motivations-freins",
+    "recto": "Frein : le risque perçu",
+    "verso": "Anticipation de conséquences négatives : risque financier, fonctionnel, physique, social, etc.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-sg-01",
+    "seance": 5,
+    "notion": "segmentation",
+    "recto": "La segmentation",
+    "verso": "Regrouper les consommateurs de telle sorte qu'ils soient le plus ressemblants possible à l'intérieur d'un même groupe, et que chaque groupe soit différent des autres.",
+    "exemple": "Comme dans le jeu du restaurant : plus facile de concevoir un concept pour des clients similaires."
+  },
+  {
+    "id": "fc-sg-02",
+    "seance": 5,
+    "notion": "segmentation",
+    "recto": "Pourquoi segmenter ?",
+    "verso": "1. Maximiser (optimiser) les ressources marketing · 2. Être plus ciblé : mieux servir un petit groupe de clients similaires · 3. Sinon, on risque une offre qui satisfait tout le monde à 10 % et personne à 80 %.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-cs-01",
+    "seance": 5,
+    "notion": "criteres-segmentation",
+    "recto": "Les 4 familles de critères de segmentation",
+    "verso": "Sociodémographiques · bénéfice recherché · psychologiques · comportementaux. On combine souvent plusieurs critères.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-cs-02",
+    "seance": 5,
+    "notion": "criteres-segmentation",
+    "recto": "Critères sociodémographiques et bénéfice recherché",
+    "verso": "Sociodémographiques : âge, genre, niveau d'éducation, revenu disponible… Bénéfice recherché : performance produit, objectif, lieu de production, image de marque…",
+    "exemple": ""
+  },
+  {
+    "id": "fc-cs-03",
+    "seance": 5,
+    "notion": "criteres-segmentation",
+    "recto": "Critères psychologiques et comportementaux",
+    "verso": "Psychologiques : motivations, personnalité… Comportementaux : lieu ou fréquence d'achat, quantité achetée…",
+    "exemple": ""
+  },
+  {
+    "id": "fc-cs-04",
+    "seance": 5,
+    "notion": "criteres-segmentation",
+    "recto": "L'exemple du marché des jouets",
+    "verso": "Segmenté par genre garçon / fille (sociodémo), par objectif divertissement / éducation (bénéfice recherché) et par âge (sociodémo).",
+    "exemple": ""
+  },
+  {
+    "id": "fc-cb-01",
+    "seance": 5,
+    "notion": "ciblage",
+    "recto": "Le ciblage",
+    "verso": "Une fois le marché segmenté, le marketeur décide de se concentrer sur un ou plusieurs segments. C'est une décision stratégique, prise en fonction des ressources de l'entreprise et du comportement des concurrents.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-cb-02",
+    "seance": 5,
+    "notion": "ciblage",
+    "recto": "Les 4 stratégies de ciblage",
+    "verso": "Indifférenciée (de masse) : tout le marché sans distinction · Différenciée (segmentée) : plusieurs segments, offre adaptée à chacun · Concentrée (niche) : un seul segment · Personnalisée (one-to-one) : chaque consommateur individuellement.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-cb-03",
+    "seance": 5,
+    "notion": "ciblage",
+    "recto": "Le ciblage, un arbitrage entre…",
+    "verso": "La pénétration (nombre absolu de clients potentiels), la rentabilité (les clients paient souvent plus pour une offre adaptée) et les ressources (a-t-on l'argent et les personnes pour couvrir plusieurs segments ?).",
+    "exemple": ""
+  },
+  {
+    "id": "fc-po-01",
+    "seance": 6,
+    "notion": "positionnement",
+    "recto": "Le positionnement",
+    "verso": "Installer une représentation précise dans l'esprit du consommateur (occuper une position particulière dans son esprit).",
+    "exemple": "STP : la segmentation et le ciblage décident à qui la marque s'adresse ; le positionnement décide ce qu'on va leur dire."
+  },
+  {
+    "id": "fc-po-02",
+    "seance": 6,
+    "notion": "positionnement",
+    "recto": "Points de Parité (PoP)",
+    "verso": "Les caractéristiques que la marque doit partager avec ses concurrents pour être reconnue comme légitime (crédible) dans la catégorie. Ils limitent la différenciation mais assurent la crédibilité.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-po-03",
+    "seance": 6,
+    "notion": "positionnement",
+    "recto": "Points de Différenciation (PoD)",
+    "verso": "Les caractéristiques qui distinguent la marque des concurrents dans la catégorie. La différenciation doit être pertinente pour la cible, unique et cohérente avec les ressources et compétences de l'entreprise.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-po-04",
+    "seance": 6,
+    "notion": "positionnement",
+    "recto": "Reasons To Believe (RTB)",
+    "verso": "Les « raisons de croire » : des éléments objectifs qui prouvent qu'un PoP ou un PoD est crédible. Elles limitent les promesses exagérées ou mensongères.",
+    "exemple": "Ex. : le PoD « innovant » est soutenu par le RTB « le budget R&D est deux fois supérieur à celui des concurrents »."
+  },
+  {
+    "id": "fc-po-05",
+    "seance": 6,
+    "notion": "positionnement",
+    "recto": "Le modèle bulleye (P. Kotler)",
+    "verso": "Un modèle de positionnement qui met au centre les Points de Parité (PoP) et les Points de Différenciation (PoD), appuyés sur des RTB.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-po-06",
+    "seance": 6,
+    "notion": "positionnement",
+    "recto": "Positionnement et marketing mix",
+    "verso": "Les PoP et PoD servent de principe directeur au marketing mix : tout ce que la marque fait de manière visible (couleur du pack, prix, lieu de vente…) dérive du positionnement.",
+    "exemple": "Ex. : utiliser du vert sur l'emballage et le logo pour communiquer un PoD sur l'écologie."
+  },
+  {
+    "id": "fc-lc-01",
+    "seance": 6,
+    "notion": "leader-challenger-niche",
+    "recto": "La stratégie d'un leader",
+    "verso": "Préserver la plus grande part de marché. Ciblage différencié. Solide sur les PoP, peu de PoD souvent consensuels, peu de prise de risques. Stratégies défensives.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-lc-02",
+    "seance": 6,
+    "notion": "leader-challenger-niche",
+    "recto": "La stratégie d'un challenger",
+    "verso": "Bonne part de marché sans être leader. Ciblage différencié, parfois en imitant le leader avec une touche d'originalité. PoD moins consensuels, prise de risques. Stratégies d'attaque : frontale, encerclement, contournement.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-lc-03",
+    "seance": 6,
+    "notion": "leader-challenger-niche",
+    "recto": "La stratégie d'un acteur de niche",
+    "verso": "Privilégie la rentabilité à la part de marché. Ciblage concentré. Bon sur les PoP et très fort sur des PoD créatifs, prisés par sa cible. Stratégies de débordement (flanking) ou de guérilla.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-pg-01",
+    "seance": 8,
+    "notion": "produit-gamme",
+    "recto": "La facette « produit » du mix",
+    "verso": "Toutes les offres, tangibles ou non : un bien tangible, un service, une expérience, un évènement, une personne, un lieu, une ONG, une idée…",
+    "exemple": ""
+  },
+  {
+    "id": "fc-pg-02",
+    "seance": 8,
+    "notion": "produit-gamme",
+    "recto": "La gamme de produits",
+    "verso": "L'ensemble des produits disponibles dans une catégorie et vendus par une entreprise. On analyse sa largeur, sa longueur et sa profondeur.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-pg-03",
+    "seance": 8,
+    "notion": "produit-gamme",
+    "recto": "Grande gamme ou petite gamme ?",
+    "verso": "Plus la gamme est large, longue et profonde, plus elle est complexe et coûteuse à gérer, mais elle couvre davantage de segments. Moins de produits permet d'être plus concentré.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-px-01",
+    "seance": 8,
+    "notion": "prix",
+    "recto": "Les 3 points de départ pour fixer un prix",
+    "verso": "Les coûts de production (le plancher) · le consentement à payer du consommateur (le plafond) · les prix des concurrents (les murs). Ces méthodes peuvent être combinées.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-px-02",
+    "seance": 8,
+    "notion": "prix",
+    "recto": "Fixer le prix à partir des coûts",
+    "verso": "On calcule le point d'équilibre et on détermine le profit que l'on souhaite réaliser.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-px-03",
+    "seance": 8,
+    "notion": "prix",
+    "recto": "Fixer le prix à partir du consentement à payer",
+    "verso": "On cherche le prix psychologique (celui qui maximise la demande) et l'élasticité.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-px-04",
+    "seance": 8,
+    "notion": "prix",
+    "recto": "Les 3 stratégies de prix face aux concurrents",
+    "verso": "Pénétration (prix bas, gros volumes, maximiser la part de marché) · Écrémage (prix élevés, petits volumes, image de marque) · Alignement (s'aligner sur les concurrents pour éviter une guerre des prix).",
+    "exemple": ""
+  },
+  {
+    "id": "fc-px-05",
+    "seance": 8,
+    "notion": "prix",
+    "recto": "Quand choisir l'écrémage ?",
+    "verso": "Segments peu sensibles au prix · des prix élevés sont justifiés · les faibles volumes n'impactent pas (ou peu) les coûts de production.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-ds-01",
+    "seance": 8,
+    "notion": "distribution",
+    "recto": "Les 3 stratégies de distribution",
+    "verso": "Intensive (maximiser la disponibilité) · sélective (compromis entre accessibilité et contrôle de l'image) · exclusive (maximum de contrôle).",
+    "exemple": "Ex. du gel douche : en supermarchés (intensive), uniquement en pharmacie (sélective), vendu par Rituals (exclusive)."
+  },
+  {
+    "id": "fc-ds-02",
+    "seance": 8,
+    "notion": "distribution",
+    "recto": "Distribution intensive : avantages et inconvénients",
+    "verso": "Avantages : plus de ventes, notoriété accrue, achats impulsifs. Inconvénients : marges des distributeurs, moins de contrôle, négociations difficiles avec les distributeurs.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-ds-03",
+    "seance": 8,
+    "notion": "distribution",
+    "recto": "Distribution exclusive",
+    "verso": "Droits exclusifs accordés à certains points de vente (succursales, franchises, distributeurs agréés). Avantage : contrôle total. Inconvénient : coût élevé (logistique, immobilier ou B2B).",
+    "exemple": ""
+  },
+  {
+    "id": "fc-pr-01",
+    "seance": 8,
+    "notion": "promotion",
+    "recto": "Les 4 outils de promotion",
+    "verso": "Publicité (payer pour plus de contrôle) · relations publiques (convaincre pour la crédibilité) · parrainage / sponsoring (s'associer pour accroître son étendue) · promotion des ventes (encourager l'action à court terme).",
+    "exemple": ""
+  },
+  {
+    "id": "fc-pr-02",
+    "seance": 8,
+    "notion": "promotion",
+    "recto": "La publicité",
+    "verso": "Pratique commerciale où une entreprise paie pour placer son message ou sa marque dans un emplacement particulier (définition de l'AMA) : achat d'espace avec beaucoup de liberté sur le message.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-pr-03",
+    "seance": 8,
+    "notion": "promotion",
+    "recto": "Les relations publiques",
+    "verso": "Ensemble d'activités de communication visant à établir et entretenir de bonnes relations entre une organisation et ses publics : moins de contrôle, mais plus de crédibilité.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-pr-04",
+    "seance": 8,
+    "notion": "promotion",
+    "recto": "Sponsoring et promotion des ventes",
+    "verso": "Sponsoring : la marque soutient une personne, un évènement ou une organisation en échange de visibilité et de caution. Promotion des ventes : incitations à court terme pour encourager une action immédiate du consommateur.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-cm-01",
+    "seance": 8,
+    "notion": "coherence-mix",
+    "recto": "D'où viennent les 4 P ?",
+    "verso": "Neil Borden a « inventé » le marketing mix en 1964 sous la forme d'une liste de 12 points, ensuite simplifiés en 4 grands axes : produit, prix, distribution, promotion.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-cm-02",
+    "seance": 8,
+    "notion": "coherence-mix",
+    "recto": "Les 7 P des services",
+    "verso": "Aux 4 P s'ajoutent People (personnes), Process (processus) et Physical Evidence (preuves physiques). D'autres « P » existent : Proof, Permission, Partnership…",
+    "exemple": ""
+  },
+  {
+    "id": "fc-cm-03",
+    "seance": 8,
+    "notion": "coherence-mix",
+    "recto": "Le mix comme « mélange »",
+    "verso": "Comme en cuisine, toutes les saveurs ne vont pas ensemble : les actions marketing doivent s'articuler de manière cohérente. C'est le positionnement qui donne la direction du mix.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-cm-04",
+    "seance": 8,
+    "notion": "coherence-mix",
+    "recto": "Le mix de masse (mass market)",
+    "verso": "Gamme longue · prix de pénétration · distribution intensive · publicité dans les médias de masse, un peu de promotion des ventes, ton sérieux et consensuel.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-cm-05",
+    "seance": 8,
+    "notion": "coherence-mix",
+    "recto": "Le mix de niche",
+    "verso": "Gamme courte · écrémage avec des marges élevées · distribution sélective · publicité ciblée (réseaux sociaux, affichage, street marketing), relations presse, ton plus décalé.",
+    "exemple": ""
+  },
+  {
+    "id": "fc-cm-06",
+    "seance": 8,
+    "notion": "coherence-mix",
+    "recto": "Le mix de luxe",
+    "verso": "Produit souvent « iconique » · écrémage (les prix élevés excluent aussi des clients non souhaités) · distribution sélective ou exclusive · publicité prestigieuse, RP, ambassadeurs, sponsoring, ton élégant.",
+    "exemple": ""
   }
 ]

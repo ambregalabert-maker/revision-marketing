@@ -7,7 +7,7 @@
 //   ⭐⭐⭐  : réussie encore au moins 7 jours après la 2e.
 import { ecartJours, jour } from './dates'
 import { notions } from './contenu'
-import type { EtoilesEtape, NotionId, Progression } from './types'
+import type { Chapitre, EtoilesEtape, NotionId, Progression, Seance } from './types'
 
 export const SEUIL_REUSSITE = 0.7
 
@@ -17,21 +17,30 @@ export interface Etape {
   id: string
   titre: string
   genre: GenreEtape
-  seance: 1 | 2
+  chapitre: Chapitre
+  seance: Seance
   /** Notions travaillées dans cette étape. */
   notions: NotionId[]
 }
 
-const etapesNotion = (s: 1 | 2): Etape[] =>
-  notions
-    .filter((n) => n.seance === s)
-    .map((n) => ({ id: n.id, titre: n.titre, genre: 'notion', seance: s, notions: [n.id] }))
+const etapesNotion = (filtre: (n: (typeof notions)[number]) => boolean): Etape[] =>
+  notions.filter(filtre).map((n) => ({ id: n.id, titre: n.titre, genre: 'notion', chapitre: n.chapitre, seance: n.seance, notions: [n.id] }))
 
+const notionsDuChapitre = (c: Chapitre) => notions.filter((n) => n.chapitre === c).map((n) => n.id)
+
+// Les identifiants « bilan-1 » et « final » sont gardés tels quels pour ne pas perdre les étoiles déjà gagnées.
 export const ETAPES: Etape[] = [
-  ...etapesNotion(1),
-  { id: 'bilan-1', titre: 'Bilan séance 1', genre: 'bilan', seance: 1, notions: notions.filter((n) => n.seance === 1).map((n) => n.id) },
-  ...etapesNotion(2),
-  { id: 'final', titre: 'Prêt·e pour le QCM', genre: 'final', seance: 2, notions: notions.map((n) => n.id) },
+  ...etapesNotion((n) => n.chapitre === 1 && n.seance === 1),
+  { id: 'bilan-1', titre: 'Bilan séance 1', genre: 'bilan', chapitre: 1, seance: 1, notions: notions.filter((n) => n.seance === 1).map((n) => n.id) },
+  ...etapesNotion((n) => n.chapitre === 1 && n.seance === 2),
+  { id: 'final', titre: 'Bilan chapitre 1', genre: 'bilan', chapitre: 1, seance: 2, notions: notionsDuChapitre(1) },
+  ...etapesNotion((n) => n.chapitre === 2),
+  { id: 'bilan-ch2', titre: 'Bilan chapitre 2', genre: 'bilan', chapitre: 2, seance: 4, notions: notionsDuChapitre(2) },
+  ...etapesNotion((n) => n.chapitre === 3),
+  { id: 'bilan-ch3', titre: 'Bilan chapitre 3', genre: 'bilan', chapitre: 3, seance: 6, notions: notionsDuChapitre(3) },
+  ...etapesNotion((n) => n.chapitre === 4),
+  { id: 'bilan-ch4', titre: 'Bilan chapitre 4', genre: 'bilan', chapitre: 4, seance: 8, notions: notionsDuChapitre(4) },
+  { id: 'examen', titre: 'Prêt·e pour l’examen', genre: 'final', chapitre: 4, seance: 8, notions: notions.map((n) => n.id) },
 ]
 
 /** Délai (en jours) avant de pouvoir gagner l'étoile suivante. */

@@ -3,6 +3,8 @@ import { Link } from 'react-router'
 import { ETAPES, etapeDuJour, etoileDisponible, prochaineEtoile, type Etape } from '../lib/chemin'
 import { formatDans } from '../lib/dates'
 import { decorDuMonde } from '../lib/mondes'
+import { CHAPITRES, infoChapitre } from '../lib/chapitres'
+import type { Chapitre } from '../lib/types'
 import { useProgression } from '../state/progression'
 import MonCompagnon, { useCompagnonEndormi } from './MonCompagnon'
 import DecorMonde from './DecorMonde'
@@ -84,7 +86,7 @@ function dessiner(largeur: number) {
   const t = {
     grand,
     rond: grand ? 104 : 80,
-    pas: grand ? 168 : 136,
+    pas: grand ? 196 : 164,
     amplitude: grand ? Math.min(230, largeur * 0.26) : Math.min(100, largeur * 0.27),
     colonne: grand ? 220 : 140,
     compagnon: grand ? 150 : 108,
@@ -93,19 +95,22 @@ function dessiner(largeur: number) {
   }
   const centre = largeur / 2
   const points: Point[] = []
-  const bandeaux: { numero: number; titre: string; y: number }[] = [{ numero: 1, titre: 'Marketing & marché', y: t.marge }]
+  // Un bandeau (et une couleur) par chapitre.
+  const bandeaux: { numero: Chapitre; y: number }[] = [{ numero: 1, y: t.marge }]
   let y = t.marge + t.bandeau + (grand ? 120 : 104)
   ETAPES.forEach((etape, i) => {
-    if (i > 0 && etape.seance !== ETAPES[i - 1].seance) {
-      const haut = points[points.length - 1].y + t.rond / 2 + (grand ? 90 : 80)
-      bandeaux.push({ numero: 2, titre: "L'environnement du marketing", y: haut })
+    if (i > 0 && etape.chapitre !== ETAPES[i - 1].chapitre) {
+      const haut = points[points.length - 1].y + t.rond / 2 + (grand ? 100 : 88)
+      bandeaux.push({ numero: etape.chapitre, y: haut })
       y = haut + t.bandeau + (grand ? 120 : 104)
     }
     points.push({ etape, x: centre + VAGUE[i % VAGUE.length] * t.amplitude, y })
     y += t.pas
   })
   const hauteur = points[points.length - 1].y + t.rond / 2 + (grand ? 110 : 90)
-  return { t, points, bandeaux, hauteur }
+  // La zone de couleur de chaque chapitre, d'un bandeau au suivant.
+  const zones = bandeaux.map((b, k) => ({ numero: b.numero, haut: b.y - (k ? 40 : t.marge), bas: k + 1 < bandeaux.length ? bandeaux[k + 1].y - 40 : hauteur }))
+  return { t, points, bandeaux, zones, hauteur }
 }
 
 /** La route qui relie les ronds : des courbes douces. */
@@ -121,7 +126,7 @@ function trace(points: Point[]) {
   return d
 }
 
-/** Le chemin du chapitre 1, façon Duolingo : toutes les étapes sont ouvertes. */
+/** Le chemin des 4 chapitres, façon Duolingo : toutes les étapes sont ouvertes, chaque chapitre a sa couleur. */
 export default function Chemin() {
   const { p } = useProgression()
   const { ref, largeur } = useLargeur()
@@ -151,18 +156,39 @@ export default function Chemin() {
       <div ref={ref} data-monde={monde} className="monde relative -mx-4 md:mx-0 md:rounded-[2rem] overflow-hidden" style={{ height: plan?.hauteur ?? 600 }}>
         {plan && (
           <>
+            {/* Chaque chapitre a sa couleur : un voile doux derrière le décor */}
+            {plan.zones.map((z) => (
+              <div
+                key={z.numero}
+                className={`chap-${z.numero} absolute inset-x-0 pointer-events-none`}
+                style={{
+                  top: z.haut,
+                  height: z.bas - z.haut,
+                  background:
+                    'linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent-500) 22%, transparent) 90px, color-mix(in srgb, var(--accent-500) 22%, transparent) calc(100% - 90px), transparent)',
+                }}
+                aria-hidden
+              />
+            ))}
             <DecorMonde elements={decor} echelle={plan.t.grand ? 1.4 : 1} />
 
             {/* La route en pointillés, colorée jusqu'à ta position */}
             <svg width={largeur} height={plan.hauteur} className="absolute inset-0" aria-hidden="true">
               <path d={trace(plan.points)} fill="none" stroke="var(--m-route)" strokeWidth={plan.t.grand ? 28 : 22} strokeLinecap="round" />
               <path d={trace(plan.points)} fill="none" stroke="var(--m-trait)" strokeWidth="3" strokeDasharray="2 12" strokeLinecap="round" />
-              {indexIci > 0 && (
-                <>
-                  <path d={trace(plan.points.slice(0, indexIci + 1))} fill="none" stroke="var(--accent-400)" strokeWidth={plan.t.grand ? 28 : 22} strokeLinecap="round" />
-                  <path d={trace(plan.points.slice(0, indexIci + 1))} fill="none" stroke="#ffffff" strokeWidth="3" strokeDasharray="2 12" strokeLinecap="round" opacity=".85" />
-                </>
-              )}
+              {/* La partie déjà parcourue, dans la couleur de chaque chapitre */}
+              {CHAPITRES.map((c) => {
+                const debut = plan.points.findIndex((pt) => pt.etape.chapitre === c.numero)
+                const fin = Math.min(indexIci, debut + plan.points.filter((pt) => pt.etape.chapitre === c.numero).length - 1)
+                if (debut < 0 || fin < Math.max(debut, 1)) return null
+                const morceau = plan.points.slice(Math.max(0, debut - 1), fin + 1)
+                return (
+                  <g key={c.numero} className={`chap-${c.numero}`}>
+                    <path d={trace(morceau)} fill="none" stroke="var(--accent-400)" strokeWidth={plan.t.grand ? 28 : 22} strokeLinecap="round" />
+                    <path d={trace(morceau)} fill="none" stroke="#ffffff" strokeWidth="3" strokeDasharray="2 12" strokeLinecap="round" opacity=".85" />
+                  </g>
+                )
+              })}
             </svg>
 
             {plan.bandeaux.map((b) => (
@@ -233,7 +259,7 @@ function Rond({ point, ici, taille, galaxie, bulle }: { point: Point; ici: boole
       : `${etoiles} étoile${etoiles > 1 ? 's' : ''} sur 3${etoiles < 3 && prochaine ? (dispo ? ', une étoile à gagner aujourd’hui' : `, prochaine étoile ${formatDans(prochaine)}`) : ''}`
 
   return (
-    <li className="absolute z-[2] flex flex-col items-center" style={{ left: x - taille.colonne / 2, top: y - n / 2, width: taille.colonne }}>
+    <li className={`chap-${etape.chapitre} absolute z-[2] flex flex-col items-center`} style={{ left: x - taille.colonne / 2, top: y - n / 2, width: taille.colonne }}>
       {ici && bulle && (
         <span
           className="rebond absolute px-3 py-1 rounded-xl bg-surface border-2 border-accent-500 font-extrabold text-accent-700 shadow-carte whitespace-nowrap"
@@ -418,16 +444,35 @@ function envolerEtoile(etapeId: string) {
   }
 }
 
-function Bandeau({ numero, titre, y, marge, hauteur, grand }: { numero: number; titre: string; y: number; marge: number; hauteur: number; grand: boolean }) {
+function Bandeau({ numero, y, marge, hauteur, grand }: { numero: Chapitre; y: number; marge: number; hauteur: number; grand: boolean }) {
+  const c = infoChapitre(numero)
   return (
     <div
-      className="absolute rounded-2xl px-4 flex flex-col justify-center shadow-carte"
-      style={{ left: marge, right: marge, top: y, height: hauteur, background: 'var(--m-bande)', color: 'var(--m-bande-ink)' }}
+      className={`chap-${numero} absolute rounded-2xl px-4 flex items-center gap-3 shadow-carte border`}
+      style={{
+        left: marge,
+        right: marge,
+        top: y,
+        height: hauteur,
+        background: 'linear-gradient(100deg, var(--accent-100), var(--m-bande))',
+        borderColor: 'color-mix(in srgb, var(--accent-500) 45%, transparent)',
+      }}
     >
-      <p className={`font-extrabold tracking-wide ${grand ? 'text-sm' : 'text-xs'}`}>SÉANCE {numero}</p>
-      <p className={`font-titre font-semibold ${grand ? 'text-xl' : ''}`} style={{ color: 'var(--m-ink)' }}>
-        {titre}
-      </p>
+      <span
+        className={`shrink-0 flex items-center justify-center rounded-xl font-[family-name:var(--font-affiche)] font-extrabold text-[#1e2a3a] ${grand ? 'w-12 h-12 text-2xl' : 'w-10 h-10 text-xl'}`}
+        style={{ background: 'var(--accent-500)', boxShadow: '0 3px 0 var(--accent-600)' }}
+        aria-hidden
+      >
+        {numero}
+      </span>
+      <div className="min-w-0">
+        <p className={`font-extrabold tracking-wide uppercase ${grand ? 'text-sm' : 'text-xs'}`} style={{ color: 'var(--accent-700)' }}>
+          Chapitre {numero} · {c.seances}
+        </p>
+        <p className={`font-titre font-bold truncate ${grand ? 'text-xl' : ''}`} style={{ color: 'var(--m-ink)' }}>
+          {c.titre}
+        </p>
+      </div>
     </div>
   )
 }

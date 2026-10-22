@@ -5,6 +5,7 @@ import { changerFiltres } from '../state/filtres'
 import { useProgression } from '../state/progression'
 import Icone, { type NomIcone } from './Icone'
 import { Barre } from './ui'
+import type { FiltreChapitre } from '../lib/types'
 
 const STYLE: Record<NiveauMaitrise, { couleur: 'erreur' | 'attention' | 'succes' | 'bleu'; icone: NomIcone; texte: string }> = {
   nouveau: { couleur: 'bleu', icone: 'plus', texte: 'text-muted' },
@@ -28,13 +29,13 @@ export default function MaitriseNotions() {
           <li key={n.id}>
             <Link
               to="/reviser/flashcards"
-              onClick={() => changerFiltres({ seance: String(n.seance) as '1' | '2', notion: n.id })}
+              onClick={() => changerFiltres({ chapitre: String(n.chapitre) as FiltreChapitre, notion: n.id })}
               className="block rounded-xl p-2 -m-2 hover:bg-surface-2"
               aria-label={`${n.titre} : ${LIBELLE_MAITRISE[m.niveau]}${m.nb ? `, ${m.taux} % de réussite` : ''}. Réviser cette notion.`}
             >
               <span className="flex items-center justify-between gap-2 text-sm mb-1">
                 <span className="font-semibold">
-                  {n.titre} <span className="font-normal text-muted">· S{n.seance}</span>
+                  {n.titre} <span className="font-normal text-muted">· Ch.{n.chapitre}</span>
                 </span>
                 <span className={`flex items-center gap-1 font-bold whitespace-nowrap ${s.texte}`}>
                   <Icone nom={s.icone} taille={14} />

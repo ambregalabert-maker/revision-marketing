@@ -5,10 +5,26 @@
     "notion": "definition-marketing",
     "question": "Selon la définition de l'Association Française du Marketing (2015), le marketing vise à créer…",
     "choix": [
-      { "texte": "de la valeur durable pour l'ensemble des parties prenantes", "correct": true, "pourquoi": "C'est mot pour mot la fin de la définition AFM." },
-      { "texte": "du profit à court terme pour l'entreprise", "correct": false, "pourquoi": "La définition parle de valeur durable et de toutes les parties prenantes, pas seulement de l'entreprise." },
-      { "texte": "de nouveaux besoins chez les consommateurs", "correct": false, "pourquoi": "La définition ne parle pas de créer des besoins : elle parle de créer de la valeur." },
-      { "texte": "de la notoriété pour les marques", "correct": false, "pourquoi": "La notoriété n'apparaît pas dans la définition AFM." }
+      {
+        "texte": "de la valeur durable pour l'ensemble des parties prenantes",
+        "correct": true,
+        "pourquoi": "C'est mot pour mot la fin de la définition AFM."
+      },
+      {
+        "texte": "du profit à court terme pour l'entreprise",
+        "correct": false,
+        "pourquoi": "La définition parle de valeur durable et de toutes les parties prenantes, pas seulement de l'entreprise."
+      },
+      {
+        "texte": "de nouveaux besoins chez les consommateurs",
+        "correct": false,
+        "pourquoi": "La définition ne parle pas de créer des besoins : elle parle de créer de la valeur."
+      },
+      {
+        "texte": "de la notoriété pour les marques",
+        "correct": false,
+        "pourquoi": "La notoriété n'apparaît pas dans la définition AFM."
+      }
     ],
     "explication": "« Le marketing est une conception des échanges et un ensemble de pratiques qui vise à créer de la valeur durable pour l'ensemble des parties prenantes (individus, entreprises ou organisations). »"
   },
@@ -18,10 +34,26 @@
     "notion": "definition-marketing",
     "question": "Lequel de ces termes n'apparaît PAS dans la définition du marketing de l'AFM ?",
     "choix": [
-      { "texte": "Maximisation des ventes", "correct": true, "pourquoi": "Ce terme n'est pas dans la définition : le marketing ne se résume pas à la vente." },
-      { "texte": "Conception des échanges", "correct": false, "pourquoi": "C'est le premier mot-clé de la définition." },
-      { "texte": "Ensemble de pratiques", "correct": false, "pourquoi": "C'est un des mots-clés de la définition." },
-      { "texte": "Parties prenantes", "correct": false, "pourquoi": "La définition parle de valeur pour l'ensemble des parties prenantes." }
+      {
+        "texte": "Maximisation des ventes",
+        "correct": true,
+        "pourquoi": "Ce terme n'est pas dans la définition : le marketing ne se résume pas à la vente."
+      },
+      {
+        "texte": "Conception des échanges",
+        "correct": false,
+        "pourquoi": "C'est le premier mot-clé de la définition."
+      },
+      {
+        "texte": "Ensemble de pratiques",
+        "correct": false,
+        "pourquoi": "C'est un des mots-clés de la définition."
+      },
+      {
+        "texte": "Parties prenantes",
+        "correct": false,
+        "pourquoi": "La définition parle de valeur pour l'ensemble des parties prenantes."
+      }
     ],
     "explication": "Les 4 mots-clés à retenir : conception des échanges, ensemble de pratiques, valeur durable, parties prenantes."
   },
@@ -31,10 +63,26 @@
     "notion": "definition-marketing",
     "question": "Dans la définition de l'AFM, les parties prenantes sont…",
     "choix": [
-      { "texte": "les individus, les entreprises ou les organisations", "correct": true, "pourquoi": "C'est la liste donnée entre parenthèses dans la définition." },
-      { "texte": "uniquement les clients", "correct": false, "pourquoi": "Les clients en font partie, mais pas seulement eux." },
-      { "texte": "uniquement les actionnaires de l'entreprise", "correct": false, "pourquoi": "La définition est beaucoup plus large que les actionnaires." },
-      { "texte": "uniquement les salariés de l'entreprise", "correct": false, "pourquoi": "La définition est beaucoup plus large que les salariés." }
+      {
+        "texte": "les individus, les entreprises ou les organisations",
+        "correct": true,
+        "pourquoi": "C'est la liste donnée entre parenthèses dans la définition."
+      },
+      {
+        "texte": "uniquement les clients",
+        "correct": false,
+        "pourquoi": "Les clients en font partie, mais pas seulement eux."
+      },
+      {
+        "texte": "uniquement les actionnaires de l'entreprise",
+        "correct": false,
+        "pourquoi": "La définition est beaucoup plus large que les actionnaires."
+      },
+      {
+        "texte": "uniquement les salariés de l'entreprise",
+        "correct": false,
+        "pourquoi": "La définition est beaucoup plus large que les salariés."
+      }
     ],
     "explication": "Le marketing doit créer de la valeur pour l'ensemble des parties prenantes : individus, entreprises ou organisations."
   },
@@ -44,10 +92,26 @@
     "notion": "definition-marketing",
     "question": "Qui est l'auteur de la définition du marketing vue en cours ?",
     "choix": [
-      { "texte": "L'Association Française du Marketing (2015)", "correct": true, "pourquoi": "C'est la source citée dans le cours." },
-      { "texte": "L'Institut national de la statistique (INSEE)", "correct": false, "pourquoi": "L'INSEE produit des statistiques, ce n'est pas la source de la définition." },
-      { "texte": "Le ministère de l'Économie", "correct": false, "pourquoi": "Ce n'est pas la source citée dans le cours." },
-      { "texte": "Une agence de publicité", "correct": false, "pourquoi": "Ce n'est pas la source citée dans le cours." }
+      {
+        "texte": "L'Association Française du Marketing (2015)",
+        "correct": true,
+        "pourquoi": "C'est la source citée dans le cours."
+      },
+      {
+        "texte": "L'Institut national de la statistique (INSEE)",
+        "correct": false,
+        "pourquoi": "L'INSEE produit des statistiques, ce n'est pas la source de la définition."
+      },
+      {
+        "texte": "Le ministère de l'Économie",
+        "correct": false,
+        "pourquoi": "Ce n'est pas la source citée dans le cours."
+      },
+      {
+        "texte": "Une agence de publicité",
+        "correct": false,
+        "pourquoi": "Ce n'est pas la source citée dans le cours."
+      }
     ],
     "explication": "Retiens « AFM, 2015 » : citer la source dans une copie montre que tu maîtrises ta définition."
   },
@@ -57,10 +121,26 @@
     "notion": "marketing-management",
     "question": "Le marketing management, c'est…",
     "choix": [
-      { "texte": "l'ensemble des pratiques marketing que mettent en œuvre les organisations pour réaliser leurs objectifs", "correct": true, "pourquoi": "C'est la définition du cours." },
-      { "texte": "l'étude scientifique des pratiques marketing", "correct": false, "pourquoi": "Ça, c'est la recherche en marketing." },
-      { "texte": "la gestion des stocks d'une entreprise", "correct": false, "pourquoi": "La gestion des stocks relève de la logistique, pas de cette définition." },
-      { "texte": "uniquement la création de publicités", "correct": false, "pourquoi": "La publicité n'est qu'une partie de la diffusion ; le marketing management est bien plus large." }
+      {
+        "texte": "l'ensemble des pratiques marketing que mettent en œuvre les organisations pour réaliser leurs objectifs",
+        "correct": true,
+        "pourquoi": "C'est la définition du cours."
+      },
+      {
+        "texte": "l'étude scientifique des pratiques marketing",
+        "correct": false,
+        "pourquoi": "Ça, c'est la recherche en marketing."
+      },
+      {
+        "texte": "la gestion des stocks d'une entreprise",
+        "correct": false,
+        "pourquoi": "La gestion des stocks relève de la logistique, pas de cette définition."
+      },
+      {
+        "texte": "uniquement la création de publicités",
+        "correct": false,
+        "pourquoi": "La publicité n'est qu'une partie de la diffusion ; le marketing management est bien plus large."
+      }
     ],
     "explication": "Le marketing management regroupe les pratiques des organisations : étudier les publics, créer des offres, organiser leur diffusion."
   },
@@ -70,10 +150,26 @@
     "notion": "marketing-management",
     "question": "Lequel de ces éléments n'est PAS un des 3 objectifs du marketing management ?",
     "choix": [
-      { "texte": "Fabriquer les produits au coût le plus bas", "correct": true, "pourquoi": "La fabrication relève de la production, pas des 3 objectifs du marketing management." },
-      { "texte": "Étudier les différents publics, leurs besoins, désirs et aspirations", "correct": false, "pourquoi": "C'est le 1er objectif." },
-      { "texte": "Créer des offres de produits, services et expériences", "correct": false, "pourquoi": "C'est le 2e objectif." },
-      { "texte": "Organiser leur diffusion, dans un mode marchand ou non marchand", "correct": false, "pourquoi": "C'est le 3e objectif." }
+      {
+        "texte": "Fabriquer les produits au coût le plus bas",
+        "correct": true,
+        "pourquoi": "La fabrication relève de la production, pas des 3 objectifs du marketing management."
+      },
+      {
+        "texte": "Étudier les différents publics, leurs besoins, désirs et aspirations",
+        "correct": false,
+        "pourquoi": "C'est le 1er objectif."
+      },
+      {
+        "texte": "Créer des offres de produits, services et expériences",
+        "correct": false,
+        "pourquoi": "C'est le 2e objectif."
+      },
+      {
+        "texte": "Organiser leur diffusion, dans un mode marchand ou non marchand",
+        "correct": false,
+        "pourquoi": "C'est le 3e objectif."
+      }
     ],
     "explication": "Les 3 objectifs : Étudier → Créer → Diffuser."
   },
@@ -83,10 +179,26 @@
     "notion": "marketing-management",
     "question": "Les Restos du Cœur distribuent des repas gratuitement. Cette diffusion se fait dans un mode…",
     "choix": [
-      { "texte": "non marchand", "correct": true, "pourquoi": "Il n'y a pas de vente : c'est une diffusion non marchande." },
-      { "texte": "marchand", "correct": false, "pourquoi": "Un mode marchand suppose une vente, ce qui n'est pas le cas ici." },
-      { "texte": "générique", "correct": false, "pourquoi": "« Générique » désigne un type de marché, pas un mode de diffusion." },
-      { "texte": "complémentaire", "correct": false, "pourquoi": "« Complémentaire » désigne un type de marché, pas un mode de diffusion." }
+      {
+        "texte": "non marchand",
+        "correct": true,
+        "pourquoi": "Il n'y a pas de vente : c'est une diffusion non marchande."
+      },
+      {
+        "texte": "marchand",
+        "correct": false,
+        "pourquoi": "Un mode marchand suppose une vente, ce qui n'est pas le cas ici."
+      },
+      {
+        "texte": "générique",
+        "correct": false,
+        "pourquoi": "« Générique » désigne un type de marché, pas un mode de diffusion."
+      },
+      {
+        "texte": "complémentaire",
+        "correct": false,
+        "pourquoi": "« Complémentaire » désigne un type de marché, pas un mode de diffusion."
+      }
     ],
     "explication": "Le 3e objectif du marketing management : organiser la diffusion des offres, dans un mode marchand ou non marchand."
   },
@@ -96,10 +208,26 @@
     "notion": "marketing-management",
     "question": "Avant de lancer un nouveau produit, une marque interroge ses clients sur leurs attentes. À quel objectif du marketing management cela correspond-il ?",
     "choix": [
-      { "texte": "Étudier les différents publics, leurs besoins, désirs et aspirations", "correct": true, "pourquoi": "Interroger ses clients, c'est étudier leurs besoins et leurs attentes." },
-      { "texte": "Créer des offres de produits, services et expériences", "correct": false, "pourquoi": "La création viendra après : pour l'instant, la marque étudie." },
-      { "texte": "Organiser la diffusion des offres", "correct": false, "pourquoi": "Rien n'est encore diffusé à ce stade." },
-      { "texte": "Faire de la recherche en marketing", "correct": false, "pourquoi": "La recherche en marketing est une étude scientifique ; ici, c'est une pratique de l'entreprise pour ses propres objectifs." }
+      {
+        "texte": "Étudier les différents publics, leurs besoins, désirs et aspirations",
+        "correct": true,
+        "pourquoi": "Interroger ses clients, c'est étudier leurs besoins et leurs attentes."
+      },
+      {
+        "texte": "Créer des offres de produits, services et expériences",
+        "correct": false,
+        "pourquoi": "La création viendra après : pour l'instant, la marque étudie."
+      },
+      {
+        "texte": "Organiser la diffusion des offres",
+        "correct": false,
+        "pourquoi": "Rien n'est encore diffusé à ce stade."
+      },
+      {
+        "texte": "Faire de la recherche en marketing",
+        "correct": false,
+        "pourquoi": "La recherche en marketing est une étude scientifique ; ici, c'est une pratique de l'entreprise pour ses propres objectifs."
+      }
     ],
     "explication": "Étudier les publics est le 1er objectif du marketing management."
   },
@@ -109,10 +237,26 @@
     "notion": "marketing-management",
     "question": "D'après le 2e objectif du marketing management, une organisation crée des offres de…",
     "choix": [
-      { "texte": "produits, services et expériences", "correct": true, "pourquoi": "C'est la formulation exacte du cours." },
-      { "texte": "produits uniquement", "correct": false, "pourquoi": "Les services et les expériences sont aussi des offres." },
-      { "texte": "publicités uniquement", "correct": false, "pourquoi": "Une publicité sert à diffuser une offre, ce n'est pas l'offre elle-même." },
-      { "texte": "besoins", "correct": false, "pourquoi": "Les besoins sont exprimés par les individus ; le marketing y répond par des offres." }
+      {
+        "texte": "produits, services et expériences",
+        "correct": true,
+        "pourquoi": "C'est la formulation exacte du cours."
+      },
+      {
+        "texte": "produits uniquement",
+        "correct": false,
+        "pourquoi": "Les services et les expériences sont aussi des offres."
+      },
+      {
+        "texte": "publicités uniquement",
+        "correct": false,
+        "pourquoi": "Une publicité sert à diffuser une offre, ce n'est pas l'offre elle-même."
+      },
+      {
+        "texte": "besoins",
+        "correct": false,
+        "pourquoi": "Les besoins sont exprimés par les individus ; le marketing y répond par des offres."
+      }
     ],
     "explication": "2e objectif : créer des offres de produits, services et expériences."
   },
@@ -123,10 +267,26 @@
     "multiple": true,
     "question": "Qu'étudie la recherche en marketing ?",
     "choix": [
-      { "texte": "Les pratiques marketing", "correct": true, "pourquoi": "C'est le 1er objet d'étude." },
-      { "texte": "Les phénomènes de consommation et de création de valeur entre les parties prenantes d'un échange", "correct": true, "pourquoi": "C'est le 2e objet d'étude." },
-      { "texte": "Les conséquences positives et négatives de ces pratiques sur la société", "correct": true, "pourquoi": "C'est le 3e objet d'étude." },
-      { "texte": "Uniquement le chiffre d'affaires des entreprises", "correct": false, "pourquoi": "La recherche en marketing va bien au-delà du chiffre d'affaires." }
+      {
+        "texte": "Les pratiques marketing",
+        "correct": true,
+        "pourquoi": "C'est le 1er objet d'étude."
+      },
+      {
+        "texte": "Les phénomènes de consommation et de création de valeur entre les parties prenantes d'un échange",
+        "correct": true,
+        "pourquoi": "C'est le 2e objet d'étude."
+      },
+      {
+        "texte": "Les conséquences positives et négatives de ces pratiques sur la société",
+        "correct": true,
+        "pourquoi": "C'est le 3e objet d'étude."
+      },
+      {
+        "texte": "Uniquement le chiffre d'affaires des entreprises",
+        "correct": false,
+        "pourquoi": "La recherche en marketing va bien au-delà du chiffre d'affaires."
+      }
     ],
     "explication": "La recherche en marketing est l'étude scientifique des pratiques marketing, des phénomènes de consommation et de création de valeur, et de leurs conséquences positives et négatives sur la société."
   },
@@ -136,10 +296,26 @@
     "notion": "recherche-marketing",
     "question": "Un article scientifique qui étudie l'activisme de marque, la légitimité de la marque et la distance psychologique relève…",
     "choix": [
-      { "texte": "de la recherche en marketing", "correct": true, "pourquoi": "C'est l'exemple d'article de recherche donné en cours." },
-      { "texte": "du marketing management", "correct": false, "pourquoi": "Le marketing management, ce sont les pratiques des organisations, pas leur étude scientifique." },
-      { "texte": "de la publicité", "correct": false, "pourquoi": "Un article scientifique n'est pas une publicité." },
-      { "texte": "du marché complémentaire", "correct": false, "pourquoi": "Ça n'a pas de lien avec les types de marché." }
+      {
+        "texte": "de la recherche en marketing",
+        "correct": true,
+        "pourquoi": "C'est l'exemple d'article de recherche donné en cours."
+      },
+      {
+        "texte": "du marketing management",
+        "correct": false,
+        "pourquoi": "Le marketing management, ce sont les pratiques des organisations, pas leur étude scientifique."
+      },
+      {
+        "texte": "de la publicité",
+        "correct": false,
+        "pourquoi": "Un article scientifique n'est pas une publicité."
+      },
+      {
+        "texte": "du marché complémentaire",
+        "correct": false,
+        "pourquoi": "Ça n'a pas de lien avec les types de marché."
+      }
     ],
     "explication": "Étudier scientifiquement les pratiques marketing et leurs effets, c'est de la recherche en marketing."
   },
@@ -149,10 +325,26 @@
     "notion": "recherche-marketing",
     "question": "La recherche en marketing s'intéresse-t-elle aux effets négatifs du marketing ?",
     "choix": [
-      { "texte": "Oui : elle étudie ses conséquences positives et négatives sur la société", "correct": true, "pourquoi": "C'est le 3e objet d'étude de la recherche en marketing." },
-      { "texte": "Non : elle étudie seulement ses effets positifs", "correct": false, "pourquoi": "La définition parle bien des conséquences positives ET négatives." },
-      { "texte": "Non : elle étudie seulement les ventes", "correct": false, "pourquoi": "La recherche en marketing ne se limite pas aux ventes." },
-      { "texte": "Seulement si une entreprise le lui demande", "correct": false, "pourquoi": "Rien dans la définition ne dit cela." }
+      {
+        "texte": "Oui : elle étudie ses conséquences positives et négatives sur la société",
+        "correct": true,
+        "pourquoi": "C'est le 3e objet d'étude de la recherche en marketing."
+      },
+      {
+        "texte": "Non : elle étudie seulement ses effets positifs",
+        "correct": false,
+        "pourquoi": "La définition parle bien des conséquences positives ET négatives."
+      },
+      {
+        "texte": "Non : elle étudie seulement les ventes",
+        "correct": false,
+        "pourquoi": "La recherche en marketing ne se limite pas aux ventes."
+      },
+      {
+        "texte": "Seulement si une entreprise le lui demande",
+        "correct": false,
+        "pourquoi": "Rien dans la définition ne dit cela."
+      }
     ],
     "explication": "Recherche en marketing = pratiques + phénomènes de consommation et de création de valeur + conséquences positives et négatives sur la société."
   },
@@ -162,10 +354,26 @@
     "notion": "besoins-offres",
     "question": "Lequel de ces éléments n'est PAS une offre ?",
     "choix": [
-      { "texte": "Un besoin", "correct": true, "pourquoi": "Le besoin est exprimé par les individus ; l'offre vient y répondre." },
-      { "texte": "Un produit", "correct": false, "pourquoi": "Un produit est une forme d'offre." },
-      { "texte": "Un service", "correct": false, "pourquoi": "Un service est une forme d'offre." },
-      { "texte": "Une expérience", "correct": false, "pourquoi": "Une expérience est une forme d'offre." }
+      {
+        "texte": "Un besoin",
+        "correct": true,
+        "pourquoi": "Le besoin est exprimé par les individus ; l'offre vient y répondre."
+      },
+      {
+        "texte": "Un produit",
+        "correct": false,
+        "pourquoi": "Un produit est une forme d'offre."
+      },
+      {
+        "texte": "Un service",
+        "correct": false,
+        "pourquoi": "Un service est une forme d'offre."
+      },
+      {
+        "texte": "Une expérience",
+        "correct": false,
+        "pourquoi": "Une expérience est une forme d'offre."
+      }
     ],
     "explication": "Les individus expriment des besoins, des désirs, des demandes, auxquels répondent des offres : produits, services, informations, expériences."
   },
@@ -175,10 +383,26 @@
     "notion": "besoins-offres",
     "question": "Que propose « C'est qui le patron ?! » à ses consommateurs ?",
     "choix": [
-      { "texte": "De voter pour leurs produits préférés", "correct": true, "pourquoi": "C'est ce que dit le cours : CQLP invite les consommateurs à voter." },
-      { "texte": "D'acheter le lait le moins cher du marché", "correct": false, "pourquoi": "Le cours ne parle pas de prix le plus bas, mais d'implication des consommateurs et de juste rémunération." },
-      { "texte": "De devenir actionnaires de la marque", "correct": false, "pourquoi": "Ce n'est pas ce que décrit le cours." },
-      { "texte": "De recevoir du lait gratuitement", "correct": false, "pourquoi": "Ce n'est pas ce que décrit le cours." }
+      {
+        "texte": "De voter pour leurs produits préférés",
+        "correct": true,
+        "pourquoi": "C'est ce que dit le cours : CQLP invite les consommateurs à voter."
+      },
+      {
+        "texte": "D'acheter le lait le moins cher du marché",
+        "correct": false,
+        "pourquoi": "Le cours ne parle pas de prix le plus bas, mais d'implication des consommateurs et de juste rémunération."
+      },
+      {
+        "texte": "De devenir actionnaires de la marque",
+        "correct": false,
+        "pourquoi": "Ce n'est pas ce que décrit le cours."
+      },
+      {
+        "texte": "De recevoir du lait gratuitement",
+        "correct": false,
+        "pourquoi": "Ce n'est pas ce que décrit le cours."
+      }
     ],
     "explication": "Les consommateurs veulent s'impliquer dans la création des produits : CQLP les fait voter et garantit une charte de juste rémunération des producteurs."
   },
@@ -188,10 +412,26 @@
     "notion": "besoins-offres",
     "question": "Quel besoin des consommateurs l'offre « C'est qui le patron ?! » cherche-t-elle à satisfaire ?",
     "choix": [
-      { "texte": "Consommer des produits laitiers respectueux des producteurs et s'impliquer dans leur création", "correct": true, "pourquoi": "C'est le besoin décrit dans le cours." },
-      { "texte": "Trouver le lait le plus rapide à livrer", "correct": false, "pourquoi": "Le cours ne parle pas de livraison." },
-      { "texte": "Remplacer le lait par des boissons végétales", "correct": false, "pourquoi": "CQLP vend des produits laitiers, ce n'est pas son besoin de départ." },
-      { "texte": "Acheter du lait dans des bouteilles en verre", "correct": false, "pourquoi": "Le cours ne parle pas d'emballage." }
+      {
+        "texte": "Consommer des produits laitiers respectueux des producteurs et s'impliquer dans leur création",
+        "correct": true,
+        "pourquoi": "C'est le besoin décrit dans le cours."
+      },
+      {
+        "texte": "Trouver le lait le plus rapide à livrer",
+        "correct": false,
+        "pourquoi": "Le cours ne parle pas de livraison."
+      },
+      {
+        "texte": "Remplacer le lait par des boissons végétales",
+        "correct": false,
+        "pourquoi": "CQLP vend des produits laitiers, ce n'est pas son besoin de départ."
+      },
+      {
+        "texte": "Acheter du lait dans des bouteilles en verre",
+        "correct": false,
+        "pourquoi": "Le cours ne parle pas d'emballage."
+      }
     ],
     "explication": "Besoin → offre : les individus expriment un besoin, l'offre (produits, services, informations, expériences) y répond."
   },
@@ -201,10 +441,26 @@
     "notion": "besoins-offres",
     "question": "Quelle garantie apporte la charte de « C'est qui le patron ?! » ?",
     "choix": [
-      { "texte": "Une juste rémunération des producteurs", "correct": true, "pourquoi": "C'est la garantie citée dans le cours." },
-      { "texte": "Le prix le plus bas de tout le rayon", "correct": false, "pourquoi": "Le cours ne parle pas de prix le plus bas." },
-      { "texte": "Une livraison à domicile", "correct": false, "pourquoi": "Le cours ne parle pas de livraison." },
-      { "texte": "Un remboursement si le produit déçoit", "correct": false, "pourquoi": "Le cours ne parle pas de remboursement." }
+      {
+        "texte": "Une juste rémunération des producteurs",
+        "correct": true,
+        "pourquoi": "C'est la garantie citée dans le cours."
+      },
+      {
+        "texte": "Le prix le plus bas de tout le rayon",
+        "correct": false,
+        "pourquoi": "Le cours ne parle pas de prix le plus bas."
+      },
+      {
+        "texte": "Une livraison à domicile",
+        "correct": false,
+        "pourquoi": "Le cours ne parle pas de livraison."
+      },
+      {
+        "texte": "Un remboursement si le produit déçoit",
+        "correct": false,
+        "pourquoi": "Le cours ne parle pas de remboursement."
+      }
     ],
     "explication": "CQLP garantit le respect d'une charte permettant une juste rémunération des producteurs : la valeur est créée pour plusieurs parties prenantes."
   },
@@ -214,10 +470,26 @@
     "notion": "types-de-marche",
     "question": "Le marché générique est défini par…",
     "choix": [
-      { "texte": "un besoin", "correct": true, "pourquoi": "Marché générique = marché défini par un besoin." },
-      { "texte": "un produit", "correct": false, "pourquoi": "Le marché du produit, c'est le marché principal." },
-      { "texte": "un prix", "correct": false, "pourquoi": "Aucun type de marché n'est défini par un prix dans le cours." },
-      { "texte": "une marque", "correct": false, "pourquoi": "Aucun type de marché n'est défini par une marque dans le cours." }
+      {
+        "texte": "un besoin",
+        "correct": true,
+        "pourquoi": "Marché générique = marché défini par un besoin."
+      },
+      {
+        "texte": "un produit",
+        "correct": false,
+        "pourquoi": "Le marché du produit, c'est le marché principal."
+      },
+      {
+        "texte": "un prix",
+        "correct": false,
+        "pourquoi": "Aucun type de marché n'est défini par un prix dans le cours."
+      },
+      {
+        "texte": "une marque",
+        "correct": false,
+        "pourquoi": "Aucun type de marché n'est défini par une marque dans le cours."
+      }
     ],
     "explication": "Ex. : pour le lait, le marché générique est « consommer des produits laitiers »."
   },
@@ -227,10 +499,26 @@
     "notion": "types-de-marche",
     "question": "Le marché principal, c'est…",
     "choix": [
-      { "texte": "le marché du produit", "correct": true, "pourquoi": "C'est la définition du cours." },
-      { "texte": "le marché défini par un besoin", "correct": false, "pourquoi": "Ça, c'est le marché générique." },
-      { "texte": "le marché des produits qui se consomment avec le produit", "correct": false, "pourquoi": "Ça, c'est le marché complémentaire." },
-      { "texte": "le marché des produits qui peuvent remplacer le produit", "correct": false, "pourquoi": "Ça, c'est le marché de substitution." }
+      {
+        "texte": "le marché du produit",
+        "correct": true,
+        "pourquoi": "C'est la définition du cours."
+      },
+      {
+        "texte": "le marché défini par un besoin",
+        "correct": false,
+        "pourquoi": "Ça, c'est le marché générique."
+      },
+      {
+        "texte": "le marché des produits qui se consomment avec le produit",
+        "correct": false,
+        "pourquoi": "Ça, c'est le marché complémentaire."
+      },
+      {
+        "texte": "le marché des produits qui peuvent remplacer le produit",
+        "correct": false,
+        "pourquoi": "Ça, c'est le marché de substitution."
+      }
     ],
     "explication": "Ex. : pour une brique de lait pasteurisé, le marché principal est le marché du lait pasteurisé."
   },
@@ -240,10 +528,26 @@
     "notion": "types-de-marche",
     "question": "Quel marché englobe les trois autres ?",
     "choix": [
-      { "texte": "Le marché générique", "correct": true, "pourquoi": "Il est défini par le besoin, auquel répondent tous les autres marchés." },
-      { "texte": "Le marché principal", "correct": false, "pourquoi": "Le marché principal est inclus dans le marché générique." },
-      { "texte": "Le marché de substitution", "correct": false, "pourquoi": "Le marché de substitution est inclus dans le marché générique." },
-      { "texte": "Le marché complémentaire", "correct": false, "pourquoi": "Le marché complémentaire est inclus dans le marché générique." }
+      {
+        "texte": "Le marché générique",
+        "correct": true,
+        "pourquoi": "Il est défini par le besoin, auquel répondent tous les autres marchés."
+      },
+      {
+        "texte": "Le marché principal",
+        "correct": false,
+        "pourquoi": "Le marché principal est inclus dans le marché générique."
+      },
+      {
+        "texte": "Le marché de substitution",
+        "correct": false,
+        "pourquoi": "Le marché de substitution est inclus dans le marché générique."
+      },
+      {
+        "texte": "Le marché complémentaire",
+        "correct": false,
+        "pourquoi": "Le marché complémentaire est inclus dans le marché générique."
+      }
     ],
     "explication": "Sur le schéma du cours, le marché générique entoure le marché principal, le marché de substitution et le marché complémentaire."
   },
@@ -253,10 +557,26 @@
     "notion": "types-de-marche",
     "question": "Pour une marque de lait pasteurisé, le lait d'avoine appartient au marché…",
     "choix": [
-      { "texte": "de substitution", "correct": true, "pourquoi": "Le lait d'avoine peut remplacer le lait pasteurisé : il répond au même besoin. C'est l'exemple du cours." },
-      { "texte": "complémentaire", "correct": false, "pourquoi": "On ne le consomme pas avec le lait pasteurisé : on le prend à sa place." },
-      { "texte": "principal", "correct": false, "pourquoi": "Le marché principal est celui du lait pasteurisé lui-même." },
-      { "texte": "Aucun : il n'a rien à voir avec le lait", "correct": false, "pourquoi": "Il répond au même besoin : il fait bien partie des marchés à analyser." }
+      {
+        "texte": "de substitution",
+        "correct": true,
+        "pourquoi": "Le lait d'avoine peut remplacer le lait pasteurisé : il répond au même besoin. C'est l'exemple du cours."
+      },
+      {
+        "texte": "complémentaire",
+        "correct": false,
+        "pourquoi": "On ne le consomme pas avec le lait pasteurisé : on le prend à sa place."
+      },
+      {
+        "texte": "principal",
+        "correct": false,
+        "pourquoi": "Le marché principal est celui du lait pasteurisé lui-même."
+      },
+      {
+        "texte": "Aucun : il n'a rien à voir avec le lait",
+        "correct": false,
+        "pourquoi": "Il répond au même besoin : il fait bien partie des marchés à analyser."
+      }
     ],
     "explication": "Exemple du cours : substitution = lait de brebis, lait d'avoine, lait de riz…"
   },
@@ -266,10 +586,26 @@
     "notion": "types-de-marche",
     "question": "Pour un fabricant de capsules de café, le lait d'avoine appartient au marché…",
     "choix": [
-      { "texte": "complémentaire", "correct": true, "pourquoi": "Il s'associe à la consommation de café : on le met dans son café." },
-      { "texte": "de substitution", "correct": false, "pourquoi": "Le lait d'avoine n'est pas un substitut au café : il se consomme avec." },
-      { "texte": "principal", "correct": false, "pourquoi": "Le marché principal est celui des capsules de café." },
-      { "texte": "générique", "correct": false, "pourquoi": "Le marché générique se définit par un besoin (boire du café), pas par un produit précis : ici, la réponse attendue est complémentaire." }
+      {
+        "texte": "complémentaire",
+        "correct": true,
+        "pourquoi": "Il s'associe à la consommation de café : on le met dans son café."
+      },
+      {
+        "texte": "de substitution",
+        "correct": false,
+        "pourquoi": "Le lait d'avoine n'est pas un substitut au café : il se consomme avec."
+      },
+      {
+        "texte": "principal",
+        "correct": false,
+        "pourquoi": "Le marché principal est celui des capsules de café."
+      },
+      {
+        "texte": "générique",
+        "correct": false,
+        "pourquoi": "Le marché générique se définit par un besoin (boire du café), pas par un produit précis : ici, la réponse attendue est complémentaire."
+      }
     ],
     "explication": "Attention : le même produit (le lait d'avoine) peut être un substitut pour une marque de lait et un complément pour une marque de café. Tout dépend du produit de départ."
   },
@@ -279,10 +615,26 @@
     "notion": "types-de-marche",
     "question": "Pour une marque de lait, les céréales du petit-déjeuner appartiennent au marché…",
     "choix": [
-      { "texte": "complémentaire", "correct": true, "pourquoi": "Leur consommation est associée à celle du lait. C'est l'exemple du cours." },
-      { "texte": "de substitution", "correct": false, "pourquoi": "Les céréales ne remplacent pas le lait : elles se mangent avec." },
-      { "texte": "principal", "correct": false, "pourquoi": "Le marché principal est celui du lait." },
-      { "texte": "Aucun : elles n'ont pas de lien avec le lait", "correct": false, "pourquoi": "Elles sont souvent consommées avec du lait : c'est un marché complémentaire." }
+      {
+        "texte": "complémentaire",
+        "correct": true,
+        "pourquoi": "Leur consommation est associée à celle du lait. C'est l'exemple du cours."
+      },
+      {
+        "texte": "de substitution",
+        "correct": false,
+        "pourquoi": "Les céréales ne remplacent pas le lait : elles se mangent avec."
+      },
+      {
+        "texte": "principal",
+        "correct": false,
+        "pourquoi": "Le marché principal est celui du lait."
+      },
+      {
+        "texte": "Aucun : elles n'ont pas de lien avec le lait",
+        "correct": false,
+        "pourquoi": "Elles sont souvent consommées avec du lait : c'est un marché complémentaire."
+      }
     ],
     "explication": "Exemple du cours : complémentaire = céréales du petit-déjeuner, café…"
   },
@@ -292,10 +644,26 @@
     "notion": "types-de-marche",
     "question": "Pour une marque de lait pasteurisé, « consommer des produits laitiers » correspond au marché…",
     "choix": [
-      { "texte": "générique", "correct": true, "pourquoi": "C'est un besoin, et le marché générique est défini par un besoin." },
-      { "texte": "principal", "correct": false, "pourquoi": "Le marché principal est un produit (le lait pasteurisé), pas un besoin." },
-      { "texte": "de substitution", "correct": false, "pourquoi": "Le marché de substitution regroupe des produits (lait d'avoine…), pas un besoin." },
-      { "texte": "complémentaire", "correct": false, "pourquoi": "Le marché complémentaire regroupe des produits (céréales…), pas un besoin." }
+      {
+        "texte": "générique",
+        "correct": true,
+        "pourquoi": "C'est un besoin, et le marché générique est défini par un besoin."
+      },
+      {
+        "texte": "principal",
+        "correct": false,
+        "pourquoi": "Le marché principal est un produit (le lait pasteurisé), pas un besoin."
+      },
+      {
+        "texte": "de substitution",
+        "correct": false,
+        "pourquoi": "Le marché de substitution regroupe des produits (lait d'avoine…), pas un besoin."
+      },
+      {
+        "texte": "complémentaire",
+        "correct": false,
+        "pourquoi": "Le marché complémentaire regroupe des produits (céréales…), pas un besoin."
+      }
     ],
     "explication": "Astuce : si la réponse commence par un verbe (« consommer », « se déplacer », « s'habiller »…), c'est souvent le marché générique."
   },
@@ -305,10 +673,26 @@
     "notion": "types-de-marche",
     "question": "Un produit de substitution…",
     "choix": [
-      { "texte": "peut remplacer le produit du marché principal, car il répond au même besoin", "correct": true, "pourquoi": "C'est la définition du marché de substitution." },
-      { "texte": "se consomme en même temps que le produit principal", "correct": false, "pourquoi": "Ça, c'est un produit complémentaire." },
-      { "texte": "est forcément vendu par la même entreprise", "correct": false, "pourquoi": "Rien n'oblige un substitut à être vendu par la même entreprise." },
-      { "texte": "est exactement le même produit, vendu par un concurrent", "correct": false, "pourquoi": "Le même produit vendu par un concurrent reste sur le marché principal." }
+      {
+        "texte": "peut remplacer le produit du marché principal, car il répond au même besoin",
+        "correct": true,
+        "pourquoi": "C'est la définition du marché de substitution."
+      },
+      {
+        "texte": "se consomme en même temps que le produit principal",
+        "correct": false,
+        "pourquoi": "Ça, c'est un produit complémentaire."
+      },
+      {
+        "texte": "est forcément vendu par la même entreprise",
+        "correct": false,
+        "pourquoi": "Rien n'oblige un substitut à être vendu par la même entreprise."
+      },
+      {
+        "texte": "est exactement le même produit, vendu par un concurrent",
+        "correct": false,
+        "pourquoi": "Le même produit vendu par un concurrent reste sur le marché principal."
+      }
     ],
     "explication": "Substitution = « à la place de ». Complémentaire = « avec »."
   },
@@ -319,10 +703,26 @@
     "multiple": true,
     "question": "Selon le cours, qui fait du marketing ?",
     "choix": [
-      { "texte": "Les entreprises (ex. L'Oréal, Orange, Danone)", "correct": true, "pourquoi": "Les entreprises sont citées dans le cours." },
-      { "texte": "Les associations (ex. Greenpeace, Restos du Cœur)", "correct": true, "pourquoi": "Les associations sont citées dans le cours." },
-      { "texte": "Les individus (ex. influenceurs, sportifs)", "correct": true, "pourquoi": "Les individus sont cités dans le cours." },
-      { "texte": "Personne d'autre que les grandes entreprises", "correct": false, "pourquoi": "C'est justement un cliché : le marketing n'est pas réservé aux grandes entreprises." }
+      {
+        "texte": "Les entreprises (ex. L'Oréal, Orange, Danone)",
+        "correct": true,
+        "pourquoi": "Les entreprises sont citées dans le cours."
+      },
+      {
+        "texte": "Les associations (ex. Greenpeace, Restos du Cœur)",
+        "correct": true,
+        "pourquoi": "Les associations sont citées dans le cours."
+      },
+      {
+        "texte": "Les individus (ex. influenceurs, sportifs)",
+        "correct": true,
+        "pourquoi": "Les individus sont cités dans le cours."
+      },
+      {
+        "texte": "Personne d'autre que les grandes entreprises",
+        "correct": false,
+        "pourquoi": "C'est justement un cliché : le marketing n'est pas réservé aux grandes entreprises."
+      }
     ],
     "explication": "De nombreux acteurs font du marketing : entreprises, associations, individus, organisations."
   },
@@ -332,10 +732,26 @@
     "notion": "acteurs-canaux",
     "question": "Greenpeace, la Croix-Rouge française et les Restos du Cœur sont cités en cours comme exemples…",
     "choix": [
-      { "texte": "d'associations qui font du marketing", "correct": true, "pourquoi": "Ce sont les exemples d'associations du cours." },
-      { "texte": "d'entreprises qui font du marketing", "correct": false, "pourquoi": "Les exemples d'entreprises sont L'Oréal, Crédit Agricole, Orange, Danone." },
-      { "texte": "d'agences de publicité", "correct": false, "pourquoi": "Ce ne sont pas des agences de publicité." },
-      { "texte": "de groupes d'influence du macro-environnement", "correct": false, "pourquoi": "Les groupes d'influence font partie du micro-environnement, et ce n'est pas l'exemple du cours." }
+      {
+        "texte": "d'associations qui font du marketing",
+        "correct": true,
+        "pourquoi": "Ce sont les exemples d'associations du cours."
+      },
+      {
+        "texte": "d'entreprises qui font du marketing",
+        "correct": false,
+        "pourquoi": "Les exemples d'entreprises sont L'Oréal, Crédit Agricole, Orange, Danone."
+      },
+      {
+        "texte": "d'agences de publicité",
+        "correct": false,
+        "pourquoi": "Ce ne sont pas des agences de publicité."
+      },
+      {
+        "texte": "de groupes d'influence du macro-environnement",
+        "correct": false,
+        "pourquoi": "Les groupes d'influence font partie du micro-environnement, et ce n'est pas l'exemple du cours."
+      }
     ],
     "explication": "Le marketing n'est pas réservé aux entreprises : les associations en font aussi."
   },
@@ -346,10 +762,26 @@
     "multiple": true,
     "question": "Où se fait le marketing ? Coche les canaux cités en cours.",
     "choix": [
-      { "texte": "Les médias sociaux", "correct": true, "pourquoi": "Ils sont cités parmi les canaux." },
-      { "texte": "Le courrier promotionnel", "correct": true, "pourquoi": "Il est cité parmi les canaux." },
-      { "texte": "Les supermarchés et les marchés", "correct": true, "pourquoi": "Ils sont cités parmi les canaux." },
-      { "texte": "Uniquement à la télévision", "correct": false, "pourquoi": "Le cours cite de nombreux canaux, pas seulement la télévision." }
+      {
+        "texte": "Les médias sociaux",
+        "correct": true,
+        "pourquoi": "Ils sont cités parmi les canaux."
+      },
+      {
+        "texte": "Le courrier promotionnel",
+        "correct": true,
+        "pourquoi": "Il est cité parmi les canaux."
+      },
+      {
+        "texte": "Les supermarchés et les marchés",
+        "correct": true,
+        "pourquoi": "Ils sont cités parmi les canaux."
+      },
+      {
+        "texte": "Uniquement à la télévision",
+        "correct": false,
+        "pourquoi": "Le cours cite de nombreux canaux, pas seulement la télévision."
+      }
     ],
     "explication": "Canaux du cours : au sein des entreprises, agences, supermarché, marchés, publicité (affichage), courrier promotionnel, sites web, publicité en ligne, médias sociaux."
   },
@@ -359,10 +791,26 @@
     "notion": "taux-evolution",
     "question": "Quelle est la bonne formule du taux d'évolution ?",
     "choix": [
-      { "texte": "(Taille N − Taille N-1) / Taille N-1 × 100", "correct": true, "pourquoi": "On divise par l'année de départ (N-1) et on multiplie par 100." },
-      { "texte": "(Taille N − Taille N-1) / Taille N × 100", "correct": false, "pourquoi": "Piège classique : on divise par N-1, pas par N." },
-      { "texte": "Taille N / Taille N-1", "correct": false, "pourquoi": "Il manque la soustraction et le × 100." },
-      { "texte": "(Taille N-1 − Taille N) / Taille N-1 × 100", "correct": false, "pourquoi": "Le sens de la soustraction est inversé : une hausse donnerait un résultat négatif." }
+      {
+        "texte": "(Taille N − Taille N-1) / Taille N-1 × 100",
+        "correct": true,
+        "pourquoi": "On divise par l'année de départ (N-1) et on multiplie par 100."
+      },
+      {
+        "texte": "(Taille N − Taille N-1) / Taille N × 100",
+        "correct": false,
+        "pourquoi": "Piège classique : on divise par N-1, pas par N."
+      },
+      {
+        "texte": "Taille N / Taille N-1",
+        "correct": false,
+        "pourquoi": "Il manque la soustraction et le × 100."
+      },
+      {
+        "texte": "(Taille N-1 − Taille N) / Taille N-1 × 100",
+        "correct": false,
+        "pourquoi": "Le sens de la soustraction est inversé : une hausse donnerait un résultat négatif."
+      }
     ],
     "explication": "Taux d'évolution (%) = (Taille du marché année N − Taille du marché année N-1) / Taille du marché année N-1 × 100."
   },
@@ -372,10 +820,26 @@
     "notion": "taux-evolution",
     "question": "Le marché des vélos électriques passe de 420 000 à 504 000 unités en un an. Quel est le taux d'évolution ?",
     "choix": [
-      { "texte": "+20 %", "correct": true, "pourquoi": "(504 000 − 420 000) / 420 000 × 100 = 84 000 / 420 000 × 100 = +20 %." },
-      { "texte": "+16,7 %", "correct": false, "pourquoi": "C'est le résultat si on divise par 504 000 (année N) au lieu de 420 000 (N-1)." },
-      { "texte": "+84 000 %", "correct": false, "pourquoi": "84 000 est l'écart en unités, pas un pourcentage." },
-      { "texte": "−20 %", "correct": false, "pourquoi": "Le marché augmente : le taux est positif." }
+      {
+        "texte": "+20 %",
+        "correct": true,
+        "pourquoi": "(504 000 − 420 000) / 420 000 × 100 = 84 000 / 420 000 × 100 = +20 %."
+      },
+      {
+        "texte": "+16,7 %",
+        "correct": false,
+        "pourquoi": "C'est le résultat si on divise par 504 000 (année N) au lieu de 420 000 (N-1)."
+      },
+      {
+        "texte": "+84 000 %",
+        "correct": false,
+        "pourquoi": "84 000 est l'écart en unités, pas un pourcentage."
+      },
+      {
+        "texte": "−20 %",
+        "correct": false,
+        "pourquoi": "Le marché augmente : le taux est positif."
+      }
     ],
     "explication": "(504 000 − 420 000) / 420 000 × 100 = +20 %."
   },
@@ -385,10 +849,26 @@
     "notion": "taux-evolution",
     "question": "Un marché passe de 200 millions d'euros à 180 millions d'euros. Quel est le taux d'évolution ?",
     "choix": [
-      { "texte": "−10 %", "correct": true, "pourquoi": "(180 − 200) / 200 × 100 = −20 / 200 × 100 = −10 %." },
-      { "texte": "+10 %", "correct": false, "pourquoi": "Le marché baisse : le taux est négatif." },
-      { "texte": "−11,1 %", "correct": false, "pourquoi": "C'est le résultat si on divise par 180 (année N) au lieu de 200 (N-1)." },
-      { "texte": "−20 %", "correct": false, "pourquoi": "−20 est l'écart en millions d'euros, pas le taux." }
+      {
+        "texte": "−10 %",
+        "correct": true,
+        "pourquoi": "(180 − 200) / 200 × 100 = −20 / 200 × 100 = −10 %."
+      },
+      {
+        "texte": "+10 %",
+        "correct": false,
+        "pourquoi": "Le marché baisse : le taux est négatif."
+      },
+      {
+        "texte": "−11,1 %",
+        "correct": false,
+        "pourquoi": "C'est le résultat si on divise par 180 (année N) au lieu de 200 (N-1)."
+      },
+      {
+        "texte": "−20 %",
+        "correct": false,
+        "pourquoi": "−20 est l'écart en millions d'euros, pas le taux."
+      }
     ],
     "explication": "(180 − 200) / 200 × 100 = −10 %. Un taux négatif signifie que le marché recule."
   },
@@ -398,10 +878,26 @@
     "notion": "taux-evolution",
     "question": "Le taux d'évolution permet de se situer…",
     "choix": [
-      { "texte": "par rapport à l'année précédente", "correct": true, "pourquoi": "Il mesure l'évolution de la taille du marché dans le temps." },
-      { "texte": "par rapport à ses concurrents", "correct": false, "pourquoi": "Pour ça, on utilise la part de marché." },
-      { "texte": "par rapport à ses fournisseurs", "correct": false, "pourquoi": "Ce n'est pas le rôle du taux d'évolution." },
-      { "texte": "par rapport au macro-environnement", "correct": false, "pourquoi": "Ce n'est pas le rôle du taux d'évolution." }
+      {
+        "texte": "par rapport à l'année précédente",
+        "correct": true,
+        "pourquoi": "Il mesure l'évolution de la taille du marché dans le temps."
+      },
+      {
+        "texte": "par rapport à ses concurrents",
+        "correct": false,
+        "pourquoi": "Pour ça, on utilise la part de marché."
+      },
+      {
+        "texte": "par rapport à ses fournisseurs",
+        "correct": false,
+        "pourquoi": "Ce n'est pas le rôle du taux d'évolution."
+      },
+      {
+        "texte": "par rapport au macro-environnement",
+        "correct": false,
+        "pourquoi": "Ce n'est pas le rôle du taux d'évolution."
+      }
     ],
     "explication": "Taux d'évolution = « par rapport à l'année précédente ». Part de marché = « par rapport à mes concurrents »."
   },
@@ -411,10 +907,26 @@
     "notion": "taux-evolution",
     "question": "En 2019, en GMS, quel type d'eau en bouteille a le plus progressé en valeur (Xerfi / LSA) ?",
     "choix": [
-      { "texte": "Les eaux aromatisées (+16,5 % en valeur)", "correct": true, "pourquoi": "C'est la plus forte progression du graphique." },
-      { "texte": "Les eaux plates (+4,3 % en valeur)", "correct": false, "pourquoi": "Elles progressent, mais beaucoup moins que les eaux aromatisées." },
-      { "texte": "Les eaux gazeuses (+4,4 % en valeur)", "correct": false, "pourquoi": "Elles progressent, mais beaucoup moins que les eaux aromatisées." },
-      { "texte": "Aucune : toutes les ventes ont baissé", "correct": false, "pourquoi": "Tous les taux du graphique sont positifs." }
+      {
+        "texte": "Les eaux aromatisées (+16,5 % en valeur)",
+        "correct": true,
+        "pourquoi": "C'est la plus forte progression du graphique."
+      },
+      {
+        "texte": "Les eaux plates (+4,3 % en valeur)",
+        "correct": false,
+        "pourquoi": "Elles progressent, mais beaucoup moins que les eaux aromatisées."
+      },
+      {
+        "texte": "Les eaux gazeuses (+4,4 % en valeur)",
+        "correct": false,
+        "pourquoi": "Elles progressent, mais beaucoup moins que les eaux aromatisées."
+      },
+      {
+        "texte": "Aucune : toutes les ventes ont baissé",
+        "correct": false,
+        "pourquoi": "Tous les taux du graphique sont positifs."
+      }
     ],
     "explication": "Données du cours (2019, GMS) : aromatisées +9,7 % en volume / +16,5 % en valeur ; plates +2,9 % / +4,3 % ; gazeuses +3,2 % / +4,4 %."
   },
@@ -424,10 +936,26 @@
     "notion": "taux-evolution",
     "question": "Eaux aromatisées en 2019 : +9,7 % en volume mais +16,5 % en valeur. Comment l'expliquer ?",
     "choix": [
-      { "texte": "Le prix moyen a augmenté (montée en gamme ou hausse des prix)", "correct": true, "pourquoi": "Si la valeur progresse plus vite que les quantités, chaque bouteille vendue rapporte en moyenne plus." },
-      { "texte": "Les prix ont baissé", "correct": false, "pourquoi": "Si les prix baissaient, la valeur progresserait moins vite que le volume." },
-      { "texte": "On a vendu moins de bouteilles", "correct": false, "pourquoi": "Le volume a augmenté de 9,7 % : on en a vendu plus." },
-      { "texte": "C'est forcément une erreur de calcul", "correct": false, "pourquoi": "C'est tout à fait possible : volume et valeur ne donnent pas le même résultat." }
+      {
+        "texte": "Le prix moyen a augmenté (montée en gamme ou hausse des prix)",
+        "correct": true,
+        "pourquoi": "Si la valeur progresse plus vite que les quantités, chaque bouteille vendue rapporte en moyenne plus."
+      },
+      {
+        "texte": "Les prix ont baissé",
+        "correct": false,
+        "pourquoi": "Si les prix baissaient, la valeur progresserait moins vite que le volume."
+      },
+      {
+        "texte": "On a vendu moins de bouteilles",
+        "correct": false,
+        "pourquoi": "Le volume a augmenté de 9,7 % : on en a vendu plus."
+      },
+      {
+        "texte": "C'est forcément une erreur de calcul",
+        "correct": false,
+        "pourquoi": "C'est tout à fait possible : volume et valeur ne donnent pas le même résultat."
+      }
     ],
     "explication": "Volume = quantités ; valeur = chiffre d'affaires. Valeur > volume → hausse du prix moyen."
   },
@@ -437,10 +965,26 @@
     "notion": "part-de-marche",
     "question": "Quelle est la bonne formule de la part de marché ?",
     "choix": [
-      { "texte": "Ventes de l'entreprise / Ventes du marché × 100", "correct": true, "pourquoi": "C'est la formule du cours." },
-      { "texte": "Ventes du marché / Ventes de l'entreprise × 100", "correct": false, "pourquoi": "La fraction est à l'envers." },
-      { "texte": "Ventes de l'entreprise / Ventes du leader × 100", "correct": false, "pourquoi": "On compare au marché total, pas au leader." },
-      { "texte": "(Ventes N − Ventes N-1) / Ventes N-1 × 100", "correct": false, "pourquoi": "Ça, c'est la formule du taux d'évolution." }
+      {
+        "texte": "Ventes de l'entreprise / Ventes du marché × 100",
+        "correct": true,
+        "pourquoi": "C'est la formule du cours."
+      },
+      {
+        "texte": "Ventes du marché / Ventes de l'entreprise × 100",
+        "correct": false,
+        "pourquoi": "La fraction est à l'envers."
+      },
+      {
+        "texte": "Ventes de l'entreprise / Ventes du leader × 100",
+        "correct": false,
+        "pourquoi": "On compare au marché total, pas au leader."
+      },
+      {
+        "texte": "(Ventes N − Ventes N-1) / Ventes N-1 × 100",
+        "correct": false,
+        "pourquoi": "Ça, c'est la formule du taux d'évolution."
+      }
     ],
     "explication": "Part de marché (%) = Ventes de l'entreprise / Ventes du marché × 100."
   },
@@ -450,10 +994,26 @@
     "notion": "part-de-marche",
     "question": "Une entreprise vend 30 000 unités sur un marché total de 120 000 unités. Quelle est sa part de marché en volume ?",
     "choix": [
-      { "texte": "25 %", "correct": true, "pourquoi": "30 000 / 120 000 × 100 = 25 %." },
-      { "texte": "0,25 %", "correct": false, "pourquoi": "Tu as oublié le × 100 : 0,25 est une proportion, pas un pourcentage." },
-      { "texte": "40 %", "correct": false, "pourquoi": "Ce n'est pas le bon calcul : 30 000 / 120 000 = 0,25." },
-      { "texte": "400 %", "correct": false, "pourquoi": "C'est le calcul à l'envers (120 000 / 30 000 × 100)." }
+      {
+        "texte": "25 %",
+        "correct": true,
+        "pourquoi": "30 000 / 120 000 × 100 = 25 %."
+      },
+      {
+        "texte": "0,25 %",
+        "correct": false,
+        "pourquoi": "Tu as oublié le × 100 : 0,25 est une proportion, pas un pourcentage."
+      },
+      {
+        "texte": "40 %",
+        "correct": false,
+        "pourquoi": "Ce n'est pas le bon calcul : 30 000 / 120 000 = 0,25."
+      },
+      {
+        "texte": "400 %",
+        "correct": false,
+        "pourquoi": "C'est le calcul à l'envers (120 000 / 30 000 × 100)."
+      }
     ],
     "explication": "30 000 / 120 000 × 100 = 25 %."
   },
@@ -463,10 +1023,26 @@
     "notion": "part-de-marche",
     "question": "Eaux plates en GMS, en volume, 2016 (Xerfi / Iri) : quelle marque est leader ?",
     "choix": [
-      { "texte": "Cristaline (Alma), avec 34,5 %", "correct": true, "pourquoi": "C'est la plus grosse part de marché du tableau." },
-      { "texte": "Les MDD, avec 18,9 %", "correct": false, "pourquoi": "Les MDD sont 2es, loin derrière Cristaline." },
-      { "texte": "Vittel (Nestlé), avec 8,5 %", "correct": false, "pourquoi": "Vittel est 3e." },
-      { "texte": "Évian (Danone), avec 7,9 %", "correct": false, "pourquoi": "Évian est 4e." }
+      {
+        "texte": "Cristaline (Alma), avec 34,5 %",
+        "correct": true,
+        "pourquoi": "C'est la plus grosse part de marché du tableau."
+      },
+      {
+        "texte": "Les MDD, avec 18,9 %",
+        "correct": false,
+        "pourquoi": "Les MDD sont 2es, loin derrière Cristaline."
+      },
+      {
+        "texte": "Vittel (Nestlé), avec 8,5 %",
+        "correct": false,
+        "pourquoi": "Vittel est 3e."
+      },
+      {
+        "texte": "Évian (Danone), avec 7,9 %",
+        "correct": false,
+        "pourquoi": "Évian est 4e."
+      }
     ],
     "explication": "Cristaline 34,5 % ; MDD 18,9 % ; Vittel 8,5 % ; Évian 7,9 % ; Volvic 7,1 % ; Contrex 6,3 % ; Hépar 4,2 % ; autres 12,6 %."
   },
@@ -476,10 +1052,26 @@
     "notion": "part-de-marche",
     "question": "Eaux plates en GMS, en volume, 2016 : quelle est la part de marché cumulée du groupe Nestlé (Vittel, Contrex, Hépar) ?",
     "choix": [
-      { "texte": "19,0 %", "correct": true, "pourquoi": "8,5 + 6,3 + 4,2 = 19,0 %." },
-      { "texte": "14,8 %", "correct": false, "pourquoi": "Tu as oublié Hépar (4,2 %)." },
-      { "texte": "15,0 %", "correct": false, "pourquoi": "C'est la part cumulée de Danone (Évian + Volvic)." },
-      { "texte": "8,5 %", "correct": false, "pourquoi": "C'est seulement Vittel." }
+      {
+        "texte": "19,0 %",
+        "correct": true,
+        "pourquoi": "8,5 + 6,3 + 4,2 = 19,0 %."
+      },
+      {
+        "texte": "14,8 %",
+        "correct": false,
+        "pourquoi": "Tu as oublié Hépar (4,2 %)."
+      },
+      {
+        "texte": "15,0 %",
+        "correct": false,
+        "pourquoi": "C'est la part cumulée de Danone (Évian + Volvic)."
+      },
+      {
+        "texte": "8,5 %",
+        "correct": false,
+        "pourquoi": "C'est seulement Vittel."
+      }
     ],
     "explication": "On additionne les parts de marché des marques du groupe : 8,5 + 6,3 + 4,2 = 19,0 %."
   },
@@ -489,10 +1081,26 @@
     "notion": "part-de-marche",
     "question": "Une part de marché en valeur se calcule à partir…",
     "choix": [
-      { "texte": "du chiffre d'affaires", "correct": true, "pourquoi": "En valeur = en chiffre d'affaires." },
-      { "texte": "des quantités vendues", "correct": false, "pourquoi": "Ça, c'est la part de marché en volume." },
-      { "texte": "du nombre de magasins", "correct": false, "pourquoi": "Ce n'est pas une mesure de part de marché vue en cours." },
-      { "texte": "du nombre d'abonnés sur les réseaux sociaux", "correct": false, "pourquoi": "Ce n'est pas une mesure de part de marché." }
+      {
+        "texte": "du chiffre d'affaires",
+        "correct": true,
+        "pourquoi": "En valeur = en chiffre d'affaires."
+      },
+      {
+        "texte": "des quantités vendues",
+        "correct": false,
+        "pourquoi": "Ça, c'est la part de marché en volume."
+      },
+      {
+        "texte": "du nombre de magasins",
+        "correct": false,
+        "pourquoi": "Ce n'est pas une mesure de part de marché vue en cours."
+      },
+      {
+        "texte": "du nombre d'abonnés sur les réseaux sociaux",
+        "correct": false,
+        "pourquoi": "Ce n'est pas une mesure de part de marché."
+      }
     ],
     "explication": "Volume = quantités ; valeur = chiffre d'affaires. Les deux ne donnent pas le même résultat."
   },
@@ -502,10 +1110,26 @@
     "notion": "part-de-marche",
     "question": "Pour se situer par rapport à ses concurrents, quel outil utilise-t-on ?",
     "choix": [
-      { "texte": "La part de marché", "correct": true, "pourquoi": "Elle mesure le poids de l'entreprise sur le marché total." },
-      { "texte": "Le taux d'évolution", "correct": false, "pourquoi": "Il sert à se situer par rapport à l'année précédente." },
-      { "texte": "Le marché générique", "correct": false, "pourquoi": "C'est un type de marché, pas un outil de mesure." },
-      { "texte": "Le macro-environnement", "correct": false, "pourquoi": "C'est un environnement, pas un outil de mesure." }
+      {
+        "texte": "La part de marché",
+        "correct": true,
+        "pourquoi": "Elle mesure le poids de l'entreprise sur le marché total."
+      },
+      {
+        "texte": "Le taux d'évolution",
+        "correct": false,
+        "pourquoi": "Il sert à se situer par rapport à l'année précédente."
+      },
+      {
+        "texte": "Le marché générique",
+        "correct": false,
+        "pourquoi": "C'est un type de marché, pas un outil de mesure."
+      },
+      {
+        "texte": "Le macro-environnement",
+        "correct": false,
+        "pourquoi": "C'est un environnement, pas un outil de mesure."
+      }
     ],
     "explication": "Part de marché = poids de l'entreprise sur le marché total."
   },
@@ -515,10 +1139,26 @@
     "notion": "micro-environnement",
     "question": "Le micro-environnement regroupe…",
     "choix": [
-      { "texte": "les facteurs internes à l'entreprise ou proches d'elle", "correct": true, "pourquoi": "C'est la définition du cours." },
-      { "texte": "des facteurs larges qui influencent toutes les entreprises", "correct": false, "pourquoi": "Ça, c'est le macro-environnement." },
-      { "texte": "uniquement les lois et réglementations", "correct": false, "pourquoi": "Les lois relèvent de l'environnement politique (macro)." },
-      { "texte": "uniquement les clients", "correct": false, "pourquoi": "Les clients en font partie, mais il y a 5 composantes." }
+      {
+        "texte": "les facteurs internes à l'entreprise ou proches d'elle",
+        "correct": true,
+        "pourquoi": "C'est la définition du cours."
+      },
+      {
+        "texte": "des facteurs larges qui influencent toutes les entreprises",
+        "correct": false,
+        "pourquoi": "Ça, c'est le macro-environnement."
+      },
+      {
+        "texte": "uniquement les lois et réglementations",
+        "correct": false,
+        "pourquoi": "Les lois relèvent de l'environnement politique (macro)."
+      },
+      {
+        "texte": "uniquement les clients",
+        "correct": false,
+        "pourquoi": "Les clients en font partie, mais il y a 5 composantes."
+      }
     ],
     "explication": "Micro-environnement : services internes, clients, concurrents, fournisseurs, groupes d'influence."
   },
@@ -528,10 +1168,26 @@
     "notion": "macro-environnement",
     "question": "Le macro-environnement regroupe…",
     "choix": [
-      { "texte": "des facteurs plus larges, qui influencent l'entreprise mais aussi d'autres entités", "correct": true, "pourquoi": "C'est la définition du cours." },
-      { "texte": "les facteurs internes à l'entreprise", "correct": false, "pourquoi": "Ça, c'est le micro-environnement." },
-      { "texte": "uniquement les concurrents", "correct": false, "pourquoi": "Les concurrents sont dans le micro-environnement." },
-      { "texte": "uniquement les fournisseurs", "correct": false, "pourquoi": "Les fournisseurs sont dans le micro-environnement." }
+      {
+        "texte": "des facteurs plus larges, qui influencent l'entreprise mais aussi d'autres entités",
+        "correct": true,
+        "pourquoi": "C'est la définition du cours."
+      },
+      {
+        "texte": "les facteurs internes à l'entreprise",
+        "correct": false,
+        "pourquoi": "Ça, c'est le micro-environnement."
+      },
+      {
+        "texte": "uniquement les concurrents",
+        "correct": false,
+        "pourquoi": "Les concurrents sont dans le micro-environnement."
+      },
+      {
+        "texte": "uniquement les fournisseurs",
+        "correct": false,
+        "pourquoi": "Les fournisseurs sont dans le micro-environnement."
+      }
     ],
     "explication": "Macro-environnement : démographique, économique, politique, technologique, naturel, culturel."
   },
@@ -541,10 +1197,26 @@
     "notion": "macro-environnement",
     "question": "Une hausse du chômage relève de quel environnement ?",
     "choix": [
-      { "texte": "Macro-environnement, économique", "correct": true, "pourquoi": "Elle affecte le pouvoir d'achat des consommateurs." },
-      { "texte": "Micro-environnement, clients", "correct": false, "pourquoi": "Elle touche toute l'économie, pas seulement les clients d'une entreprise : c'est du macro." },
-      { "texte": "Macro-environnement, démographique", "correct": false, "pourquoi": "Le démographique concerne la population (taille, âge, localisation…), pas l'emploi." },
-      { "texte": "Macro-environnement, politique", "correct": false, "pourquoi": "Le politique concerne les lois et réglementations." }
+      {
+        "texte": "Macro-environnement, économique",
+        "correct": true,
+        "pourquoi": "Elle affecte le pouvoir d'achat des consommateurs."
+      },
+      {
+        "texte": "Micro-environnement, clients",
+        "correct": false,
+        "pourquoi": "Elle touche toute l'économie, pas seulement les clients d'une entreprise : c'est du macro."
+      },
+      {
+        "texte": "Macro-environnement, démographique",
+        "correct": false,
+        "pourquoi": "Le démographique concerne la population (taille, âge, localisation…), pas l'emploi."
+      },
+      {
+        "texte": "Macro-environnement, politique",
+        "correct": false,
+        "pourquoi": "Le politique concerne les lois et réglementations."
+      }
     ],
     "explication": "Environnement économique : conditions économiques qui affectent le pouvoir d'achat des consommateurs."
   },
@@ -554,10 +1226,26 @@
     "notion": "micro-environnement",
     "question": "Les concurrents d'une entreprise font partie…",
     "choix": [
-      { "texte": "du micro-environnement", "correct": true, "pourquoi": "Ce sont des acteurs proches de l'entreprise, positionnés sur le même marché." },
-      { "texte": "du macro-environnement, composante économique", "correct": false, "pourquoi": "Piège classique : les concurrents sont dans le micro." },
-      { "texte": "du macro-environnement, composante culturelle", "correct": false, "pourquoi": "Le culturel concerne les valeurs et les codes de la société." },
-      { "texte": "du macro-environnement, composante politique", "correct": false, "pourquoi": "Le politique concerne les lois et réglementations." }
+      {
+        "texte": "du micro-environnement",
+        "correct": true,
+        "pourquoi": "Ce sont des acteurs proches de l'entreprise, positionnés sur le même marché."
+      },
+      {
+        "texte": "du macro-environnement, composante économique",
+        "correct": false,
+        "pourquoi": "Piège classique : les concurrents sont dans le micro."
+      },
+      {
+        "texte": "du macro-environnement, composante culturelle",
+        "correct": false,
+        "pourquoi": "Le culturel concerne les valeurs et les codes de la société."
+      },
+      {
+        "texte": "du macro-environnement, composante politique",
+        "correct": false,
+        "pourquoi": "Le politique concerne les lois et réglementations."
+      }
     ],
     "explication": "Concurrents = les autres entreprises positionnées sur le même marché → micro-environnement."
   },
@@ -567,10 +1255,26 @@
     "notion": "micro-environnement",
     "question": "Une entreprise qui livre le lait à une marque de yaourts est…",
     "choix": [
-      { "texte": "un fournisseur (micro-environnement)", "correct": true, "pourquoi": "Elle fournit une ressource nécessaire pour produire l'offre." },
-      { "texte": "un facteur naturel (macro-environnement)", "correct": false, "pourquoi": "Le naturel concerne les ressources et les conditions environnementales en général ; l'entreprise qui les livre est un fournisseur." },
-      { "texte": "un concurrent (micro-environnement)", "correct": false, "pourquoi": "Elle ne vend pas de yaourts : ce n'est pas un concurrent." },
-      { "texte": "un groupe d'influence (micro-environnement)", "correct": false, "pourquoi": "Un groupe d'influence a un intérêt lié aux activités de l'entreprise, mais ne lui fournit pas de ressources." }
+      {
+        "texte": "un fournisseur (micro-environnement)",
+        "correct": true,
+        "pourquoi": "Elle fournit une ressource nécessaire pour produire l'offre."
+      },
+      {
+        "texte": "un facteur naturel (macro-environnement)",
+        "correct": false,
+        "pourquoi": "Le naturel concerne les ressources et les conditions environnementales en général ; l'entreprise qui les livre est un fournisseur."
+      },
+      {
+        "texte": "un concurrent (micro-environnement)",
+        "correct": false,
+        "pourquoi": "Elle ne vend pas de yaourts : ce n'est pas un concurrent."
+      },
+      {
+        "texte": "un groupe d'influence (micro-environnement)",
+        "correct": false,
+        "pourquoi": "Un groupe d'influence a un intérêt lié aux activités de l'entreprise, mais ne lui fournit pas de ressources."
+      }
     ],
     "explication": "Fournisseurs : entités qui fournissent les ressources nécessaires à l'entreprise pour produire son offre."
   },
@@ -580,10 +1284,26 @@
     "notion": "micro-environnement",
     "question": "Lequel de ces éléments n'est PAS une composante du micro-environnement ?",
     "choix": [
-      { "texte": "L'environnement démographique", "correct": true, "pourquoi": "Il fait partie du macro-environnement." },
-      { "texte": "Les services internes", "correct": false, "pourquoi": "C'est une composante du micro." },
-      { "texte": "Les clients", "correct": false, "pourquoi": "C'est une composante du micro." },
-      { "texte": "Les groupes d'influence", "correct": false, "pourquoi": "C'est une composante du micro." }
+      {
+        "texte": "L'environnement démographique",
+        "correct": true,
+        "pourquoi": "Il fait partie du macro-environnement."
+      },
+      {
+        "texte": "Les services internes",
+        "correct": false,
+        "pourquoi": "C'est une composante du micro."
+      },
+      {
+        "texte": "Les clients",
+        "correct": false,
+        "pourquoi": "C'est une composante du micro."
+      },
+      {
+        "texte": "Les groupes d'influence",
+        "correct": false,
+        "pourquoi": "C'est une composante du micro."
+      }
     ],
     "explication": "Micro : services internes, clients, concurrents, fournisseurs, groupes d'influence."
   },
@@ -593,10 +1313,26 @@
     "notion": "macro-environnement",
     "question": "Lequel de ces éléments n'est PAS une composante du macro-environnement ?",
     "choix": [
-      { "texte": "Les concurrents", "correct": true, "pourquoi": "Ils font partie du micro-environnement." },
-      { "texte": "Le démographique", "correct": false, "pourquoi": "C'est une composante du macro." },
-      { "texte": "Le technologique", "correct": false, "pourquoi": "C'est une composante du macro." },
-      { "texte": "Le culturel", "correct": false, "pourquoi": "C'est une composante du macro." }
+      {
+        "texte": "Les concurrents",
+        "correct": true,
+        "pourquoi": "Ils font partie du micro-environnement."
+      },
+      {
+        "texte": "Le démographique",
+        "correct": false,
+        "pourquoi": "C'est une composante du macro."
+      },
+      {
+        "texte": "Le technologique",
+        "correct": false,
+        "pourquoi": "C'est une composante du macro."
+      },
+      {
+        "texte": "Le culturel",
+        "correct": false,
+        "pourquoi": "C'est une composante du macro."
+      }
     ],
     "explication": "Macro : démographique, économique, politique, technologique, naturel, culturel."
   },
@@ -606,10 +1342,26 @@
     "notion": "macro-environnement",
     "question": "Une nouvelle loi interdit les emballages plastiques à usage unique. C'est un facteur…",
     "choix": [
-      { "texte": "politique (macro-environnement)", "correct": true, "pourquoi": "Une loi relève de l'environnement politique. Elle a aussi un lien avec le naturel, mais c'est d'abord une réglementation." },
-      { "texte": "technologique (macro-environnement)", "correct": false, "pourquoi": "Ce n'est pas une innovation, c'est une loi." },
-      { "texte": "démographique (macro-environnement)", "correct": false, "pourquoi": "Rien à voir avec la population." },
-      { "texte": "un groupe d'influence (micro-environnement)", "correct": false, "pourquoi": "Une loi n'est pas un groupe : elle s'impose à toutes les entreprises." }
+      {
+        "texte": "politique (macro-environnement)",
+        "correct": true,
+        "pourquoi": "Une loi relève de l'environnement politique. Elle a aussi un lien avec le naturel, mais c'est d'abord une réglementation."
+      },
+      {
+        "texte": "technologique (macro-environnement)",
+        "correct": false,
+        "pourquoi": "Ce n'est pas une innovation, c'est une loi."
+      },
+      {
+        "texte": "démographique (macro-environnement)",
+        "correct": false,
+        "pourquoi": "Rien à voir avec la population."
+      },
+      {
+        "texte": "un groupe d'influence (micro-environnement)",
+        "correct": false,
+        "pourquoi": "Une loi n'est pas un groupe : elle s'impose à toutes les entreprises."
+      }
     ],
     "explication": "Environnement politique : lois, réglementations (y compris internationales)."
   },
@@ -619,10 +1371,26 @@
     "notion": "macro-environnement",
     "question": "Le vieillissement de la population est un facteur…",
     "choix": [
-      { "texte": "démographique", "correct": true, "pourquoi": "Il concerne l'âge de la population." },
-      { "texte": "culturel", "correct": false, "pourquoi": "Le culturel concerne les valeurs et les codes, pas l'âge." },
-      { "texte": "économique", "correct": false, "pourquoi": "L'économique concerne le pouvoir d'achat." },
-      { "texte": "naturel", "correct": false, "pourquoi": "Le naturel concerne les ressources et les conditions environnementales." }
+      {
+        "texte": "démographique",
+        "correct": true,
+        "pourquoi": "Il concerne l'âge de la population."
+      },
+      {
+        "texte": "culturel",
+        "correct": false,
+        "pourquoi": "Le culturel concerne les valeurs et les codes, pas l'âge."
+      },
+      {
+        "texte": "économique",
+        "correct": false,
+        "pourquoi": "L'économique concerne le pouvoir d'achat."
+      },
+      {
+        "texte": "naturel",
+        "correct": false,
+        "pourquoi": "Le naturel concerne les ressources et les conditions environnementales."
+      }
     ],
     "explication": "Environnement démographique : taille de la population, localisation, âge, genre…"
   },
@@ -632,10 +1400,26 @@
     "notion": "micro-environnement",
     "question": "Une association de consommateurs publie un test très critique sur les produits d'une marque. Elle fait partie…",
     "choix": [
-      { "texte": "du micro-environnement : groupes d'influence", "correct": true, "pourquoi": "C'est un groupe de citoyens qui a un intérêt lié aux activités de l'entreprise." },
-      { "texte": "du micro-environnement : clients", "correct": false, "pourquoi": "Elle n'achète pas forcément les produits : elle agit comme groupe d'influence." },
-      { "texte": "du macro-environnement : culturel", "correct": false, "pourquoi": "C'est un groupe précis, pas une tendance de la société : c'est du micro." },
-      { "texte": "du macro-environnement : politique", "correct": false, "pourquoi": "Une association n'est pas une loi." }
+      {
+        "texte": "du micro-environnement : groupes d'influence",
+        "correct": true,
+        "pourquoi": "C'est un groupe de citoyens qui a un intérêt lié aux activités de l'entreprise."
+      },
+      {
+        "texte": "du micro-environnement : clients",
+        "correct": false,
+        "pourquoi": "Elle n'achète pas forcément les produits : elle agit comme groupe d'influence."
+      },
+      {
+        "texte": "du macro-environnement : culturel",
+        "correct": false,
+        "pourquoi": "C'est un groupe précis, pas une tendance de la société : c'est du micro."
+      },
+      {
+        "texte": "du macro-environnement : politique",
+        "correct": false,
+        "pourquoi": "Une association n'est pas une loi."
+      }
     ],
     "explication": "Groupes d'influence : tout groupe qui a un intérêt lié aux activités de l'entreprise (lobbys, groupes de citoyens, médias…)."
   },
@@ -645,10 +1429,26 @@
     "notion": "micro-environnement",
     "question": "Le service R&D (recherche et développement) d'une entreprise fait partie…",
     "choix": [
-      { "texte": "des services internes (micro-environnement)", "correct": true, "pourquoi": "C'est un département de l'entreprise." },
-      { "texte": "de l'environnement technologique (macro-environnement)", "correct": false, "pourquoi": "Le technologique concerne les innovations du marché en général ; le service R&D est un département interne." },
-      { "texte": "des fournisseurs (micro-environnement)", "correct": false, "pourquoi": "Il fait partie de l'entreprise, ce n'est pas un fournisseur extérieur." },
-      { "texte": "des groupes d'influence (micro-environnement)", "correct": false, "pourquoi": "C'est un département interne, pas un groupe extérieur." }
+      {
+        "texte": "des services internes (micro-environnement)",
+        "correct": true,
+        "pourquoi": "C'est un département de l'entreprise."
+      },
+      {
+        "texte": "de l'environnement technologique (macro-environnement)",
+        "correct": false,
+        "pourquoi": "Le technologique concerne les innovations du marché en général ; le service R&D est un département interne."
+      },
+      {
+        "texte": "des fournisseurs (micro-environnement)",
+        "correct": false,
+        "pourquoi": "Il fait partie de l'entreprise, ce n'est pas un fournisseur extérieur."
+      },
+      {
+        "texte": "des groupes d'influence (micro-environnement)",
+        "correct": false,
+        "pourquoi": "C'est un département interne, pas un groupe extérieur."
+      }
     ],
     "explication": "Services internes : départements de l'entreprise (finance, R&D, achats…)."
   },
@@ -658,10 +1458,26 @@
     "notion": "macro-environnement",
     "question": "Le développement du paiement sur smartphone est un facteur…",
     "choix": [
-      { "texte": "technologique", "correct": true, "pourquoi": "C'est une innovation qui impacte le marché." },
-      { "texte": "économique", "correct": false, "pourquoi": "L'économique concerne le pouvoir d'achat, pas les innovations." },
-      { "texte": "culturel", "correct": false, "pourquoi": "Le culturel concerne les valeurs et les codes." },
-      { "texte": "politique", "correct": false, "pourquoi": "Le politique concerne les lois et réglementations." }
+      {
+        "texte": "technologique",
+        "correct": true,
+        "pourquoi": "C'est une innovation qui impacte le marché."
+      },
+      {
+        "texte": "économique",
+        "correct": false,
+        "pourquoi": "L'économique concerne le pouvoir d'achat, pas les innovations."
+      },
+      {
+        "texte": "culturel",
+        "correct": false,
+        "pourquoi": "Le culturel concerne les valeurs et les codes."
+      },
+      {
+        "texte": "politique",
+        "correct": false,
+        "pourquoi": "Le politique concerne les lois et réglementations."
+      }
     ],
     "explication": "Environnement technologique : innovations qui impactent le marché."
   },
@@ -671,10 +1487,26 @@
     "notion": "macro-environnement",
     "question": "De plus en plus de consommateurs veulent acheter de façon responsable et privilégient la seconde main. C'est un facteur…",
     "choix": [
-      { "texte": "culturel", "correct": true, "pourquoi": "Ce sont des valeurs qui changent les préférences et les comportements de la société." },
-      { "texte": "naturel", "correct": false, "pourquoi": "Piège : le naturel concerne les ressources et les conditions environnementales, pas les valeurs des consommateurs." },
-      { "texte": "démographique", "correct": false, "pourquoi": "Rien à voir avec la taille ou l'âge de la population." },
-      { "texte": "politique", "correct": false, "pourquoi": "Ce n'est pas une loi." }
+      {
+        "texte": "culturel",
+        "correct": true,
+        "pourquoi": "Ce sont des valeurs qui changent les préférences et les comportements de la société."
+      },
+      {
+        "texte": "naturel",
+        "correct": false,
+        "pourquoi": "Piège : le naturel concerne les ressources et les conditions environnementales, pas les valeurs des consommateurs."
+      },
+      {
+        "texte": "démographique",
+        "correct": false,
+        "pourquoi": "Rien à voir avec la taille ou l'âge de la population."
+      },
+      {
+        "texte": "politique",
+        "correct": false,
+        "pourquoi": "Ce n'est pas une loi."
+      }
     ],
     "explication": "Environnement culturel : valeurs et codes qui affectent les préférences et les comportements de la société."
   },
@@ -684,10 +1516,26 @@
     "notion": "macro-environnement",
     "question": "Une sécheresse réduit la production de lait. Pour une marque de lait, c'est un facteur…",
     "choix": [
-      { "texte": "naturel", "correct": true, "pourquoi": "Il concerne les ressources naturelles et les conditions environnementales qui affectent les opérations." },
-      { "texte": "culturel", "correct": false, "pourquoi": "Le culturel concerne les valeurs et les codes de la société." },
-      { "texte": "technologique", "correct": false, "pourquoi": "Ce n'est pas une innovation." },
-      { "texte": "démographique", "correct": false, "pourquoi": "Rien à voir avec la population." }
+      {
+        "texte": "naturel",
+        "correct": true,
+        "pourquoi": "Il concerne les ressources naturelles et les conditions environnementales qui affectent les opérations."
+      },
+      {
+        "texte": "culturel",
+        "correct": false,
+        "pourquoi": "Le culturel concerne les valeurs et les codes de la société."
+      },
+      {
+        "texte": "technologique",
+        "correct": false,
+        "pourquoi": "Ce n'est pas une innovation."
+      },
+      {
+        "texte": "démographique",
+        "correct": false,
+        "pourquoi": "Rien à voir avec la population."
+      }
     ],
     "explication": "Facteurs naturels : ressources naturelles nécessaires (matières premières) et conditions environnementales pouvant affecter les opérations de l'entreprise."
   },
@@ -697,10 +1545,26 @@
     "notion": "micro-environnement",
     "question": "Combien de composantes compte le micro-environnement ?",
     "choix": [
-      { "texte": "5", "correct": true, "pourquoi": "Services internes, clients, concurrents, fournisseurs, groupes d'influence." },
-      { "texte": "6", "correct": false, "pourquoi": "6, c'est le macro-environnement." },
-      { "texte": "4", "correct": false, "pourquoi": "Il en manque une." },
-      { "texte": "3", "correct": false, "pourquoi": "Il en manque deux." }
+      {
+        "texte": "5",
+        "correct": true,
+        "pourquoi": "Services internes, clients, concurrents, fournisseurs, groupes d'influence."
+      },
+      {
+        "texte": "6",
+        "correct": false,
+        "pourquoi": "6, c'est le macro-environnement."
+      },
+      {
+        "texte": "4",
+        "correct": false,
+        "pourquoi": "Il en manque une."
+      },
+      {
+        "texte": "3",
+        "correct": false,
+        "pourquoi": "Il en manque deux."
+      }
     ],
     "explication": "Micro = 5 composantes ; macro = 6 composantes."
   },
@@ -710,10 +1574,26 @@
     "notion": "macro-environnement",
     "question": "Combien de composantes compte le macro-environnement ?",
     "choix": [
-      { "texte": "6", "correct": true, "pourquoi": "Démographique, économique, politique, technologique, naturel, culturel." },
-      { "texte": "5", "correct": false, "pourquoi": "5, c'est le micro-environnement." },
-      { "texte": "4", "correct": false, "pourquoi": "Il en manque deux." },
-      { "texte": "8", "correct": false, "pourquoi": "Il y en a 6." }
+      {
+        "texte": "6",
+        "correct": true,
+        "pourquoi": "Démographique, économique, politique, technologique, naturel, culturel."
+      },
+      {
+        "texte": "5",
+        "correct": false,
+        "pourquoi": "5, c'est le micro-environnement."
+      },
+      {
+        "texte": "4",
+        "correct": false,
+        "pourquoi": "Il en manque deux."
+      },
+      {
+        "texte": "8",
+        "correct": false,
+        "pourquoi": "Il y en a 6."
+      }
     ],
     "explication": "Macro = 6 composantes : démographique, économique, politique, technologique, naturel, culturel."
   },
@@ -723,10 +1603,26 @@
     "notion": "micro-environnement",
     "question": "Pour Vinted, les personnes qui achètent des vêtements d'occasion sur la plateforme font partie…",
     "choix": [
-      { "texte": "du micro-environnement : clients", "correct": true, "pourquoi": "Ce sont celles qui achètent, avec leurs attentes." },
-      { "texte": "du micro-environnement : fournisseurs", "correct": false, "pourquoi": "Elles achètent, elles ne fournissent pas de ressources à Vinted." },
-      { "texte": "du macro-environnement : démographique", "correct": false, "pourquoi": "Ce sont des acteurs précis, proches de l'entreprise : c'est du micro." },
-      { "texte": "du macro-environnement : culturel", "correct": false, "pourquoi": "Ce sont des acteurs précis, proches de l'entreprise : c'est du micro." }
+      {
+        "texte": "du micro-environnement : clients",
+        "correct": true,
+        "pourquoi": "Ce sont celles qui achètent, avec leurs attentes."
+      },
+      {
+        "texte": "du micro-environnement : fournisseurs",
+        "correct": false,
+        "pourquoi": "Elles achètent, elles ne fournissent pas de ressources à Vinted."
+      },
+      {
+        "texte": "du macro-environnement : démographique",
+        "correct": false,
+        "pourquoi": "Ce sont des acteurs précis, proches de l'entreprise : c'est du micro."
+      },
+      {
+        "texte": "du macro-environnement : culturel",
+        "correct": false,
+        "pourquoi": "Ce sont des acteurs précis, proches de l'entreprise : c'est du micro."
+      }
     ],
     "explication": "Clients : qui achète les produits, et qu'attendent les clients ?"
   },
@@ -736,10 +1632,26 @@
     "notion": "micro-environnement",
     "question": "Pour Back Market, un autre site qui vend des smartphones reconditionnés est…",
     "choix": [
-      { "texte": "un concurrent (micro-environnement)", "correct": true, "pourquoi": "C'est une autre entreprise positionnée sur le même marché." },
-      { "texte": "un fournisseur (micro-environnement)", "correct": false, "pourquoi": "Il ne fournit pas de ressources à Back Market, il vend la même chose." },
-      { "texte": "un facteur technologique (macro-environnement)", "correct": false, "pourquoi": "C'est une entreprise précise, pas une innovation du marché." },
-      { "texte": "un facteur économique (macro-environnement)", "correct": false, "pourquoi": "C'est une entreprise précise : c'est du micro." }
+      {
+        "texte": "un concurrent (micro-environnement)",
+        "correct": true,
+        "pourquoi": "C'est une autre entreprise positionnée sur le même marché."
+      },
+      {
+        "texte": "un fournisseur (micro-environnement)",
+        "correct": false,
+        "pourquoi": "Il ne fournit pas de ressources à Back Market, il vend la même chose."
+      },
+      {
+        "texte": "un facteur technologique (macro-environnement)",
+        "correct": false,
+        "pourquoi": "C'est une entreprise précise, pas une innovation du marché."
+      },
+      {
+        "texte": "un facteur économique (macro-environnement)",
+        "correct": false,
+        "pourquoi": "C'est une entreprise précise : c'est du micro."
+      }
     ],
     "explication": "Concurrents : les autres entreprises positionnées sur le même marché."
   },
@@ -749,10 +1661,26 @@
     "notion": "micro-environnement",
     "question": "Un lobby qui défend les intérêts d'un secteur auprès des élus fait partie…",
     "choix": [
-      { "texte": "du micro-environnement : groupes d'influence", "correct": true, "pourquoi": "Le cours cite les lobbys parmi les groupes d'influence." },
-      { "texte": "du macro-environnement : politique", "correct": false, "pourquoi": "Piège : le politique, ce sont les lois votées ; le lobby, lui, est un groupe d'influence." },
-      { "texte": "du micro-environnement : concurrents", "correct": false, "pourquoi": "Un lobby n'est pas une entreprise qui vend sur le même marché." },
-      { "texte": "du macro-environnement : économique", "correct": false, "pourquoi": "Ce n'est pas une condition économique." }
+      {
+        "texte": "du micro-environnement : groupes d'influence",
+        "correct": true,
+        "pourquoi": "Le cours cite les lobbys parmi les groupes d'influence."
+      },
+      {
+        "texte": "du macro-environnement : politique",
+        "correct": false,
+        "pourquoi": "Piège : le politique, ce sont les lois votées ; le lobby, lui, est un groupe d'influence."
+      },
+      {
+        "texte": "du micro-environnement : concurrents",
+        "correct": false,
+        "pourquoi": "Un lobby n'est pas une entreprise qui vend sur le même marché."
+      },
+      {
+        "texte": "du macro-environnement : économique",
+        "correct": false,
+        "pourquoi": "Ce n'est pas une condition économique."
+      }
     ],
     "explication": "Groupes d'influence : lobbys, groupes de citoyens, médias…"
   },
@@ -763,10 +1691,26 @@
     "multiple": true,
     "question": "Lesquels de ces éléments font partie du micro-environnement d'une entreprise ?",
     "choix": [
-      { "texte": "Ses clients", "correct": true, "pourquoi": "Composante du micro." },
-      { "texte": "Ses fournisseurs", "correct": true, "pourquoi": "Composante du micro." },
-      { "texte": "Ses concurrents", "correct": true, "pourquoi": "Composante du micro." },
-      { "texte": "Une nouvelle loi européenne", "correct": false, "pourquoi": "Une loi relève de l'environnement politique, dans le macro." }
+      {
+        "texte": "Ses clients",
+        "correct": true,
+        "pourquoi": "Composante du micro."
+      },
+      {
+        "texte": "Ses fournisseurs",
+        "correct": true,
+        "pourquoi": "Composante du micro."
+      },
+      {
+        "texte": "Ses concurrents",
+        "correct": true,
+        "pourquoi": "Composante du micro."
+      },
+      {
+        "texte": "Une nouvelle loi européenne",
+        "correct": false,
+        "pourquoi": "Une loi relève de l'environnement politique, dans le macro."
+      }
     ],
     "explication": "Micro : services internes, clients, concurrents, fournisseurs, groupes d'influence."
   },
@@ -776,10 +1720,26 @@
     "notion": "macro-environnement",
     "question": "Une forte inflation réduit le pouvoir d'achat des ménages. C'est un facteur…",
     "choix": [
-      { "texte": "économique", "correct": true, "pourquoi": "Il affecte le pouvoir d'achat des consommateurs." },
-      { "texte": "démographique", "correct": false, "pourquoi": "Rien à voir avec la population." },
-      { "texte": "culturel", "correct": false, "pourquoi": "Ce ne sont pas des valeurs ou des codes." },
-      { "texte": "naturel", "correct": false, "pourquoi": "Ce ne sont pas des ressources naturelles." }
+      {
+        "texte": "économique",
+        "correct": true,
+        "pourquoi": "Il affecte le pouvoir d'achat des consommateurs."
+      },
+      {
+        "texte": "démographique",
+        "correct": false,
+        "pourquoi": "Rien à voir avec la population."
+      },
+      {
+        "texte": "culturel",
+        "correct": false,
+        "pourquoi": "Ce ne sont pas des valeurs ou des codes."
+      },
+      {
+        "texte": "naturel",
+        "correct": false,
+        "pourquoi": "Ce ne sont pas des ressources naturelles."
+      }
     ],
     "explication": "Environnement économique : conditions économiques qui affectent le pouvoir d'achat des consommateurs."
   },
@@ -789,10 +1749,26 @@
     "notion": "types-de-marche",
     "question": "Pour Back Market (smartphones reconditionnés), acheter un smartphone neuf relève du marché…",
     "choix": [
-      { "texte": "de substitution", "correct": true, "pourquoi": "Le smartphone neuf répond au même besoin et peut remplacer un smartphone reconditionné." },
-      { "texte": "complémentaire", "correct": false, "pourquoi": "On n'achète pas un smartphone neuf en plus de son reconditionné : on le prend à la place." },
-      { "texte": "principal", "correct": false, "pourquoi": "Le marché principal de Back Market est celui des produits reconditionnés." },
-      { "texte": "Aucun : ce n'est pas lié", "correct": false, "pourquoi": "Il répond au même besoin : il est lié." }
+      {
+        "texte": "de substitution",
+        "correct": true,
+        "pourquoi": "Le smartphone neuf répond au même besoin et peut remplacer un smartphone reconditionné."
+      },
+      {
+        "texte": "complémentaire",
+        "correct": false,
+        "pourquoi": "On n'achète pas un smartphone neuf en plus de son reconditionné : on le prend à la place."
+      },
+      {
+        "texte": "principal",
+        "correct": false,
+        "pourquoi": "Le marché principal de Back Market est celui des produits reconditionnés."
+      },
+      {
+        "texte": "Aucun : ce n'est pas lié",
+        "correct": false,
+        "pourquoi": "Il répond au même besoin : il est lié."
+      }
     ],
     "explication": "Application à une marketplace : substitution = « à la place de »."
   },
@@ -802,11 +1778,1564 @@
     "notion": "types-de-marche",
     "question": "Pour Back Market (smartphones reconditionnés), une coque de protection relève du marché…",
     "choix": [
-      { "texte": "complémentaire", "correct": true, "pourquoi": "On l'utilise avec le smartphone : sa consommation est associée à celle du produit principal." },
-      { "texte": "de substitution", "correct": false, "pourquoi": "Une coque ne remplace pas un smartphone." },
-      { "texte": "principal", "correct": false, "pourquoi": "Le produit principal est le smartphone reconditionné." },
-      { "texte": "Aucun : ce n'est pas lié", "correct": false, "pourquoi": "La coque s'utilise avec le smartphone : c'est un complément." }
+      {
+        "texte": "complémentaire",
+        "correct": true,
+        "pourquoi": "On l'utilise avec le smartphone : sa consommation est associée à celle du produit principal."
+      },
+      {
+        "texte": "de substitution",
+        "correct": false,
+        "pourquoi": "Une coque ne remplace pas un smartphone."
+      },
+      {
+        "texte": "principal",
+        "correct": false,
+        "pourquoi": "Le produit principal est le smartphone reconditionné."
+      },
+      {
+        "texte": "Aucun : ce n'est pas lié",
+        "correct": false,
+        "pourquoi": "La coque s'utilise avec le smartphone : c'est un complément."
+      }
     ],
     "explication": "Application à une marketplace : complémentaire = « avec »."
+  },
+  {
+    "id": "q-pa-01",
+    "seance": 3,
+    "notion": "etapes-parcours",
+    "question": "Quelle est la première étape du parcours d'achat ?",
+    "choix": [
+      {
+        "texte": "La reconnaissance du problème / besoin",
+        "correct": true,
+        "pourquoi": "Tout commence quand l'individu prend conscience de son besoin."
+      },
+      {
+        "texte": "La recherche d'informations",
+        "correct": false,
+        "pourquoi": "C'est la 2e étape : on cherche des informations une fois le besoin identifié."
+      },
+      {
+        "texte": "L'évaluation des options",
+        "correct": false,
+        "pourquoi": "C'est la 3e étape."
+      },
+      {
+        "texte": "L'achat",
+        "correct": false,
+        "pourquoi": "C'est la 4e étape."
+      }
+    ],
+    "explication": "Ordre : reconnaissance du besoin → recherche d'informations → évaluation des options → achat → expérience post-achat."
+  },
+  {
+    "id": "q-pa-02",
+    "seance": 3,
+    "notion": "etapes-parcours",
+    "question": "Dans quel ordre se déroule le parcours d'achat ?",
+    "choix": [
+      {
+        "texte": "Besoin → recherche d'informations → évaluation des options → achat → expérience post-achat",
+        "correct": true,
+        "pourquoi": "C'est l'ordre des 5 étapes vues en séance 3."
+      },
+      {
+        "texte": "Recherche d'informations → besoin → achat → évaluation des options → expérience post-achat",
+        "correct": false,
+        "pourquoi": "Le besoin vient toujours en premier, et on évalue les options avant d'acheter."
+      },
+      {
+        "texte": "Besoin → évaluation des options → recherche d'informations → achat → expérience post-achat",
+        "correct": false,
+        "pourquoi": "On cherche d'abord des informations, puis on compare les options."
+      },
+      {
+        "texte": "Besoin → recherche d'informations → achat → évaluation des options → expérience post-achat",
+        "correct": false,
+        "pourquoi": "L'évaluation des options se fait avant l'achat."
+      }
+    ],
+    "explication": "Les 5 étapes : reconnaissance du problème / besoin, recherche d'informations, évaluation des options, achat, expérience post-achat."
+  },
+  {
+    "id": "q-pa-03",
+    "seance": 3,
+    "notion": "etapes-parcours",
+    "question": "Une rupture de stock ou une promotion imprévue influence l'individu. À quelle étape ?",
+    "choix": [
+      {
+        "texte": "L'achat",
+        "correct": true,
+        "pourquoi": "Lors de l'achat, des facteurs situationnels imprévus peuvent influencer l'individu (promotion, rupture de stock)."
+      },
+      {
+        "texte": "La reconnaissance du besoin",
+        "correct": false,
+        "pourquoi": "À cette étape, on prend conscience d'un besoin : ce n'est pas là que jouent les imprévus du magasin."
+      },
+      {
+        "texte": "La recherche d'informations",
+        "correct": false,
+        "pourquoi": "À cette étape, on rassemble des informations internes et externes."
+      },
+      {
+        "texte": "L'expérience post-achat",
+        "correct": false,
+        "pourquoi": "Après l'achat, on est satisfait ou insatisfait."
+      }
+    ],
+    "explication": "À l'étape de l'achat : facteurs situationnels imprévus (promotion, rupture de stock) et influence des autres personnes présentes en magasin."
+  },
+  {
+    "id": "q-pa-04",
+    "seance": 3,
+    "notion": "etapes-parcours",
+    "question": "Que forme l'individu grâce à sa recherche d'informations ?",
+    "choix": [
+      {
+        "texte": "Un ensemble de considération",
+        "correct": true,
+        "pourquoi": "Ce sont les produits qu'il comparera ensuite pour faire son choix final."
+      },
+      {
+        "texte": "Une dissonance cognitive",
+        "correct": false,
+        "pourquoi": "La dissonance cognitive vient d'une insatisfaction après l'achat."
+      },
+      {
+        "texte": "Un segment de marché",
+        "correct": false,
+        "pourquoi": "La segmentation est faite par le marketeur, pas par le consommateur."
+      },
+      {
+        "texte": "Une fidélité à la marque",
+        "correct": false,
+        "pourquoi": "La fidélité vient de la satisfaction, après l'achat."
+      }
+    ],
+    "explication": "Recherche d'informations (internes et externes) → ensemble de considération → évaluation des options."
+  },
+  {
+    "id": "q-pa-05",
+    "seance": 3,
+    "notion": "etapes-parcours",
+    "question": "Un client insatisfait après son achat ressent…",
+    "choix": [
+      {
+        "texte": "une dissonance cognitive",
+        "correct": true,
+        "pourquoi": "L'insatisfaction est source de dissonance cognitive."
+      },
+      {
+        "texte": "de la fidélité",
+        "correct": false,
+        "pourquoi": "C'est la satisfaction qui est source de fidélité."
+      },
+      {
+        "texte": "un stimulus interne",
+        "correct": false,
+        "pourquoi": "Les stimuli interviennent à la reconnaissance du besoin."
+      },
+      {
+        "texte": "un frein d'inhibition",
+        "correct": false,
+        "pourquoi": "Les inhibitions sont des freins à l'achat, pas une conséquence de l'insatisfaction."
+      }
+    ],
+    "explication": "Expérience post-achat : satisfaction → fidélité ; insatisfaction → dissonance cognitive."
+  },
+  {
+    "id": "q-pa-06",
+    "seance": 3,
+    "notion": "etapes-parcours",
+    "question": "Les informations « internes » de la recherche d'informations, c'est…",
+    "choix": [
+      {
+        "texte": "ce que l'individu sait déjà",
+        "correct": true,
+        "pourquoi": "Les informations internes = ce qu'il sait déjà."
+      },
+      {
+        "texte": "les renseignements obtenus en magasin",
+        "correct": false,
+        "pourquoi": "Ce sont des informations externes."
+      },
+      {
+        "texte": "les avis trouvés sur Internet",
+        "correct": false,
+        "pourquoi": "Ce sont des informations externes."
+      },
+      {
+        "texte": "les conseils de ses proches",
+        "correct": false,
+        "pourquoi": "Ce sont des informations externes."
+      }
+    ],
+    "explication": "Informations internes = ce qu'on sait déjà ; externes = magasin, Internet, proches."
+  },
+  {
+    "id": "q-fi-01",
+    "seance": 4,
+    "notion": "facteurs-influence",
+    "question": "Quelles sont les 4 familles de facteurs d'influence ?",
+    "choix": [
+      {
+        "texte": "Culturels, sociaux, personnels, psychologiques",
+        "correct": true,
+        "pourquoi": "Ce sont les 4 familles vues en séance 4."
+      },
+      {
+        "texte": "Culturels, économiques, technologiques, légaux",
+        "correct": false,
+        "pourquoi": "Cela ressemble au macro-environnement (chapitre 1), pas aux facteurs d'influence."
+      },
+      {
+        "texte": "Sociodémographiques, comportementaux, psychologiques, bénéfice recherché",
+        "correct": false,
+        "pourquoi": "Ce sont les critères de segmentation (chapitre 3)."
+      },
+      {
+        "texte": "Hédonistes, oblatifs, affectifs, rationnels",
+        "correct": false,
+        "pourquoi": "Ce sont des types de motivations."
+      }
+    ],
+    "explication": "Les facteurs d'influence jouent tout au long du processus d'achat et concernent l'individu directement."
+  },
+  {
+    "id": "q-fi-02",
+    "seance": 4,
+    "notion": "facteurs-influence",
+    "question": "La famille et les groupes de référence sont des facteurs…",
+    "choix": [
+      {
+        "texte": "sociaux",
+        "correct": true,
+        "pourquoi": "Facteurs sociaux : groupes d'appartenance, groupes de référence, famille, rôle et statut."
+      },
+      {
+        "texte": "culturels",
+        "correct": false,
+        "pourquoi": "Facteurs culturels : culture, sous-culture, classe sociale."
+      },
+      {
+        "texte": "personnels",
+        "correct": false,
+        "pourquoi": "Facteurs personnels : âge, profession, revenus, style de vie, personnalité."
+      },
+      {
+        "texte": "psychologiques",
+        "correct": false,
+        "pourquoi": "Facteurs psychologiques : perceptions, croyances, motivations."
+      }
+    ],
+    "explication": "Facteurs sociaux = l'entourage et la place de la personne dans la société (groupes, famille, rôle et statut)."
+  },
+  {
+    "id": "q-fi-03",
+    "seance": 4,
+    "notion": "facteurs-influence",
+    "question": "Le style de vie et la personnalité sont des facteurs…",
+    "choix": [
+      {
+        "texte": "personnels",
+        "correct": true,
+        "pourquoi": "Facteurs personnels : âge, profession, revenus, style de vie, personnalité."
+      },
+      {
+        "texte": "sociaux",
+        "correct": false,
+        "pourquoi": "Les facteurs sociaux concernent les groupes, la famille, le rôle et le statut."
+      },
+      {
+        "texte": "culturels",
+        "correct": false,
+        "pourquoi": "Les facteurs culturels concernent la culture, la sous-culture, la classe sociale."
+      },
+      {
+        "texte": "situationnels",
+        "correct": false,
+        "pourquoi": "Ce n'est pas l'une des 4 familles de facteurs d'influence."
+      }
+    ],
+    "explication": "Les 4 familles : culturels, sociaux, personnels, psychologiques."
+  },
+  {
+    "id": "q-fi-04",
+    "seance": 4,
+    "notion": "facteurs-influence",
+    "question": "La sous-culture et la classe sociale sont des facteurs…",
+    "choix": [
+      {
+        "texte": "culturels",
+        "correct": true,
+        "pourquoi": "Facteurs culturels : culture, sous-culture, classe sociale (catégorie socio-professionnelle)."
+      },
+      {
+        "texte": "sociaux",
+        "correct": false,
+        "pourquoi": "Les facteurs sociaux, ce sont les groupes, la famille, le rôle et le statut."
+      },
+      {
+        "texte": "psychologiques",
+        "correct": false,
+        "pourquoi": "Les facteurs psychologiques : perceptions, croyances, motivations."
+      },
+      {
+        "texte": "personnels",
+        "correct": false,
+        "pourquoi": "Les facteurs personnels : âge, profession, revenus, style de vie, personnalité."
+      }
+    ],
+    "explication": "Facteurs culturels = culture, sous-culture, classe sociale."
+  },
+  {
+    "id": "q-ps-01",
+    "seance": 4,
+    "notion": "facteurs-psychologiques",
+    "question": "« La manière dont les individus comprennent le monde et l'interprètent », c'est…",
+    "choix": [
+      {
+        "texte": "la perception",
+        "correct": true,
+        "pourquoi": "C'est la définition de la perception."
+      },
+      {
+        "texte": "la croyance",
+        "correct": false,
+        "pourquoi": "La croyance, c'est une conviction de l'individu à propos de quelque chose."
+      },
+      {
+        "texte": "la motivation",
+        "correct": false,
+        "pourquoi": "La motivation, c'est la raison qui pousse à agir."
+      },
+      {
+        "texte": "le style de vie",
+        "correct": false,
+        "pourquoi": "Le style de vie est un facteur personnel."
+      }
+    ],
+    "explication": "Ex. : percevoir une marque comme de haute qualité grâce à son emballage élégant et à son prix élevé."
+  },
+  {
+    "id": "q-ps-02",
+    "seance": 4,
+    "notion": "facteurs-psychologiques",
+    "question": "« Les produits bio sont meilleurs pour la santé » : c'est un exemple de…",
+    "choix": [
+      {
+        "texte": "croyance",
+        "correct": true,
+        "pourquoi": "Une croyance est une conviction de l'individu à propos de quelque chose."
+      },
+      {
+        "texte": "perception",
+        "correct": false,
+        "pourquoi": "La perception concerne la façon d'interpréter (ex. : un emballage élégant = qualité)."
+      },
+      {
+        "texte": "frein",
+        "correct": false,
+        "pourquoi": "Un frein empêche ou retarde l'achat."
+      },
+      {
+        "texte": "facteur social",
+        "correct": false,
+        "pourquoi": "C'est un facteur psychologique, pas social."
+      }
+    ],
+    "explication": "Facteurs psychologiques : perceptions, croyances, motivations."
+  },
+  {
+    "id": "q-ps-03",
+    "seance": 4,
+    "notion": "facteurs-psychologiques",
+    "question": "Un consommateur inquiet pour sa santé achète du bio. Quel facteur psychologique est à l'œuvre ?",
+    "choix": [
+      {
+        "texte": "La motivation",
+        "correct": true,
+        "pourquoi": "La motivation est la raison qui le pousse à agir de cette façon plutôt qu'une autre."
+      },
+      {
+        "texte": "La perception",
+        "correct": false,
+        "pourquoi": "La perception concerne l'interprétation du monde."
+      },
+      {
+        "texte": "La classe sociale",
+        "correct": false,
+        "pourquoi": "C'est un facteur culturel."
+      },
+      {
+        "texte": "Le rôle et le statut",
+        "correct": false,
+        "pourquoi": "C'est un facteur social."
+      }
+    ],
+    "explication": "C'est l'exemple du cours pour illustrer les motivations."
+  },
+  {
+    "id": "q-mf-01",
+    "seance": 4,
+    "notion": "motivations-freins",
+    "question": "Offrir un cadeau pour faire plaisir à un ami : quelle motivation ?",
+    "choix": [
+      {
+        "texte": "Oblative",
+        "correct": true,
+        "pourquoi": "Oblative = faire plaisir à autrui."
+      },
+      {
+        "texte": "Hédoniste",
+        "correct": false,
+        "pourquoi": "Hédoniste = recherche du plaisir personnel."
+      },
+      {
+        "texte": "Rationnelle",
+        "correct": false,
+        "pourquoi": "Rationnelle = maximiser l'utilité."
+      },
+      {
+        "texte": "Éthique",
+        "correct": false,
+        "pourquoi": "Éthique = sentiment de devoir moral."
+      }
+    ],
+    "explication": "Les 6 motivations : hédoniste, oblative, affective, rationnelle, auto-expression, éthique."
+  },
+  {
+    "id": "q-mf-02",
+    "seance": 4,
+    "notion": "motivations-freins",
+    "question": "Acheter le produit qui offre le meilleur rapport utilité / prix relève d'une motivation…",
+    "choix": [
+      {
+        "texte": "rationnelle",
+        "correct": true,
+        "pourquoi": "Rationnelle = maximiser l'utilité."
+      },
+      {
+        "texte": "affective",
+        "correct": false,
+        "pourquoi": "Affective = réponse à un élan."
+      },
+      {
+        "texte": "d'auto-expression",
+        "correct": false,
+        "pourquoi": "Auto-expression = désir de s'exprimer, de s'affirmer."
+      },
+      {
+        "texte": "hédoniste",
+        "correct": false,
+        "pourquoi": "Hédoniste = recherche du plaisir personnel."
+      }
+    ],
+    "explication": "Rationnelle : maximiser l'utilité."
+  },
+  {
+    "id": "q-mf-03",
+    "seance": 4,
+    "notion": "motivations-freins",
+    "question": "Quels sont les deux freins vus en cours ?",
+    "choix": [
+      {
+        "texte": "Les inhibitions et le risque perçu",
+        "correct": true,
+        "pourquoi": "Ce sont les deux freins de la séance 4."
+      },
+      {
+        "texte": "Le prix et la distribution",
+        "correct": false,
+        "pourquoi": "Ce sont des éléments du marketing mix."
+      },
+      {
+        "texte": "La perception et la croyance",
+        "correct": false,
+        "pourquoi": "Ce sont des facteurs psychologiques."
+      },
+      {
+        "texte": "La satisfaction et la fidélité",
+        "correct": false,
+        "pourquoi": "Ce sont des conséquences de l'expérience post-achat."
+      }
+    ],
+    "explication": "Inhibitions : manque de confiance, culpabilité, auto-censure. Risque perçu : financier, fonctionnel, physique, social…"
+  },
+  {
+    "id": "q-mf-04",
+    "seance": 4,
+    "notion": "motivations-freins",
+    "question": "Ne pas acheter un vêtement par peur du regard des autres : c'est un…",
+    "choix": [
+      {
+        "texte": "risque perçu (social)",
+        "correct": true,
+        "pourquoi": "Le risque perçu anticipe des conséquences négatives, dont le risque social."
+      },
+      {
+        "texte": "motivation éthique",
+        "correct": false,
+        "pourquoi": "L'éthique pousse à agir par devoir moral."
+      },
+      {
+        "texte": "facteur culturel",
+        "correct": false,
+        "pourquoi": "C'est un frein, pas une famille de facteurs."
+      },
+      {
+        "texte": "stimulus externe",
+        "correct": false,
+        "pourquoi": "Les stimuli déclenchent la reconnaissance d'un besoin."
+      }
+    ],
+    "explication": "Risque perçu = anticipation de conséquences négatives (financier, fonctionnel, physique, social…)."
+  },
+  {
+    "id": "q-mf-05",
+    "seance": 4,
+    "notion": "motivations-freins",
+    "question": "Les motivations peuvent être…",
+    "choix": [
+      {
+        "texte": "positives (encourager l'achat) ou négatives (freiner l'achat)",
+        "correct": true,
+        "pourquoi": "C'est ce que dit la fiche récapitulative."
+      },
+      {
+        "texte": "uniquement positives",
+        "correct": false,
+        "pourquoi": "Elles peuvent aussi freiner l'achat."
+      },
+      {
+        "texte": "uniquement rationnelles",
+        "correct": false,
+        "pourquoi": "Il en existe 6 types, pas seulement rationnelles."
+      },
+      {
+        "texte": "uniquement sociales",
+        "correct": false,
+        "pourquoi": "Les motivations sont des facteurs psychologiques."
+      }
+    ],
+    "explication": "Les motivations poussent le consommateur à agir ; elles peuvent encourager ou freiner l'achat."
+  },
+  {
+    "id": "q-sg-01",
+    "seance": 5,
+    "notion": "segmentation",
+    "question": "La segmentation consiste à regrouper les consommateurs pour qu'ils soient…",
+    "choix": [
+      {
+        "texte": "le plus ressemblants possible dans un groupe, et que les groupes soient différents entre eux",
+        "correct": true,
+        "pourquoi": "C'est la définition de la fiche récapitulative."
+      },
+      {
+        "texte": "le plus différents possible dans un même groupe",
+        "correct": false,
+        "pourquoi": "C'est l'inverse : on cherche des groupes homogènes."
+      },
+      {
+        "texte": "tous dans un seul grand groupe",
+        "correct": false,
+        "pourquoi": "Un seul groupe, c'est l'absence de segmentation."
+      },
+      {
+        "texte": "classés uniquement selon leur âge",
+        "correct": false,
+        "pourquoi": "L'âge n'est qu'un critère parmi d'autres."
+      }
+    ],
+    "explication": "Homogènes à l'intérieur, différents entre eux."
+  },
+  {
+    "id": "q-sg-02",
+    "seance": 5,
+    "notion": "segmentation",
+    "question": "Pourquoi les marketeurs segmentent-ils les marchés ?",
+    "choix": [
+      {
+        "texte": "Pour optimiser leurs ressources et mieux satisfaire des groupes aux attentes proches",
+        "correct": true,
+        "pourquoi": "Il est plus simple de satisfaire un petit groupe qui cherche la même chose."
+      },
+      {
+        "texte": "Pour vendre le même produit à tout le monde",
+        "correct": false,
+        "pourquoi": "C'est justement ce qu'on évite : une offre qui satisfait tout le monde à 10 %."
+      },
+      {
+        "texte": "Pour augmenter le nombre de concurrents",
+        "correct": false,
+        "pourquoi": "La segmentation n'a pas ce but."
+      },
+      {
+        "texte": "Pour fixer le prix à partir des coûts",
+        "correct": false,
+        "pourquoi": "C'est une méthode de fixation du prix (chapitre 4)."
+      }
+    ],
+    "explication": "Sans segmentation, on risque une offre qui satisfait tout le monde à 10 % et personne à 80 %."
+  },
+  {
+    "id": "q-cs-01",
+    "seance": 5,
+    "notion": "criteres-segmentation",
+    "question": "Segmenter selon la fréquence d'achat, c'est utiliser un critère…",
+    "choix": [
+      {
+        "texte": "comportemental",
+        "correct": true,
+        "pourquoi": "Comportementaux : lieu ou fréquence d'achat, quantité achetée."
+      },
+      {
+        "texte": "sociodémographique",
+        "correct": false,
+        "pourquoi": "Sociodémographiques : âge, genre, revenus…"
+      },
+      {
+        "texte": "psychologique",
+        "correct": false,
+        "pourquoi": "Psychologiques : motivations, personnalité…"
+      },
+      {
+        "texte": "de bénéfice recherché",
+        "correct": false,
+        "pourquoi": "Bénéfice recherché : performance, objectif, image de marque…"
+      }
+    ],
+    "explication": "4 familles : sociodémographiques, bénéfice recherché, psychologiques, comportementaux."
+  },
+  {
+    "id": "q-cs-02",
+    "seance": 5,
+    "notion": "criteres-segmentation",
+    "question": "Jouets « divertissement » vs « éducation » : quel critère ?",
+    "choix": [
+      {
+        "texte": "Le bénéfice recherché",
+        "correct": true,
+        "pourquoi": "L'objectif recherché par l'acheteur est un bénéfice recherché."
+      },
+      {
+        "texte": "Sociodémographique",
+        "correct": false,
+        "pourquoi": "Le genre et l'âge sont sociodémo, pas l'objectif."
+      },
+      {
+        "texte": "Comportemental",
+        "correct": false,
+        "pourquoi": "Comportemental = lieu, fréquence, quantité d'achat."
+      },
+      {
+        "texte": "Psychologique",
+        "correct": false,
+        "pourquoi": "Psychologique = motivations, personnalité."
+      }
+    ],
+    "explication": "Le marché des jouets combine genre (sociodémo), objectif (bénéfice recherché) et âge (sociodémo)."
+  },
+  {
+    "id": "q-cs-03",
+    "seance": 5,
+    "notion": "criteres-segmentation",
+    "question": "Le revenu disponible est un critère…",
+    "choix": [
+      {
+        "texte": "sociodémographique",
+        "correct": true,
+        "pourquoi": "Sociodémographiques : âge, genre, niveau d'éducation, revenu disponible…"
+      },
+      {
+        "texte": "comportemental",
+        "correct": false,
+        "pourquoi": "Comportemental concerne la façon d'acheter."
+      },
+      {
+        "texte": "psychologique",
+        "correct": false,
+        "pourquoi": "Psychologique concerne les motivations, la personnalité."
+      },
+      {
+        "texte": "de bénéfice recherché",
+        "correct": false,
+        "pourquoi": "Bénéfice recherché concerne ce que le client attend du produit."
+      }
+    ],
+    "explication": "On combine souvent plusieurs critères, selon les facteurs d'influence les plus pertinents dans la catégorie."
+  },
+  {
+    "id": "q-cs-04",
+    "seance": 5,
+    "notion": "criteres-segmentation",
+    "question": "Comment choisir les « bons » critères de segmentation ?",
+    "choix": [
+      {
+        "texte": "Selon les facteurs d'influence les plus pertinents dans la catégorie de produits",
+        "correct": true,
+        "pourquoi": "C'est ce que précise la fiche (NB)."
+      },
+      {
+        "texte": "Toujours un seul critère : l'âge",
+        "correct": false,
+        "pourquoi": "On combine souvent plusieurs critères."
+      },
+      {
+        "texte": "Selon les prix des concurrents",
+        "correct": false,
+        "pourquoi": "C'est une méthode de fixation du prix."
+      },
+      {
+        "texte": "Au hasard",
+        "correct": false,
+        "pourquoi": "Le choix dépend des facteurs d'influence pertinents."
+      }
+    ],
+    "explication": "On combine souvent plusieurs critères."
+  },
+  {
+    "id": "q-cb-01",
+    "seance": 5,
+    "notion": "ciblage",
+    "question": "Cibler plusieurs segments en adaptant l'offre à chacun, c'est un marketing…",
+    "choix": [
+      {
+        "texte": "différencié",
+        "correct": true,
+        "pourquoi": "Différencié (segmenté) : une offre différente pour chaque segment."
+      },
+      {
+        "texte": "indifférencié",
+        "correct": false,
+        "pourquoi": "Indifférencié : une seule offre pour tout le marché."
+      },
+      {
+        "texte": "concentré",
+        "correct": false,
+        "pourquoi": "Concentré (niche) : un seul segment."
+      },
+      {
+        "texte": "one-to-one",
+        "correct": false,
+        "pourquoi": "One-to-one : une offre pour chaque client individuel."
+      }
+    ],
+    "explication": "4 stratégies : indifférencié (masse), différencié (segmenté), concentré (niche), personnalisé (one-to-one)."
+  },
+  {
+    "id": "q-cb-02",
+    "seance": 5,
+    "notion": "ciblage",
+    "question": "Une marque qui ne s'adresse qu'à un seul segment pratique un ciblage…",
+    "choix": [
+      {
+        "texte": "concentré (de niche)",
+        "correct": true,
+        "pourquoi": "Concentré / niche = un seul segment."
+      },
+      {
+        "texte": "indifférencié",
+        "correct": false,
+        "pourquoi": "Indifférencié = tout le marché sans distinction."
+      },
+      {
+        "texte": "différencié",
+        "correct": false,
+        "pourquoi": "Différencié = plusieurs segments."
+      },
+      {
+        "texte": "personnalisé",
+        "correct": false,
+        "pourquoi": "Personnalisé = chaque consommateur individuellement."
+      }
+    ],
+    "explication": "Le ciblage est une décision stratégique, prise selon les ressources et les concurrents."
+  },
+  {
+    "id": "q-cb-03",
+    "seance": 5,
+    "notion": "ciblage",
+    "question": "Le ciblage est un arbitrage entre…",
+    "choix": [
+      {
+        "texte": "pénétration, rentabilité et ressources",
+        "correct": true,
+        "pourquoi": "Ce sont les trois éléments à arbitrer vus en séance 5."
+      },
+      {
+        "texte": "produit, prix et distribution",
+        "correct": false,
+        "pourquoi": "Ce sont des éléments du marketing mix."
+      },
+      {
+        "texte": "PoP, PoD et RTB",
+        "correct": false,
+        "pourquoi": "Ce sont les éléments du positionnement."
+      },
+      {
+        "texte": "besoin, achat et post-achat",
+        "correct": false,
+        "pourquoi": "Ce sont des étapes du parcours d'achat."
+      }
+    ],
+    "explication": "Pénétration = nombre de clients potentiels ; rentabilité = clients prêts à payer plus pour une offre adaptée ; ressources = argent et personnes disponibles."
+  },
+  {
+    "id": "q-cb-04",
+    "seance": 5,
+    "notion": "ciblage",
+    "question": "Une offre différente pour chaque client individuel, c'est…",
+    "choix": [
+      {
+        "texte": "le one-to-one (personnalisation)",
+        "correct": true,
+        "pourquoi": "C'est la 4e stratégie de ciblage."
+      },
+      {
+        "texte": "le marketing de masse",
+        "correct": false,
+        "pourquoi": "Le marketing de masse s'adresse à tout le marché avec une seule offre."
+      },
+      {
+        "texte": "le marketing de niche",
+        "correct": false,
+        "pourquoi": "La niche vise un seul segment, pas chaque individu."
+      },
+      {
+        "texte": "le positionnement",
+        "correct": false,
+        "pourquoi": "Le positionnement n'est pas une stratégie de ciblage."
+      }
+    ],
+    "explication": "One-to-one = cibler les consommateurs individuellement."
+  },
+  {
+    "id": "q-po-01",
+    "seance": 6,
+    "notion": "positionnement",
+    "question": "Le positionnement consiste à…",
+    "choix": [
+      {
+        "texte": "installer une représentation précise dans l'esprit du consommateur",
+        "correct": true,
+        "pourquoi": "C'est la définition de la fiche récapitulative."
+      },
+      {
+        "texte": "choisir les segments à cibler",
+        "correct": false,
+        "pourquoi": "C'est le ciblage."
+      },
+      {
+        "texte": "regrouper les consommateurs en groupes homogènes",
+        "correct": false,
+        "pourquoi": "C'est la segmentation."
+      },
+      {
+        "texte": "placer le produit dans les rayons",
+        "correct": false,
+        "pourquoi": "Cela relève de la distribution."
+      }
+    ],
+    "explication": "Segmentation et ciblage : à qui on s'adresse. Positionnement : ce qu'on va leur dire."
+  },
+  {
+    "id": "q-po-02",
+    "seance": 6,
+    "notion": "positionnement",
+    "question": "Les caractéristiques qu'une marque doit partager avec ses concurrents pour être crédible sont les…",
+    "choix": [
+      {
+        "texte": "Points de Parité (PoP)",
+        "correct": true,
+        "pourquoi": "Les PoP assurent la crédibilité (la légitimité) dans la catégorie."
+      },
+      {
+        "texte": "Points de Différenciation (PoD)",
+        "correct": false,
+        "pourquoi": "Les PoD distinguent la marque des concurrents."
+      },
+      {
+        "texte": "Reasons To Believe (RTB)",
+        "correct": false,
+        "pourquoi": "Les RTB prouvent qu'un PoP ou un PoD est crédible."
+      },
+      {
+        "texte": "Brand Mantra",
+        "correct": false,
+        "pourquoi": "Le Brand Mantra est au centre du modèle, mais ce n'est pas la réponse."
+      }
+    ],
+    "explication": "PoP = partagés avec les concurrents ; PoD = ce qui distingue la marque."
+  },
+  {
+    "id": "q-po-03",
+    "seance": 6,
+    "notion": "positionnement",
+    "question": "« Notre budget R&D est deux fois supérieur à celui des concurrents » prouve le PoD « innovant ». C'est…",
+    "choix": [
+      {
+        "texte": "une Reason To Believe (RTB)",
+        "correct": true,
+        "pourquoi": "Un RTB est un élément objectif qui prouve qu'un PoP ou un PoD est crédible."
+      },
+      {
+        "texte": "un Point de Parité",
+        "correct": false,
+        "pourquoi": "Un PoP est une caractéristique partagée avec les concurrents."
+      },
+      {
+        "texte": "une stratégie de ciblage",
+        "correct": false,
+        "pourquoi": "Ce n'est pas une décision de ciblage."
+      },
+      {
+        "texte": "une motivation oblative",
+        "correct": false,
+        "pourquoi": "Rien à voir avec les motivations du consommateur."
+      }
+    ],
+    "explication": "C'est l'exemple du cours. Les RTB limitent les promesses exagérées ou mensongères."
+  },
+  {
+    "id": "q-po-04",
+    "seance": 6,
+    "notion": "positionnement",
+    "question": "Qui a proposé le modèle « bulleye » de positionnement ?",
+    "choix": [
+      {
+        "texte": "P. Kotler",
+        "correct": true,
+        "pourquoi": "Le modèle bulleye de Kotler met au centre les PoP et les PoD."
+      },
+      {
+        "texte": "N. Borden",
+        "correct": false,
+        "pourquoi": "Borden est à l'origine du marketing mix."
+      },
+      {
+        "texte": "L'AFM",
+        "correct": false,
+        "pourquoi": "L'AFM a donné une définition du marketing (chapitre 1)."
+      },
+      {
+        "texte": "Holt",
+        "correct": false,
+        "pourquoi": "Holt propose un autre modèle, culturel, cité en conclusion de la séance 6."
+      }
+    ],
+    "explication": "Le modèle culturel de Holt est une alternative, centrée sur l'expérience des consommateurs."
+  },
+  {
+    "id": "q-po-05",
+    "seance": 6,
+    "notion": "positionnement",
+    "question": "Quel lien entre positionnement et marketing mix ?",
+    "choix": [
+      {
+        "texte": "Tout ce que la marque fait de visible (pack, prix, lieu de vente…) dérive du positionnement",
+        "correct": true,
+        "pourquoi": "Les PoP et PoD servent de principe directeur pour le mix."
+      },
+      {
+        "texte": "Le mix est décidé avant le positionnement",
+        "correct": false,
+        "pourquoi": "C'est l'inverse : le positionnement guide le mix."
+      },
+      {
+        "texte": "Ils n'ont aucun lien",
+        "correct": false,
+        "pourquoi": "Ils sont directement liés."
+      },
+      {
+        "texte": "Le positionnement ne concerne que la publicité",
+        "correct": false,
+        "pourquoi": "Il guide les 4 P, pas seulement la promotion."
+      }
+    ],
+    "explication": "Ex. : du vert sur le pack et le logo pour communiquer un PoD sur l'écologie."
+  },
+  {
+    "id": "q-lc-01",
+    "seance": 6,
+    "notion": "leader-challenger-niche",
+    "question": "Quel acteur privilégie la rentabilité à la part de marché, avec un ciblage concentré ?",
+    "choix": [
+      {
+        "texte": "L'acteur de niche",
+        "correct": true,
+        "pourquoi": "Les acteurs de niche privilégient la rentabilité et ciblent un seul segment."
+      },
+      {
+        "texte": "Le leader",
+        "correct": false,
+        "pourquoi": "Le leader cherche à préserver la plus grande part de marché."
+      },
+      {
+        "texte": "Le challenger",
+        "correct": false,
+        "pourquoi": "Le challenger veut devenir leader, avec un ciblage différencié."
+      },
+      {
+        "texte": "Aucun",
+        "correct": false,
+        "pourquoi": "C'est l'acteur de niche."
+      }
+    ],
+    "explication": "Niche : bons sur les PoP, très forts sur des PoD créatifs, prise de risques."
+  },
+  {
+    "id": "q-lc-02",
+    "seance": 6,
+    "notion": "leader-challenger-niche",
+    "question": "Un leader a généralement…",
+    "choix": [
+      {
+        "texte": "un ciblage différencié et des PoD consensuels",
+        "correct": true,
+        "pourquoi": "Le leader veut plaire au plus grand nombre, avec peu de prise de risques."
+      },
+      {
+        "texte": "un ciblage concentré et des PoD très créatifs",
+        "correct": false,
+        "pourquoi": "C'est plutôt l'acteur de niche."
+      },
+      {
+        "texte": "aucun Point de Parité",
+        "correct": false,
+        "pourquoi": "Le leader est au contraire solide sur les PoP."
+      },
+      {
+        "texte": "des stratégies d'attaque frontale",
+        "correct": false,
+        "pourquoi": "Les stratégies d'attaque sont celles des challengers ; le leader se défend."
+      }
+    ],
+    "explication": "Leader : préserver sa part de marché, stratégies défensives."
+  },
+  {
+    "id": "q-lc-03",
+    "seance": 6,
+    "notion": "leader-challenger-niche",
+    "question": "Attaque frontale, encerclement, contournement : ce sont des stratégies de…",
+    "choix": [
+      {
+        "texte": "challenger",
+        "correct": true,
+        "pourquoi": "Les challengers utilisent ces stratégies d'attaque pour devenir leaders."
+      },
+      {
+        "texte": "leader",
+        "correct": false,
+        "pourquoi": "Le leader utilise des stratégies défensives."
+      },
+      {
+        "texte": "niche",
+        "correct": false,
+        "pourquoi": "La niche utilise le débordement (flanking) ou la guérilla."
+      },
+      {
+        "texte": "distribution",
+        "correct": false,
+        "pourquoi": "Ce ne sont pas des stratégies de distribution."
+      }
+    ],
+    "explication": "Niche : débordement (flanking) ou guérilla. Challenger : frontale, encerclement, contournement."
+  },
+  {
+    "id": "q-pg-01",
+    "seance": 8,
+    "notion": "produit-gamme",
+    "question": "En marketing, un « produit » peut être…",
+    "choix": [
+      {
+        "texte": "un bien, un service, une expérience, un évènement, une personne, un lieu, une ONG ou une idée",
+        "correct": true,
+        "pourquoi": "La facette produit désigne toutes les offres, tangibles ou non."
+      },
+      {
+        "texte": "uniquement un bien tangible",
+        "correct": false,
+        "pourquoi": "Un produit peut aussi être intangible (service, idée…)."
+      },
+      {
+        "texte": "uniquement un bien ou un service",
+        "correct": false,
+        "pourquoi": "La liste est plus large : expérience, évènement, lieu, idée…"
+      },
+      {
+        "texte": "uniquement ce qui est vendu en magasin",
+        "correct": false,
+        "pourquoi": "Le lieu de vente ne définit pas le produit."
+      }
+    ],
+    "explication": "La facette produit du mix désigne toutes les offres, tangibles ou non."
+  },
+  {
+    "id": "q-pg-02",
+    "seance": 8,
+    "notion": "produit-gamme",
+    "question": "Que se passe-t-il quand la gamme est plus large, longue et profonde ?",
+    "choix": [
+      {
+        "texte": "Elle couvre plus de segments, mais elle est plus complexe et coûteuse à gérer",
+        "correct": true,
+        "pourquoi": "C'est l'arbitrage décrit en cours."
+      },
+      {
+        "texte": "Elle est plus simple à gérer",
+        "correct": false,
+        "pourquoi": "C'est l'inverse : plus de produits = plus de complexité."
+      },
+      {
+        "texte": "Elle réduit les coûts",
+        "correct": false,
+        "pourquoi": "Une gamme plus grande est plus coûteuse à manager."
+      },
+      {
+        "texte": "Elle permet d'être plus concentré",
+        "correct": false,
+        "pourquoi": "C'est avoir moins de produits qui permet d'être plus concentré."
+      }
+    ],
+    "explication": "Gamme = ensemble des produits disponibles dans une catégorie et vendus par une entreprise."
+  },
+  {
+    "id": "q-px-01",
+    "seance": 8,
+    "notion": "prix",
+    "question": "Dans l'image du cours, le consentement à payer du consommateur, c'est…",
+    "choix": [
+      {
+        "texte": "le plafond",
+        "correct": true,
+        "pourquoi": "Consentement à payer = le plafond ; coûts = le plancher ; concurrents = les murs."
+      },
+      {
+        "texte": "le plancher",
+        "correct": false,
+        "pourquoi": "Le plancher, ce sont les coûts de production."
+      },
+      {
+        "texte": "les murs",
+        "correct": false,
+        "pourquoi": "Les murs, ce sont les prix des concurrents."
+      },
+      {
+        "texte": "le point d'équilibre",
+        "correct": false,
+        "pourquoi": "Le point d'équilibre se calcule à partir des coûts."
+      }
+    ],
+    "explication": "Le prix se fixe entre le plancher (coûts), le plafond (consentement à payer) et les murs (concurrents)."
+  },
+  {
+    "id": "q-px-02",
+    "seance": 8,
+    "notion": "prix",
+    "question": "Prix bas et gros volumes pour maximiser la part de marché : quelle stratégie ?",
+    "choix": [
+      {
+        "texte": "La pénétration",
+        "correct": true,
+        "pourquoi": "Pénétration = maximiser la part de marché avec prix bas / gros volumes."
+      },
+      {
+        "texte": "L'écrémage",
+        "correct": false,
+        "pourquoi": "Écrémage = prix élevés, petits volumes, image de marque."
+      },
+      {
+        "texte": "L'alignement",
+        "correct": false,
+        "pourquoi": "Alignement = s'aligner sur les concurrents pour éviter une guerre des prix."
+      },
+      {
+        "texte": "La distribution exclusive",
+        "correct": false,
+        "pourquoi": "C'est une stratégie de distribution, pas de prix."
+      }
+    ],
+    "explication": "Pénétration recommandée si : segments sensibles au prix, prix bas sans impact sur la qualité perçue, économies d'échelle possibles."
+  },
+  {
+    "id": "q-px-03",
+    "seance": 8,
+    "notion": "prix",
+    "question": "S'aligner sur les prix des concurrents permet surtout de…",
+    "choix": [
+      {
+        "texte": "éviter une guerre des prix",
+        "correct": true,
+        "pourquoi": "C'est l'objectif de la stratégie d'alignement."
+      },
+      {
+        "texte": "maximiser la part de marché",
+        "correct": false,
+        "pourquoi": "C'est l'objectif de la pénétration."
+      },
+      {
+        "texte": "construire une image de luxe",
+        "correct": false,
+        "pourquoi": "C'est plutôt l'écrémage."
+      },
+      {
+        "texte": "calculer le point d'équilibre",
+        "correct": false,
+        "pourquoi": "Le point d'équilibre vient des coûts."
+      }
+    ],
+    "explication": "Alignement recommandé : peu de concurrents et peu de différences prix / qualité, structure de coûts similaire."
+  },
+  {
+    "id": "q-px-04",
+    "seance": 8,
+    "notion": "prix",
+    "question": "Partir du consentement à payer, c'est chercher…",
+    "choix": [
+      {
+        "texte": "le prix psychologique (qui maximise la demande) et l'élasticité",
+        "correct": true,
+        "pourquoi": "C'est ce que dit la fiche récapitulative."
+      },
+      {
+        "texte": "le point d'équilibre",
+        "correct": false,
+        "pourquoi": "Le point d'équilibre, c'est quand on part des coûts."
+      },
+      {
+        "texte": "le prix des concurrents",
+        "correct": false,
+        "pourquoi": "C'est la 3e méthode."
+      },
+      {
+        "texte": "la largeur de la gamme",
+        "correct": false,
+        "pourquoi": "Cela concerne le produit."
+      }
+    ],
+    "explication": "Coûts → point d'équilibre et profit ; consentement à payer → prix psychologique et élasticité ; concurrents → pénétration, écrémage ou alignement."
+  },
+  {
+    "id": "q-px-05",
+    "seance": 8,
+    "notion": "prix",
+    "question": "L'écrémage est recommandé quand…",
+    "choix": [
+      {
+        "texte": "les segments sont peu sensibles au prix et des prix élevés sont justifiés",
+        "correct": true,
+        "pourquoi": "Ce sont les situations listées pour l'écrémage."
+      },
+      {
+        "texte": "les segments sont très sensibles au prix",
+        "correct": false,
+        "pourquoi": "Là, c'est plutôt la pénétration."
+      },
+      {
+        "texte": "on veut éviter une guerre des prix",
+        "correct": false,
+        "pourquoi": "C'est l'alignement."
+      },
+      {
+        "texte": "on peut faire de grosses économies d'échelle",
+        "correct": false,
+        "pourquoi": "C'est un argument pour la pénétration."
+      }
+    ],
+    "explication": "Écrémage : objectif d'image de marque, prix élevés, petits volumes."
+  },
+  {
+    "id": "q-ds-01",
+    "seance": 8,
+    "notion": "distribution",
+    "question": "Un gel douche vendu uniquement en pharmacie : quelle stratégie de distribution ?",
+    "choix": [
+      {
+        "texte": "Sélective",
+        "correct": true,
+        "pourquoi": "C'est l'exemple du cours : un compromis entre accessibilité et contrôle de l'image."
+      },
+      {
+        "texte": "Intensive",
+        "correct": false,
+        "pourquoi": "Intensive = en supermarchés, partout."
+      },
+      {
+        "texte": "Exclusive",
+        "correct": false,
+        "pourquoi": "Exclusive = l'exemple de Rituals."
+      },
+      {
+        "texte": "Indifférenciée",
+        "correct": false,
+        "pourquoi": "C'est une stratégie de ciblage, pas de distribution."
+      }
+    ],
+    "explication": "Intensive (supermarchés), sélective (pharmacie), exclusive (Rituals)."
+  },
+  {
+    "id": "q-ds-02",
+    "seance": 8,
+    "notion": "distribution",
+    "question": "Quel est le principal avantage d'une distribution exclusive ?",
+    "choix": [
+      {
+        "texte": "Un contrôle total sur la distribution",
+        "correct": true,
+        "pourquoi": "C'est l'avantage cité ; l'inconvénient est le coût élevé."
+      },
+      {
+        "texte": "Le plus grand nombre de points de vente",
+        "correct": false,
+        "pourquoi": "C'est la distribution intensive."
+      },
+      {
+        "texte": "Un coût très faible",
+        "correct": false,
+        "pourquoi": "Au contraire : c'est coûteux (logistique, immobilier…)."
+      },
+      {
+        "texte": "Plus d'achats impulsifs",
+        "correct": false,
+        "pourquoi": "C'est un avantage de la distribution intensive."
+      }
+    ],
+    "explication": "Exclusive = droits exclusifs accordés à certains points de vente (succursales, franchises, distributeurs agréés)."
+  },
+  {
+    "id": "q-ds-03",
+    "seance": 8,
+    "notion": "distribution",
+    "question": "Un inconvénient de la distribution intensive est…",
+    "choix": [
+      {
+        "texte": "moins de contrôle et des négociations difficiles avec les distributeurs",
+        "correct": true,
+        "pourquoi": "Ce sont les inconvénients cités en cours, avec les marges des distributeurs."
+      },
+      {
+        "texte": "une notoriété plus faible",
+        "correct": false,
+        "pourquoi": "La notoriété est au contraire accrue."
+      },
+      {
+        "texte": "moins de ventes",
+        "correct": false,
+        "pourquoi": "Elle augmente les ventes."
+      },
+      {
+        "texte": "une couverture de marché plus faible",
+        "correct": false,
+        "pourquoi": "C'est un inconvénient de la distribution sélective."
+      }
+    ],
+    "explication": "Intensive : maximiser le nombre de points de vente pour une plus grande pénétration."
+  },
+  {
+    "id": "q-pr-01",
+    "seance": 8,
+    "notion": "promotion",
+    "question": "Quel outil de promotion consiste à « payer pour plus de contrôle » sur le message ?",
+    "choix": [
+      {
+        "texte": "La publicité",
+        "correct": true,
+        "pourquoi": "Achat d'espace avec beaucoup de liberté sur le message."
+      },
+      {
+        "texte": "Les relations publiques",
+        "correct": false,
+        "pourquoi": "Les RP visent la crédibilité, avec moins de contrôle."
+      },
+      {
+        "texte": "Le sponsoring",
+        "correct": false,
+        "pourquoi": "Le sponsoring, c'est s'associer à un tiers."
+      },
+      {
+        "texte": "La promotion des ventes",
+        "correct": false,
+        "pourquoi": "Elle encourage une action à court terme."
+      }
+    ],
+    "explication": "Publicité = payer pour le contrôle ; RP = convaincre pour la crédibilité ; sponsoring = s'associer ; promotion des ventes = court terme."
+  },
+  {
+    "id": "q-pr-02",
+    "seance": 8,
+    "notion": "promotion",
+    "question": "Un « 2 achetés, le 3e offert » relève de…",
+    "choix": [
+      {
+        "texte": "la promotion des ventes",
+        "correct": true,
+        "pourquoi": "Une incitation à court terme pour encourager une action immédiate."
+      },
+      {
+        "texte": "la publicité",
+        "correct": false,
+        "pourquoi": "La publicité est un achat d'espace pour un message."
+      },
+      {
+        "texte": "les relations publiques",
+        "correct": false,
+        "pourquoi": "Les RP entretiennent les relations avec les publics."
+      },
+      {
+        "texte": "le sponsoring",
+        "correct": false,
+        "pourquoi": "Le sponsoring soutient une personne, un évènement ou une organisation."
+      }
+    ],
+    "explication": "Promotion des ventes = effets comportementaux à court terme."
+  },
+  {
+    "id": "q-pr-03",
+    "seance": 8,
+    "notion": "promotion",
+    "question": "Les relations publiques offrent…",
+    "choix": [
+      {
+        "texte": "moins de contrôle mais plus de crédibilité",
+        "correct": true,
+        "pourquoi": "C'est un travail de conviction."
+      },
+      {
+        "texte": "plus de contrôle et moins de crédibilité",
+        "correct": false,
+        "pourquoi": "C'est plutôt la logique de la publicité."
+      },
+      {
+        "texte": "des ventes immédiates",
+        "correct": false,
+        "pourquoi": "C'est la promotion des ventes."
+      },
+      {
+        "texte": "l'association avec un tiers",
+        "correct": false,
+        "pourquoi": "C'est le sponsoring."
+      }
+    ],
+    "explication": "RP = ensemble d'activités pour établir et entretenir de bonnes relations entre une organisation et ses publics."
+  },
+  {
+    "id": "q-cm-01",
+    "seance": 8,
+    "notion": "coherence-mix",
+    "question": "Qu'est-ce qui donne la direction du marketing mix ?",
+    "choix": [
+      {
+        "texte": "La stratégie, et plus particulièrement le positionnement",
+        "correct": true,
+        "pourquoi": "Le mix doit concrétiser le positionnement, et seulement celui-ci."
+      },
+      {
+        "texte": "Les envies de l'équipe créative",
+        "correct": false,
+        "pourquoi": "La créativité est possible, mais au service du positionnement."
+      },
+      {
+        "texte": "Le prix des concurrents uniquement",
+        "correct": false,
+        "pourquoi": "Ce n'est qu'une des méthodes de fixation du prix."
+      },
+      {
+        "texte": "La largeur de la gamme",
+        "correct": false,
+        "pourquoi": "La gamme est une décision du mix, pas sa direction."
+      }
+    ],
+    "explication": "Comme en cuisine, toutes les saveurs ne vont pas ensemble : le mix doit être cohérent."
+  },
+  {
+    "id": "q-cm-02",
+    "seance": 8,
+    "notion": "coherence-mix",
+    "question": "Gamme longue, prix de pénétration, distribution intensive, publicité dans les médias de masse : quel mix ?",
+    "choix": [
+      {
+        "texte": "Le mix de masse (mass market)",
+        "correct": true,
+        "pourquoi": "C'est la description du mix mass market."
+      },
+      {
+        "texte": "Le mix de niche",
+        "correct": false,
+        "pourquoi": "Niche = gamme courte, écrémage, distribution sélective."
+      },
+      {
+        "texte": "Le mix de luxe",
+        "correct": false,
+        "pourquoi": "Luxe = produit iconique, écrémage, distribution sélective ou exclusive."
+      },
+      {
+        "texte": "Le mix des services",
+        "correct": false,
+        "pourquoi": "Les 7 P des services ajoutent People, Process, Physical Evidence."
+      }
+    ],
+    "explication": "Mass market : la marque doit être visible et accessible, avec un ton sérieux et consensuel."
+  },
+  {
+    "id": "q-cm-03",
+    "seance": 8,
+    "notion": "coherence-mix",
+    "question": "Quels « P » ajoutent les 7 P des services ?",
+    "choix": [
+      {
+        "texte": "People, Process, Physical Evidence",
+        "correct": true,
+        "pourquoi": "Personnes, processus et preuves physiques."
+      },
+      {
+        "texte": "Proof, Permission, Partnership",
+        "correct": false,
+        "pourquoi": "Ce sont d'autres « P » cités, mais pas ceux des 7 P des services."
+      },
+      {
+        "texte": "Produit, Prix, Promotion",
+        "correct": false,
+        "pourquoi": "Ce sont déjà des 4 P."
+      },
+      {
+        "texte": "PoP, PoD, RTB",
+        "correct": false,
+        "pourquoi": "Ce sont des notions de positionnement."
+      }
+    ],
+    "explication": "Le marketing mix vient de Neil Borden (1964) : 12 points simplifiés en 4 P."
+  },
+  {
+    "id": "q-cm-04",
+    "seance": 8,
+    "notion": "coherence-mix",
+    "question": "Dans un mix de luxe, des prix élevés servent aussi à…",
+    "choix": [
+      {
+        "texte": "exclure certains clients non souhaités",
+        "correct": true,
+        "pourquoi": "C'est une particularité du mix de luxe vue en cours."
+      },
+      {
+        "texte": "maximiser la part de marché",
+        "correct": false,
+        "pourquoi": "C'est la logique de la pénétration."
+      },
+      {
+        "texte": "éviter une guerre des prix",
+        "correct": false,
+        "pourquoi": "C'est l'alignement."
+      },
+      {
+        "texte": "réduire les coûts",
+        "correct": false,
+        "pourquoi": "Au contraire, les coûts doivent être élevés pour la qualité."
+      }
+    ],
+    "explication": "Luxe : produit iconique, écrémage, distribution sélective ou exclusive, publicité prestigieuse, ton élégant."
   }
 ]

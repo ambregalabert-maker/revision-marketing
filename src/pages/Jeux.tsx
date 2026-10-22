@@ -419,7 +419,7 @@ function Boss() {
           titre={gagne ? 'Boss vaincu ! 🏆' : 'Le boss a gagné… cette fois'}
           humeur={gagne ? 'fete' : 'reflechit'}
           rejouer={rejouer}
-          texte={gagne ? 'Tu as battu le boss du chapitre : +30 XP bonus. Le concept de marché n’a plus de secret pour toi.' : `Il lui restait ${pv} point${pv > 1 ? 's' : ''} de vie. Tes erreurs sont dans « Mes erreurs à revoir » : revois-les et reviens le battre !`}
+          texte={gagne ? 'Tu as battu le boss du chapitre : +30 XP bonus. Le marketing n’a plus de secret pour toi.' : `Il lui restait ${pv} point${pv > 1 ? 's' : ''} de vie. Tes erreurs sont dans « Mes erreurs à revoir » : revois-les et reviens le battre !`}
         />
       </div>
     )
@@ -443,7 +443,7 @@ function Boss() {
         </div>
         <div className="flex-1 min-w-0">
           <p className="font-[family-name:var(--font-affiche)] font-extrabold text-2xl md:text-3xl tracking-tight">Le Grand Marché</p>
-          <p className="text-sm text-[#d5dbe8]">Boss du chapitre 1</p>
+          <p className="text-sm text-[#d5dbe8]">Boss du module de marketing</p>
           <div className="mt-3 h-4 rounded-full bg-[#ffffff26] overflow-hidden">
             <div className="h-full rounded-full transition-[width] duration-500" style={{ width: `${(pv / PV_BOSS) * 100}%`, background: 'linear-gradient(90deg, #ff8fb8, #f5c451)' }} />
           </div>
