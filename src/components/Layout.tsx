@@ -2,6 +2,9 @@ import { NavLink, Outlet, useLocation } from 'react-router'
 import { Suspense, useEffect, useRef, useState } from 'react'
 import Icone, { type NomIcone } from './Icone'
 import { useTheme } from '../state/theme'
+import { useProgression } from '../state/progression'
+import { marksDisponibles } from '../lib/boutique'
+import MonCompagnon from './MonCompagnon'
 
 // Structure commune à toutes les pages :
 // - téléphone : barre du haut + barre de navigation en bas ;
@@ -20,6 +23,7 @@ const liens: { to: string; label: string; icone: NomIcone; mobile: boolean }[] =
     icone: 'classement',
     mobile: false,
   },
+  { to: '/boutique', label: 'Boutique', icone: 'badge', mobile: false },
 ]
 
 function BoutonTheme() {
@@ -104,24 +108,31 @@ export default function Layout() {
               <Icone nom="panneau" />
             </button>
           </div>
-          <nav aria-label="Navigation principale" className="flex flex-col gap-1 mt-4">
+          <p className="surtitre px-3 mt-6 mb-1">Menu</p>
+          <nav aria-label="Navigation principale" className="flex flex-col gap-0.5">
             {liens.map((l) => (
               <NavLink
                 key={l.to}
                 to={l.to}
                 end={l.to === '/'}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 min-h-11 px-3 rounded-xl font-semibold transition-colors ${
-                    isActive ? 'bg-blue-100 text-blue-700' : 'text-ink hover:bg-surface-2'
+                  `relative flex items-center gap-3 min-h-11 px-3 rounded-xl text-[0.95rem] transition-colors ${
+                    isActive ? 'bg-surface-2 text-ink font-bold' : 'text-muted font-semibold hover:bg-surface-2 hover:text-ink'
                   }`
                 }
               >
-                <Icone nom={l.icone} />
-                {l.label}
+                {({ isActive }) => (
+                  <>
+                    {isActive && <span className="absolute left-0 top-2.5 bottom-2.5 w-1 rounded-full bg-accent-600" aria-hidden />}
+                    <Icone nom={l.icone} className={isActive ? 'text-blue-700' : ''} />
+                    {l.label}
+                  </>
+                )}
               </NavLink>
             ))}
           </nav>
-          <div className="mt-auto flex flex-col gap-3">
+          <div className="mt-auto flex flex-col gap-2">
+            <ProfilMini />
             <BoutonTheme />
           </div>
         </aside>
@@ -188,6 +199,27 @@ export default function Layout() {
   )
 }
 
+/** En bas du menu : ton compagnon, ton prénom et tes XP. */
+function ProfilMini() {
+  const { p } = useProgression()
+  if (!p.onboardingFait) return null
+  return (
+    <NavLink to="/profil" className="flex items-center gap-3 rounded-2xl border border-line bg-surface-2/60 p-2.5 pr-3 hover:border-blue-500 no-underline">
+      {p.boutique.compagnon ? (
+        <MonCompagnon taille={40} />
+      ) : (
+        <span className="w-10 h-10 rounded-full bg-accent-100 flex items-center justify-center font-bold text-accent-700">{(p.profil.prenom || '?').slice(0, 1).toUpperCase()}</span>
+      )}
+      <span className="min-w-0 leading-tight">
+        <span className="block font-bold text-ink truncate">{p.profil.prenom || 'Mon profil'}</span>
+        <span className="block text-xs text-muted">
+          {p.stats.xpTotal} XP · {marksDisponibles(p)} 🪙
+        </span>
+      </span>
+    </NavLink>
+  )
+}
+
 /** Logo Mark'Up : un « M » qui monte, avec une flèche dorée. */
 export function LogoMarque({ taille = 36 }: { taille?: number }) {
   return (
@@ -206,7 +238,7 @@ function Logo({ compact = false }: { compact?: boolean }) {
       <LogoMarque taille={compact ? 32 : 38} />
       <span className={compact ? 'text-lg' : 'text-xl leading-tight'}>
         Mark<span className="text-accent-700">'</span>Up
-        {!compact && <span className="block text-sm font-normal text-muted font-texte">Marketing · Chapitre 1</span>}
+        {!compact && <span className="block text-xs font-medium tracking-normal text-muted font-texte whitespace-nowrap">Marketing · Chapitre 1</span>}
       </span>
     </NavLink>
   )

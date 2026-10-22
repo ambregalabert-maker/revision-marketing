@@ -9,15 +9,15 @@
  * Les variantes « -ink » / « -700 » sont assez foncées pour du texte (contraste WCAG AA).
  */
 :root {
-  --bg: #f5f9fd;
+  --bg: #f6f7fb;
   --surface: #ffffff;
-  --surface-2: #eef5fb;
-  --line: #d6e4f0;
-  --blue-100: #e1effb;
-  --blue-500: #5ba3e6;
-  --blue-700: #2563a0;
-  --ink: #1e2a3a;
-  --muted: #56667a;
+  --surface-2: #f0f3f8;
+  --line: #e2e7ef;
+  --blue-100: #e8f0fc;
+  --blue-500: #3b7ddd;
+  --blue-700: #1e4f8f;
+  --ink: #121a2b;
+  --muted: #5a6476;
   --gold: #f5c451;
   --gold-600: #d9a22a;
   --gold-ink: #7a5600;
@@ -35,7 +35,7 @@
   --q-rouge: #e0504d;
   --q-bleu: #3d86d1;
   --q-rose: #d45a8a;
-  --shadow: 0 1px 2px rgb(30 42 58 / 0.05), 0 4px 16px rgb(30 42 58 / 0.05);
+  --shadow: 0 1px 2px rgb(18 26 43 / 0.04), 0 10px 28px -14px rgb(18 26 43 / 0.14);
   color-scheme: light;
 
   /* Accent par défaut : Pêche */
@@ -80,15 +80,15 @@
 /* ---------- Mode sombre : bleu nuit doux. Suit le système, sauf choix manuel. ---------- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #101c2c;
-    --surface: #17263a;
-    --surface-2: #1c2f47;
-    --line: #2b4362;
-    --blue-100: #1f3856;
-    --blue-500: #6aaeea;
-    --blue-700: #a6d0f5;
-    --ink: #e8f0f8;
-    --muted: #a7b6c8;
+    --bg: #0d1320;
+    --surface: #141c2c;
+    --surface-2: #1a2436;
+    --line: #26324a;
+    --blue-100: #1b2b47;
+    --blue-500: #5b9bf0;
+    --blue-700: #a9c8f5;
+    --ink: #e9eef6;
+    --muted: #9aa5b8;
     --gold-ink: #f5c451;
     --gold-bg: #3a3017;
     --success: #4cc38a;
@@ -106,15 +106,15 @@
   }
 }
 :root[data-theme="dark"] {
-  --bg: #101c2c;
-  --surface: #17263a;
-  --surface-2: #1c2f47;
-  --line: #2b4362;
-  --blue-100: #1f3856;
-  --blue-500: #6aaeea;
-  --blue-700: #a6d0f5;
-  --ink: #e8f0f8;
-  --muted: #a7b6c8;
+  --bg: #0d1320;
+  --surface: #141c2c;
+  --surface-2: #1a2436;
+  --line: #26324a;
+  --blue-100: #1b2b47;
+  --blue-500: #5b9bf0;
+  --blue-700: #a9c8f5;
+  --ink: #e9eef6;
+  --muted: #9aa5b8;
   --gold-ink: #f5c451;
   --gold-bg: #3a3017;
   --success: #4cc38a;
@@ -159,8 +159,8 @@
   --color-error: var(--error);
   --color-error-ink: var(--error-ink);
   --color-error-bg: var(--error-bg);
-  --font-titre: "Rubik", system-ui, sans-serif;
-  --font-texte: "Nunito", system-ui, sans-serif;
+  --font-titre: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-texte: "Plus Jakarta Sans", system-ui, sans-serif;
   --shadow-carte: var(--shadow);
 }
 
@@ -173,8 +173,9 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-texte);
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.6;
+  font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
 }
 
@@ -183,8 +184,14 @@ h2,
 h3,
 h4 {
   font-family: var(--font-titre);
-  line-height: 1.25;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  font-weight: 700;
   margin: 0;
+}
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
 /* Focus toujours visible pour la navigation au clavier. */
@@ -219,12 +226,13 @@ h4 {
   gap: 0.5rem;
   min-height: 44px;
   padding: 0.6rem 1.1rem;
-  border-radius: 14px;
+  border-radius: 12px;
   font-family: var(--font-titre);
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.005em;
   line-height: 1.2;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   cursor: pointer;
   transition: background-color 0.15s, border-color 0.15s, transform 0.1s, box-shadow 0.1s;
   text-decoration: none;
@@ -234,18 +242,19 @@ h4 {
   opacity: 0.55;
   cursor: not-allowed;
 }
-/* Action principale : couleur d'accent, effet « bouton 3D » façon jeu. Texte foncé (contraste). */
+/* Action principale : couleur d'accent, relief discret. Texte foncé (contraste). */
 .btn-accent {
-  background: var(--accent-500);
+  background: linear-gradient(180deg, var(--accent-400), var(--accent-500));
   color: var(--on-accent);
-  box-shadow: 0 4px 0 var(--accent-600);
+  border-color: var(--accent-600);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.45), 0 1px 2px rgb(18 26 43 / 0.08), 0 8px 18px -10px var(--accent-600);
 }
 .btn-accent:hover {
   background: var(--accent-400);
 }
 .btn-accent:active:not(:disabled) {
-  transform: translateY(3px);
-  box-shadow: 0 1px 0 var(--accent-600);
+  transform: translateY(1px);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.3);
 }
 /* Action secondaire : bleu clair. */
 .btn-bleu {
@@ -260,6 +269,7 @@ h4 {
   background: var(--surface);
   color: var(--ink);
   border-color: var(--line);
+  box-shadow: 0 1px 2px rgb(18 26 43 / 0.05);
 }
 .btn-contour:hover {
   border-color: var(--blue-500);
@@ -278,8 +288,17 @@ h4 {
 .carte {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 20px;
+  border-radius: 18px;
   box-shadow: var(--shadow);
+}
+
+/* Petit sur-titre en capitales, comme dans les tableaux de bord pro. */
+.surtitre {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .lien {
@@ -599,6 +618,209 @@ h4 {
 }
 .piece {
   animation: piece 1.4s 0.7s ease-out both;
+}
+
+/* ---------- Le rig des compagnons (comme Pépin) ----------
+   Chaque partie bouge de son côté. Les origines sont en unités du dessin (viewBox du compagnon). */
+.compagnon .c-tout,
+.compagnon .c-bras,
+.compagnon .c-queue,
+.compagnon .c-oreilles,
+.compagnon .c-yeux,
+.compagnon .c-zzz text {
+  transform-box: view-box;
+}
+.compagnon .c-tout {
+  transform-origin: 60px 114px;
+}
+.compagnon .c-bras {
+  transition: transform 0.3s cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+.compagnon .c-bras-g {
+  transform-origin: 22px 82px;
+}
+.compagnon .c-bras-d {
+  transform-origin: 98px 82px;
+}
+.compagnon .c-queue {
+  transform-origin: 98px 96px;
+}
+.compagnon .c-oreilles {
+  transform-origin: 60px 60px;
+}
+.compagnon .c-yeux {
+  transform-origin: 60px 68px;
+}
+/* Bras levés : la fête (les deux) et coucou (le droit). */
+.compagnon--fete .c-bras-g {
+  transform: rotate(105deg);
+}
+.compagnon--fete .c-bras-d,
+.compagnon--coucou .c-bras-d {
+  transform: rotate(-105deg);
+}
+
+/* Au repos : respire, cligne des yeux, remue la queue et les oreilles. */
+.compagnon.est-anime.compagnon--normal .c-tout,
+.compagnon.est-anime.compagnon--coucou .c-tout {
+  animation: c-respire 3s ease-in-out infinite;
+}
+.compagnon.est-anime .c-yeux {
+  animation: c-cligne 4.5s infinite;
+}
+.compagnon.est-anime .c-queue {
+  animation: c-queue 1.8s ease-in-out infinite;
+}
+.compagnon.est-anime .c-oreilles {
+  animation: c-oreilles 5s ease-in-out infinite;
+}
+/* Content : petits sauts. */
+.compagnon.est-anime.compagnon--content .c-tout {
+  animation: c-saute 0.9s cubic-bezier(0.3, 0, 0.5, 1) infinite;
+}
+/* La fête : se dandine, bras qui s'agitent, confettis. */
+.compagnon.est-anime.compagnon--fete .c-tout {
+  animation: c-danse 0.8s ease-in-out infinite;
+}
+.compagnon.est-anime.compagnon--fete .c-bras-g {
+  animation: c-bras-g 0.4s ease-in-out infinite alternate;
+}
+.compagnon.est-anime.compagnon--fete .c-bras-d {
+  animation: c-bras-d 0.4s ease-in-out infinite alternate;
+}
+.compagnon.est-anime .c-confettis {
+  animation: scintille 1.2s ease-in-out infinite;
+}
+/* Coucou : le bras droit fait signe. */
+.compagnon.est-anime.compagnon--coucou .c-bras-d {
+  animation: c-coucou 0.9s ease-in-out infinite;
+}
+/* Réfléchit : penche la tête. */
+.compagnon.est-anime.compagnon--reflechit .c-tout {
+  animation: c-penche 3s ease-in-out infinite;
+}
+/* La sieste : respiration lente, z qui montent. */
+.compagnon.est-anime.compagnon--sieste .c-tout {
+  animation: c-respire 4.5s ease-in-out infinite;
+}
+.compagnon.est-anime.compagnon--sieste .c-queue,
+.compagnon.est-anime.compagnon--sieste .c-oreilles {
+  animation: none;
+}
+.compagnon.est-anime .c-zzz text {
+  animation: c-z 2.4s ease-in-out infinite;
+  opacity: 0;
+}
+.compagnon.est-anime .c-zzz text:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.compagnon.est-anime .c-zzz text:nth-child(3) {
+  animation-delay: 1.2s;
+}
+
+@keyframes c-respire {
+  50% {
+    transform: scale(1.03, 0.97);
+  }
+}
+@keyframes c-cligne {
+  0%,
+  94%,
+  100% {
+    transform: scaleY(1);
+  }
+  97% {
+    transform: scaleY(0.1);
+  }
+}
+@keyframes c-queue {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+@keyframes c-oreilles {
+  0%,
+  86%,
+  100% {
+    transform: rotate(0);
+  }
+  90% {
+    transform: rotate(-3deg);
+  }
+  94% {
+    transform: rotate(3deg);
+  }
+}
+@keyframes c-saute {
+  0%,
+  100% {
+    transform: translateY(0) scale(1.04, 0.96);
+  }
+  40% {
+    transform: translateY(-12px) scale(0.97, 1.03);
+  }
+}
+@keyframes c-danse {
+  0%,
+  100% {
+    transform: rotate(-8deg) translateY(0);
+  }
+  25% {
+    transform: rotate(0) translateY(-8px);
+  }
+  50% {
+    transform: rotate(8deg) translateY(0);
+  }
+  75% {
+    transform: rotate(0) translateY(-8px);
+  }
+}
+@keyframes c-bras-g {
+  from {
+    transform: rotate(85deg);
+  }
+  to {
+    transform: rotate(125deg);
+  }
+}
+@keyframes c-bras-d {
+  from {
+    transform: rotate(-85deg);
+  }
+  to {
+    transform: rotate(-125deg);
+  }
+}
+@keyframes c-coucou {
+  0%,
+  100% {
+    transform: rotate(-90deg);
+  }
+  50% {
+    transform: rotate(-130deg);
+  }
+}
+@keyframes c-penche {
+  50% {
+    transform: rotate(-6deg);
+  }
+}
+@keyframes c-z {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
 }
 
 /* Défilement horizontal sans barre visible. */

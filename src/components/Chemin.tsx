@@ -333,7 +333,7 @@ function CompagnonDuChemin({ ici, points, t, largeur }: { ici: string; points: P
         {phrase}
       </span>
       <div className={saute ? 'saut' : undefined}>
-        <MonCompagnon taille={c} anime={!endormi && !saute} humeur={saute ? 'content' : undefined} />
+        <MonCompagnon taille={c} anime humeur={saute ? 'content' : endormi ? undefined : 'coucou'} />
       </div>
     </div>
   )

@@ -2,9 +2,10 @@ import type { Espece } from '../lib/types'
 
 // Les compagnons kawaii de Mark'Up, style « Mochi » : tout ronds comme une petite boule,
 // grands yeux brillants à double reflet, bouche en « ω », grosses joues roses.
-// Dessinés en SVG (aucune image à charger).
+// Dessinés en SVG (aucune image à charger), animés en CSS comme Pépin (index.css, « Le rig des compagnons ») :
+// bras, queue, oreilles et yeux bougent chacun de leur côté.
 
-export type Humeur = 'normal' | 'content' | 'fete' | 'sieste'
+export type Humeur = 'normal' | 'content' | 'fete' | 'sieste' | 'coucou' | 'reflechit'
 
 const ENCRE = '#1E1E2A'
 
@@ -17,8 +18,8 @@ function Visage({ humeur, panda }: { humeur: Humeur; panda: boolean }) {
         <ellipse cx="30" cy="84" rx="8.5" ry="5" />
         <ellipse cx="90" cy="84" rx="8.5" ry="5" />
       </g>
-      {humeur === 'normal' && (
-        <g>
+      {(humeur === 'normal' || humeur === 'coucou' || humeur === 'reflechit') && (
+        <g className="c-yeux">
           <ellipse cx="44" cy="68" rx="8.5" ry="10" fill={panda ? '#0E0E14' : ENCRE} />
           <ellipse cx="76" cy="68" rx="8.5" ry="10" fill={panda ? '#0E0E14' : ENCRE} />
           <circle cx="47.5" cy="63.5" r="3.8" fill="#FFFFFF" />
@@ -39,6 +40,12 @@ function Visage({ humeur, panda }: { humeur: Humeur; panda: boolean }) {
           <path d="M68 68 q8 7 16 0" />
         </g>
       )}
+      {humeur === 'reflechit' && (
+        <g fill="none" stroke={trait} strokeWidth="3" strokeLinecap="round">
+          <path d="M36 54 q8 -5 15 -1" />
+          <path d="M69 52 l14 0" />
+        </g>
+      )}
       {rieur ? (
         <path d="M53 80 q7 10 14 0 z" fill="#E8667E" stroke="#2B2B38" strokeWidth="2" strokeLinejoin="round" />
       ) : (
@@ -48,16 +55,35 @@ function Visage({ humeur, panda }: { humeur: Humeur; panda: boolean }) {
   )
 }
 
+/** Les petits bras, dessinés derrière le corps : ils se lèvent pour faire la fête ou coucou. */
+function Bras({ couleur, bord }: { couleur: string; bord?: string }) {
+  return (
+    <>
+      <g className="c-bras c-bras-g">
+        <ellipse cx="17" cy="90" rx="7.5" ry="12" fill={couleur} stroke={bord} strokeWidth={bord ? 2 : 0} transform="rotate(25 17 90)" />
+      </g>
+      <g className="c-bras c-bras-d">
+        <ellipse cx="103" cy="90" rx="7.5" ry="12" fill={couleur} stroke={bord} strokeWidth={bord ? 2 : 0} transform="rotate(-25 103 90)" />
+      </g>
+    </>
+  )
+}
+
 function Renard({ humeur }: { humeur: Humeur }) {
   const roux = '#F7A262'
   return (
     <g>
-      <path d="M100 92 q22 -2 16 -26 q-8 12 -20 16 z" fill={roux} />
-      <path d="M113 70 q4 -4 3 -8 q-6 4 -8 8 z" fill="#FFF3E6" />
-      <path d="M28 50 Q20 18 50 34 Z" fill={roux} stroke={roux} strokeWidth="8" strokeLinejoin="round" />
-      <path d="M92 50 Q100 18 70 34 Z" fill={roux} stroke={roux} strokeWidth="8" strokeLinejoin="round" />
-      <path d="M32 44 Q28 28 44 36 Z" fill="#FFC2CC" />
-      <path d="M88 44 Q92 28 76 36 Z" fill="#FFC2CC" />
+      <g className="c-queue">
+        <path d="M100 92 q22 -2 16 -26 q-8 12 -20 16 z" fill={roux} />
+        <path d="M113 70 q4 -4 3 -8 q-6 4 -8 8 z" fill="#FFF3E6" />
+      </g>
+      <g className="c-oreilles">
+        <path d="M28 50 Q20 18 50 34 Z" fill={roux} stroke={roux} strokeWidth="8" strokeLinejoin="round" />
+        <path d="M92 50 Q100 18 70 34 Z" fill={roux} stroke={roux} strokeWidth="8" strokeLinejoin="round" />
+        <path d="M32 44 Q28 28 44 36 Z" fill="#FFC2CC" />
+        <path d="M88 44 Q92 28 76 36 Z" fill="#FFC2CC" />
+      </g>
+      <Bras couleur="#E8894A" />
       <ellipse cx="42" cy="110" rx="10" ry="5" fill="#B8643A" />
       <ellipse cx="78" cy="110" rx="10" ry="5" fill="#B8643A" />
       <ellipse cx="60" cy="72" rx="46" ry="40" fill={roux} />
@@ -72,8 +98,11 @@ function Panda({ humeur }: { humeur: Humeur }) {
   const noir = '#3A3A46'
   return (
     <g>
-      <circle cx="30" cy="40" r="13" fill={noir} />
-      <circle cx="90" cy="40" r="13" fill={noir} />
+      <g className="c-oreilles">
+        <circle cx="30" cy="40" r="13" fill={noir} />
+        <circle cx="90" cy="40" r="13" fill={noir} />
+      </g>
+      <Bras couleur={noir} />
       <ellipse cx="40" cy="110" rx="10" ry="5" fill={noir} />
       <ellipse cx="80" cy="110" rx="10" ry="5" fill={noir} />
       <ellipse cx="60" cy="72" rx="46" ry="40" fill="#FFFFFF" stroke="#E3E8F0" strokeWidth="2" />
@@ -89,14 +118,19 @@ function Licorne({ humeur }: { humeur: Humeur }) {
   const rose = '#FFE1EC'
   return (
     <g>
-      <circle cx="104" cy="96" r="9" fill="#FF8FB8" />
-      <circle cx="110" cy="86" r="7.5" fill="#FFE08A" />
-      <circle cx="113" cy="77" r="6" fill="#9FE3C9" />
-      <circle cx="114" cy="69" r="4.5" fill="#C4B8F8" />
-      <path d="M34 46 L32 24 L50 36 Z" fill={rose} stroke={rose} strokeWidth="7" strokeLinejoin="round" />
-      <path d="M86 46 L88 24 L70 36 Z" fill={rose} stroke={rose} strokeWidth="7" strokeLinejoin="round" />
-      <path d="M37 40 L36 30 L45 36 Z" fill="#FF9EC0" />
-      <path d="M83 40 L84 30 L75 36 Z" fill="#FF9EC0" />
+      <g className="c-queue">
+        <circle cx="104" cy="96" r="9" fill="#FF8FB8" />
+        <circle cx="110" cy="86" r="7.5" fill="#FFE08A" />
+        <circle cx="113" cy="77" r="6" fill="#9FE3C9" />
+        <circle cx="114" cy="69" r="4.5" fill="#C4B8F8" />
+      </g>
+      <g className="c-oreilles">
+        <path d="M34 46 L32 24 L50 36 Z" fill={rose} stroke={rose} strokeWidth="7" strokeLinejoin="round" />
+        <path d="M86 46 L88 24 L70 36 Z" fill={rose} stroke={rose} strokeWidth="7" strokeLinejoin="round" />
+        <path d="M37 40 L36 30 L45 36 Z" fill="#FF9EC0" />
+        <path d="M83 40 L84 30 L75 36 Z" fill="#FF9EC0" />
+      </g>
+      <Bras couleur={rose} bord="#F7C3D6" />
       <ellipse cx="42" cy="110" rx="10" ry="5" fill="#F7A8BE" />
       <ellipse cx="78" cy="110" rx="10" ry="5" fill="#F7A8BE" />
       <ellipse cx="60" cy="72" rx="46" ry="40" fill={rose} stroke="#F7C3D6" strokeWidth="2" />
@@ -252,12 +286,13 @@ export default function Compagnon({
       width={taille}
       height={taille}
       viewBox="-6 -16 132 136"
-      className={`shrink-0 overflow-visible ${anime ? 'rebond' : ''}`}
+      className={`compagnon compagnon--${humeur} ${anime ? 'est-anime' : ''} shrink-0 overflow-visible`}
       role={label ? 'img' : undefined}
       aria-label={label}
       aria-hidden={label ? undefined : true}
     >
-      <ellipse cx="60" cy="117" rx="30" ry="4" fill="#000" opacity="0.08" />
+      <ellipse className="c-ombre" cx="60" cy="117" rx="30" ry="4" fill="#000" opacity="0.08" />
+      <g className="c-tout">
       {espece === 'renard' && <Renard humeur={humeur} />}
       {espece === 'panda' && <Panda humeur={humeur} />}
       {espece === 'licorne' && <Licorne humeur={humeur} />}
@@ -266,18 +301,22 @@ export default function Compagnon({
           <Accessoire id={id} />
         </g>
       ))}
+      </g>
       {humeur === 'sieste' && (
-        <g fill="#7A8AA0" fontFamily="Rubik, sans-serif" fontWeight="700">
+        <g className="c-zzz" fill="#7A8AA0" fontFamily="Plus Jakarta Sans, sans-serif" fontWeight="700">
           <text x="96" y="20" fontSize="14">
             z
           </text>
           <text x="106" y="6" fontSize="18">
             Z
           </text>
+          <text x="114" y="-10" fontSize="22">
+            Z
+          </text>
         </g>
       )}
       {humeur === 'fete' && (
-        <g fill="#F5C451">
+        <g className="c-confettis" fill="#F5C451">
           <path d="M8 30 l2 5 5 1 -4 3 1 5 -4 -3 -4 3 1 -5 -4 -3 5 -1z" />
           <path d="M104 52 l1.5 4 4 .8 -3 2.4 .8 4 -3.3 -2.4 -3.3 2.4 .8 -4 -3 -2.4 4 -.8z" />
           <circle cx="16" cy="64" r="2.5" fill="#FF8FB8" />

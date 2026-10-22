@@ -50,7 +50,7 @@ function Vitrine() {
   }
   return (
     <section className="carte p-5 mb-4 flex flex-col items-center text-center" style={{ background: 'linear-gradient(180deg, var(--accent-100), var(--surface))' }}>
-      <MonCompagnon taille={170} anime humeur="content" />
+      <MonCompagnon taille={170} anime humeur="coucou" />
       {edition ? (
         <form onSubmit={valider} className="flex gap-2 mt-2 w-full max-w-xs">
           <label className="sr-only" htmlFor="nom-compagnon">

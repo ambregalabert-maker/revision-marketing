@@ -22,7 +22,7 @@ export default function CompagnonReactif() {
     }
     precedent.current = nb
     const derniere = p.tentatives[nb - 1]
-    setReaction(derniere.correct ? { humeur: 'content', texte: auHasard(BRAVO) } : { humeur: 'normal', texte: auHasard(COURAGE) })
+    setReaction(derniere.correct ? { humeur: 'content', texte: auHasard(BRAVO) } : { humeur: 'reflechit', texte: auHasard(COURAGE) })
     const t = window.setTimeout(() => setReaction(null), 2600)
     return () => window.clearTimeout(t)
   }, [nb, p.tentatives])
@@ -30,7 +30,7 @@ export default function CompagnonReactif() {
   if (!p.boutique.compagnon) return null
   return (
     <div className="relative shrink-0 order-last" aria-live="polite">
-      <MonCompagnon taille={46} humeur={reaction?.humeur ?? 'normal'} />
+      <MonCompagnon taille={46} anime humeur={reaction?.humeur ?? 'normal'} />
       {reaction && (
         <span className="pop absolute right-0 top-full mt-1 z-20 whitespace-nowrap rounded-xl bg-surface border-2 border-accent-500 px-2 py-0.5 text-xs font-bold shadow-carte">
           {reaction.texte}
