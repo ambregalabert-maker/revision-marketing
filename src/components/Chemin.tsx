@@ -2,12 +2,10 @@ import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 import { ETAPES, etapeDuJour, etoileDisponible, prochaineEtoile, type Etape } from '../lib/chemin'
 import { formatDans } from '../lib/dates'
-import { decorDuMonde } from '../lib/mondes'
-import { CHAPITRES, infoChapitre } from '../lib/chapitres'
+import { infoChapitre } from '../lib/chapitres'
 import type { Chapitre } from '../lib/types'
 import { useProgression } from '../state/progression'
 import MonCompagnon, { useCompagnonEndormi } from './MonCompagnon'
-import DecorMonde from './DecorMonde'
 
 /** Une étoile dorée (pleine) ou grise (vide). */
 export function Etoile({ pleine, taille = 16 }: { pleine: boolean; taille?: number }) {
@@ -15,8 +13,8 @@ export function Etoile({ pleine, taille = 16 }: { pleine: boolean; taille?: numb
     <svg width={taille} height={taille} viewBox="0 0 24 24" aria-hidden="true">
       <path
         d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2L12 17l-5.6 3 1.1-6.2L2.9 9.4l6.3-.9z"
-        fill={pleine ? 'var(--gold)' : 'var(--m-ligne, var(--line))'}
-        stroke={pleine ? 'var(--gold-600)' : 'var(--m-ligne, var(--line))'}
+        fill={pleine ? 'var(--gold)' : 'var(--line)'}
+        stroke={pleine ? 'var(--gold-600)' : 'var(--line)'}
         strokeWidth="1.4"
         strokeLinejoin="round"
       />
@@ -85,56 +83,40 @@ function dessiner(largeur: number) {
   const grand = largeur >= 600
   const t = {
     grand,
-    rond: grand ? 104 : 80,
-    pas: grand ? 196 : 164,
+    rond: grand ? 84 : 72,
+    pas: grand ? 160 : 140,
     amplitude: grand ? Math.min(230, largeur * 0.26) : Math.min(100, largeur * 0.27),
     colonne: grand ? 220 : 140,
     compagnon: grand ? 150 : 108,
-    marge: grand ? 24 : 16,
-    bandeau: grand ? 76 : 64,
+    marge: 0,
+    bandeau: grand ? 96 : 92,
   }
   const centre = largeur / 2
   const points: Point[] = []
   // Un bandeau (et une couleur) par chapitre.
   const bandeaux: { numero: Chapitre; y: number }[] = [{ numero: 1, y: t.marge }]
-  let y = t.marge + t.bandeau + (grand ? 120 : 104)
+  let y = t.marge + t.bandeau + (grand ? 96 : 84)
   ETAPES.forEach((etape, i) => {
     if (i > 0 && etape.chapitre !== ETAPES[i - 1].chapitre) {
       const haut = points[points.length - 1].y + t.rond / 2 + (grand ? 100 : 88)
       bandeaux.push({ numero: etape.chapitre, y: haut })
-      y = haut + t.bandeau + (grand ? 120 : 104)
+      y = haut + t.bandeau + (grand ? 96 : 84)
     }
     points.push({ etape, x: centre + VAGUE[i % VAGUE.length] * t.amplitude, y })
     y += t.pas
   })
   const hauteur = points[points.length - 1].y + t.rond / 2 + (grand ? 110 : 90)
   // La zone de couleur de chaque chapitre, d'un bandeau au suivant.
-  const zones = bandeaux.map((b, k) => ({ numero: b.numero, haut: b.y - (k ? 40 : t.marge), bas: k + 1 < bandeaux.length ? bandeaux[k + 1].y - 40 : hauteur }))
-  return { t, points, bandeaux, zones, hauteur }
+  return { t, points, bandeaux, hauteur }
 }
 
-/** La route qui relie les ronds : des courbes douces. */
-function trace(points: Point[]) {
-  if (points.length === 0) return ''
-  let d = `M ${points[0].x} ${points[0].y}`
-  for (let i = 1; i < points.length; i++) {
-    const a = points[i - 1]
-    const b = points[i]
-    const ym = (a.y + b.y) / 2
-    d += ` C ${a.x} ${ym}, ${b.x} ${ym}, ${b.x} ${b.y}`
-  }
-  return d
-}
 
 /** Le chemin des 4 chapitres, façon Duolingo : toutes les étapes sont ouvertes, chaque chapitre a sa couleur. */
 export default function Chemin() {
   const { p } = useProgression()
   const { ref, largeur } = useLargeur()
-  const monde = p.profil.preferences.monde ?? 'arc'
   const ici = etapeDuJour(p).id
   const plan = useMemo(() => (largeur ? dessiner(largeur) : null), [largeur])
-  const decor = useMemo(() => (plan ? decorDuMonde(monde, plan.hauteur) : []), [monde, plan])
-  const indexIci = ETAPES.findIndex((e) => e.id === ici)
 
   // L'étoile gagnée s'envole jusqu'au compteur ⭐ de l'accueil.
   useEffect(() => {
@@ -153,44 +135,9 @@ export default function Chemin() {
       <h2 id="t-chemin" className="sr-only">
         Ton chemin
       </h2>
-      <div ref={ref} data-monde={monde} className="monde relative -mx-4 md:mx-0 md:rounded-[2rem] overflow-hidden" style={{ height: plan?.hauteur ?? 600 }}>
+      <div ref={ref} className="relative" style={{ height: plan?.hauteur ?? 600 }}>
         {plan && (
           <>
-            {/* Chaque chapitre a sa couleur : un voile doux derrière le décor */}
-            {plan.zones.map((z) => (
-              <div
-                key={z.numero}
-                className={`chap-${z.numero} absolute inset-x-0 pointer-events-none`}
-                style={{
-                  top: z.haut,
-                  height: z.bas - z.haut,
-                  background:
-                    'linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent-500) 14%, transparent) 90px, color-mix(in srgb, var(--accent-500) 14%, transparent) calc(100% - 90px), transparent)',
-                }}
-                aria-hidden
-              />
-            ))}
-            <DecorMonde elements={decor} echelle={plan.t.grand ? 1.4 : 1} />
-
-            {/* La route en pointillés, colorée jusqu'à ta position */}
-            <svg width={largeur} height={plan.hauteur} className="absolute inset-0" aria-hidden="true">
-              <path d={trace(plan.points)} fill="none" stroke="var(--m-route)" strokeWidth={plan.t.grand ? 28 : 22} strokeLinecap="round" />
-              <path d={trace(plan.points)} fill="none" stroke="var(--m-trait)" strokeWidth="3" strokeDasharray="2 12" strokeLinecap="round" />
-              {/* La partie déjà parcourue, dans la couleur de chaque chapitre */}
-              {CHAPITRES.map((c) => {
-                const debut = plan.points.findIndex((pt) => pt.etape.chapitre === c.numero)
-                const fin = Math.min(indexIci, debut + plan.points.filter((pt) => pt.etape.chapitre === c.numero).length - 1)
-                if (debut < 0 || fin < Math.max(debut, 1)) return null
-                const morceau = plan.points.slice(Math.max(0, debut - 1), fin + 1)
-                return (
-                  <g key={c.numero} className={`chap-${c.numero}`}>
-                    <path d={trace(morceau)} fill="none" stroke="var(--accent-400)" strokeWidth={plan.t.grand ? 28 : 22} strokeLinecap="round" />
-                    <path d={trace(morceau)} fill="none" stroke="#ffffff" strokeWidth="3" strokeDasharray="2 12" strokeLinecap="round" opacity=".85" />
-                  </g>
-                )
-              })}
-            </svg>
-
             {plan.bandeaux.map((b) => (
               <Bandeau key={b.numero} {...b} marge={plan.t.marge} hauteur={plan.t.bandeau} grand={plan.t.grand} />
             ))}
@@ -203,7 +150,6 @@ export default function Chemin() {
                   point={pt}
                   ici={pt.etape.id === ici}
                   taille={plan.t}
-                  galaxie={monde === 'galaxie'}
                   // Avec un compagnon, c'est lui qui dit « C'est ici ! » ; sinon une bulle à côté du rond.
                   bulle={p.boutique.compagnon ? null : pt.x > largeur / 2 ? 'gauche' : 'droite'}
                 />
@@ -220,7 +166,7 @@ export default function Chemin() {
 
 type Tailles = ReturnType<typeof dessiner>['t']
 
-function Rond({ point, ici, taille, galaxie, bulle }: { point: Point; ici: boolean; taille: Tailles; galaxie: boolean; bulle: 'gauche' | 'droite' | null }) {
+function Rond({ point, ici, taille, bulle }: { point: Point; ici: boolean; taille: Tailles; bulle: 'gauche' | 'droite' | null }) {
   const { p } = useProgression()
   const { etape, x, y } = point
   const etat = p.chemin[etape.id]
@@ -229,26 +175,22 @@ function Rond({ point, ici, taille, galaxie, bulle }: { point: Point; ici: boole
   const prochaine = prochaineEtoile(etat)
   const n = taille.rond
 
-  // Couleurs selon l'avancement : à faire (blanc), commencé (accent), en or (3 étoiles).
-  let fond = 'var(--m-carte)'
-  let ombre = 'var(--m-ligne)'
-  let trait = galaxie ? 'var(--accent-500)' : 'var(--accent-700)'
-  let bord = `${taille.grand ? 5 : 4}px solid var(--accent-500)`
+  // Couleurs selon l'avancement : à faire (teinte douce), étape du jour (couleur pleine), commencé, en or (3 étoiles).
+  let fond = 'var(--accent-100)'
+  let ombre = 'var(--accent-400)'
+  let trait = 'var(--accent-700)'
   if (ici) {
-    fond = 'var(--accent-500)'
-    ombre = 'var(--accent-600)'
-    trait = '#1e2a3a'
-    bord = 'none'
+    fond = 'var(--accent-600)'
+    ombre = 'var(--accent-700)'
+    trait = '#ffffff'
   } else if (etoiles >= 3) {
     fond = 'var(--gold)'
     ombre = 'var(--gold-600)'
-    trait = '#1e2a3a'
-    bord = 'none'
+    trait = '#2b2140'
   } else if (etoiles > 0) {
     fond = 'var(--accent-400)'
     ombre = 'var(--accent-600)'
-    trait = '#1e2a3a'
-    bord = 'none'
+    trait = '#2b2140'
   }
   const icone =
     etape.genre === 'bilan' ? ICONES.coffre : etape.genre === 'final' ? ICONES.trophee : etoiles >= 3 ? ICONES.etoile : etoiles > 0 && !ici ? ICONES.ok : ICONES.jouer
@@ -277,8 +219,7 @@ function Rond({ point, ici, taille, galaxie, bulle }: { point: Point; ici: boole
           width: n,
           height: n,
           background: fond,
-          border: bord,
-          boxShadow: `0 ${taille.grand ? 8 : 7}px 0 ${ombre}${ici ? `, 0 0 0 ${taille.grand ? 12 : 10}px color-mix(in srgb, var(--accent-500) 35%, transparent)` : ''}`,
+          boxShadow: `0 6px 0 ${ombre}${ici ? `, 0 0 0 10px var(--accent-100)` : ''}`,
         }}
         aria-label={`${etape.titre} : ${etatTexte}${ici ? ' (étape conseillée aujourd’hui)' : ''}. Lancer la mini-séance.`}
       >
@@ -299,15 +240,10 @@ function Rond({ point, ici, taille, galaxie, bulle }: { point: Point; ici: boole
           <span className="absolute top-0 right-0 w-4 h-4 rounded-full bg-gold border-2 border-surface" aria-hidden title="Une étoile à gagner aujourd'hui" />
         )}
       </Link>
-      <span
-        className={`mt-2.5 px-2 rounded-lg font-extrabold text-center leading-tight ${taille.grand ? 'text-base' : 'text-sm'}`}
-        style={{ color: 'var(--m-ink)', background: 'color-mix(in srgb, var(--m-bg) 80%, transparent)' }}
-      >
-        {etape.titre}
-      </span>
-      <span className="flex gap-0.5 mt-1" aria-hidden>
+      <span className={`mt-2.5 font-bold text-center leading-tight text-muted ${taille.grand ? 'text-sm' : 'text-xs'}`}>{etape.titre}</span>
+      <span className="flex gap-0.5 mt-0.5" aria-hidden>
         {[1, 2, 3].map((k) => (
-          <Etoile key={k} pleine={k <= etoiles} taille={taille.grand ? 20 : 16} />
+          <Etoile key={k} pleine={k <= etoiles} taille={12} />
         ))}
       </span>
     </li>
@@ -448,31 +384,14 @@ function Bandeau({ numero, y, marge, hauteur, grand }: { numero: Chapitre; y: nu
   const c = infoChapitre(numero)
   return (
     <div
-      className={`chap-${numero} absolute rounded-2xl px-4 flex items-center gap-3 shadow-carte border`}
-      style={{
-        left: marge,
-        right: marge,
-        top: y,
-        height: hauteur,
-        background: 'linear-gradient(100deg, var(--accent-100), var(--m-bande))',
-        borderColor: 'color-mix(in srgb, var(--accent-500) 45%, transparent)',
-      }}
+      className={`chap-${numero} absolute rounded-[18px] px-4 flex flex-col justify-center text-white`}
+      style={{ left: marge, right: marge, top: y, height: hauteur, background: 'var(--chap-fort)', boxShadow: '0 4px 0 var(--chap-ombre)' }}
     >
-      <span
-        className={`shrink-0 flex items-center justify-center rounded-xl font-[family-name:var(--font-affiche)] font-extrabold text-[#1e2a3a] ${grand ? 'w-12 h-12 text-2xl' : 'w-10 h-10 text-xl'}`}
-        style={{ background: 'var(--accent-500)', boxShadow: '0 3px 0 var(--accent-600)' }}
-        aria-hidden
-      >
-        {numero}
-      </span>
-      <div className="min-w-0">
-        <p className={`font-extrabold tracking-wide uppercase ${grand ? 'text-sm' : 'text-xs'}`} style={{ color: 'var(--accent-700)' }}>
-          Chapitre {numero} · {c.seances}
-        </p>
-        <p className={`font-titre font-bold truncate ${grand ? 'text-xl' : ''}`} style={{ color: 'var(--m-ink)' }}>
-          {c.titre}
-        </p>
-      </div>
+      <p className="text-xs font-extrabold uppercase tracking-wider opacity-90">
+        Chapitre {numero} · {c.seances}
+      </p>
+      <p className={`font-black leading-tight ${grand ? 'text-xl' : 'text-lg'}`}>{c.titre}</p>
+      <p className="text-sm opacity-90 truncate">{c.resume}</p>
     </div>
   )
 }

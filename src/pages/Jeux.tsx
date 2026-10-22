@@ -24,7 +24,8 @@ const JEUX = [
     accroche: 'Mise sur ta confiance',
     texte: 'Réponds, puis parie : un peu sûr·e, sûr·e ou certain·e ? Les erreurs « certaines » sont celles qu’on retient le mieux une fois corrigées.',
     methode: 'Effet d’hypercorrection',
-    fond: 'radial-gradient(120% 140% at 100% 0%, #f5c451, transparent 55%), radial-gradient(90% 120% at 0% 100%, #ff8fb8, transparent 60%), #2a1a3a',
+    fond: '#c2385f',
+    ombre: '#962746',
   },
   {
     id: 'boss',
@@ -33,7 +34,8 @@ const JEUX = [
     accroche: 'Bats le boss en 3 vies',
     texte: 'Toutes les notions mélangées. Chaque bonne réponse lui retire un point de vie, chaque erreur t’en coûte un. Tu as 3 cœurs.',
     methode: 'Récupération + entrelacement',
-    fond: 'radial-gradient(120% 140% at 100% 0%, #8b6cff, transparent 55%), radial-gradient(90% 120% at 0% 100%, #3b7ddd, transparent 60%), #121a2b',
+    fond: '#6c4cf5',
+    ombre: '#4d32c4',
   },
   {
     id: 'explique',
@@ -42,7 +44,8 @@ const JEUX = [
     accroche: 'Deviens le prof',
     texte: 'Ton compagnon ne connaît rien au marketing : explique-lui une notion avec tes mots, puis compare avec le cours.',
     methode: 'Auto-explication',
-    fond: 'radial-gradient(120% 140% at 100% 0%, #5dbfa3, transparent 55%), radial-gradient(90% 120% at 0% 100%, #9ccbf5, transparent 60%), #0f2a2a',
+    fond: '#137a5c',
+    ombre: '#0d5a43',
   },
 ] as const
 
@@ -71,17 +74,17 @@ export function CarteJeu({ id, compacte = false, className = '' }: { id: IdJeu; 
   return (
     <Link
       to={`/jeux/${j.id}`}
-      className={`tuile-vivante relative flex flex-col overflow-hidden rounded-[1.75rem] no-underline ${compacte ? 'p-5 min-h-44' : 'p-6 min-h-72'} ${className}`}
-      style={{ background: j.fond, color: '#f6f7fb', boxShadow: '0 22px 50px -26px rgb(18 26 43 / 0.7)' }}
+      className={`tuile-vivante relative flex flex-col overflow-hidden rounded-[18px] no-underline ${compacte ? 'p-4 min-h-40' : 'p-5 min-h-64'} ${className}`}
+      style={{ background: j.fond, color: '#ffffff', boxShadow: `0 4px 0 ${j.ombre}` }}
     >
-      <span className="absolute -right-3 -top-6 text-[7rem] leading-none opacity-25 rotate-12 select-none" aria-hidden>
+      <span className="absolute right-3 top-3 text-4xl leading-none select-none" aria-hidden>
         {j.emoji}
       </span>
       <span className="relative text-xs font-extrabold uppercase tracking-widest text-[#f6f7fb]/80">{j.methode}</span>
-      <span className="relative font-[family-name:var(--font-affiche)] font-extrabold text-3xl tracking-tight mt-1">{j.titre}</span>
+      <span className="relative font-black text-2xl mt-1">{j.titre}</span>
       <span className="relative font-semibold mt-1">{j.accroche}</span>
-      {!compacte && <span className="relative text-sm text-[#e3e8f2] mt-3 flex-1">{j.texte}</span>}
-      <span className="relative inline-flex self-start items-center gap-1 mt-4 rounded-full bg-[#f6f7fb] text-[#121a2b] px-4 py-2 text-sm font-bold">
+      {!compacte && <span className="relative text-sm opacity-95 mt-3 flex-1">{j.texte}</span>}
+      <span className="relative inline-flex self-start items-center gap-1 mt-auto pt-3 font-extrabold text-sm uppercase tracking-wider">
         Jouer <Icone nom="suivant" taille={16} />
       </span>
     </Link>

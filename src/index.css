@@ -9,15 +9,15 @@
  * Les variantes « -ink » / « -700 » sont assez foncées pour du texte (contraste WCAG AA).
  */
 :root {
-  --bg: #f6f7fb;
+  --bg: #f7f5fc;
   --surface: #ffffff;
-  --surface-2: #f0f3f8;
-  --line: #e2e7ef;
-  --blue-100: #e8f0fc;
-  --blue-500: #3b7ddd;
-  --blue-700: #1e4f8f;
-  --ink: #121a2b;
-  --muted: #5a6476;
+  --surface-2: #f1eefa;
+  --line: #e3def0;
+  --blue-100: #ece7ff;
+  --blue-500: #6c4cf5;
+  --blue-700: #4d32c4;
+  --ink: #2b2140;
+  --muted: #6f6585;
   --gold: #f5c451;
   --gold-600: #d9a22a;
   --gold-ink: #7a5600;
@@ -35,7 +35,7 @@
   --q-rouge: #e0504d;
   --q-bleu: #3d86d1;
   --q-rose: #d45a8a;
-  --shadow: 0 1px 2px rgb(18 26 43 / 0.04), 0 10px 28px -14px rgb(18 26 43 / 0.14);
+  --shadow: 0 2px 0 var(--line);
   --verre: rgb(255 255 255 / 0.66);
   --verre-plein: rgb(255 255 255 / 0.82);
   --verre-bord: rgb(255 255 255 / 0.85);
@@ -85,15 +85,15 @@
 /* ---------- Mode sombre : bleu nuit doux. Suit le système, sauf choix manuel. ---------- */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0d1320;
-    --surface: #141c2c;
-    --surface-2: #1a2436;
-    --line: #26324a;
-    --blue-100: #1b2b47;
-    --blue-500: #5b9bf0;
-    --blue-700: #a9c8f5;
-    --ink: #e9eef6;
-    --muted: #9aa5b8;
+    --bg: #15111f;
+    --surface: #1f1a2e;
+    --surface-2: #2a2440;
+    --line: #342d4c;
+    --blue-100: #2e2752;
+    --blue-500: #8b70ff;
+    --blue-700: #c4b5ff;
+    --ink: #f2eefc;
+    --muted: #a69cc0;
     --gold-ink: #f5c451;
     --gold-bg: #3a3017;
     --success: #4cc38a;
@@ -106,7 +106,7 @@
     --accent-700: var(--accent-sombre-700);
     --rose-bg: #3d2029;
     --q-jaune: #c98c0a;
-    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
+    --shadow: 0 2px 0 var(--line);
     --verre: rgb(22 30 48 / 0.6);
     --verre-plein: rgb(22 30 48 / 0.8);
     --verre-bord: rgb(255 255 255 / 0.09);
@@ -116,15 +116,15 @@
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0d1320;
-  --surface: #141c2c;
-  --surface-2: #1a2436;
-  --line: #26324a;
-  --blue-100: #1b2b47;
-  --blue-500: #5b9bf0;
-  --blue-700: #a9c8f5;
-  --ink: #e9eef6;
-  --muted: #9aa5b8;
+  --bg: #15111f;
+  --surface: #1f1a2e;
+  --surface-2: #2a2440;
+  --line: #342d4c;
+  --blue-100: #2e2752;
+  --blue-500: #8b70ff;
+  --blue-700: #c4b5ff;
+  --ink: #f2eefc;
+  --muted: #a69cc0;
   --gold-ink: #f5c451;
   --gold-bg: #3a3017;
   --success: #4cc38a;
@@ -137,7 +137,7 @@
   --accent-700: var(--accent-sombre-700);
   --rose-bg: #3d2029;
   --q-jaune: #c98c0a;
-  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
+  --shadow: 0 2px 0 var(--line);
   --verre: rgb(22 30 48 / 0.6);
   --verre-plein: rgb(22 30 48 / 0.8);
   --verre-bord: rgb(255 255 255 / 0.09);
@@ -174,9 +174,9 @@
   --color-error: var(--error);
   --color-error-ink: var(--error-ink);
   --color-error-bg: var(--error-bg);
-  --font-titre: "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-affiche: "Bricolage Grotesque", "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-texte: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-titre: "Nunito", system-ui, sans-serif;
+  --font-affiche: "Nunito", system-ui, sans-serif;
+  --font-texte: "Nunito", system-ui, sans-serif;
   --shadow-carte: var(--shadow);
 }
 
@@ -191,7 +191,6 @@ body {
   font-family: var(--font-texte);
   font-size: 16px;
   line-height: 1.6;
-  font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
 }
 
@@ -201,15 +200,14 @@ h3,
 h4 {
   font-family: var(--font-titre);
   line-height: 1.2;
-  letter-spacing: -0.02em;
-  font-weight: 700;
+  letter-spacing: -0.01em;
+  font-weight: 800;
   margin: 0;
 }
 h1,
 h2 {
-  font-family: var(--font-affiche);
   font-weight: 800;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.01em;
 }
 
 /* Focus toujours visible pour la navigation au clavier. */
@@ -262,36 +260,17 @@ h2 {
 }
 /* Action principale : couleur d'accent, relief discret. Texte foncé (contraste). */
 .btn-accent {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  background: linear-gradient(110deg, var(--accent-400), var(--accent-500) 35%, #d9cffb 65%, var(--accent-400));
-  background-size: 250% 100%;
-  animation: degrade 7s linear infinite;
+  background: var(--accent-500);
   color: var(--on-accent);
-  border-color: color-mix(in srgb, var(--accent-600) 70%, transparent);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 12px 32px -12px var(--accent-600), 0 0 0 0 var(--lueur);
-  transition: box-shadow 0.25s, transform 0.15s;
-}
-/* Un reflet passe sur le bouton au survol. */
-.btn-accent::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(100deg, transparent 30%, rgb(255 255 255 / 0.6) 50%, transparent 70%);
-  transform: translateX(-120%);
-  transition: transform 0.7s ease;
-}
-.btn-accent:hover::after {
-  transform: translateX(120%);
+  box-shadow: 0 4px 0 var(--accent-600);
+  font-weight: 800;
 }
 .btn-accent:hover {
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 16px 40px -12px var(--accent-600), 0 0 0 6px var(--lueur);
+  background: var(--accent-400);
 }
 .btn-accent:active:not(:disabled) {
-  transform: translateY(1px);
-  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.3);
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 var(--accent-600);
 }
 /* Action secondaire : bleu clair. */
 .btn-bleu {
@@ -303,12 +282,10 @@ h2 {
   border-color: var(--blue-500);
 }
 .btn-contour {
-  background: var(--verre-plein);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  background: var(--surface);
   color: var(--ink);
-  border-color: var(--line);
-  box-shadow: 0 1px 2px rgb(18 26 43 / 0.05);
+  border: 2px solid var(--line);
+  box-shadow: 0 2px 0 var(--line);
 }
 .btn-contour:hover {
   border-color: var(--blue-500);
@@ -325,18 +302,14 @@ h2 {
 }
 
 .carte {
-  background: var(--verre);
-  -webkit-backdrop-filter: blur(18px) saturate(1.5);
-  backdrop-filter: blur(18px) saturate(1.5);
-  border: 1px solid var(--verre-bord);
-  border-radius: 20px;
-  box-shadow: var(--shadow), inset 0 1px 0 rgb(255 255 255 / 0.25);
+  background: var(--surface);
+  border: 2px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 2px 0 var(--line);
 }
-/* Verre dépoli pour les barres et menus. */
+/* Fond des barres et menus. */
 .verre {
-  background: var(--verre-plein);
-  -webkit-backdrop-filter: blur(20px) saturate(1.6);
-  backdrop-filter: blur(20px) saturate(1.6);
+  background: var(--surface);
 }
 
 /* Petit sur-titre en capitales, comme dans les tableaux de bord pro. */
@@ -863,32 +836,6 @@ h2 {
   }
 }
 
-/* ---------- L'aurore : le fond de couleurs vivantes, derrière tout le site ---------- */
-body::before {
-  content: "";
-  position: fixed;
-  inset: -25vmax;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(38vmax 38vmax at 18% 22%, color-mix(in srgb, var(--accent-500) 80%, transparent), transparent 70%),
-    radial-gradient(34vmax 34vmax at 82% 18%, color-mix(in srgb, #b9a8ff 75%, transparent), transparent 70%),
-    radial-gradient(40vmax 40vmax at 72% 82%, color-mix(in srgb, #7cc8ff 65%, transparent), transparent 70%),
-    radial-gradient(30vmax 30vmax at 22% 86%, color-mix(in srgb, #f5c451 55%, transparent), transparent 70%);
-  filter: blur(30px) saturate(1.2);
-  animation: aurore 28s ease-in-out infinite alternate;
-}
-@keyframes aurore {
-  0% {
-    transform: translate(0, 0) rotate(0deg) scale(1);
-  }
-  50% {
-    transform: translate(4vmax, -3vmax) rotate(12deg) scale(1.08);
-  }
-  100% {
-    transform: translate(-3vmax, 3vmax) rotate(-10deg) scale(1.04);
-  }
-}
 @keyframes degrade {
   to {
     background-position: -250% 0;
@@ -965,8 +912,7 @@ body::before {
   transition: transform 0.25s cubic-bezier(0.3, 1.4, 0.5, 1), box-shadow 0.25s;
 }
 .tuile-vivante:hover {
-  transform: translateY(-4px) rotate(-1.2deg) scale(1.03);
-  box-shadow: var(--shadow), 0 18px 40px -18px var(--accent-600);
+  transform: translateY(-2px);
 }
 
 @keyframes coucou-main {
@@ -1025,6 +971,8 @@ body::before {
 
 /* ---------- Une couleur par chapitre (sur le chemin) ---------- */
 .chap-1 {
+  --chap-fort: #c8502f;
+  --chap-ombre: #9e3a1e;
   --accent-100: #ffe8df;
   --accent-400: #ffc7b2;
   --accent-500: #ffb59a;
@@ -1032,6 +980,8 @@ body::before {
   --accent-700: #a8452f;
 }
 .chap-2 {
+  --chap-fort: #6c4cf5;
+  --chap-ombre: #4d32c4;
   --accent-100: #eeeafe;
   --accent-400: #d6cefb;
   --accent-500: #c4b8f8;
@@ -1039,6 +989,8 @@ body::before {
   --accent-700: #5b48c2;
 }
 .chap-3 {
+  --chap-fort: #137a5c;
+  --chap-ombre: #0d5a43;
   --accent-100: #ddf5ee;
   --accent-400: #a6e6d4;
   --accent-500: #86dcc3;
@@ -1046,6 +998,8 @@ body::before {
   --accent-700: #1e7a62;
 }
 .chap-4 {
+  --chap-fort: #2475c2;
+  --chap-ombre: #1a5a99;
   --accent-100: #e1effb;
   --accent-400: #bfe0fa;
   --accent-500: #9ccbf5;
