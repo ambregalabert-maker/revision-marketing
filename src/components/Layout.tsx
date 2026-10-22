@@ -15,6 +15,7 @@ const CLE_BARRE = 'markup-barre-masquee'
 const liens: { to: string; label: string; icone: NomIcone; mobile: boolean }[] = [
   { to: '/', label: 'Accueil', icone: 'accueil', mobile: true },
   { to: '/reviser', label: 'Tryhard', icone: 'eclair', mobile: true },
+  { to: '/jeux', label: 'Jeux', icone: 'manette', mobile: false },
   { to: '/astuces', label: 'Astuces', icone: 'astuces', mobile: true },
   { to: '/profil', label: 'Profil', icone: 'profil', mobile: true },
   {

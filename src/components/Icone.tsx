@@ -37,6 +37,7 @@ const chemins: Record<string, string> = {
   eclair: 'M13 2L3 14h9l-1 8 10-12h-9z',
   plus: 'M12 5v14M5 12h14',
   panneau: 'M4 4h16v16H4zM9.5 4v16',
+  manette: 'M6 8h12a4 4 0 0 1 4 4v1.5a3 3 0 0 1-5.4 1.8L15 13.5H9l-1.6 1.8A3 3 0 0 1 2 13.5V12a4 4 0 0 1 4-4zM8 10v4M6 12h4M16 11h.01M18 13h.01',
   melanger: 'M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5',
   info: 'M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM12 16v-4M12 8h.01',
   main: 'M5 9l-3 3 3 3M9 5l3-3 3 3M15 19l-3 3-3-3M19 9l3 3-3 3M2 12h20M12 2v20',

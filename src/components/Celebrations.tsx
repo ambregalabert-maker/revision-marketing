@@ -3,7 +3,7 @@ import { useProgression } from '../state/progression'
 import Icone from './Icone'
 
 /** Confettis légers dessinés sur un canvas (désactivés si « réduire les animations » est activé). */
-function confettis() {
+export function confettis() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
   const canvas = document.createElement('canvas')
   canvas.setAttribute('aria-hidden', 'true')

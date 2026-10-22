@@ -993,6 +993,25 @@ body::before {
   }
 }
 
+@keyframes secoue {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+  20% {
+    transform: translateX(-10px) rotate(-6deg);
+  }
+  40% {
+    transform: translateX(10px) rotate(6deg);
+  }
+  60% {
+    transform: translateX(-6px) rotate(-3deg);
+  }
+  80% {
+    transform: translateX(6px) rotate(3deg);
+  }
+}
+
 /* Le bandeau qui défile. */
 .bandeau-defile {
   transform: rotate(-1.6deg);

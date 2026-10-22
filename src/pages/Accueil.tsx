@@ -163,6 +163,9 @@ export default function Accueil() {
               <strong>{erreurs}</strong> erreur{erreurs > 1 ? 's' : ''} à rattraper
             </Bulle>
           )}
+          <Bulle to="/jeux" icone="manette">
+            🎮 <strong>Jeux</strong> : Pari, Boss, Explique-moi
+          </Bulle>
           <Bulle to="/astuces" icone="astuces">
             Quel·le réviseur·se es-tu ?
           </Bulle>
@@ -256,7 +259,7 @@ function Stat({ to, id, valeur, libelle, icone, couleur }: { to?: string; id?: s
   )
 }
 
-function Bulle({ to, icone, children }: { to: string; icone: 'calendrier' | 'recommencer' | 'astuces'; children: ReactNode }) {
+function Bulle({ to, icone, children }: { to: string; icone: 'calendrier' | 'recommencer' | 'astuces' | 'manette'; children: ReactNode }) {
   return (
     <Link
       to={to}

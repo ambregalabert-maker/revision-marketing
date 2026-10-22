@@ -1,5 +1,6 @@
 import { Link } from 'react-router'
 import Page from '../components/Page'
+import { CarteJeu } from './Jeux'
 import FiltresContenu from '../components/FiltresContenu'
 import ErreursARevoir from '../components/ErreursARevoir'
 import Icone, { type NomIcone } from '../components/Icone'
@@ -34,6 +35,18 @@ export default function Reviser() {
           Choisir ma durée <Icone nom="suivant" />
         </span>
       </Link>
+
+      <div className="flex items-baseline justify-between mb-3">
+        <h2 className="text-2xl">Jeux de révision 🎮</h2>
+        <Link to="/jeux" className="lien text-sm font-semibold">
+          Tout voir
+        </Link>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-6">
+        <CarteJeu id="pari" compacte />
+        <CarteJeu id="boss" compacte />
+        <CarteJeu id="explique" compacte />
+      </div>
 
       <div className="mb-5">
         <ErreursARevoir />
